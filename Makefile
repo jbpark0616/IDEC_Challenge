@@ -12,10 +12,12 @@
 #   make clean            — wipe build/
 #   make help             — this menu
 
-# Force Git Bash on Windows — otherwise WSL bash or cmd.exe may be picked
-# depending on the invoking shell, breaking mkdir -p / && / etc.
+# Force Git Bash on Windows.
+# Use DOS 8.3 short name to sidestep space-in-path issues with GNU Make 3.81.
+# .SHELLFLAGS := -c is needed so make invokes bash correctly on Windows.
 ifeq ($(OS),Windows_NT)
-    SHELL := C:/Program Files/Git/usr/bin/bash.exe
+    SHELL := C:/PROGRA~1/Git/usr/bin/bash.exe
+    .SHELLFLAGS := -c
 else
     SHELL := /bin/bash
 endif
@@ -100,7 +102,7 @@ $(SYNTH_DIR)/timing.rpt: $(RTL) flow/constraints/timing.xdc $(FLOW)/synth.tcl
 	    -log $(SYNTH_DIR)/vivado.log -journal $(SYNTH_DIR)/vivado.jou
 	@echo ""
 	@echo "===== Timing summary ====="
-	@grep -A2 -E "WNS|TNS" $(SYNTH_DIR)/timing.rpt | head -20 || true
+	@{ grep -A2 -E "WNS|TNS" $(SYNTH_DIR)/timing.rpt || true; } | head -20 || true
 
 # ---------- XPR export (for submission) ----------
 xpr: $(XPR_DIR)/exported.xpr
