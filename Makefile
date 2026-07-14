@@ -12,12 +12,13 @@
 #   make clean            — wipe build/
 #   make help             — this menu
 
-# Force Git Bash on Windows.
-# Use DOS 8.3 short name to sidestep space-in-path issues with GNU Make 3.81.
-# .SHELLFLAGS := -c is needed so make invokes bash correctly on Windows.
+# Force Git Bash on Windows AND add its POSIX tools (rm, mkdir, cp, grep, tee)
+# to PATH so GNU Make 3.81 can invoke them via CreateProcess for "simple"
+# recipes that bypass SHELL. Short DOS 8.3 path sidesteps Program Files space.
 ifeq ($(OS),Windows_NT)
     SHELL := C:/PROGRA~1/Git/usr/bin/bash.exe
     .SHELLFLAGS := -c
+    export PATH := C:/PROGRA~1/Git/usr/bin:$(PATH)
 else
     SHELL := /bin/bash
 endif
