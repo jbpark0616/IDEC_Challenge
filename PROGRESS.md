@@ -31,13 +31,19 @@ VS Code에선 `Ctrl+Shift+B` → 첫 항목이 `make sim`. 나머진 커맨드 �
 - `OpenRoad project/config/config.mk`를 AES → chip 디자인용으로 수정
 - Vivado 2024.1 마이그레이션 (제출 직전 필수)
 
-## 📊 베이스라인 측정치
-- **Accuracy (top_tb_1000)**: **97.0%** ✅ (2026-07-15, `make sim` — PDF baseline 96% 대비 +1)
-- Fmax / WNS: _pending_ (`make synth` 실행 필요, target 100 MHz 기준)
-- Area (Vivado post-synth): _pending_
-- Area (ASAP7 std_cell): _pending_ (OpenROAD 필요)
-- Power (Vivado): _pending_
-- Power (OpenROAD): _pending_
+## 📊 베이스라인 측정치 (2026-07-15, `make sim` + `make synth`)
+| 항목 | 값 | 참고 |
+|---|---|---|
+| Accuracy (top_tb_1000) | **97.0%** ✅ | PDF baseline 96% 대비 +1 |
+| Timing WNS @ 100 MHz | **-60.156 ns** ❌ | 100 MHz 목표 미달 |
+| **실제 Fmax** | **~14.25 MHz** | 1 / 70.156 ns |
+| LUT | 21,922 (18.72%) | logic 21,850 + memory 72 |
+| FF | 3,792 (1.62%) | |
+| Total Power | 0.497 W | Dyn 0.208 + Static 0.289 (confidence: Low) |
+| 합성 소요 시간 | 12min 50s | xck26 target |
+
+- ASAP7 Area/Power: _pending_ (OpenROAD 필요)
+- **핵심 관찰**: baseline이 100 MHz도 못 맞춤 → Fmax 개선 여지 매우 큼 → 지정주제 점수 노리기 좋음
 
 ## 🗂️ 프로젝트 구조
 ```
@@ -70,5 +76,7 @@ C:/IDEC_challenge/
 - **버그 fix**: `xelab -timescale 1ps/1ps` 없으면 XSIM 43-4099 에러 (RTL 모듈들엔 `` `timescale ``이 없고 top_tb.v에만 있어서 mix라고 판정됨). RTL 수정 없이 툴 옵션으로 해결.
 - **검증**: `make sim` → 1000장 accuracy **97%** PASS, 23초.
 - **결정**: XDC는 우선 100MHz (`period 10.000`) 로 고정. 나중에 baseline WNS 보면서 조정.
+- **버그 fix**: PowerShell에서 `make`를 돌리면 `SHELL := bash` 가 WSL bash를 잡아서 cmd.exe로 fallback → 에러. Makefile에서 `ifeq ($(OS),Windows_NT)` 로 Git Bash 절대경로 명시 (`C:/Program Files/Git/usr/bin/bash.exe`).
+- **베이스라인 합성 완료**: WNS -60.156 ns (100 MHz 못 맞춤, 실측 Fmax ~14 MHz), LUT 21,922, Power 0.497 W. 상세는 위 "베이스라인 측정치" 참고.
 
 <!-- 새 세션 시작할 때 위에 날짜 헤더 추가하며 이어서 기록 -->

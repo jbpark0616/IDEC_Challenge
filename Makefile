@@ -12,7 +12,13 @@
 #   make clean            — wipe build/
 #   make help             — this menu
 
-SHELL := bash
+# Force Git Bash on Windows — otherwise WSL bash or cmd.exe may be picked
+# depending on the invoking shell, breaking mkdir -p / && / etc.
+ifeq ($(OS),Windows_NT)
+    SHELL := C:/Program Files/Git/usr/bin/bash.exe
+else
+    SHELL := /bin/bash
+endif
 .DELETE_ON_ERROR:
 
 # ---------- Tool paths ----------
