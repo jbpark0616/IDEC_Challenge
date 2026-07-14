@@ -1,0 +1,35 @@
+# --- Vivado generated artifacts ---
+# Build cache, HW sessions, runs, sim outputs — all regenerable
+baseline.cache/
+baseline.hw/
+baseline.ip_user_files/
+baseline.runs/
+baseline.sim/
+
+# Design checkpoints — binary synth artifacts, regenerable
+*.dcp
+
+# Vivado journals & logs
+*.jou
+*.log
+*.backup.jou
+*.backup.log
+.Xil/
+
+# DFX runtime (Vivado auto-generated)
+dfx_runtime.txt
+
+# --- OS / editor cruft ---
+Thumbs.db
+Desktop.ini
+.DS_Store
+.vscode/
+*.swp
+*~
+
+# --- OpenROAD outputs (added later) ---
+# Exclude generated results, keep configs
+**/results/
+**/reports/
+**/logs/
+**/objects/
