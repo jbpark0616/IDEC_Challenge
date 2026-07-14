@@ -1,0 +1,55 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "sim: 1000-image accuracy",
+      "type": "shell",
+      "command": "make sim",
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "clear": true, "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": []
+    },
+    {
+      "label": "sim: single-image smoke",
+      "type": "shell",
+      "command": "make sim TOP=top_tb",
+      "presentation": { "clear": true, "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": []
+    },
+    {
+      "label": "sim: 1000-image + waves",
+      "type": "shell",
+      "command": "make sim WAVE=1",
+      "presentation": { "clear": true, "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": []
+    },
+    {
+      "label": "wave: open latest",
+      "type": "shell",
+      "command": "make wave",
+      "presentation": { "reveal": "silent", "panel": "shared" },
+      "problemMatcher": []
+    },
+    {
+      "label": "synth: chip",
+      "type": "shell",
+      "command": "make synth",
+      "presentation": { "clear": true, "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": []
+    },
+    {
+      "label": "xpr: export for submission",
+      "type": "shell",
+      "command": "make xpr",
+      "presentation": { "clear": true, "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": []
+    },
+    {
+      "label": "clean: wipe build/",
+      "type": "shell",
+      "command": "make clean",
+      "presentation": { "reveal": "silent", "panel": "shared" },
+      "problemMatcher": []
+    }
+  ]
+}
