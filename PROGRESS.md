@@ -76,7 +76,7 @@ C:/IDEC_challenge/
 - **버그 fix**: `xelab -timescale 1ps/1ps` 없으면 XSIM 43-4099 에러 (RTL 모듈들엔 `` `timescale ``이 없고 top_tb.v에만 있어서 mix라고 판정됨). RTL 수정 없이 툴 옵션으로 해결.
 - **검증**: `make sim` → 1000장 accuracy **97%** PASS, 23초.
 - **결정**: XDC는 우선 100MHz (`period 10.000`) 로 고정. 나중에 baseline WNS 보면서 조정.
-- **버그 fix**: PowerShell에서 `make`를 돌리면 `SHELL := bash` 가 WSL bash를 잡아서 cmd.exe로 fallback → 에러. Makefile에서 `ifeq ($(OS),Windows_NT)` 로 Git Bash 절대경로 명시 (`C:/Program Files/Git/usr/bin/bash.exe`).
+- **버그 fix (2번의 삽질 후 진짜 원인)**: GNU Make 3.81 on Windows는 `mkdir -p`, `rm -rf` 같은 "단순" 명령은 SHELL을 우회해서 `CreateProcess`로 직접 실행. Windows PATH에 `mkdir.exe`/`rm.exe`가 없으면 실패. 해결: Makefile에서 `export PATH := C:/PROGRA~1/Git/usr/bin:$(PATH)` 로 Git Bash 툴 경로를 PATH 앞에 추가. (SHELL 지정만으론 부족했음)
 - **베이스라인 합성 완료**: WNS -60.156 ns (100 MHz 못 맞춤, 실측 Fmax ~14 MHz), LUT 21,922, Power 0.497 W. 상세는 위 "베이스라인 측정치" 참고.
 
 <!-- 새 세션 시작할 때 위에 날짜 헤더 추가하며 이어서 기록 -->
