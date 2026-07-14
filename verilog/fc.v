@@ -1,3 +1,4 @@
+`timescale 1ps/1ps
 /*------------------------------------------------------------------------
  *
  *  Copyright (c) 2021 by Bo Young Kang, All rights reserved.

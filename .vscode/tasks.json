@@ -31,9 +31,16 @@
       "problemMatcher": []
     },
     {
-      "label": "synth: chip",
+      "label": "synth: Vivado (FPGA, quick)",
       "type": "shell",
       "command": "make synth",
+      "presentation": { "clear": true, "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": []
+    },
+    {
+      "label": "synth: OpenROAD (ASAP7, competition metric)",
+      "type": "shell",
+      "command": "make synth-asic",
       "presentation": { "clear": true, "reveal": "always", "panel": "dedicated" },
       "problemMatcher": []
     },

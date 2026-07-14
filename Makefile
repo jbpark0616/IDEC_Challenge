@@ -4,9 +4,10 @@
 #
 # Quick start:
 #   make sim              — 1000-image accuracy check (PASS/FAIL)
-#   make sim TB=top_tb    — single-image smoke test
+#   make sim TOP=top_tb   — single-image smoke test
 #   make sim WAVE=1       — dump waves.wdb for GUI inspection
-#   make synth            — synthesize chip, report timing/area/power
+#   make synth            — Vivado synth (Zynq FPGA, quick sanity check)
+#   make synth-asic       — OpenROAD synth (ASAP7 7nm, competition metric via WSL)
 #   make xpr              — export .xpr for competition submission
 #   make wave             — open latest waves in Vivado GUI
 #   make clean            — wipe build/
@@ -35,8 +36,14 @@ VIVADO     := $(VIVADO_BIN)/vivado
 BUILD      := build
 SIM_DIR    := $(BUILD)/sim
 SYNTH_DIR  := $(BUILD)/synth
+ASIC_DIR   := $(BUILD)/asic
 XPR_DIR    := $(BUILD)/xpr
 FLOW       := flow/vivado
+
+# OpenROAD (WSL Ubuntu) — invoked via wsl -d Ubuntu
+WSL_DIST         := Ubuntu
+ORFS_ROOT        := /home/junbeom/OpenROAD-flow-scripts
+ORFS_DESIGN_CFG  := ./designs/asap7/chip/config.mk
 
 RTL := verilog/chip.v \
        verilog/conv1.v \
@@ -56,13 +63,15 @@ BASELINE   ?= 96.0
 LOG := $(SIM_DIR)/$(TOP).log
 
 # ---------- Targets ----------
-.PHONY: help sim synth xpr wave clean
+.PHONY: help sim synth synth-asic xpr wave clean
 
 help:
 	@echo "IDEC CCDC 2026 — Available targets:"
 	@echo "  make sim [TOP=top_tb|top_tb_1000] [WAVE=1]"
 	@echo "                   — behavioral sim; auto PASS/FAIL vs baseline $(BASELINE)%"
-	@echo "  make synth       — synthesize chip → $(SYNTH_DIR)/{timing,utilization,power}.rpt"
+	@echo "  make synth       — Vivado synth (FPGA target, quick sanity check)"
+	@echo "  make synth-asic  — OpenROAD synth (ASAP7 7nm, competition metric)"
+	@echo "                     Runs in WSL $(WSL_DIST) — real numbers for area/timing/power"
 	@echo "  make xpr         — export $(XPR_DIR)/exported.xpr for submission"
 	@echo "  make wave        — open latest waves.wdb in Vivado GUI"
 	@echo "  make clean       — remove $(BUILD)/"
@@ -81,7 +90,6 @@ $(LOG): $(RTL) $(TB) $(FLOW)/sim.tcl $(FLOW)/sim_wave.tcl
 	cd $(SIM_DIR) && $(XVLOG) $(addprefix ../../,$(RTL)) ../../$(TB)
 	@echo "===== [xelab] elaborate (top=$(TOP), WAVE=$(WAVE)) ====="
 	cd $(SIM_DIR) && $(XELAB) -top $(TOP) -snapshot $(TOP)_snap \
-	    -timescale 1ps/1ps \
 	    $(if $(filter 1,$(WAVE)),-debug typical,)
 	@echo "===== [xsim] run ====="
 	cd $(SIM_DIR) && $(XSIM) $(TOP)_snap \
@@ -104,6 +112,35 @@ $(SYNTH_DIR)/timing.rpt: $(RTL) flow/constraints/timing.xdc $(FLOW)/synth.tcl
 	@echo ""
 	@echo "===== Timing summary ====="
 	@{ grep -A2 -E "WNS|TNS" $(SYNTH_DIR)/timing.rpt || true; } | head -20 || true
+
+# ---------- OpenROAD synthesis (WSL Ubuntu, ASAP7 7nm) ----------
+# Produces (under ~/OpenROAD-flow-scripts/flow/{results,reports}/asap7/chip/base/):
+#   1_1_yosys.v            — Yosys canonicalized RTL
+#   1_synth.v              — post-Yosys netlist (ASAP7 std cells)
+#   1_synth.sdc            — post-synth SDC
+#   synth_stat.txt         — cell counts + area (from Yosys stat)
+#   1_synth_check.txt      — post-synth STA (WNS/TNS, power) — appears after synth-report
+#
+# Mirrored into build/asic/ on Windows side for convenience.
+
+ORFS_RESULTS := $(ORFS_ROOT)/flow/results/asap7/chip/base
+ORFS_REPORTS := $(ORFS_ROOT)/flow/reports/asap7/chip/base
+
+synth-asic:
+	@echo "===== OpenROAD synth in WSL ($(WSL_DIST)) ====="
+	@mkdir -p $(ASIC_DIR)
+	wsl -d $(WSL_DIST) -- bash -c "cd $(ORFS_ROOT) && source ./env.sh && cd flow && time make synth-report DESIGN_CONFIG=$(ORFS_DESIGN_CFG)"
+	@echo ""
+	@echo "===== Copying artifacts to $(ASIC_DIR) ====="
+	wsl -d $(WSL_DIST) -- bash -c "cp -f $(ORFS_RESULTS)/1_*_yosys.v            /mnt/c/IDEC_challenge/$(ASIC_DIR)/netlist.v    2>/dev/null || true; \
+	                                cp -f $(ORFS_RESULTS)/1_synth.sdc            /mnt/c/IDEC_challenge/$(ASIC_DIR)/          2>/dev/null || true; \
+	                                cp -f $(ORFS_REPORTS)/synth_stat.txt         /mnt/c/IDEC_challenge/$(ASIC_DIR)/          2>/dev/null || true; \
+	                                cp -f $(ORFS_REPORTS)/1_Post_synthesis.rpt   /mnt/c/IDEC_challenge/$(ASIC_DIR)/          2>/dev/null || true"
+	@echo ""
+	@echo "===== Baseline metrics ====="
+	@grep -E "^   Chip area for|of which used for sequential" $(ASIC_DIR)/synth_stat.txt 2>/dev/null || echo "(area info missing)"
+	@grep -E "^wns max|^tns max|clk period_min" $(ASIC_DIR)/1_Post_synthesis.rpt 2>/dev/null | head -5
+	@grep -E "^Total " $(ASIC_DIR)/1_Post_synthesis.rpt 2>/dev/null | head -1
 
 # ---------- XPR export (for submission) ----------
 xpr: $(XPR_DIR)/exported.xpr
