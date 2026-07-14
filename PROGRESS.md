@@ -8,9 +8,19 @@ Baseline CNN 가속기(MNIST 96%)를 정확도 유지하며 **Fmax↑ / Power↓
 자세한 내용 → `docs/2026 KNU IDEC CCDC 교육.pdf`
 
 ## 📌 다음 할 일 (Next up)
-- [ ] `make synth` 돌려서 baseline Fmax / Area / Power 기록 (아래 "베이스라인 측정치")
-- [ ] RTL 분석 시작 — `chip.v` 부터 읽어서 데이터 흐름 파악
-- [ ] 최적화 아이디어 도출 → 지정주제 (모듈 재사용, MAC 공유, 파이프라인화)
+- [ ] **RTL 분석 시작** — `verilog/chip.v` 부터 읽고 아래 5개 서브모듈 데이터 흐름 파악:
+      `conv1_layer` → `maxpool_relu` → `conv2_layer` → `maxpool_relu` → `fully_connected` → `comparator`
+- [ ] 최적화 후보 리스트업 (교육 PDF 힌트 = "conv/pool 반복 모듈 → 면적 낭비")
+      - 모듈 재사용 (같은 conv layer를 시분할로)
+      - MAC 공유
+      - 파이프라인화
+      - 클럭 게이팅 (Power 96%가 combinational이라 큰 효과 예상)
+- [ ] 첫 최적화 시도 → `make sim` → `make synth-asic` → 결과 비교 → 커밋
+
+## 🌅 내일 세션 시작할 때
+1. Claude에게: **"PROGRESS.md 읽고 이어서 하자"**
+2. 환경 확인 (30초): `make sim` — `[PASS] Accuracy 97.0%` 나오면 OK
+3. 위 "다음 할 일" 첫 항목부터 진행
 
 ## 🛠️ 개발 워크플로우 (Level 2 pro flow)
 | 명령 | 하는 일 | 시간 |
@@ -102,5 +112,20 @@ C:/IDEC_challenge/
 - **Makefile**: `synth-asic` target 추가 (`wsl -d Ubuntu -- bash -c "..."` 로 dispatch). 완료 후 자동으로 netlist/report를 `build/asic/`에 복사.
 - **베이스라인 OpenROAD 결과**: Area 23,989 μm², Fmax 618 MHz, Power 707 mW. 6분 20초. 상세는 위 표 참고.
 - **인사이트**: Vivado synth (12분)보다 OpenROAD (7분)이 오히려 빠름. 앞으로 `make synth-asic`이 primary flow.
+
+## 🏁 오늘(2026-07-15) 마무리 상태
+
+**한 줄 요약**: **완전한 flow가 터미널 하나에서 돌아감. Baseline 실측 완료.**
+
+**환경 완성:**
+- `make sim` (23s) → Accuracy 97% PASS
+- `make synth-asic` (7min, WSL OpenROAD) → Area/Fmax/Power 실측 자동화
+- `make synth` (12min, Vivado FPGA) → sanity check용 유지
+- Git 저장소, .gitignore, VS Code tasks 세팅 완료
+
+**Baseline 확보:**
+- Accuracy 97%, Area 23,989 μm², Fmax 618 MHz, Power 707 mW
+
+**남은 것 = 진짜 대회 컨텐츠**: RTL 최적화. 환경은 이제 방해가 안 됨.
 
 <!-- 새 세션 시작할 때 위에 날짜 헤더 추가하며 이어서 기록 -->
