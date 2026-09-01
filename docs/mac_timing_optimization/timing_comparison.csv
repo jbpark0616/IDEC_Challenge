@@ -1,0 +1,4 @@
+configuration,rtl_mismatches,accuracy_percent,post_input_cycles,flip_flops,cell_area_um2,sequential_area_um2,min_period_ps,fmax_mhz,vectorless_power_mw,decision
+baseline,0,97.0,433,8255,7939.816020,2538.727920,946.20,1056.86,34.0,reference
+sign_overflow_sat_add,0,97.0,433,,7744.808520,2539.486080,966.68,1034.47,33.9,rejected
+pipe_accumulate,0,97.0,433,8261,7953.885720,2540.477520,847.31,1180.21,34.0,selected

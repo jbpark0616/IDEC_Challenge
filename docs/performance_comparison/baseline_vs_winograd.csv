@@ -1,0 +1,9 @@
+metric,baseline,proposed,unit,comparison
+Accuracy,97.0,97.0,%,maintained
+Operating frequency,476,1000,MHz,+110.1%
+Power,335,16.60,mW,-95.0%
+Dense-equivalent throughput,0.331296,0.366,TOPS,+10.5%
+Dense-equivalent energy efficiency,0.988943,22.053241,TOPS/W,22.3x
+Cycles per image,1335,1220,cycles,-8.6%
+Inference latency,2.80,1.220,us,-56.4%
+Cell area,0.024848,0.007953886,mm^2,-68.0%

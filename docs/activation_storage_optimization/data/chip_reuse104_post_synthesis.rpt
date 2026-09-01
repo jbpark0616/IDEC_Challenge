@@ -1,0 +1,509 @@
+
+==========================================================================
+Post synthesis report_tns
+--------------------------------------------------------------------------
+tns max -387026.66
+
+==========================================================================
+Post synthesis report_wns
+--------------------------------------------------------------------------
+wns max -531.98
+
+==========================================================================
+Post synthesis report_worst_slack
+--------------------------------------------------------------------------
+worst slack max -531.98
+
+==========================================================================
+Post synthesis report_clock_min_period
+--------------------------------------------------------------------------
+clk period_min = 931.98 fmax = 1072.98
+
+==========================================================================
+Post synthesis report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: u_accelerator.state[0]$_DFF_PN1_
+          (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                         80.00   80.00 ^ input external delay
+  1509 1055.27    0.00    0.00   80.00 ^ rst_n (in)
+                                         rst_n (net)
+                  0.00    0.00   80.00 ^ u_accelerator.state[0]$_DFF_PN1_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                                 80.00   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ u_accelerator.state[0]$_DFF_PN1_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                         25.79   25.79   library removal time
+                                 25.79   data required time
+-----------------------------------------------------------------------------
+                                 25.79   data required time
+                                -80.00   data arrival time
+-----------------------------------------------------------------------------
+                                 54.21   slack (MET)
+
+
+Startpoint: u_accelerator.u_argmax.stage1_index[0][0]$_DFFE_PP_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_accelerator.u_argmax.stage1_index[0][0]$_DFFE_PP_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ u_accelerator.u_argmax.stage1_index[0][0]$_DFFE_PP_/CLK (DFFHQNx1_ASAP7_75t_R)
+     2    1.37   16.95   35.24   35.24 ^ u_accelerator.u_argmax.stage1_index[0][0]$_DFFE_PP_/QN (DFFHQNx1_ASAP7_75t_R)
+                                         _000531_ (net)
+                 16.95    0.00   35.24 ^ _120803_/A1 (OAI21x1_ASAP7_75t_R)
+     1    0.55    5.49    6.80   42.04 v _120803_/Y (OAI21x1_ASAP7_75t_R)
+                                         _025210_ (net)
+                  5.49    0.00   42.04 v u_accelerator.u_argmax.stage1_index[0][0]$_DFFE_PP_/D (DFFHQNx1_ASAP7_75t_R)
+                                 42.04   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ u_accelerator.u_argmax.stage1_index[0][0]$_DFFE_PP_/CLK (DFFHQNx1_ASAP7_75t_R)
+                          8.70    8.70   library hold time
+                                  8.70   data required time
+-----------------------------------------------------------------------------
+                                  8.70   data required time
+                                -42.04   data arrival time
+-----------------------------------------------------------------------------
+                                 33.34   slack (MET)
+
+
+
+==========================================================================
+Post synthesis report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: u_accelerator.state[0]$_DFF_PN1_
+          (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                         80.00   80.00 ^ input external delay
+  1509 1217.75    0.00    0.00   80.00 ^ rst_n (in)
+                                         rst_n (net)
+                  0.00    0.00   80.00 ^ u_accelerator.state[0]$_DFF_PN1_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                                 80.00   data arrival time
+
+                  0.00  400.00  400.00   clock clk (rise edge)
+                          0.00  400.00   clock network delay (ideal)
+                          0.00  400.00   clock reconvergence pessimism
+                                400.00 ^ u_accelerator.state[0]$_DFF_PN1_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                          6.99  406.99   library recovery time
+                                406.99   data required time
+-----------------------------------------------------------------------------
+                                406.99   data required time
+                                -80.00   data arrival time
+-----------------------------------------------------------------------------
+                                326.99   slack (MET)
+
+
+Startpoint: u_accelerator.u_core.u_mac.pipe_weight_zero[8]$_DFFE_PN1P_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_accelerator.u_core.u_mac.accumulator[8][10]$_DFFE_PN0P_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ u_accelerator.u_core.u_mac.pipe_weight_zero[8]$_DFFE_PN1P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+     2    1.77   20.86   40.36   40.36 v u_accelerator.u_core.u_mac.pipe_weight_zero[8]$_DFFE_PN1P_/QN (DFFASRHQNx1_ASAP7_75t_R)
+                                         _000488_ (net)
+                 20.86    0.00   40.36 v _093993_/A (INVx1_ASAP7_75t_R)
+     7    7.20   45.46   27.74   68.11 ^ _093993_/Y (INVx1_ASAP7_75t_R)
+                                         _047506_ (net)
+                 45.46    0.00   68.11 ^ _093994_/A (BUFx2_ASAP7_75t_R)
+    10    6.94   24.18   29.57   97.68 ^ _093994_/Y (BUFx2_ASAP7_75t_R)
+                                         _047507_ (net)
+                 24.18    0.00   97.68 ^ _093997_/A (BUFx2_ASAP7_75t_R)
+    10   10.59   34.32   30.81  128.49 ^ _093997_/Y (BUFx2_ASAP7_75t_R)
+                                         _047508_ (net)
+                 34.32    0.00  128.49 ^ _094002_/B (NOR2x1_ASAP7_75t_R)
+     1    1.01   13.76   11.75  140.24 v _094002_/Y (NOR2x1_ASAP7_75t_R)
+                                         u_accelerator.u_core.u_mac.g_lane[8].lane_term[7] (net)
+                 13.76    0.00  140.24 v _123993_/B (HAxp5_ASAP7_75t_R)
+     4    4.32   55.79   53.05  193.29 ^ _123993_/SN (HAxp5_ASAP7_75t_R)
+                                         _014696_ (net)
+                 55.79    0.00  193.29 ^ _069762_/B (NOR2x1_ASAP7_75t_R)
+     3    2.31   25.98   19.89  213.18 v _069762_/Y (NOR2x1_ASAP7_75t_R)
+                                         _026861_ (net)
+                 25.98    0.00  213.18 v _069768_/A2 (AO21x1_ASAP7_75t_R)
+     2    2.15   14.23   22.69  235.87 v _069768_/Y (AO21x1_ASAP7_75t_R)
+                                         _026867_ (net)
+                 14.23    0.00  235.87 v _069769_/B (AOI21x1_ASAP7_75t_R)
+     2    1.70   16.79   12.88  248.75 ^ _069769_/Y (AOI21x1_ASAP7_75t_R)
+                                         _026868_ (net)
+                 16.79    0.00  248.75 ^ _069770_/A (INVx1_ASAP7_75t_R)
+     2    2.03   13.87   11.07  259.82 v _069770_/Y (INVx1_ASAP7_75t_R)
+                                         _026869_ (net)
+                 13.87    0.00  259.82 v _069777_/A (NAND3x1_ASAP7_75t_R)
+     2    1.70   20.22   12.76  272.58 ^ _069777_/Y (NAND3x1_ASAP7_75t_R)
+                                         _026876_ (net)
+                 20.22    0.00  272.58 ^ _069796_/A1 (AO21x1_ASAP7_75t_R)
+     1    0.66    7.70   14.45  287.03 ^ _069796_/Y (AO21x1_ASAP7_75t_R)
+                                         _026895_ (net)
+                  7.70    0.00  287.03 ^ _069798_/A (AND4x1_ASAP7_75t_R)
+     1    0.63   10.04   19.29  306.32 ^ _069798_/Y (AND4x1_ASAP7_75t_R)
+                                         _026897_ (net)
+                 10.04    0.00  306.32 ^ _069799_/B (AO21x1_ASAP7_75t_R)
+     1    0.58    7.54   11.42  317.74 ^ _069799_/Y (AO21x1_ASAP7_75t_R)
+                                         _026898_ (net)
+                  7.54    0.00  317.74 ^ _069800_/A (BUFx2_ASAP7_75t_R)
+     4    3.30   12.89   16.52  334.26 ^ _069800_/Y (BUFx2_ASAP7_75t_R)
+                                         _012495_ (net)
+                 12.89    0.00  334.26 ^ _071952_/A (INVx1_ASAP7_75t_R)
+     2    2.02   12.90   10.06  344.32 v _071952_/Y (INVx1_ASAP7_75t_R)
+                                         _012492_ (net)
+                 12.90    0.00  344.32 v _123136_/B (HAxp5_ASAP7_75t_R)
+     1    0.68   18.13   11.45  355.77 ^ _123136_/CON (HAxp5_ASAP7_75t_R)
+                                         _012494_ (net)
+                 18.13    0.00  355.77 ^ _094080_/A (INVx1_ASAP7_75t_R)
+     1    1.28   10.92    9.18  364.95 v _094080_/Y (INVx1_ASAP7_75t_R)
+                                         _047579_ (net)
+                 10.92    0.00  364.95 v _094081_/C (NAND3x1_ASAP7_75t_R)
+     1    1.05   16.75   13.77  378.72 ^ _094081_/Y (NAND3x1_ASAP7_75t_R)
+                                         _047580_ (net)
+                 16.75    0.00  378.72 ^ _094085_/A (NOR2x1_ASAP7_75t_R)
+     1    1.15   12.31   11.28  390.00 v _094085_/Y (NOR2x1_ASAP7_75t_R)
+                                         _047584_ (net)
+                 12.31    0.00  390.00 v _094086_/A3 (AO31x2_ASAP7_75t_R)
+     1    1.00    6.04   15.99  406.00 v _094086_/Y (AO31x2_ASAP7_75t_R)
+                                         _047585_ (net)
+                  6.04    0.00  406.00 v _094087_/A (XOR2x2_ASAP7_75t_R)
+     1    1.08    7.99   23.12  429.12 ^ _094087_/Y (XOR2x2_ASAP7_75t_R)
+                                         _047586_ (net)
+                  7.99    0.00  429.12 ^ _094088_/B (NAND2x1_ASAP7_75t_R)
+    10    9.48   44.65   23.81  452.93 v _094088_/Y (NAND2x1_ASAP7_75t_R)
+                                         _047587_ (net)
+                 44.65    0.00  452.93 v _094089_/A (INVx1_ASAP7_75t_R)
+     9    9.94   65.14   43.19  496.12 ^ _094089_/Y (INVx1_ASAP7_75t_R)
+                                         _047588_ (net)
+                 65.14    0.00  496.12 ^ _094164_/B (NOR2x1_ASAP7_75t_R)
+     1    1.08   18.21   15.07  511.18 v _094164_/Y (NOR2x1_ASAP7_75t_R)
+                                         _047649_ (net)
+                 18.21    0.00  511.18 v _094166_/A2 (OAI21x1_ASAP7_75t_R)
+     2    2.18   19.79   14.45  525.63 ^ _094166_/Y (OAI21x1_ASAP7_75t_R)
+                                         u_accelerator.u_core.u_mac.g_lane[8].product_accumulator[2] (net)
+                 19.79    0.00  525.63 ^ _123657_/A (HAxp5_ASAP7_75t_R)
+     4    4.34   49.89   62.79  588.43 v _123657_/SN (HAxp5_ASAP7_75t_R)
+                                         _013859_ (net)
+                 49.89    0.00  588.43 v _072444_/A2 (OAI21x1_ASAP7_75t_R)
+     1    0.62   16.23   13.86  602.28 ^ _072444_/Y (OAI21x1_ASAP7_75t_R)
+                                         _028934_ (net)
+                 16.23    0.00  602.28 ^ _072447_/A1 (AO21x1_ASAP7_75t_R)
+     3    2.60   18.55   19.67  621.95 ^ _072447_/Y (AO21x1_ASAP7_75t_R)
+                                         _028937_ (net)
+                 18.55    0.00  621.95 ^ _072450_/A1 (AO21x1_ASAP7_75t_R)
+     3    2.08   15.72   18.54  640.50 ^ _072450_/Y (AO21x1_ASAP7_75t_R)
+                                         _028940_ (net)
+                 15.72    0.00  640.50 ^ _072454_/A1 (AO21x1_ASAP7_75t_R)
+     3    2.63   18.91   19.68  660.17 ^ _072454_/Y (AO21x1_ASAP7_75t_R)
+                                         _028944_ (net)
+                 18.91    0.00  660.17 ^ _072469_/A1 (AO21x1_ASAP7_75t_R)
+     2    1.48   12.28   16.91  677.09 ^ _072469_/Y (AO21x1_ASAP7_75t_R)
+                                         _028959_ (net)
+                 12.28    0.00  677.09 ^ _072470_/A (AND2x2_ASAP7_75t_R)
+     1    0.68    6.49   14.72  691.80 ^ _072470_/Y (AND2x2_ASAP7_75t_R)
+                                         _028960_ (net)
+                  6.49    0.00  691.80 ^ _072471_/A (INVx1_ASAP7_75t_R)
+     1    0.43    4.39    4.35  696.15 v _072471_/Y (INVx1_ASAP7_75t_R)
+                                         _028961_ (net)
+                  4.39    0.00  696.15 v _072473_/B1 (AO22x1_ASAP7_75t_R)
+     1    0.58    7.56   17.26  713.41 v _072473_/Y (AO22x1_ASAP7_75t_R)
+                                         _028963_ (net)
+                  7.56    0.00  713.41 v _072474_/A (BUFx2_ASAP7_75t_R)
+     3    2.77   10.18   16.28  729.69 v _072474_/Y (BUFx2_ASAP7_75t_R)
+                                         _015118_ (net)
+                 10.18    0.00  729.69 v _072475_/A (INVx1_ASAP7_75t_R)
+     3    2.51   17.26   11.67  741.36 ^ _072475_/Y (INVx1_ASAP7_75t_R)
+                                         _015115_ (net)
+                 17.26    0.00  741.36 ^ _124167_/B (HAxp5_ASAP7_75t_R)
+     1    0.68   18.91   12.11  753.47 v _124167_/CON (HAxp5_ASAP7_75t_R)
+                                         _015117_ (net)
+                 18.91    0.00  753.47 v _096192_/A (INVx1_ASAP7_75t_R)
+     1    1.33   13.10   10.84  764.31 ^ _096192_/Y (INVx1_ASAP7_75t_R)
+                                         _049115_ (net)
+                 13.10    0.00  764.31 ^ _096193_/C (NAND3x1_ASAP7_75t_R)
+     1    1.09   11.53    8.72  773.03 v _096193_/Y (NAND3x1_ASAP7_75t_R)
+                                         _049116_ (net)
+                 11.53    0.00  773.03 v _096197_/A (NOR2x1_ASAP7_75t_R)
+     1    1.22   11.60    9.75  782.78 ^ _096197_/Y (NOR2x1_ASAP7_75t_R)
+                                         _049120_ (net)
+                 11.60    0.00  782.78 ^ _096202_/A1 (AO31x2_ASAP7_75t_R)
+     1    0.92    8.48   16.23  799.01 ^ _096202_/Y (AO31x2_ASAP7_75t_R)
+                                         _049125_ (net)
+                  8.48    0.00  799.01 ^ _096203_/A (XOR2x2_ASAP7_75t_R)
+     1    1.08    7.98   23.85  822.86 ^ _096203_/Y (XOR2x2_ASAP7_75t_R)
+                                         _049126_ (net)
+                  7.98    0.00  822.86 ^ _096204_/B (NAND2x1_ASAP7_75t_R)
+     9    8.76   41.91   22.35  845.21 v _096204_/Y (NAND2x1_ASAP7_75t_R)
+                                         _049127_ (net)
+                 41.91    0.00  845.21 v _096205_/A (BUFx2_ASAP7_75t_R)
+    10   10.90   30.30   35.75  880.97 v _096205_/Y (BUFx2_ASAP7_75t_R)
+                                         _049128_ (net)
+                 30.30    0.00  880.97 v _096242_/A2 (AOI21x1_ASAP7_75t_R)
+     1    1.24   18.87   13.68  894.64 ^ _096242_/Y (AOI21x1_ASAP7_75t_R)
+                                         _049159_ (net)
+                 18.87    0.00  894.64 ^ _096243_/B (AOI21x1_ASAP7_75t_R)
+     2    2.18   21.28   11.74  906.38 v _096243_/Y (AOI21x1_ASAP7_75t_R)
+                                         _049160_ (net)
+                 21.28    0.00  906.38 v _096245_/A2 (AOI21x1_ASAP7_75t_R)
+     1    0.62   12.56   10.43  916.81 ^ _096245_/Y (AOI21x1_ASAP7_75t_R)
+                                         _017814_ (net)
+                 12.56    0.00  916.81 ^ u_accelerator.u_core.u_mac.accumulator[8][10]$_DFFE_PN0P_/D (DFFASRHQNx1_ASAP7_75t_R)
+                                916.81   data arrival time
+
+                  0.00  400.00  400.00   clock clk (rise edge)
+                          0.00  400.00   clock network delay (ideal)
+                          0.00  400.00   clock reconvergence pessimism
+                                400.00 ^ u_accelerator.u_core.u_mac.accumulator[8][10]$_DFFE_PN0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                        -15.18  384.82   library setup time
+                                384.82   data required time
+-----------------------------------------------------------------------------
+                                384.82   data required time
+                               -916.81   data arrival time
+-----------------------------------------------------------------------------
+                               -531.98   slack (VIOLATED)
+
+
+
+==========================================================================
+Post synthesis report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: u_accelerator.state[0]$_DFF_PN1_
+          (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                         80.00   80.00 ^ input external delay
+  1509 1217.75    0.00    0.00   80.00 ^ rst_n (in)
+                                         rst_n (net)
+                  0.00    0.00   80.00 ^ u_accelerator.state[0]$_DFF_PN1_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                                 80.00   data arrival time
+
+                  0.00  400.00  400.00   clock clk (rise edge)
+                          0.00  400.00   clock network delay (ideal)
+                          0.00  400.00   clock reconvergence pessimism
+                                400.00 ^ u_accelerator.state[0]$_DFF_PN1_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                          6.99  406.99   library recovery time
+                                406.99   data required time
+-----------------------------------------------------------------------------
+                                406.99   data required time
+                                -80.00   data arrival time
+-----------------------------------------------------------------------------
+                                326.99   slack (MET)
+
+
+Startpoint: u_accelerator.u_core.u_mac.pipe_weight_zero[8]$_DFFE_PN1P_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_accelerator.u_core.u_mac.accumulator[8][10]$_DFFE_PN0P_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ u_accelerator.u_core.u_mac.pipe_weight_zero[8]$_DFFE_PN1P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+     2    1.77   20.86   40.36   40.36 v u_accelerator.u_core.u_mac.pipe_weight_zero[8]$_DFFE_PN1P_/QN (DFFASRHQNx1_ASAP7_75t_R)
+                                         _000488_ (net)
+                 20.86    0.00   40.36 v _093993_/A (INVx1_ASAP7_75t_R)
+     7    7.20   45.46   27.74   68.11 ^ _093993_/Y (INVx1_ASAP7_75t_R)
+                                         _047506_ (net)
+                 45.46    0.00   68.11 ^ _093994_/A (BUFx2_ASAP7_75t_R)
+    10    6.94   24.18   29.57   97.68 ^ _093994_/Y (BUFx2_ASAP7_75t_R)
+                                         _047507_ (net)
+                 24.18    0.00   97.68 ^ _093997_/A (BUFx2_ASAP7_75t_R)
+    10   10.59   34.32   30.81  128.49 ^ _093997_/Y (BUFx2_ASAP7_75t_R)
+                                         _047508_ (net)
+                 34.32    0.00  128.49 ^ _094002_/B (NOR2x1_ASAP7_75t_R)
+     1    1.01   13.76   11.75  140.24 v _094002_/Y (NOR2x1_ASAP7_75t_R)
+                                         u_accelerator.u_core.u_mac.g_lane[8].lane_term[7] (net)
+                 13.76    0.00  140.24 v _123993_/B (HAxp5_ASAP7_75t_R)
+     4    4.32   55.79   53.05  193.29 ^ _123993_/SN (HAxp5_ASAP7_75t_R)
+                                         _014696_ (net)
+                 55.79    0.00  193.29 ^ _069762_/B (NOR2x1_ASAP7_75t_R)
+     3    2.31   25.98   19.89  213.18 v _069762_/Y (NOR2x1_ASAP7_75t_R)
+                                         _026861_ (net)
+                 25.98    0.00  213.18 v _069768_/A2 (AO21x1_ASAP7_75t_R)
+     2    2.15   14.23   22.69  235.87 v _069768_/Y (AO21x1_ASAP7_75t_R)
+                                         _026867_ (net)
+                 14.23    0.00  235.87 v _069769_/B (AOI21x1_ASAP7_75t_R)
+     2    1.70   16.79   12.88  248.75 ^ _069769_/Y (AOI21x1_ASAP7_75t_R)
+                                         _026868_ (net)
+                 16.79    0.00  248.75 ^ _069770_/A (INVx1_ASAP7_75t_R)
+     2    2.03   13.87   11.07  259.82 v _069770_/Y (INVx1_ASAP7_75t_R)
+                                         _026869_ (net)
+                 13.87    0.00  259.82 v _069777_/A (NAND3x1_ASAP7_75t_R)
+     2    1.70   20.22   12.76  272.58 ^ _069777_/Y (NAND3x1_ASAP7_75t_R)
+                                         _026876_ (net)
+                 20.22    0.00  272.58 ^ _069796_/A1 (AO21x1_ASAP7_75t_R)
+     1    0.66    7.70   14.45  287.03 ^ _069796_/Y (AO21x1_ASAP7_75t_R)
+                                         _026895_ (net)
+                  7.70    0.00  287.03 ^ _069798_/A (AND4x1_ASAP7_75t_R)
+     1    0.63   10.04   19.29  306.32 ^ _069798_/Y (AND4x1_ASAP7_75t_R)
+                                         _026897_ (net)
+                 10.04    0.00  306.32 ^ _069799_/B (AO21x1_ASAP7_75t_R)
+     1    0.58    7.54   11.42  317.74 ^ _069799_/Y (AO21x1_ASAP7_75t_R)
+                                         _026898_ (net)
+                  7.54    0.00  317.74 ^ _069800_/A (BUFx2_ASAP7_75t_R)
+     4    3.30   12.89   16.52  334.26 ^ _069800_/Y (BUFx2_ASAP7_75t_R)
+                                         _012495_ (net)
+                 12.89    0.00  334.26 ^ _071952_/A (INVx1_ASAP7_75t_R)
+     2    2.02   12.90   10.06  344.32 v _071952_/Y (INVx1_ASAP7_75t_R)
+                                         _012492_ (net)
+                 12.90    0.00  344.32 v _123136_/B (HAxp5_ASAP7_75t_R)
+     1    0.68   18.13   11.45  355.77 ^ _123136_/CON (HAxp5_ASAP7_75t_R)
+                                         _012494_ (net)
+                 18.13    0.00  355.77 ^ _094080_/A (INVx1_ASAP7_75t_R)
+     1    1.28   10.92    9.18  364.95 v _094080_/Y (INVx1_ASAP7_75t_R)
+                                         _047579_ (net)
+                 10.92    0.00  364.95 v _094081_/C (NAND3x1_ASAP7_75t_R)
+     1    1.05   16.75   13.77  378.72 ^ _094081_/Y (NAND3x1_ASAP7_75t_R)
+                                         _047580_ (net)
+                 16.75    0.00  378.72 ^ _094085_/A (NOR2x1_ASAP7_75t_R)
+     1    1.15   12.31   11.28  390.00 v _094085_/Y (NOR2x1_ASAP7_75t_R)
+                                         _047584_ (net)
+                 12.31    0.00  390.00 v _094086_/A3 (AO31x2_ASAP7_75t_R)
+     1    1.00    6.04   15.99  406.00 v _094086_/Y (AO31x2_ASAP7_75t_R)
+                                         _047585_ (net)
+                  6.04    0.00  406.00 v _094087_/A (XOR2x2_ASAP7_75t_R)
+     1    1.08    7.99   23.12  429.12 ^ _094087_/Y (XOR2x2_ASAP7_75t_R)
+                                         _047586_ (net)
+                  7.99    0.00  429.12 ^ _094088_/B (NAND2x1_ASAP7_75t_R)
+    10    9.48   44.65   23.81  452.93 v _094088_/Y (NAND2x1_ASAP7_75t_R)
+                                         _047587_ (net)
+                 44.65    0.00  452.93 v _094089_/A (INVx1_ASAP7_75t_R)
+     9    9.94   65.14   43.19  496.12 ^ _094089_/Y (INVx1_ASAP7_75t_R)
+                                         _047588_ (net)
+                 65.14    0.00  496.12 ^ _094164_/B (NOR2x1_ASAP7_75t_R)
+     1    1.08   18.21   15.07  511.18 v _094164_/Y (NOR2x1_ASAP7_75t_R)
+                                         _047649_ (net)
+                 18.21    0.00  511.18 v _094166_/A2 (OAI21x1_ASAP7_75t_R)
+     2    2.18   19.79   14.45  525.63 ^ _094166_/Y (OAI21x1_ASAP7_75t_R)
+                                         u_accelerator.u_core.u_mac.g_lane[8].product_accumulator[2] (net)
+                 19.79    0.00  525.63 ^ _123657_/A (HAxp5_ASAP7_75t_R)
+     4    4.34   49.89   62.79  588.43 v _123657_/SN (HAxp5_ASAP7_75t_R)
+                                         _013859_ (net)
+                 49.89    0.00  588.43 v _072444_/A2 (OAI21x1_ASAP7_75t_R)
+     1    0.62   16.23   13.86  602.28 ^ _072444_/Y (OAI21x1_ASAP7_75t_R)
+                                         _028934_ (net)
+                 16.23    0.00  602.28 ^ _072447_/A1 (AO21x1_ASAP7_75t_R)
+     3    2.60   18.55   19.67  621.95 ^ _072447_/Y (AO21x1_ASAP7_75t_R)
+                                         _028937_ (net)
+                 18.55    0.00  621.95 ^ _072450_/A1 (AO21x1_ASAP7_75t_R)
+     3    2.08   15.72   18.54  640.50 ^ _072450_/Y (AO21x1_ASAP7_75t_R)
+                                         _028940_ (net)
+                 15.72    0.00  640.50 ^ _072454_/A1 (AO21x1_ASAP7_75t_R)
+     3    2.63   18.91   19.68  660.17 ^ _072454_/Y (AO21x1_ASAP7_75t_R)
+                                         _028944_ (net)
+                 18.91    0.00  660.17 ^ _072469_/A1 (AO21x1_ASAP7_75t_R)
+     2    1.48   12.28   16.91  677.09 ^ _072469_/Y (AO21x1_ASAP7_75t_R)
+                                         _028959_ (net)
+                 12.28    0.00  677.09 ^ _072470_/A (AND2x2_ASAP7_75t_R)
+     1    0.68    6.49   14.72  691.80 ^ _072470_/Y (AND2x2_ASAP7_75t_R)
+                                         _028960_ (net)
+                  6.49    0.00  691.80 ^ _072471_/A (INVx1_ASAP7_75t_R)
+     1    0.43    4.39    4.35  696.15 v _072471_/Y (INVx1_ASAP7_75t_R)
+                                         _028961_ (net)
+                  4.39    0.00  696.15 v _072473_/B1 (AO22x1_ASAP7_75t_R)
+     1    0.58    7.56   17.26  713.41 v _072473_/Y (AO22x1_ASAP7_75t_R)
+                                         _028963_ (net)
+                  7.56    0.00  713.41 v _072474_/A (BUFx2_ASAP7_75t_R)
+     3    2.77   10.18   16.28  729.69 v _072474_/Y (BUFx2_ASAP7_75t_R)
+                                         _015118_ (net)
+                 10.18    0.00  729.69 v _072475_/A (INVx1_ASAP7_75t_R)
+     3    2.51   17.26   11.67  741.36 ^ _072475_/Y (INVx1_ASAP7_75t_R)
+                                         _015115_ (net)
+                 17.26    0.00  741.36 ^ _124167_/B (HAxp5_ASAP7_75t_R)
+     1    0.68   18.91   12.11  753.47 v _124167_/CON (HAxp5_ASAP7_75t_R)
+                                         _015117_ (net)
+                 18.91    0.00  753.47 v _096192_/A (INVx1_ASAP7_75t_R)
+     1    1.33   13.10   10.84  764.31 ^ _096192_/Y (INVx1_ASAP7_75t_R)
+                                         _049115_ (net)
+                 13.10    0.00  764.31 ^ _096193_/C (NAND3x1_ASAP7_75t_R)
+     1    1.09   11.53    8.72  773.03 v _096193_/Y (NAND3x1_ASAP7_75t_R)
+                                         _049116_ (net)
+                 11.53    0.00  773.03 v _096197_/A (NOR2x1_ASAP7_75t_R)
+     1    1.22   11.60    9.75  782.78 ^ _096197_/Y (NOR2x1_ASAP7_75t_R)
+                                         _049120_ (net)
+                 11.60    0.00  782.78 ^ _096202_/A1 (AO31x2_ASAP7_75t_R)
+     1    0.92    8.48   16.23  799.01 ^ _096202_/Y (AO31x2_ASAP7_75t_R)
+                                         _049125_ (net)
+                  8.48    0.00  799.01 ^ _096203_/A (XOR2x2_ASAP7_75t_R)
+     1    1.08    7.98   23.85  822.86 ^ _096203_/Y (XOR2x2_ASAP7_75t_R)
+                                         _049126_ (net)
+                  7.98    0.00  822.86 ^ _096204_/B (NAND2x1_ASAP7_75t_R)
+     9    8.76   41.91   22.35  845.21 v _096204_/Y (NAND2x1_ASAP7_75t_R)
+                                         _049127_ (net)
+                 41.91    0.00  845.21 v _096205_/A (BUFx2_ASAP7_75t_R)
+    10   10.90   30.30   35.75  880.97 v _096205_/Y (BUFx2_ASAP7_75t_R)
+                                         _049128_ (net)
+                 30.30    0.00  880.97 v _096242_/A2 (AOI21x1_ASAP7_75t_R)
+     1    1.24   18.87   13.68  894.64 ^ _096242_/Y (AOI21x1_ASAP7_75t_R)
+                                         _049159_ (net)
+                 18.87    0.00  894.64 ^ _096243_/B (AOI21x1_ASAP7_75t_R)
+     2    2.18   21.28   11.74  906.38 v _096243_/Y (AOI21x1_ASAP7_75t_R)
+                                         _049160_ (net)
+                 21.28    0.00  906.38 v _096245_/A2 (AOI21x1_ASAP7_75t_R)
+     1    0.62   12.56   10.43  916.81 ^ _096245_/Y (AOI21x1_ASAP7_75t_R)
+                                         _017814_ (net)
+                 12.56    0.00  916.81 ^ u_accelerator.u_core.u_mac.accumulator[8][10]$_DFFE_PN0P_/D (DFFASRHQNx1_ASAP7_75t_R)
+                                916.81   data arrival time
+
+                  0.00  400.00  400.00   clock clk (rise edge)
+                          0.00  400.00   clock network delay (ideal)
+                          0.00  400.00   clock reconvergence pessimism
+                                400.00 ^ u_accelerator.u_core.u_mac.accumulator[8][10]$_DFFE_PN0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                        -15.18  384.82   library setup time
+                                384.82   data required time
+-----------------------------------------------------------------------------
+                                384.82   data required time
+                               -916.81   data arrival time
+-----------------------------------------------------------------------------
+                               -531.98   slack (VIOLATED)
+
+
+
+==========================================================================
+Post synthesis report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             2.95e-02   7.32e-05   1.08e-06   2.96e-02  86.8%
+Combinational          2.45e-03   2.06e-03   4.37e-06   4.51e-03  13.2%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  3.20e-02   2.13e-03   5.45e-06   3.41e-02 100.0%
+                          93.7%       6.2%       0.0%

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1420" height="660" viewBox="0 0 1420 660">
+  <title>Baseline and proposed accelerator comparison</title>
+  <desc>Publication-style table comparing accuracy, frequency, power, dense-equivalent throughput, energy efficiency, cycles, latency, and area.</desc>
+  <style>
+    text { font-family: Arial, "Noto Sans KR", sans-serif; fill: #111111; font-size: 18px; }
+    .header { font-weight: 700; }
+    .rule-major { stroke: #111111; stroke-width: 2.2; }
+    .rule-minor { stroke: #111111; stroke-width: 1.2; }
+    .rule-row { stroke: #C7C7C7; stroke-width: 0.8; }
+    .label { text-anchor: start; }
+    .center { text-anchor: middle; }
+    .proposed { font-weight: 700; }
+  </style>
+
+  <line class="rule-major" x1="24" y1="24" x2="1396" y2="24"/>
+  <text class="header label" x="42" y="65">Metric</text>
+  <text class="header center" x="770" y="65">Baseline</text>
+  <text class="header center" x="1040" y="65">Proposed</text>
+  <text class="header center" x="1280" y="65">Change</text>
+  <line class="rule-minor" x1="24" y1="88" x2="1396" y2="88"/>
+
+  <text class="label" x="42" y="132">Accuracy</text>
+  <text class="center" x="770" y="132">97.0%</text>
+  <text class="center proposed" x="1040" y="132">97.0%</text>
+  <text class="center" x="1280" y="132">Maintained</text>
+  <line class="rule-row" x1="24" y1="154" x2="1396" y2="154"/>
+
+  <text class="label" x="42" y="198">Operating frequency</text>
+  <text class="center" x="770" y="198">476 MHz</text>
+  <text class="center proposed" x="1040" y="198">1 GHz</text>
+  <text class="center" x="1280" y="198">+110.1%</text>
+  <line class="rule-row" x1="24" y1="220" x2="1396" y2="220"/>
+
+  <text class="label" x="42" y="264">Power</text>
+  <text class="center" x="770" y="264">335 mW</text>
+  <text class="center proposed" x="1040" y="264">16.60 mW</text>
+  <text class="center" x="1280" y="264">−95.0%</text>
+  <line class="rule-row" x1="24" y1="286" x2="1396" y2="286"/>
+
+  <text class="label" x="42" y="330">Dense-equivalent throughput</text>
+  <text class="center" x="770" y="330">0.331 TOPS</text>
+  <text class="center proposed" x="1040" y="330">0.366 TOPS</text>
+  <text class="center" x="1280" y="330">+10.5%</text>
+  <line class="rule-row" x1="24" y1="352" x2="1396" y2="352"/>
+
+  <text class="label" x="42" y="396">Dense-equivalent energy efficiency</text>
+  <text class="center" x="770" y="396">0.989 TOPS/W</text>
+  <text class="center proposed" x="1040" y="396">22.05 TOPS/W</text>
+  <text class="center" x="1280" y="396">22.3×</text>
+  <line class="rule-row" x1="24" y1="418" x2="1396" y2="418"/>
+
+  <text class="label" x="42" y="462">Cycles per image</text>
+  <text class="center" x="770" y="462">1,335</text>
+  <text class="center proposed" x="1040" y="462">1,220</text>
+  <text class="center" x="1280" y="462">−8.6%</text>
+  <line class="rule-row" x1="24" y1="484" x2="1396" y2="484"/>
+
+  <text class="label" x="42" y="528">Inference latency</text>
+  <text class="center" x="770" y="528">2.80 µs</text>
+  <text class="center proposed" x="1040" y="528">1.220 µs</text>
+  <text class="center" x="1280" y="528">−56.4%</text>
+  <line class="rule-row" x1="24" y1="550" x2="1396" y2="550"/>
+
+  <text class="label" x="42" y="594">Cell area</text>
+  <text class="center" x="770" y="594">0.024848 mm²</text>
+  <text class="center proposed" x="1040" y="594">0.007954 mm²</text>
+  <text class="center" x="1280" y="594">−68.0%</text>
+  <line class="rule-major" x1="24" y1="628" x2="1396" y2="628"/>
+</svg>

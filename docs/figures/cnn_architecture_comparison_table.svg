@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="430" viewBox="0 0 1160 430">
+  <title>Baseline and proposed CNN architecture comparison</title>
+  <desc>Publication-style table comparing tensor dimensions of the baseline 5 by 5 CNN and the proposed 3 by 3 CNN.</desc>
+  <style>
+    text { font-family: Arial, "Noto Sans KR", sans-serif; fill: #111111; font-size: 20px; }
+    .header { font-weight: 700; }
+    .rule-major { stroke: #111111; stroke-width: 2.2; }
+    .rule-minor { stroke: #111111; stroke-width: 1.2; }
+    .label { text-anchor: start; }
+    .value { text-anchor: middle; }
+  </style>
+
+  <line class="rule-major" x1="24" y1="24" x2="1136" y2="24"/>
+
+  <text class="header label" x="38" y="62">Layer</text>
+  <text class="header value" x="620" y="62">Baseline (5×5)</text>
+  <text class="header value" x="950" y="62">Proposed (3×3)</text>
+
+  <line class="rule-minor" x1="24" y1="82" x2="1136" y2="82"/>
+
+  <text class="label" x="38" y="120">Input</text>
+  <text class="value" x="620" y="120">1×28×28</text>
+  <text class="value" x="950" y="120">1×28×28</text>
+
+  <text class="label" x="38" y="164">Conv1 output</text>
+  <text class="value" x="620" y="164">3×24×24</text>
+  <text class="value" x="950" y="164">3×26×26</text>
+
+  <text class="label" x="38" y="208">Pool1 output</text>
+  <text class="value" x="620" y="208">3×12×12</text>
+  <text class="value" x="950" y="208">3×13×13</text>
+
+  <text class="label" x="38" y="252">Conv2 output</text>
+  <text class="value" x="620" y="252">3×8×8</text>
+  <text class="value" x="950" y="252">3×11×11</text>
+
+  <text class="label" x="38" y="296">Pool2 output</text>
+  <text class="value" x="620" y="296">3×4×4</text>
+  <text class="value" x="950" y="296">3×5×5</text>
+
+  <text class="label" x="38" y="340">FC input</text>
+  <text class="value" x="620" y="340">48</text>
+  <text class="value" x="950" y="340">75</text>
+
+  <text class="label" x="38" y="384">FC output</text>
+  <text class="value" x="620" y="384">10</text>
+  <text class="value" x="950" y="384">10</text>
+
+  <line class="rule-major" x1="24" y1="408" x2="1136" y2="408"/>
+</svg>

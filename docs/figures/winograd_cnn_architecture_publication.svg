@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 650" font-family="Arial, Helvetica, sans-serif">
+  <title>Winograd CNN accelerator architecture</title>
+  <desc>Publication-style architecture showing the replicable Winograd core, transform-domain compute core, fused output processing, and lifetime-reused local activation storage.</desc>
+  <rect width="1500" height="650" fill="#ffffff"/>
+
+  <defs>
+    <marker id="arrow-dark" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#27313a"/></marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#315b78"/></marker>
+    <pattern id="memory-banks" width="108" height="100" patternUnits="userSpaceOnUse"><rect width="108" height="100" fill="#e4ebf0"/><path d="M107.5,0 V100" stroke="#c1ccd3" stroke-width="1"/></pattern>
+  </defs>
+
+  <!-- External parameter interface is physically outside the accelerator -->
+  <rect x="550" y="10" width="640" height="42" fill="#e2ead9" stroke="#78876a" stroke-width="1.2"/>
+  <text x="870" y="36" text-anchor="middle" font-size="15" font-weight="600" fill="#344232">Model parameters</text>
+
+  <!-- Accelerator boundary -->
+  <rect x="72" y="66" width="1356" height="520" fill="none" stroke="#53606a" stroke-width="1.4"/>
+  <text x="90" y="91" font-size="18" font-weight="600" fill="#27313a">Winograd CNN Accelerator</text>
+  <!-- Explicit top-level interface ports on the accelerator boundary -->
+  <g fill="#ffffff" stroke="#53606a" stroke-width="1.1">
+    <rect x="68" y="296" width="8" height="8"/>
+    <rect x="1424" y="296" width="8" height="8"/>
+    <rect x="686" y="62" width="8" height="8"/>
+    <rect x="1171" y="62" width="8" height="8"/>
+  </g>
+
+  <!-- Internal control plane -->
+  <rect x="110" y="110" width="210" height="50" fill="#e9d7d4" stroke="#9a706b" stroke-width="1.1"/>
+  <text x="215" y="140" text-anchor="middle" font-size="15" font-weight="600" fill="#4c3533">Controller</text>
+
+  <!-- This complete boundary is the unit replicated by the free-topic multicore architecture -->
+  <rect x="92" y="170" width="1188" height="400" fill="#f8fafb" stroke="#71808b" stroke-width="1.6"/>
+  <text x="110" y="211" font-size="17" font-weight="600" fill="#354c5d">Winograd Core</text>
+
+  <!-- Fusion is a bracket, not another competing rectangle -->
+  <path d="M340,194 V180 H1270 V194" fill="none" stroke="#7893a7" stroke-width="1.3"/>
+  <text x="805" y="174" text-anchor="middle" font-size="14" font-weight="600" fill="#4f6d83">Fused convolution pipeline</text>
+
+  <!-- Main row: all functional blocks share y=230 ... 370 -->
+  <rect x="110" y="230" width="210" height="140" fill="#e4ebf0" stroke="#788a97" stroke-width="1.2"/>
+  <text x="215" y="255" text-anchor="middle" font-size="16" font-weight="600" fill="#27313a">Tile Generator</text>
+  <g fill="none" stroke="#90979d" stroke-width="1">
+    <rect x="130" y="276" width="88" height="10"/><rect x="130" y="291" width="88" height="10"/><rect x="130" y="306" width="88" height="10"/>
+    <rect x="248" y="274" width="48" height="48"/>
+    <path d="M260,274 V322 M272,274 V322 M284,274 V322 M248,286 H296 M248,298 H296 M248,310 H296"/>
+  </g>
+  <path d="M223,298 H243" fill="none" stroke="#5b646a" stroke-width="1.2" marker-end="url(#arrow-dark)"/>
+
+  <!-- Enlarged compute region uses the space recovered from the compact Argmax block -->
+  <rect x="340" y="200" width="720" height="200" fill="#eef3f6" stroke="#315b78" stroke-width="1.8"/>
+  <text x="356" y="221" font-size="16" font-weight="600" fill="#294d67">Compute Core</text>
+
+  <!-- Core internals also share the exact y=230 ... 370 bounds -->
+  <rect x="370" y="230" width="160" height="140" fill="#f8fafc" stroke="#708696" stroke-width="1.1"/>
+  <text x="450" y="253" text-anchor="middle" font-size="14" font-weight="600" fill="#27313a">Input transform</text>
+  <g fill="none" stroke="#315b78" stroke-width="1.2">
+    <path d="M398,275 L492,275 M398,293 L492,329 M398,311 L492,311 M398,329 L492,293"/>
+  </g>
+  <g fill="#315b78">
+    <circle cx="398" cy="275" r="3"/><circle cx="398" cy="293" r="3"/><circle cx="398" cy="311" r="3"/><circle cx="398" cy="329" r="3"/>
+    <circle cx="492" cy="275" r="3"/><circle cx="492" cy="293" r="3"/><circle cx="492" cy="311" r="3"/><circle cx="492" cy="329" r="3"/>
+  </g>
+
+  <rect x="560" y="230" width="260" height="140" fill="#c9dbe7" stroke="#315b78" stroke-width="1.4"/>
+  <text x="690" y="252" text-anchor="middle" font-size="14" font-weight="600" fill="#234b70">16-lane MAC</text>
+  <g stroke="#6f91af" stroke-width="0.8">
+    <g fill="#edf4fa">
+      <rect x="606" y="267" width="38" height="18"/><rect x="648" y="267" width="38" height="18"/><rect x="690" y="267" width="38" height="18"/><rect x="732" y="267" width="38" height="18"/>
+      <rect x="606" y="289" width="38" height="18"/><rect x="648" y="289" width="38" height="18"/><rect x="690" y="289" width="38" height="18"/><rect x="732" y="289" width="38" height="18"/>
+      <rect x="606" y="311" width="38" height="18"/><rect x="648" y="311" width="38" height="18"/>
+    </g>
+    <g fill="#f7f9fa" stroke-dasharray="3 2">
+      <rect x="690" y="311" width="38" height="18"/><rect x="732" y="311" width="38" height="18"/>
+      <rect x="606" y="333" width="38" height="18"/><rect x="648" y="333" width="38" height="18"/><rect x="690" y="333" width="38" height="18"/><rect x="732" y="333" width="38" height="18"/>
+    </g>
+  </g>
+
+  <rect x="850" y="230" width="180" height="140" fill="#f8fafc" stroke="#708696" stroke-width="1.1"/>
+  <text x="940" y="253" text-anchor="middle" font-size="14" font-weight="600" fill="#27313a">Output transform</text>
+  <g fill="none" stroke="#315b78" stroke-width="1.2">
+    <path d="M878,275 L1002,275 M878,293 L1002,329 M878,311 L1002,311 M878,329 L1002,293"/>
+  </g>
+  <g fill="#315b78">
+    <circle cx="878" cy="275" r="3"/><circle cx="878" cy="293" r="3"/><circle cx="878" cy="311" r="3"/><circle cx="878" cy="329" r="3"/>
+    <circle cx="1002" cy="275" r="3"/><circle cx="1002" cy="293" r="3"/><circle cx="1002" cy="311" r="3"/><circle cx="1002" cy="329" r="3"/>
+  </g>
+
+  <rect x="1080" y="230" width="190" height="140" fill="#f4e9cb" stroke="#9a8456" stroke-width="1.2"/>
+  <text x="1175" y="253" text-anchor="middle" font-size="14" font-weight="600" fill="#4c4029">Fused Output Unit</text>
+  <g fill="#fbf5e4" stroke="#a99567" stroke-width="0.8">
+    <rect x="1102" y="268" width="146" height="18"/><rect x="1102" y="291" width="146" height="18"/>
+    <rect x="1102" y="314" width="146" height="18"/><rect x="1102" y="337" width="146" height="18"/>
+  </g>
+  <g text-anchor="middle" font-size="11" fill="#354b60">
+    <text x="1175" y="281">Bias</text><text x="1175" y="304">ReLU</text>
+    <text x="1175" y="327">Pool</text><text x="1175" y="350">Requant</text>
+  </g>
+
+  <!-- Compact elastic buffers preserve the original microarchitecture without dominating the top-level view -->
+  <g fill="#d8e2e8" stroke="#788a97" stroke-width="0.8">
+    <rect x="328" y="286" width="10" height="28"/><path d="M328,300 H338"/>
+    <rect x="537" y="286" width="16" height="28"/><path d="M537,300 H553"/>
+    <rect x="827" y="293" width="16" height="14"/>
+  </g>
+
+  <rect x="1290" y="270" width="100" height="70" fill="#f4e9cb" stroke="#9a8456" stroke-width="1.1"/>
+  <text x="1340" y="309" text-anchor="middle" font-size="14" font-weight="600" fill="#4c4029">Argmax-10</text>
+
+  <!-- Main dataflow is one horizontal centerline -->
+  <path d="M18,300 H110" fill="none" stroke="#27313a" stroke-width="1.8" marker-end="url(#arrow-dark)"/>
+  <text x="22" y="288" font-size="12" fill="#27313a">UINT8</text>
+  <g fill="none" stroke="#27313a" stroke-width="1.8">
+    <path d="M320,300 H328"/><path d="M338,300 H370" marker-end="url(#arrow-dark)"/>
+    <path d="M530,300 H537"/><path d="M553,300 H560" marker-end="url(#arrow-dark)"/>
+    <path d="M820,300 H827"/><path d="M843,300 H850" marker-end="url(#arrow-dark)"/>
+    <path d="M1030,300 H1080" marker-end="url(#arrow-dark)"/>
+  </g>
+  <path d="M1390,300 H1480" fill="none" stroke="#27313a" stroke-width="1.8" marker-end="url(#arrow-dark)"/>
+  <text x="1436" y="288" text-anchor="middle" font-size="11" fill="#27313a">class[3:0]</text>
+
+  <!-- Bottom row: one scratchpad spans Tile + Core + Post columns exactly -->
+  <rect x="110" y="450" width="1160" height="100" fill="url(#memory-banks)" stroke="#747d83" stroke-width="1.3"/>
+  <text x="690" y="491" text-anchor="middle" font-size="17" font-weight="600" fill="#27313a">Activation scratchpad</text>
+  <text x="690" y="520" text-anchor="middle" font-size="13" fill="#5b646a">104 × 24-bit FF</text>
+
+  <!-- Only the three architectural reuse paths are retained -->
+  <path d="M215,450 V370" fill="none" stroke="#27313a" stroke-width="1.8" marker-end="url(#arrow-dark)"/>
+  <text x="226" y="423" font-size="12" fill="#27313a">Conv2</text>
+
+  <path d="M690,450 V370" fill="none" stroke="#315b78" stroke-width="1.9" marker-end="url(#arrow-blue)"/>
+  <text x="678" y="423" text-anchor="end" font-size="12" fill="#315b78">FC</text>
+
+  <path d="M780,370 V420 H1340 V340" fill="none" stroke="#315b78" stroke-width="1.9" marker-end="url(#arrow-blue)"/>
+  <text x="1050" y="412" font-size="12" fill="#315b78">logits</text>
+
+  <!-- External parameter signals cross the accelerator boundary explicitly -->
+  <path d="M690,52 V230" fill="none" stroke="#27313a" stroke-width="1.4" marker-end="url(#arrow-dark)"/>
+  <text x="704" y="181" font-size="12" fill="#27313a">INT4</text>
+  <path d="M1175,52 V230" fill="none" stroke="#27313a" stroke-width="1.4" marker-end="url(#arrow-dark)"/>
+  <text x="1187" y="181" font-size="12" fill="#27313a">bias / scale</text>
+
+  <text x="750" y="622" text-anchor="middle" font-size="15" fill="#3e474e">(a) Single-core Winograd CNN accelerator</text>
+</svg>

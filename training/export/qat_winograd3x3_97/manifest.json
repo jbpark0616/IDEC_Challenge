@@ -1,0 +1,126 @@
+{
+  "format_version": 1,
+  "model": "QATWinograd3x3",
+  "source_checkpoint": "training\\runs\\qat_winograd3x3_97.pt",
+  "source_checkpoint_epoch": 5,
+  "source_checkpoint_accuracy_percent": 97.03,
+  "tensor_order": {
+    "activation": "NCHW",
+    "winograd_u": "output_channel,input_channel,row,column",
+    "fc_weight": "output_class,input_feature",
+    "flatten": "channel,row,column"
+  },
+  "widths": {
+    "input_activation_unsigned": 8,
+    "stored_activation_unsigned": 8,
+    "winograd_u_signed": 8,
+    "winograd_v_signed": 11,
+    "compute_signed": 18,
+    "bias_storage_signed": 16
+  },
+  "scales": {
+    "input": 0.003921568859368563,
+    "conv1_u": 0.01930842362344265,
+    "conv1_output_accumulator": 7.5719312805189e-05,
+    "activation1": 0.013739357702434063,
+    "conv2_u": 0.012183857150375843,
+    "conv2_output_accumulator": 0.00016739837158437267,
+    "activation2": 0.024561742320656776,
+    "fc_weight": 0.01072386559098959,
+    "fc_output_accumulator": 0.000263396823327244
+  },
+  "requantization": {
+    "rounding": "add_half_then_arithmetic_right_shift_for_nonnegative_relu_output",
+    "saturation": "unsigned_8bit_0_to_255",
+    "fractional_bits": 24,
+    "conv1_multiplier": 92461,
+    "conv2_multiplier": 114344
+  },
+  "signed_overflow": "saturate",
+  "integer_rounding": "round_to_nearest_ties_to_even",
+  "tensors": {
+    "conv1_u": {
+      "shape": [
+        3,
+        1,
+        4,
+        4
+      ],
+      "order": "row-major",
+      "signed": true,
+      "bits": 8,
+      "decimal_file": "conv1_u_signed.txt",
+      "hex_file": "conv1_u_twos_complement.hex"
+    },
+    "conv1_bias": {
+      "shape": [
+        3
+      ],
+      "order": "row-major",
+      "signed": true,
+      "bits": 16,
+      "decimal_file": "conv1_bias_signed.txt",
+      "hex_file": "conv1_bias_twos_complement.hex"
+    },
+    "conv2_u": {
+      "shape": [
+        3,
+        3,
+        4,
+        4
+      ],
+      "order": "row-major",
+      "signed": true,
+      "bits": 8,
+      "decimal_file": "conv2_u_signed.txt",
+      "hex_file": "conv2_u_twos_complement.hex"
+    },
+    "conv2_bias": {
+      "shape": [
+        3
+      ],
+      "order": "row-major",
+      "signed": true,
+      "bits": 16,
+      "decimal_file": "conv2_bias_signed.txt",
+      "hex_file": "conv2_bias_twos_complement.hex"
+    },
+    "fc_weight": {
+      "shape": [
+        10,
+        75
+      ],
+      "order": "row-major",
+      "signed": true,
+      "bits": 8,
+      "decimal_file": "fc_weight_signed.txt",
+      "hex_file": "fc_weight_twos_complement.hex"
+    },
+    "fc_bias": {
+      "shape": [
+        10
+      ],
+      "order": "row-major",
+      "signed": true,
+      "bits": 16,
+      "decimal_file": "fc_bias_signed.txt",
+      "hex_file": "fc_bias_twos_complement.hex"
+    }
+  },
+  "files_sha256": {
+    "conv1_u_signed.txt": "4d2322a9e662d750135326888d064e4b5b70007bf3b86e60f550699584842fbf",
+    "conv1_u_twos_complement.hex": "59099916e0783b33bcd7bbb6eabeabc910620e7a15615f88a349e087dcefc105",
+    "conv1_bias_signed.txt": "c23b3b08ea541b48ee0a1540a535cfdfa401614209cd742764b8e547a67f96a9",
+    "conv1_bias_twos_complement.hex": "fbb6ea241f6fe8d4f24681c038ffa5924a331aae42cfffaafff3cd7fbd028f35",
+    "conv2_u_signed.txt": "c6b34d935d09ba9a5e60be8d7080be9d3bdbb1828a9422105c232412ece6483a",
+    "conv2_u_twos_complement.hex": "ad3fe7b95d0d2065754fe10602195b8ca2fc3ce16af1865fb47e61bedcb7b316",
+    "conv2_bias_signed.txt": "bba3c10a596e0d52d30410bad095bd7a43abb11aad53c9615925ccad42bea838",
+    "conv2_bias_twos_complement.hex": "b270d61e49f629b283460fb7f7a341d4b4c9eae632190d1adc09c59ebe149f42",
+    "fc_weight_signed.txt": "5be3778da1f5e4f5efd0e67f9192c5b50e54b5e7c2a0d6690abcb0c447639ed7",
+    "fc_weight_twos_complement.hex": "a3b0deb93333c62a062a59662ad5ffec8a46924838609dd6b220a299e970866f",
+    "fc_bias_signed.txt": "fde6ca755695d5da70b7e2fcd98c7cdd09b137c64737b488ffcb068f774744a2",
+    "fc_bias_twos_complement.hex": "c3ef46d9593a2ecf27786aa7a614087d7e89ea2fcbc410d64d42f88fbc46c529",
+    "conv1_g_fp32.txt": "f7448ddf2dcebee1e8e6733f80aa34aa10c90fa2412d06f44664860c75a7daed",
+    "conv2_g_fp32.txt": "88817d93e67e8365f15bb0c9b7c1c615bdaed094ed959c527fe0f4127d233494"
+  }
+}

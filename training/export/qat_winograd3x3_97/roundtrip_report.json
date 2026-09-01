@@ -1,0 +1,8 @@
+{
+  "accuracy_percent": 97.02,
+  "correct": 9702,
+  "total": 10000,
+  "prediction_mismatches_vs_checkpoint": 0,
+  "logit_element_mismatches_vs_checkpoint": 0,
+  "hex_decimal_value_mismatches": 0
+}

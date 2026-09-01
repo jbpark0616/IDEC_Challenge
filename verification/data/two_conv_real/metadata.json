@@ -1,0 +1,25 @@
+{
+  "source_image": "C:\\IDEC_challenge\\data\\0_0.txt",
+  "source_export": "C:\\IDEC_challenge\\training\\export\\qat_winograd3x3_w4_frozen_aug",
+  "image_shape": [
+    1,
+    1,
+    28,
+    28
+  ],
+  "conv1_activation_shape": [
+    1,
+    3,
+    13,
+    13
+  ],
+  "conv2_activation_shape": [
+    1,
+    3,
+    5,
+    5
+  ],
+  "conv1_multiplier": 1616163,
+  "conv2_multiplier": 1827841,
+  "decision": 0
+}

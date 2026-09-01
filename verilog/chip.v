@@ -1,125 +1,83 @@
 `timescale 1ps/1ps
-module chip(
-    input clk,
-    input rst_n,
-    input [7:0] data_in,
-    output [3:0] decision,
-    output valid_out_6,    
-    //data
-input [0:199] w_11,
-input [0:199] w_12,
-input [0:199] w_13,
-input [0:23] b_1,
-input [0:23] b_2,
-input [0:199] w_211,
-input [0:199] w_212,
-input [0:199] w_213,
-input [0:199] w_221,
-input [0:199] w_222,
-input [0:199] w_223,
-input [0:199] w_231,
-input [0:199] w_232,
-input [0:199] w_233,
-input [0:3839] w_fc,
-input [0:79] b_fc
-    
+
+// Competition wrapper for the INT4 F(2x2,3x3) Winograd accelerator.
+//
+// Pixels follow the reference harness contract: one UINT8 raster pixel per
+// cycle, with no input valid/ready pins. Static model tensors are supplied by
+// an external ROM/testbench through conventional descending packed vectors.
+module chip #(
+    parameter integer CONV1_TILE_FIFO_DEPTH = 2,
+    parameter integer V_REPLAY_GROUP_DEPTH = 2,
+    parameter integer M_FIFO_DEPTH = 1
+) (
+
+    // chip interface
+    input  wire          clk,
+    input  wire          rst_n,     // active-low reset
+    input  wire [7:0]    data_in,
+    output wire [3:0]    decision,
+    output wire          valid_out_6,
+
+    // model tensors
+    input  wire [191:0]  conv1_u,
+    input  wire [575:0]  conv2_u,
+    // model biases and requantization multipliers
+    input  wire [47:0]   conv1_bias,
+    input  wire [47:0]   conv2_bias,
+    input  wire [23:0]   conv1_requant_multiplier,
+    input  wire [23:0]   conv2_requant_multiplier,
+    // model fully-connected layer weights and biases
+    input  wire [2999:0] fc_weight,
+    input  wire [159:0]  fc_bias
+);
+
+    wire image_ready;
+    wire feature_valid;
+    wire [7:0] feature_data;
+    wire [6:0] feature_index;
+    wire feature_last;
+    wire controller_busy;
+    reg [9:0] pixel_count;
+
+    // The first pixel is held by the reference testbench while the controller
+    // moves through START_CONV1. Thereafter the tile FIFO keeps image_ready
+    // asserted for the complete 784-cycle raster stream.
+    wire image_valid;
+    assign image_valid = (pixel_count < 10'd784) && image_ready;
+
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n)
+            pixel_count <= 10'd0;
+        else if (image_valid)
+            pixel_count <= pixel_count + 1'b1;
+    end
+
+    winograd_cnn_accelerator #(
+        .CONV1_TILE_FIFO_DEPTH(CONV1_TILE_FIFO_DEPTH),
+        .V_REPLAY_GROUP_DEPTH(V_REPLAY_GROUP_DEPTH),
+        .M_FIFO_DEPTH(M_FIFO_DEPTH)
+    ) u_accelerator (
+        .clk(clk),
+        .rst_n(rst_n),
+        .image_valid(image_valid),
+        .image_ready(image_ready),
+        .image_pixel(data_in),
+        .conv1_u_bank(conv1_u),
+        .conv2_u_bank(conv2_u),
+        .conv1_bias_bank(conv1_bias),
+        .conv2_bias_bank(conv2_bias),
+        .conv1_requant_multiplier(conv1_requant_multiplier),
+        .conv2_requant_multiplier(conv2_requant_multiplier),
+        .fc_weight_bank(fc_weight),
+        .fc_bias_bank(fc_bias),
+        .feature_valid(feature_valid),
+        .feature_ready(1'b1),
+        .feature_data(feature_data),
+        .feature_index(feature_index),
+        .feature_last(feature_last),
+        .decision(decision),
+        .decision_valid(valid_out_6),
+        .busy(controller_busy)
     );
-    wire signed [11:0] conv_out_1, conv_out_2, conv_out_3;
-wire signed [11:0] conv2_out_1, conv2_out_2, conv2_out_3;
-wire signed [11:0] max_value_1, max_value_2, max_value_3;
-wire signed [11:0] max2_value_1, max2_value_2, max2_value_3;
-wire signed [11:0] fc_out_data;
-wire valid_out_1, valid_out_2, valid_out_3, valid_out_4, valid_out_5;
-
-// Module Instantiation
-conv1_layer conv1_layer(
-  .clk(clk),
-  .rst_n(rst_n),
-  .data_in(data_in),
-  .conv_out_1(conv_out_1),
-  .conv_out_2(conv_out_2),
-  .conv_out_3(conv_out_3),
-  .valid_out_conv(valid_out_1),
-  .w_11(w_11),
-  .w_12(w_12),
-  .w_13(w_13),
-  .b_1(b_1)
-);
-
-maxpool_relu #(.CONV_BIT(12), .HALF_WIDTH(12), .HALF_HEIGHT(12), .HALF_WIDTH_BIT(4))
-maxpool_relu_1(
-  .clk(clk),
-  .rst_n(rst_n),
-  .valid_in(valid_out_1),
-  .conv_out_1(conv_out_1),
-  .conv_out_2(conv_out_2),
-  .conv_out_3(conv_out_3),
-  .max_value_1(max_value_1),
-  .max_value_2(max_value_2),
-  .max_value_3(max_value_3),
-  .valid_out_relu(valid_out_2)
-);
-
-conv2_layer conv2_layer(
-  .clk(clk),
-  .rst_n(rst_n),
-  .valid_in(valid_out_2),
-  .max_value_1(max_value_1),
-  .max_value_2(max_value_2),
-  .max_value_3(max_value_3),
-  .conv2_out_1(conv2_out_1),
-  .conv2_out_2(conv2_out_2),
-  .conv2_out_3(conv2_out_3),
-  .valid_out_conv2(valid_out_3),
-  .w_211(w_211),
-  .w_212(w_212),
-  .w_213(w_213),
-  .w_221(w_221),
-  .w_222(w_222),
-  .w_223(w_223),
-  .w_231(w_231),
-  .w_232(w_232),
-  .w_233(w_233),
-  .b_2(b_2)
-);
-
-maxpool_relu #(.CONV_BIT(12), .HALF_WIDTH(4), .HALF_HEIGHT(4), .HALF_WIDTH_BIT(3))
-maxpool_relu_2(
-  .clk(clk),
-  .rst_n(rst_n),
-  .valid_in(valid_out_3),
-  .conv_out_1(conv2_out_1),
-  .conv_out_2(conv2_out_2),
-  .conv_out_3(conv2_out_3),
-  .max_value_1(max2_value_1),
-  .max_value_2(max2_value_2),
-  .max_value_3(max2_value_3),
-  .valid_out_relu(valid_out_4)
-);
-
-fully_connected #(.INPUT_NUM(48), .OUTPUT_NUM(10), .DATA_BITS(8))
-fully_connected(
-  .clk(clk),
-  .rst_n(rst_n),
-  .valid_in(valid_out_4),
-  .data_in_1(max2_value_1),
-  .data_in_2(max2_value_2),
-  .data_in_3(max2_value_3),
-  .data_out(fc_out_data),
-  .valid_out_fc(valid_out_5),
-  .w_fc(w_fc),
-  .b_fc(b_fc)
-);
-
-comparator comparator(
-  .clk(clk),
-  .rst_n(rst_n),
-  .valid_in(valid_out_5),
-  .data_in(fc_out_data),
-  .decision(decision),
-  .valid_out(valid_out_6)
-);
-
 
 endmodule
-

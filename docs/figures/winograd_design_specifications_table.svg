@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="710" viewBox="0 0 1160 710">
+  <title>Winograd accelerator design specifications</title>
+  <desc>Publication-style table listing the model, numerical formats, storage, implementation, and evaluation specifications.</desc>
+  <style>
+    text { font-family: Arial, "Noto Sans KR", sans-serif; fill: #111111; font-size: 19px; }
+    .header { font-weight: 700; }
+    .rule-major { stroke: #111111; stroke-width: 2.2; }
+    .rule-minor { stroke: #111111; stroke-width: 1.2; }
+    .label { text-anchor: start; }
+    .value { text-anchor: start; }
+  </style>
+
+  <line class="rule-major" x1="24" y1="24" x2="1136" y2="24"/>
+
+  <text class="header label" x="38" y="60">Item</text>
+  <text class="header value" x="530" y="60">Specification</text>
+
+  <line class="rule-minor" x1="24" y1="80" x2="1136" y2="80"/>
+
+  <text class="label" x="38" y="116">Target application</text>
+  <text class="value" x="530" y="116">MNIST classification</text>
+
+  <text class="label" x="38" y="158">CNN structure</text>
+  <text class="value" x="530" y="158">Conv–Pool–Conv–Pool–FC</text>
+
+  <text class="label" x="38" y="200">Convolution</text>
+  <text class="value" x="530" y="200">Winograd F(2×2, 3×3)</text>
+
+  <text class="label" x="38" y="242">Input / output tile</text>
+  <text class="value" x="530" y="242">4×4 / 2×2</text>
+
+  <text class="label" x="38" y="284">MAC parallelism</text>
+  <text class="value" x="530" y="284">16 lanes</text>
+
+  <text class="label" x="38" y="326">External / stored activation</text>
+  <text class="value" x="530" y="326">UINT8</text>
+
+  <text class="label" x="38" y="368">Winograd weight U</text>
+  <text class="value" x="530" y="368">INT4</text>
+
+  <text class="label" x="38" y="410">Transform-domain activation V</text>
+  <text class="value" x="530" y="410">INT11</text>
+
+  <text class="label" x="38" y="452">Compute / accumulation</text>
+  <text class="value" x="530" y="452">INT18</text>
+
+  <text class="label" x="38" y="494">Bias storage</text>
+  <text class="value" x="530" y="494">INT16</text>
+
+  <text class="label" x="38" y="536">FC weight</text>
+  <text class="value" x="530" y="536">INT4</text>
+
+  <text class="label" x="38" y="578">Activation scratchpad</text>
+  <text class="value" x="530" y="578">104×24-bit FF array</text>
+
+  <text class="label" x="38" y="620">Target accuracy</text>
+  <text class="value" x="530" y="620">≥97% on the 1,000-image competition set</text>
+
+  <text class="label" x="38" y="662">Implementation / evaluation</text>
+  <text class="value" x="530" y="662">Synthesizable Verilog / accuracy, cycle, area, Fmax, power</text>
+
+  <line class="rule-major" x1="24" y1="686" x2="1136" y2="686"/>
+</svg>

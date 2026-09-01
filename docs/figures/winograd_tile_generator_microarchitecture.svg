@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1280" viewBox="0 0 1900 1280">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,3 L0,6 Z" fill="#111111"/></marker>
+    <marker id="ctrl-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,3 L0,6 Z" fill="#777777"/></marker>
+  </defs>
+
+  <text x="90" y="65" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#595959">Row Alignment</text>
+  <text x="20" y="700" font-family="Arial, sans-serif" font-size="27" fill="#111111">pixel_vector</text>
+  <path d="M20 717 H205" stroke="#111111" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+  <circle cx="210" cy="717" r="4" fill="#111111"/>
+  <path d="M210 717 H600" stroke="#111111" stroke-width="2.3" fill="none" marker-end="url(#arrow)"/>
+
+  <g fill="#F0F1F2" stroke="#111111" stroke-width="2">
+    <rect x="125" y="275" width="170" height="92"/><rect x="125" y="435" width="170" height="92"/><rect x="125" y="595" width="170" height="92"/>
+  </g>
+  <g font-family="Arial, sans-serif" text-anchor="middle" fill="#111111">
+    <text x="210" y="329" font-size="22" font-weight="700">Line Delay (W)</text>
+    <text x="210" y="489" font-size="22" font-weight="700">Line Delay (W)</text>
+    <text x="210" y="649" font-size="22" font-weight="700">Line Delay (W)</text>
+  </g>
+  <path d="M210 717 V687 M210 595 V527 M210 435 V367 M210 275 V215" stroke="#111111" stroke-width="2.3" fill="none"/>
+  <circle cx="210" cy="215" r="4" fill="#111111"/><circle cx="210" cy="397" r="4" fill="#111111"/><circle cx="210" cy="557" r="4" fill="#111111"/>
+  <path d="M210 215 H600 M210 397 H600 M210 557 H600" stroke="#111111" stroke-width="2.3" fill="none" marker-end="url(#arrow)"/>
+  <g font-family="Arial, sans-serif" font-size="23" fill="#595959">
+    <text x="300" y="202">row 0</text><text x="300" y="384">row 1</text><text x="300" y="544">row 2</text><text x="300" y="704">row 3</text>
+  </g>
+
+  <text x="600" y="65" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#595959">Horizontal History</text>
+  <g fill="#F0F1F2" stroke="#111111" stroke-width="2">
+    <rect x="625" y="180" width="64" height="64"/><rect x="715" y="180" width="64" height="64"/><rect x="805" y="180" width="64" height="64"/>
+    <rect x="625" y="362" width="64" height="64"/><rect x="715" y="362" width="64" height="64"/><rect x="805" y="362" width="64" height="64"/>
+    <rect x="625" y="522" width="64" height="64"/><rect x="715" y="522" width="64" height="64"/><rect x="805" y="522" width="64" height="64"/>
+    <rect x="625" y="682" width="64" height="64"/><rect x="715" y="682" width="64" height="64"/><rect x="805" y="682" width="64" height="64"/>
+  </g>
+  <g stroke="#111111" stroke-width="2" fill="none">
+    <path d="M625 203 l11 9 -11 9"/><path d="M715 203 l11 9 -11 9"/><path d="M805 203 l11 9 -11 9"/>
+    <path d="M625 385 l11 9 -11 9"/><path d="M715 385 l11 9 -11 9"/><path d="M805 385 l11 9 -11 9"/>
+    <path d="M625 545 l11 9 -11 9"/><path d="M715 545 l11 9 -11 9"/><path d="M805 545 l11 9 -11 9"/>
+    <path d="M625 705 l11 9 -11 9"/><path d="M715 705 l11 9 -11 9"/><path d="M805 705 l11 9 -11 9"/>
+  </g>
+  <g stroke="#111111" stroke-width="2.2" fill="none" marker-end="url(#arrow)">
+    <path d="M600 215 H625 M689 212 H715 M779 212 H805"/><path d="M600 397 H625 M689 394 H715 M779 394 H805"/>
+    <path d="M600 557 H625 M689 554 H715 M779 554 H805"/><path d="M600 717 H625 M689 714 H715 M779 714 H805"/>
+  </g>
+
+  <g stroke="#111111" stroke-width="2" fill="none">
+    <path d="M689 212 V270 M779 212 V270 M869 212 V270 M600 215 V270"/>
+    <path d="M689 394 V452 M779 394 V452 M869 394 V452 M600 397 V452"/>
+    <path d="M689 554 V612 M779 554 V612 M869 554 V612 M600 557 V612"/>
+    <path d="M689 714 V772 M779 714 V772 M869 714 V772 M600 717 V772"/>
+    <path d="M600 270 H930 M600 452 H930 M600 612 H930 M600 772 H930"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="21" fill="#595959">
+    <text x="795" y="292">4 spatial values</text><text x="795" y="474">4 spatial values</text>
+    <text x="795" y="634">4 spatial values</text><text x="795" y="794">4 spatial values</text>
+  </g>
+
+  <text x="1120" y="65" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#595959">Window Register</text>
+
+  <!-- Each horizontal row is routed into one row of the compact 4 × 4 tile. -->
+  <g stroke="#111111" stroke-width="2.3" fill="none" marker-end="url(#arrow)">
+    <path d="M930 270 H980 V336 H1108"/>
+    <path d="M930 452 H1005 V408 H1108"/>
+    <path d="M930 612 H1030 V480 H1108"/>
+    <path d="M930 772 H1055 V552 H1108"/>
+  </g>
+
+  <!-- Two offset planes indicate that every spatial FF stores all channels. -->
+  <g fill="#DCE8F2" stroke="#526A7A" stroke-width="1.6" opacity="0.78">
+    <rect x="1140" y="280" width="288" height="288"/>
+    <path d="M1212 280 V568 M1284 280 V568 M1356 280 V568 M1140 352 H1428 M1140 424 H1428 M1140 496 H1428"/>
+    <rect x="1130" y="290" width="288" height="288"/>
+    <path d="M1202 290 V578 M1274 290 V578 M1346 290 V578 M1130 362 H1418 M1130 434 H1418 M1130 506 H1418"/>
+  </g>
+  <g fill="#A6CAEC" stroke="#526A7A" stroke-width="2">
+    <rect x="1120" y="300" width="72" height="72"/><rect x="1192" y="300" width="72" height="72"/><rect x="1264" y="300" width="72" height="72"/><rect x="1336" y="300" width="72" height="72"/>
+    <rect x="1120" y="372" width="72" height="72"/><rect x="1192" y="372" width="72" height="72"/><rect x="1264" y="372" width="72" height="72"/><rect x="1336" y="372" width="72" height="72"/>
+    <rect x="1120" y="444" width="72" height="72"/><rect x="1192" y="444" width="72" height="72"/><rect x="1264" y="444" width="72" height="72"/><rect x="1336" y="444" width="72" height="72"/>
+    <rect x="1120" y="516" width="72" height="72"/><rect x="1192" y="516" width="72" height="72"/><rect x="1264" y="516" width="72" height="72"/><rect x="1336" y="516" width="72" height="72"/>
+  </g>
+  <g stroke="#526A7A" stroke-width="2" fill="none">
+    <path d="M1120 327 l11 9 -11 9"/><path d="M1120 399 l11 9 -11 9"/>
+    <path d="M1120 471 l11 9 -11 9"/><path d="M1120 543 l11 9 -11 9"/>
+  </g>
+
+  <!-- The whole tile is a packed bus; sixteen parallel MUXes select one channel. -->
+  <path d="M1428 444 H1510" stroke="#111111" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <path d="M1450 431 l11 26 M1465 431 l11 26" stroke="#111111" stroke-width="2" fill="none"/>
+  <text x="1435" y="418" font-family="Arial, sans-serif" font-size="21" text-anchor="end" fill="#595959">16 × CHANNELS</text>
+  <path d="M1520 338 L1650 378 V510 L1520 550 Z" fill="#FFFFFF" stroke="#111111" stroke-width="2.5"/>
+  <text x="1585" y="458" font-family="Arial, sans-serif" font-size="32" text-anchor="middle" font-weight="700" fill="#111111">MUX</text>
+  <path d="M1650 444 H1840" stroke="#111111" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <text x="1680" y="418" font-family="Arial, sans-serif" font-size="25" fill="#111111">activation_tile</text>
+  <path d="M1585 620 V550" stroke="#777777" stroke-width="1.6" stroke-dasharray="7 6" fill="none" marker-end="url(#ctrl-arrow)"/>
+  <text x="1585" y="655" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#595959">channel_sel</text>
+
+  <path d="M1274 675 V588" stroke="#777777" stroke-width="1.6" stroke-dasharray="7 6" fill="none" marker-end="url(#ctrl-arrow)"/>
+  <text x="1295" y="655" font-family="Arial, sans-serif" font-size="22" fill="#595959">tile_capture</text>
+
+  <text x="690" y="930" font-family="Arial, sans-serif" font-size="34" fill="#111111">(a) Sliding-window generation datapath</text>
+  <line x1="70" y1="960" x2="1830" y2="960" stroke="#B8B8B8" stroke-width="1.5"/>
+
+  <text x="95" y="1030" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#595959">window load</text>
+  <text x="95" y="1100" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#595959">channel replay</text>
+  <g stroke="#C6C6C6" stroke-width="1">
+    <line x1="410" y1="985" x2="410" y2="1165"/><line x1="585" y1="985" x2="585" y2="1165"/><line x1="760" y1="985" x2="760" y2="1165"/>
+    <line x1="935" y1="985" x2="935" y2="1165"/><line x1="1110" y1="985" x2="1110" y2="1165"/><line x1="1285" y1="985" x2="1285" y2="1165"/>
+    <line x1="1460" y1="985" x2="1460" y2="1165"/><line x1="1635" y1="985" x2="1635" y2="1165"/><line x1="1810" y1="985" x2="1810" y2="1165"/>
+    <line x1="410" y1="1050" x2="1810" y2="1050"/><line x1="410" y1="1120" x2="1810" y2="1120"/>
+  </g>
+  <g stroke="#526A7A" stroke-width="2">
+    <rect x="410" y="995" width="175" height="55" fill="#A6CAEC"/><rect x="1110" y="995" width="175" height="55" fill="#A6CAEC"/>
+    <rect x="585" y="1065" width="175" height="55" fill="#F0F1F2"/><rect x="760" y="1065" width="175" height="55" fill="#F0F1F2"/><rect x="935" y="1065" width="175" height="55" fill="#F0F1F2"/>
+    <rect x="1285" y="1065" width="175" height="55" fill="#F0F1F2"/><rect x="1460" y="1065" width="175" height="55" fill="#F0F1F2"/><rect x="1635" y="1065" width="175" height="55" fill="#F0F1F2"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#111111">
+    <text x="497" y="1031">Tile 0</text><text x="1197" y="1031">Tile 1</text>
+    <text x="672" y="1101">ch0</text><text x="847" y="1101">ch1</text><text x="1022" y="1101">ch2</text>
+    <text x="1372" y="1101">ch0</text><text x="1547" y="1101">ch1</text><text x="1722" y="1101">ch2</text>
+  </g>
+  <path d="M410 1165 H1810" stroke="#111111" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+  <g font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#595959">
+    <text x="410" y="1205">n</text><text x="585" y="1205">n+1</text><text x="760" y="1205">n+2</text><text x="935" y="1205">n+3</text>
+    <text x="1110" y="1205">n+4</text><text x="1285" y="1205">n+5</text><text x="1460" y="1205">n+6</text><text x="1635" y="1205">n+7</text>
+  </g>
+  <text x="1810" y="1150" font-family="Arial, sans-serif" font-size="22" text-anchor="end" fill="#111111">time</text>
+  <text x="720" y="1260" font-family="Arial, sans-serif" font-size="34" fill="#111111">(b) Three-channel replay schedule</text>
+</svg>

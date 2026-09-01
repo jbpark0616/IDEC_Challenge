@@ -1,0 +1,5 @@
+depth,storage_bits,max_occupancy,input_backpressure_cycles_per_image,accuracy_percent,status
+1,128,1,36,9,FAIL
+2,256,2,0,97,PASS_SELECTED
+4,512,2,0,97,PASS
+8,1024,2,0,97,PASS

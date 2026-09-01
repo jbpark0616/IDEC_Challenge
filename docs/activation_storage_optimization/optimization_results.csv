@@ -1,0 +1,5 @@
+stage,frame_entries,separate_feature_bits,total_interlayer_storage_bits,rtl_mismatches,accuracy_percent,input_backpressure_cycles,post_input_cycles,flip_flop_count,total_area_um2,sequential_area_um2,fmax_mhz,vectorless_power_mw
+baseline_169,169,600,4656,0,97.0,0,484,10453,9366.148260,3176.690400,1092.26,42.8
+crop_144,144,600,4056,0,97.0,0,473,9782,8872.936020,2981.639160,1061.18,40.3
+prefill_104,104,600,3096,0,97.0,0,433,8835,8233.223940,2706.106320,1062.60,36.5
+reuse_104,104,0,2496,0,97.0,0,433,8255,7880.810760,2538.727920,1072.98,34.1

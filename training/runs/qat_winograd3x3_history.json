@@ -1,0 +1,27 @@
+[
+  {
+    "epoch": 1,
+    "test_loss": 0.12848776725232602,
+    "accuracy": 0.9597
+  },
+  {
+    "epoch": 2,
+    "test_loss": 0.1257474543750286,
+    "accuracy": 0.9605
+  },
+  {
+    "epoch": 3,
+    "test_loss": 0.1296073422163725,
+    "accuracy": 0.9607
+  },
+  {
+    "epoch": 4,
+    "test_loss": 0.12977542085796595,
+    "accuracy": 0.96
+  },
+  {
+    "epoch": 5,
+    "test_loss": 0.13063098406344653,
+    "accuracy": 0.9586
+  }
+]

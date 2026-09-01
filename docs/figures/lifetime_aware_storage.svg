@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 350" font-family="Arial, Helvetica, sans-serif">
+<rect x="0" y="0" width="760" height="350" fill="#ffffff"/>
+<defs>
+<marker id="k" markerWidth="9" markerHeight="9" refX="7.2" refY="3.1" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7.2,3.1 L0,6.2 Z" fill="#1a1a1a"/></marker>
+<marker id="b" markerWidth="9" markerHeight="9" refX="7.2" refY="3.1" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7.2,3.1 L0,6.2 Z" fill="#2f5f88"/></marker>
+</defs>
+<line x1="32" y1="72" x2="32" y2="296" stroke="#8a8a8a" stroke-width="1" marker-end="url(#k)"/>
+<text x="22" y="184" text-anchor="middle" font-size="8.5" fill="#8a8a8a" transform="rotate(-90 22 184)">time</text>
+<text x="102" y="93" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a1a">Conv1</text>
+<text x="102" y="189" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a1a">Conv2</text>
+<text x="102" y="281" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a1a">FC</text>
+<text x="150" y="54" font-size="8.5" fill="#333">to sliding-window generator (40-vector prefill)</text>
+<line x1="150" y1="62" x2="120" y2="62" stroke="#1a1a1a" stroke-width="1" marker-end="url(#k)"/>
+<rect x="150" y="70" width="540" height="38" fill="#eef1f4" stroke="none"/>
+<g stroke="#c2c8ce" stroke-width="0.45">
+<line x1="175.96" y1="70" x2="175.96" y2="108"/>
+<line x1="201.92" y1="70" x2="201.92" y2="108"/>
+<line x1="227.88" y1="70" x2="227.88" y2="108"/>
+<line x1="253.85" y1="70" x2="253.85" y2="108"/>
+<line x1="305.77" y1="70" x2="305.77" y2="108"/>
+<line x1="331.73" y1="70" x2="331.73" y2="108"/>
+<line x1="357.69" y1="70" x2="357.69" y2="108"/>
+<line x1="383.65" y1="70" x2="383.65" y2="108"/>
+<line x1="409.62" y1="70" x2="409.62" y2="108"/>
+<line x1="435.58" y1="70" x2="435.58" y2="108"/>
+<line x1="461.54" y1="70" x2="461.54" y2="108"/>
+<line x1="487.50" y1="70" x2="487.50" y2="108"/>
+<line x1="513.46" y1="70" x2="513.46" y2="108"/>
+<line x1="539.42" y1="70" x2="539.42" y2="108"/>
+<line x1="565.38" y1="70" x2="565.38" y2="108"/>
+<line x1="591.35" y1="70" x2="591.35" y2="108"/>
+<line x1="617.31" y1="70" x2="617.31" y2="108"/>
+<line x1="643.27" y1="70" x2="643.27" y2="108"/>
+<line x1="669.23" y1="70" x2="669.23" y2="108"/>
+</g>
+<rect x="150" y="70" width="540" height="38" fill="none" stroke="#555" stroke-width="1"/>
+<text x="420" y="93" text-anchor="middle" font-size="9" fill="#1a1a1a">Stored Conv1 features (104 × 24-bit)</text>
+<text x="150" y="140" font-size="8.5" fill="#1a1a1a">read: addr 0 → 103</text>
+<line x1="150" y1="147" x2="686" y2="147" stroke="#1a1a1a" stroke-width="1" marker-end="url(#k)"/>
+<line x1="150" y1="159" x2="276" y2="159" stroke="#2f5f88" stroke-width="1.1" marker-end="url(#b)"/>
+<text x="288" y="162" font-size="8.5" fill="#2f5f88">overwrite: addr 0 → 24</text>
+<rect x="150" y="166" width="130" height="38" fill="#d6e3f2" stroke="none"/>
+<rect x="280" y="166" width="410" height="38" fill="#f0f1f3" stroke="none"/>
+<g stroke="#c2c8ce" stroke-width="0.45">
+<line x1="175.96" y1="166" x2="175.96" y2="204"/>
+<line x1="201.92" y1="166" x2="201.92" y2="204"/>
+<line x1="227.88" y1="166" x2="227.88" y2="204"/>
+<line x1="253.85" y1="166" x2="253.85" y2="204"/>
+<line x1="305.77" y1="166" x2="305.77" y2="204"/>
+<line x1="331.73" y1="166" x2="331.73" y2="204"/>
+<line x1="357.69" y1="166" x2="357.69" y2="204"/>
+<line x1="383.65" y1="166" x2="383.65" y2="204"/>
+<line x1="409.62" y1="166" x2="409.62" y2="204"/>
+<line x1="435.58" y1="166" x2="435.58" y2="204"/>
+<line x1="461.54" y1="166" x2="461.54" y2="204"/>
+<line x1="487.50" y1="166" x2="487.50" y2="204"/>
+<line x1="513.46" y1="166" x2="513.46" y2="204"/>
+<line x1="539.42" y1="166" x2="539.42" y2="204"/>
+<line x1="565.38" y1="166" x2="565.38" y2="204"/>
+<line x1="591.35" y1="166" x2="591.35" y2="204"/>
+<line x1="617.31" y1="166" x2="617.31" y2="204"/>
+<line x1="643.27" y1="166" x2="643.27" y2="204"/>
+<line x1="669.23" y1="166" x2="669.23" y2="204"/>
+</g>
+<line x1="280" y1="166" x2="280" y2="204" stroke="#777" stroke-width="0.8"/>
+<rect x="150" y="166" width="540" height="38" fill="none" stroke="#555" stroke-width="1"/>
+<text x="215" y="189" text-anchor="middle" font-size="8.5" fill="#1a3350">Conv2 features (25 × 24-bit)</text>
+<text x="485" y="189" text-anchor="middle" font-size="9" fill="#666">consumed / free</text>
+<text x="150" y="234" font-size="8.5" fill="#1a1a1a">FC read: 3 channel passes</text>
+<line x1="150" y1="247" x2="276" y2="247" stroke="#1a1a1a" stroke-width="1" marker-end="url(#k)"/>
+<rect x="150" y="258" width="130" height="38" fill="#d6e3f2" stroke="none"/>
+<rect x="280" y="258" width="410" height="38" fill="#f7f8f9" stroke="none"/>
+<g stroke="#c2c8ce" stroke-width="0.45">
+<line x1="175.96" y1="258" x2="175.96" y2="296"/>
+<line x1="201.92" y1="258" x2="201.92" y2="296"/>
+<line x1="227.88" y1="258" x2="227.88" y2="296"/>
+<line x1="253.85" y1="258" x2="253.85" y2="296"/>
+<line x1="305.77" y1="258" x2="305.77" y2="296"/>
+<line x1="331.73" y1="258" x2="331.73" y2="296"/>
+<line x1="357.69" y1="258" x2="357.69" y2="296"/>
+<line x1="383.65" y1="258" x2="383.65" y2="296"/>
+<line x1="409.62" y1="258" x2="409.62" y2="296"/>
+<line x1="435.58" y1="258" x2="435.58" y2="296"/>
+<line x1="461.54" y1="258" x2="461.54" y2="296"/>
+<line x1="487.50" y1="258" x2="487.50" y2="296"/>
+<line x1="513.46" y1="258" x2="513.46" y2="296"/>
+<line x1="539.42" y1="258" x2="539.42" y2="296"/>
+<line x1="565.38" y1="258" x2="565.38" y2="296"/>
+<line x1="591.35" y1="258" x2="591.35" y2="296"/>
+<line x1="617.31" y1="258" x2="617.31" y2="296"/>
+<line x1="643.27" y1="258" x2="643.27" y2="296"/>
+<line x1="669.23" y1="258" x2="669.23" y2="296"/>
+</g>
+<line x1="280" y1="258" x2="280" y2="296" stroke="#777" stroke-width="0.8"/>
+<rect x="150" y="258" width="540" height="38" fill="none" stroke="#555" stroke-width="1"/>
+<text x="215" y="281" text-anchor="middle" font-size="8.5" fill="#1a3350">FC input (25 × 24-bit)</text>
+<text x="485" y="281" text-anchor="middle" font-size="9" fill="#999">free</text>
+<path d="M696,70 L703,70 L703,296 L696,296" fill="none" stroke="#555" stroke-width="1"/>
+<text x="717" y="183" text-anchor="middle" font-size="9.5" fill="#1a1a1a" transform="rotate(-90 717 183)">Same physical 104 × 24-bit FF scratchpad</text>
+<g stroke="#888" stroke-width="1"><line x1="150" y1="298" x2="150" y2="307"/><line x1="280" y1="298" x2="280" y2="307"/><line x1="690" y1="298" x2="690" y2="307"/></g>
+<text x="150" y="318" text-anchor="middle" font-size="8" fill="#666">0</text>
+<text x="276" y="318" text-anchor="end" font-size="8" fill="#666">24</text>
+<text x="284" y="318" text-anchor="start" font-size="8" fill="#666">25</text>
+<text x="690" y="318" text-anchor="middle" font-size="8" fill="#666">103</text>
+<text x="420" y="340" text-anchor="middle" font-size="11" fill="#1a1a1a">(b) Lifetime-aware activation storage</text>
+</svg>

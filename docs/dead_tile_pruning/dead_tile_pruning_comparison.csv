@@ -1,0 +1,3 @@
+configuration,generated_tiles,executed_tiles,rtl_mismatches,accuracy_percent,input_backpressure_cycles,v_replay_backpressure_cycles_per_image,post_input_cycles,total_cycles,flip_flops,cell_area_um2,sequential_area_um2,fmax_mhz,vectorless_power_mw
+before_pruning,169,169,0,97.0,0,286,433,1220,8255,7880.810760,2538.727920,1072.98,34.1
+dead_tile_pruning,169,144,0,97.0,0,245,408,1195,8259,7938.489240,2540.244240,1045.66,34.0

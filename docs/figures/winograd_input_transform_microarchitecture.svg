@@ -1,0 +1,201 @@
+﻿<svg width="3284" height="2374" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" overflow="hidden">
+  <g transform="translate(-449 -54)">
+    <path d="M1524.5 894.5 2267.5 894.5" stroke="#111111" stroke-width="3.33825" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M1524.5 718.5 2267.5 718.5" stroke="#111111" stroke-width="3.33825" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M1524.5 541.5 2267.5 541.5" stroke="#111111" stroke-width="3.33825" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M1524.5 364.5 2272.5 364.5" stroke="#111111" stroke-width="3.33825" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M2336.5 1311.5 2336.5 415.5" stroke="#111111" stroke-width="3.33825" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M2188.5 1311.5 2188.5 415.5" stroke="#111111" stroke-width="3.33825" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M2041.5 1311.5 2041.5 415.5" stroke="#111111" stroke-width="3.33825" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M1894.5 1311.5 1894.5 415.5" stroke="#111111" stroke-width="3.33825" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <text fill="#595959" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 809.433 196)">Column </text>
+    <text fill="#595959" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 1015.68 196)">Transform</text>
+    <text fill="#595959" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 1284.95 196)">Array</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="52" transform="matrix(1 0 0 1 809.433 399)">d</text>
+    <text fill="#111111" font-family="Cambria Math,Cambria Math_MSFontService,sans-serif" font-weight="400" font-size="45" transform="matrix(1 0 0 1 838.079 399)">₀</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="52" transform="matrix(1 0 0 1 809.433 576)">d</text>
+    <text fill="#111111" font-family="Cambria Math,Cambria Math_MSFontService,sans-serif" font-weight="400" font-size="45" transform="matrix(1 0 0 1 838.079 576)">₁</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="52" transform="matrix(1 0 0 1 809.433 753)">d</text>
+    <text fill="#111111" font-family="Cambria Math,Cambria Math_MSFontService,sans-serif" font-weight="400" font-size="45" transform="matrix(1 0 0 1 838.079 753)">₂</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="52" transform="matrix(1 0 0 1 809.433 930)">d</text>
+    <text fill="#111111" font-family="Cambria Math,Cambria Math_MSFontService,sans-serif" font-weight="400" font-size="45" transform="matrix(1 0 0 1 838.079 930)">₃</text>
+    <path d="M872.5 364.5 1002.5 364.5M872.5 541.167 1002.5 541.167M872.5 717.833 1002.5 717.833M872.5 894.5 1002.5 894.5" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M996 364C996 360.686 998.686 358 1002 358 1005.31 358 1008 360.686 1008 364 1008 367.314 1005.31 370 1002 370 998.686 370 996 367.314 996 364Z" fill="#111111" fill-rule="evenodd" />
+    <path d="M996 541C996 537.686 998.686 535 1002 535 1005.31 535 1008 537.686 1008 541 1008 544.314 1005.31 547 1002 547 998.686 547 996 544.314 996 541Z" fill="#111111" fill-rule="evenodd" />
+    <path d="M996 718C996 714.686 998.686 712 1002 712 1005.31 712 1008 714.686 1008 718 1008 721.314 1005.31 724 1002 724 998.686 724 996 721.314 996 718Z" fill="#111111" fill-rule="evenodd" />
+    <path d="M996 894.5C996 891.462 998.686 889 1002 889 1005.31 889 1008 891.462 1008 894.5 1008 897.537 1005.31 900 1002 900 998.686 900 996 897.537 996 894.5Z" fill="#111111" fill-rule="evenodd" />
+    <path d="M1002.5 364.245 1355.77 364.245 1355.77 348.5 1422.5 348.5M1002.5 718.5 1100.63 718.5 1100.63 379.99 1422.5 379.99" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M1002.5 541.255 1355.77 541.255 1355.77 525.5 1422.5 525.5M1002.5 718.5 1175.21 718.5 1175.21 557.01 1422.5 557.01" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M1002.5 717.827 1355.77 717.827 1355.77 702.153 1422.5 702.153M1002.5 541.5 1245.86 541.5 1245.86 733.5 1422.5 733.5" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M1002.5 541.5 1316.52 541.5 1316.52 879.096 1422.5 879.096M1002.5 894.798 1355.77 894.798 1355.77 910.5 1422.5 910.5" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M1422.5 364.5C1422.5 336.333 1445.33 313.5 1473.5 313.5 1501.67 313.5 1524.5 336.333 1524.5 364.5 1524.5 392.667 1501.67 415.5 1473.5 415.5 1445.33 415.5 1422.5 392.667 1422.5 364.5Z" stroke="#111111" stroke-width="2.9456" stroke-miterlimit="8" fill="#FFFFFF" fill-rule="evenodd" />
+    <path d="M1422.5 541.5C1422.5 513.334 1445.33 490.5 1473.5 490.5 1501.67 490.5 1524.5 513.334 1524.5 541.5 1524.5 569.667 1501.67 592.5 1473.5 592.5 1445.33 592.5 1422.5 569.667 1422.5 541.5Z" stroke="#111111" stroke-width="2.9456" stroke-miterlimit="8" fill="#FFFFFF" fill-rule="evenodd" />
+    <path d="M1422.5 718.5C1422.5 690.334 1445.33 667.5 1473.5 667.5 1501.67 667.5 1524.5 690.334 1524.5 718.5 1524.5 746.667 1501.67 769.5 1473.5 769.5 1445.33 769.5 1422.5 746.667 1422.5 718.5Z" stroke="#111111" stroke-width="2.9456" stroke-miterlimit="8" fill="#FFFFFF" fill-rule="evenodd" />
+    <path d="M1422.5 895C1422.5 866.557 1445.33 843.5 1473.5 843.5 1501.67 843.5 1524.5 866.557 1524.5 895 1524.5 923.443 1501.67 946.5 1473.5 946.5 1445.33 946.5 1422.5 923.443 1422.5 895Z" stroke="#111111" stroke-width="2.9456" stroke-miterlimit="8" fill="#FFFFFF" fill-rule="evenodd" />
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 1459.69 379)">−</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 1459.69 562)">+</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 1459.69 735)">−</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 1460.11 913)">−</text>
+    <text fill="#595959" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 1740.03 136)">Input </text>
+    <text fill="#595959" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 1880.4 136)">Transform </text>
+    <text fill="#595959" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 2149.67 136)">Register </text>
+    <text fill="#595959" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="64" transform="matrix(1 0 0 1 2353.05 136)">Bank</text>
+    <text fill="#595959" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="45" transform="matrix(1 0 0 1 1740.03 240)">4 </text>
+    <text fill="#595959" font-family="Malgun Gothic,Malgun Gothic_MSFontService,sans-serif" font-weight="400" font-size="45" transform="matrix(1 0 0 1 1777.27 240)">×</text>
+    <text fill="#595959" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="45" transform="matrix(1 0 0 1 1821.39 240)">4 spatial positions · TEMP/V layers</text>
+    <rect x="1845.5" y="319.5" width="98" height="94.0002" stroke="#526A7A" stroke-width="2.65112" stroke-miterlimit="8" fill="#A6CAEC" />
+    <path d="M1845.7 358.566 1858.7 366.566 1845.7 374.566" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="1827.5" y="301.5" width="98" height="94.9999" stroke="#111111" stroke-width="2.65112" stroke-miterlimit="8" fill="#F0F1F2" />
+    <path d="M1827.72 341.562 1841.72 349.062 1827.72 356.562" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="1992.5" y="319.5" width="97.9999" height="94.0002" stroke="#526A7A" stroke-width="2.65112" stroke-miterlimit="8" fill="#A6CAEC" />
+    <path d="M1992.74 358.566 2006.74 366.566 1992.74 374.566" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="1974.5" y="301.5" width="98" height="94.9999" stroke="#111111" stroke-width="2.65112" stroke-miterlimit="8" fill="#F0F1F2" />
+    <path d="M1974.74 341.562 1988.74 349.062 1974.74 356.562" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="2139.5" y="319.5" width="98" height="94.0002" stroke="#526A7A" stroke-width="2.65112" stroke-miterlimit="8" fill="#A6CAEC" />
+    <path d="M2139.77 358.566 2153.77 366.566 2139.77 374.566" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="2122.5" y="301.5" width="98" height="94.9999" stroke="#111111" stroke-width="2.65112" stroke-miterlimit="8" fill="#F0F1F2" />
+    <path d="M2122.75 341.562 2135.75 349.062 2122.75 356.562" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="2287.5" y="319.5" width="98" height="94.0002" stroke="#526A7A" stroke-width="2.65112" stroke-miterlimit="8" fill="#A6CAEC" />
+    <path d="M2287.78 358.566 2300.78 366.566 2287.78 374.566" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="2269.5" y="301.5" width="98" height="94.9999" stroke="#111111" stroke-width="2.65112" stroke-miterlimit="8" fill="#F0F1F2" />
+    <path d="M2269.8 341.562 2283.8 349.062 2269.8 356.562" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="1845.5" y="496.5" width="98" height="94.0002" stroke="#526A7A" stroke-width="2.65112" stroke-miterlimit="8" fill="#A6CAEC" />
+    <path d="M1845.7 535.599 1858.7 543.599 1845.7 551.599" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="1827.5" y="478.5" width="98" height="93.9998" stroke="#111111" stroke-width="2.65112" stroke-miterlimit="8" fill="#F0F1F2" />
+    <path d="M1827.72 517.599 1841.72 525.599 1827.72 533.6" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="1992.5" y="496.5" width="97.9999" height="94.0002" stroke="#526A7A" stroke-width="2.65112" stroke-miterlimit="8" fill="#A6CAEC" />
+    <path d="M1992.74 535.599 2006.74 543.599 1992.74 551.599" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="1974.5" y="478.5" width="98" height="93.9998" stroke="#111111" stroke-width="2.65112" stroke-miterlimit="8" fill="#F0F1F2" />
+    <path d="M1974.74 517.599 1988.74 525.599 1974.74 533.6" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="2139.5" y="496.5" width="98" height="94.0002" stroke="#526A7A" stroke-width="2.65112" stroke-miterlimit="8" fill="#A6CAEC" />
+    <path d="M2139.77 535.599 2153.77 543.599 2139.77 551.599" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="2122.5" y="478.5" width="98" height="93.9998" stroke="#111111" stroke-width="2.65112" stroke-miterlimit="8" fill="#F0F1F2" />
+    <path d="M2122.75 517.599 2135.75 525.599 2122.75 533.6" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="2287.5" y="496.5" width="98" height="94.0002" stroke="#526A7A" stroke-width="2.65112" stroke-miterlimit="8" fill="#A6CAEC" />
+    <path d="M2287.78 535.599 2300.78 543.599 2287.78 551.599" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="2269.5" y="478.5" width="98" height="93.9998" stroke="#111111" stroke-width="2.65112" stroke-miterlimit="8" fill="#F0F1F2" />
+    <path d="M2269.8 517.599 2283.8 525.599 2269.8 533.6" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="1845.5" y="672.5" width="98" height="95.0002" stroke="#526A7A" stroke-width="2.65112" stroke-miterlimit="8" fill="#A6CAEC" />
+    <path d="M1845.7 712.624 1858.7 720.124 1845.7 727.624" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="1827.5" y="655.5" width="98" height="93.9998" stroke="#111111" stroke-width="2.65112" stroke-miterlimit="8" fill="#F0F1F2" />
+    <path d="M1827.72 694.632 1841.72 702.632 1827.72 710.633" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="1992.5" y="672.5" width="97.9999" height="95.0002" stroke="#526A7A" stroke-width="2.65112" stroke-miterlimit="8" fill="#A6CAEC" />
+    <path d="M1992.74 712.624 2006.74 720.124 1992.74 727.624" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="1974.5" y="655.5" width="98" height="93.9998" stroke="#111111" stroke-width="2.65112" stroke-miterlimit="8" fill="#F0F1F2" />
+    <path d="M1974.74 694.632 1988.74 702.632 1974.74 710.633" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="2139.5" y="672.5" width="98" height="95.0002" stroke="#526A7A" stroke-width="2.65112" stroke-miterlimit="8" fill="#A6CAEC" />
+    <path d="M2139.77 712.624 2153.77 720.124 2139.77 727.624" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="2122.5" y="655.5" width="98" height="93.9998" stroke="#111111" stroke-width="2.65112" stroke-miterlimit="8" fill="#F0F1F2" />
+    <path d="M2122.75 694.632 2135.75 702.632 2122.75 710.633" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="2287.5" y="672.5" width="98" height="95.0002" stroke="#526A7A" stroke-width="2.65112" stroke-miterlimit="8" fill="#A6CAEC" />
+    <path d="M2287.78 712.624 2300.78 720.124 2287.78 727.624" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="2269.5" y="655.5" width="98" height="93.9998" stroke="#111111" stroke-width="2.65112" stroke-miterlimit="8" fill="#F0F1F2" />
+    <path d="M2269.8 694.632 2283.8 702.632 2269.8 710.633" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="1845.5" y="849.5" width="98" height="95.0002" stroke="#526A7A" stroke-width="2.65112" stroke-miterlimit="8" fill="#A6CAEC" />
+    <path d="M1845.7 889.655 1858.7 897.155 1845.7 904.655" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="1827.5" y="832.5" width="98" height="93.9998" stroke="#111111" stroke-width="2.65112" stroke-miterlimit="8" fill="#F0F1F2" />
+    <path d="M1827.72 871.665 1841.72 879.665 1827.72 887.666" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="1992.5" y="849.5" width="97.9999" height="95.0002" stroke="#526A7A" stroke-width="2.65112" stroke-miterlimit="8" fill="#A6CAEC" />
+    <path d="M1992.74 889.655 2006.74 897.155 1992.74 904.655" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="1974.5" y="832.5" width="98" height="93.9998" stroke="#111111" stroke-width="2.65112" stroke-miterlimit="8" fill="#F0F1F2" />
+    <path d="M1974.74 871.665 1988.74 879.665 1974.74 887.666" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="2139.5" y="849.5" width="98" height="95.0002" stroke="#526A7A" stroke-width="2.65112" stroke-miterlimit="8" fill="#A6CAEC" />
+    <path d="M2139.77 889.655 2153.77 897.155 2139.77 904.655" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="2122.5" y="832.5" width="98" height="93.9998" stroke="#111111" stroke-width="2.65112" stroke-miterlimit="8" fill="#F0F1F2" />
+    <path d="M2122.75 871.665 2135.75 879.665 2122.75 887.666" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="2287.5" y="849.5" width="98" height="95.0002" stroke="#526A7A" stroke-width="2.65112" stroke-miterlimit="8" fill="#A6CAEC" />
+    <path d="M2287.78 889.655 2300.78 897.155 2287.78 904.655" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <rect x="2269.5" y="832.5" width="98" height="93.9998" stroke="#111111" stroke-width="2.65112" stroke-miterlimit="8" fill="#F0F1F2" />
+    <path d="M2269.8 871.665 2283.8 879.665 2269.8 887.666" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="41" transform="matrix(1 0 0 1 1630.5 359)">t</text>
+    <text fill="#111111" font-family="Cambria Math,Cambria Math_MSFontService,sans-serif" font-weight="400" font-size="38" transform="matrix(1 0 0 1 1641.96 359)">₀</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="41" transform="matrix(1 0 0 1 1630.5 536)">t</text>
+    <text fill="#111111" font-family="Cambria Math,Cambria Math_MSFontService,sans-serif" font-weight="400" font-size="38" transform="matrix(1 0 0 1 1641.96 536)">₁</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="41" transform="matrix(1 0 0 1 1630.5 713)">t</text>
+    <text fill="#111111" font-family="Cambria Math,Cambria Math_MSFontService,sans-serif" font-weight="400" font-size="38" transform="matrix(1 0 0 1 1641.96 713)">₂</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="41" transform="matrix(1 0 0 1 1630.5 890)">t</text>
+    <text fill="#111111" font-family="Cambria Math,Cambria Math_MSFontService,sans-serif" font-weight="400" font-size="38" transform="matrix(1 0 0 1 1641.96 890)">₃</text>
+    <rect x="797.5" y="1322.5" width="507" height="308" stroke="#D1D1D1" stroke-width="2.9456" stroke-miterlimit="8" fill="#FFFFFF" />
+    <text fill="#595959" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 877.32 1405)">Register layer</text>
+    <rect x="864.5" y="1488.5" width="42.9999" height="29.0002" stroke="#111111" stroke-width="2.65112" stroke-miterlimit="8" fill="#F0F1F2" />
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="41" transform="matrix(1 0 0 1 937.387 1520)">TEMP · stage 1</text>
+    <rect x="864.5" y="1555.5" width="42.9999" height="28.0002" stroke="#526A7A" stroke-width="2.65112" stroke-miterlimit="8" fill="#A6CAEC" />
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="41" transform="matrix(1 0 0 1 945.833 1581)">V · stage 2</text>
+    <path d="M1876 926 1876 1059.49 1591 1059.49 1591 1617 1767.9 1617" stroke="#111111" stroke-width="5.89085" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M1694.5 1045.5 1710.03 1076.5M1711.97 1045.5 1727.5 1076.5" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <text fill="#595959" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 2480.65 1352)">Row </text>
+    <text fill="#595959" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 2603.82 1352)">Transform Array</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="52" transform="matrix(1 0 0 1 1858 1711)">T</text>
+    <text fill="#111111" font-family="Cambria Math,Cambria Math_MSFontService,sans-serif" font-weight="400" font-size="32" transform="matrix(1 0 0 1 1889 1711)">r,0</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="52" transform="matrix(1 0 0 1 2005 1711)">T</text>
+    <text fill="#111111" font-family="Cambria Math,Cambria Math_MSFontService,sans-serif" font-weight="400" font-size="32" transform="matrix(1 0 0 1 2036 1711)">r,1</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="52" transform="matrix(1 0 0 1 2152 1711)">T</text>
+    <text fill="#111111" font-family="Cambria Math,Cambria Math_MSFontService,sans-serif" font-weight="400" font-size="32" transform="matrix(1 0 0 1 2183 1711)">r,2</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="52" transform="matrix(1 0 0 1 2299 1711)">T</text>
+    <text fill="#111111" font-family="Cambria Math,Cambria Math_MSFontService,sans-serif" font-weight="400" font-size="32" transform="matrix(1 0 0 1 2330 1711)">r,3</text>
+    <path d="M1768.5 1617.5 2318.5 1617.5" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M1876.5 1617.5 1876.5 1558.5M2023.83 1617.5 2023.83 1558.5M2171.17 1617.5 2171.17 1558.5M2318.5 1617.5 2318.5 1558.5" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M1870 1558C1870 1554.69 1872.69 1552 1876 1552 1879.31 1552 1882 1554.69 1882 1558 1882 1561.31 1879.31 1564 1876 1564 1872.69 1564 1870 1561.31 1870 1558Z" fill="#111111" fill-rule="evenodd" />
+    <path d="M2017 1558C2017 1554.69 2019.69 1552 2023 1552 2026.31 1552 2029 1554.69 2029 1558 2029 1561.31 2026.31 1564 2023 1564 2019.69 1564 2017 1561.31 2017 1558Z" fill="#111111" fill-rule="evenodd" />
+    <path d="M2165 1558C2165 1554.69 2167.69 1552 2171 1552 2174.31 1552 2177 1554.69 2177 1558 2177 1561.31 2174.31 1564 2171 1564 2167.69 1564 2165 1561.31 2165 1558Z" fill="#111111" fill-rule="evenodd" />
+    <path d="M2312 1558C2312 1554.69 2314.69 1552 2318 1552 2321.31 1552 2324 1554.69 2324 1558 2324 1561.31 2321.31 1564 2318 1564 2314.69 1564 2312 1561.31 2312 1558Z" fill="#111111" fill-rule="evenodd" />
+    <path d="M1876.5 1558.5 1876.5 1499.72 1878.47 1499.72 1878.47 1413.5M2171.5 1558.5 2171.5 1480.12 1909.93 1480.12 1909.93 1413.5" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M2023.5 1558.5 2023.5 1460.53 2025.47 1460.53 2025.47 1413.5M2171.5 1558.5 2171.5 1440.93 2057.05 1440.93 2057.05 1413.5" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M2171.05 1558.5 2171.05 1421.13 2173.02 1421.13 2173.02 1413.28M2023.5 1558.5 2023.5 1401.5 2204.5 1401.5 2204.5 1413.28" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M2023.5 1558.5 2023.5 1382.1 2320.07 1382.1 2320.07 1413.46M2318.11 1558.5 2318.11 1362.5 2351.5 1362.5 2351.5 1413.46" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M1843.5 1362.5C1843.5 1334.33 1866.33 1311.5 1894.5 1311.5 1922.67 1311.5 1945.5 1334.33 1945.5 1362.5 1945.5 1390.67 1922.67 1413.5 1894.5 1413.5 1866.33 1413.5 1843.5 1390.67 1843.5 1362.5Z" stroke="#111111" stroke-width="2.9456" stroke-miterlimit="8" fill="#FFFFFF" fill-rule="evenodd" />
+    <path d="M1990.5 1362.5C1990.5 1334.33 2013.33 1311.5 2041.5 1311.5 2069.67 1311.5 2092.5 1334.33 2092.5 1362.5 2092.5 1390.67 2069.67 1413.5 2041.5 1413.5 2013.33 1413.5 1990.5 1390.67 1990.5 1362.5Z" stroke="#111111" stroke-width="2.9456" stroke-miterlimit="8" fill="#FFFFFF" fill-rule="evenodd" />
+    <path d="M2137.5 1362.5C2137.5 1334.33 2160.33 1311.5 2188.5 1311.5 2216.67 1311.5 2239.5 1334.33 2239.5 1362.5 2239.5 1390.67 2216.67 1413.5 2188.5 1413.5 2160.33 1413.5 2137.5 1390.67 2137.5 1362.5Z" stroke="#111111" stroke-width="2.9456" stroke-miterlimit="8" fill="#FFFFFF" fill-rule="evenodd" />
+    <path d="M2285.5 1362.5C2285.5 1334.33 2308.33 1311.5 2336.5 1311.5 2364.67 1311.5 2387.5 1334.33 2387.5 1362.5 2387.5 1390.67 2364.67 1413.5 2336.5 1413.5 2308.33 1413.5 2285.5 1390.67 2285.5 1362.5Z" stroke="#111111" stroke-width="2.9456" stroke-miterlimit="8" fill="#FFFFFF" fill-rule="evenodd" />
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 1880.38 1378)">−</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 2027.7 1381)">+</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 2175.02 1381)">−</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 2323.78 1378)">−</text>
+    <path d="M2383 557 2761 557" stroke="#111111" stroke-width="5.89085" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M2544.5 544.5 2560.5 575.5M2562.5 544.5 2578.5 575.5" stroke="#111111" stroke-width="3.14193" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="45" transform="matrix(1 0 0 1 2624.19 508)">V tile</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="52" transform="matrix(1 0 0 1 1700.87 1826)">(a) Two</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="52" transform="matrix(1 0 0 1 1875.61 1826)">-</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="52" transform="matrix(1 0 0 1 1892.79 1826)">stage input</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="52" transform="matrix(1 0 0 1 2144.88 1826)">-</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="52" transform="matrix(1 0 0 1 2162.06 1826)">transform RTL</text>
+    <path d="M747 1853 3732 1853" stroke="#B8B8B8" stroke-width="1.96362" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <text fill="#595959" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 481.658 1986)">Column </text>
+    <text fill="#595959" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 687.908 1986)">Transform</text>
+    <text fill="#595959" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 957.179 1986)">+ TEMP</text>
+    <text fill="#595959" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 481.658 2136)">Row </text>
+    <text fill="#595959" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 604.835 2136)">Transfor</text>
+    <text fill="#595959" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 813.95 2136)">m</text>
+    <text fill="#595959" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 874.106 2136)">+ V</text>
+    <rect x="1185" y="1922" width="491" height="90.0001" stroke="#526A7A" stroke-width="2.35627" stroke-miterlimit="8" fill="#A6CAEC" />
+    <rect x="1676" y="1922" width="491" height="90.0001" stroke="#526A7A" stroke-width="2.35627" stroke-miterlimit="8" fill="#F0F1F2" />
+    <rect x="2167" y="1922" width="492" height="90.0001" stroke="#526A7A" stroke-width="2.35627" stroke-miterlimit="8" fill="#F6C6AD" />
+    <rect x="2659" y="1922" width="491" height="90.0001" stroke="#526A7A" stroke-width="2.35627" stroke-miterlimit="8" fill="#B4E5A2" />
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 1365.56 1988)">Tile 0</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 1878.14 1989)">Tile 1</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 2354.28 1988)">Tile 2</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 2848.33 1986)">Tile 3</text>
+    <rect x="1676" y="2059" width="491" height="91" stroke="#526A7A" stroke-width="2.35627" stroke-miterlimit="8" fill="#A6CAEC" />
+    <rect x="2167" y="2059" width="492" height="91" stroke="#526A7A" stroke-width="2.35627" stroke-miterlimit="8" fill="#F0F1F2" />
+    <rect x="2659" y="2059" width="491" height="91" stroke="#526A7A" stroke-width="2.35627" stroke-miterlimit="8" fill="#F6C6AD" />
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 1875.65 2127)">Tile 0</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 2356.9 2124)">Tile 1</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="700" font-size="52" transform="matrix(1 0 0 1 2849.48 2122)">Tile 2</text>
+    <path d="M1676.5 2012.5 1676.5 2047.5M2168 2012.5 2168 2047.5M2659.5 2012.5 2659.5 2047.5" stroke="#111111" stroke-width="3.33825" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M1185.5 2216.5 3228.5 2216.5" stroke="#111111" stroke-width="3.33825" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="45" transform="matrix(1 0 0 1 3267.46 2246)">time</text>
+    <path d="M1185 2201 1185 2232" stroke="#B8B8B8" stroke-width="1.96362" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M1676 2201 1676 2232" stroke="#B8B8B8" stroke-width="1.96362" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M2167 2201 2167 2232" stroke="#B8B8B8" stroke-width="1.96362" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M2659 2201 2659 2232" stroke="#B8B8B8" stroke-width="1.96362" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <path d="M3150 2201 3150 2232" stroke="#B8B8B8" stroke-width="1.96362" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="45" transform="matrix(1 0 0 1 1178.21 2295)">n</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="45" transform="matrix(1 0 0 1 1654.73 2295)">n+1</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="45" transform="matrix(1 0 0 1 2145.8 2295)">n+2</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="45" transform="matrix(1 0 0 1 2636.87 2295)">n+3</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="45" transform="matrix(1 0 0 1 3127.94 2295)">n+4</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="52" transform="matrix(1 0 0 1 1716.64 2385)">(b) Two</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="52" transform="matrix(1 0 0 1 1891.38 2385)">-</text>
+    <text fill="#111111" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="52" transform="matrix(1 0 0 1 1908.56 2385)">stage transform pipeline</text>
+  </g>
+</svg>

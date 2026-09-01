@@ -1,0 +1,19 @@
+# Keep generated and reference artifacts out of textual diffs.
+*.pdf binary
+*.png binary
+*.pptx binary
+*.hwp binary
+*.pt binary
+
+# Preserve source files as text across platforms.
+*.v text
+*.tcl text
+*.py text
+*.md text
+*.json text
+*.csv text
+*.svg text
+
+# Tool-generated reports/plots preserve their producer's whitespace.
+*_synth_stat.txt -whitespace
+*.svg -whitespace

@@ -1,15 +1,14 @@
 export PLATFORM               = asap7
 
-export DESIGN_NAME            = chip
-export DESIGN_NICKNAME        = chip
+export DESIGN_NAME           ?= chip
+export DESIGN_NICKNAME       ?= $(DESIGN_NAME)
 
 # Point directly at Windows-side verilog/ so we have a single source of truth
 # for RTL across Vivado sim (Windows) and OpenROAD synth (WSL).
-# Exclude top_tb.v (simulation-only, not synthesizable).
-export VERILOG_FILES = $(filter-out %/top_tb.v, $(wildcard /mnt/c/IDEC_challenge/verilog/*.v))
+export VERILOG_FILES ?= $(wildcard /mnt/c/IDEC_challenge/verilog/*.v)
 
 # Constraint file stays with the platform-specific dir (competition provided)
-export SDC_FILE      = $(DESIGN_HOME)/$(PLATFORM)/$(DESIGN_NICKNAME)/constraint.sdc
+export SDC_FILE     ?= $(DESIGN_HOME)/$(PLATFORM)/chip/constraint.sdc
 
 export ABC_AREA                 = 1
 

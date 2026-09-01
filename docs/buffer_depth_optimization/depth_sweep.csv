@@ -1,0 +1,4 @@
+conv1_tile_depth,v_replay_depth,m_fifo_depth,status,rtl_mismatches,accuracy_percent,input_backpressure_cycles,average_post_input_cycles,v_max_occupancy,v_backpressure_cycles,m_max_occupancy,m_backpressure_cycles
+2,2,2,PASS,0,97,0,484,2,286000,1,0
+2,2,1,PASS_SELECTED,0,97,0,484,2,286000,1,0
+2,1,2,FAIL,36910,9,36000,588,1,439000,1,0

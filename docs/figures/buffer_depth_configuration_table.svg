@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="300" viewBox="0 0 1320 300">
+  <title>Final pipeline buffer configuration</title>
+  <desc>Publication-style table summarizing the measured maximum occupancy and selected depth of each pipeline buffer.</desc>
+  <style>
+    text { font-family: Arial, "Noto Sans KR", sans-serif; fill: #111111; font-size: 18px; }
+    .header { font-weight: 700; }
+    .rule-major { stroke: #111111; stroke-width: 2.2; }
+    .rule-minor { stroke: #111111; stroke-width: 1.2; }
+    .label { text-anchor: start; }
+    .center { text-anchor: middle; }
+    .value { text-anchor: middle; font-weight: 700; }
+  </style>
+
+  <line class="rule-major" x1="24" y1="24" x2="1296" y2="24"/>
+
+  <text class="header label" x="38" y="62">Buffer</text>
+  <text class="header label" x="300" y="62">Pipeline boundary</text>
+  <text class="header center" x="1010" y="62">Maximum occupancy</text>
+  <text class="header center" x="1200" y="62">Selected depth</text>
+
+  <line class="rule-minor" x1="24" y1="82" x2="1296" y2="82"/>
+
+  <text class="label" x="38" y="128">Tile FIFO</text>
+  <text class="label" x="300" y="128">Tile Generator → Input Transform</text>
+  <text class="center" x="1010" y="128">2</text>
+  <text class="value" x="1200" y="128">2</text>
+
+  <text class="label" x="38" y="188">V-replay FIFO</text>
+  <text class="label" x="300" y="188">Input Transform → MAC Array</text>
+  <text class="center" x="1010" y="188">2</text>
+  <text class="value" x="1200" y="188">2</text>
+
+  <text class="label" x="38" y="248">M FIFO</text>
+  <text class="label" x="300" y="248">MAC Array → Output Transform</text>
+  <text class="center" x="1010" y="248">1</text>
+  <text class="value" x="1200" y="248">1</text>
+
+  <line class="rule-major" x1="24" y1="276" x2="1296" y2="276"/>
+</svg>

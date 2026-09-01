@@ -1,0 +1,154 @@
+{
+  "checkpoint": "training\\runs\\qat_winograd3x3_w4_frozen_aug.pt",
+  "correct": 9625,
+  "total": 10000,
+  "accuracy_percent": 96.25,
+  "requantization_fractional_bits": 24,
+  "width_profile": {
+    "v": 11,
+    "product": 17,
+    "m": 17,
+    "y": 17,
+    "fc_product": 17,
+    "fc_acc": 17
+  },
+  "ranges": {
+    "input.code": {
+      "min": 0,
+      "max": 255,
+      "signed_bits": 9
+    },
+    "conv1.U": {
+      "min": -7,
+      "max": 4,
+      "signed_bits": 4
+    },
+    "conv1.V": {
+      "min": -510,
+      "max": 1020,
+      "signed_bits": 11
+    },
+    "conv1.product": {
+      "min": -3570,
+      "max": 3570,
+      "signed_bits": 13
+    },
+    "conv1.M": {
+      "min": -3570,
+      "max": 3570,
+      "signed_bits": 13
+    },
+    "conv1.Y_before_bias": {
+      "min": -4972,
+      "max": 3060,
+      "signed_bits": 14
+    },
+    "conv1.bias": {
+      "min": -232,
+      "max": -36,
+      "signed_bits": 9
+    },
+    "conv1.Y_after_bias": {
+      "min": -5128,
+      "max": 2904,
+      "signed_bits": 14
+    },
+    "conv1.post_pool_relu": {
+      "min": 0,
+      "max": 2904,
+      "signed_bits": 13
+    },
+    "activation1.code": {
+      "min": 0,
+      "max": 255,
+      "signed_bits": 9
+    },
+    "conv2.U": {
+      "min": -7,
+      "max": 5,
+      "signed_bits": 4
+    },
+    "conv2.V": {
+      "min": -473,
+      "max": 683,
+      "signed_bits": 11
+    },
+    "conv2.product": {
+      "min": -4781,
+      "max": 2838,
+      "signed_bits": 14
+    },
+    "conv2.M": {
+      "min": -5418,
+      "max": 3763,
+      "signed_bits": 14
+    },
+    "conv2.Y_before_bias": {
+      "min": -5103,
+      "max": 2582,
+      "signed_bits": 14
+    },
+    "conv2.bias": {
+      "min": -235,
+      "max": 0,
+      "signed_bits": 9
+    },
+    "conv2.Y_after_bias": {
+      "min": -5103,
+      "max": 2347,
+      "signed_bits": 14
+    },
+    "conv2.post_pool_relu": {
+      "min": 0,
+      "max": 2347,
+      "signed_bits": 13
+    },
+    "activation2.code": {
+      "min": 0,
+      "max": 255,
+      "signed_bits": 9
+    },
+    "fc.weight": {
+      "min": -7,
+      "max": 6,
+      "signed_bits": 4
+    },
+    "fc.product": {
+      "min": -1351,
+      "max": 1275,
+      "signed_bits": 12
+    },
+    "fc.acc_before_bias": {
+      "min": -4757,
+      "max": 4893,
+      "signed_bits": 14
+    },
+    "fc.bias": {
+      "min": -102,
+      "max": 144,
+      "signed_bits": 9
+    },
+    "fc.acc_after_bias": {
+      "min": -4859,
+      "max": 4933,
+      "signed_bits": 14
+    }
+  },
+  "saturations": {
+    "conv1.V": 0,
+    "conv1.product": 0,
+    "conv1.M_add": 0,
+    "conv1.AT_left": 0,
+    "conv1.AT_right": 0,
+    "conv1.bias_add": 0,
+    "conv2.V": 0,
+    "conv2.product": 0,
+    "conv2.M_add": 0,
+    "conv2.AT_left": 0,
+    "conv2.AT_right": 0,
+    "conv2.bias_add": 0,
+    "fc.product": 0,
+    "fc.acc_add": 0,
+    "fc.bias_add": 0
+  }
+}

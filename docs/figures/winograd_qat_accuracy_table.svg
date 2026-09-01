@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="310" viewBox="0 0 1160 310">
+  <title>Accuracy comparison of FP32, PTQ, QAT, and exported integer models</title>
+  <desc>Publication-style table reporting accuracy on the MNIST test set and competition input.</desc>
+  <style>
+    text { font-family: Arial, "Noto Sans KR", sans-serif; fill: #111111; font-size: 19px; }
+    .header { font-weight: 700; }
+    .rule-major { stroke: #111111; stroke-width: 2.2; }
+    .rule-minor { stroke: #111111; stroke-width: 1.2; }
+    .label { text-anchor: start; }
+    .value { text-anchor: middle; }
+  </style>
+  <line class="rule-major" x1="24" y1="24" x2="1136" y2="24"/>
+  <text class="header label" x="38" y="62">Model</text><text class="header value" x="610" y="62">Weight</text><text class="header value" x="820" y="62">MNIST (10,000)</text><text class="header value" x="1040" y="62">Competition (1,000)</text>
+  <line class="rule-minor" x1="24" y1="82" x2="1136" y2="82"/>
+  <text class="label" x="38" y="124">Spatial 3×3 FP32</text><text class="value" x="610" y="124">FP32</text><text class="value" x="820" y="124">97.03%</text><text class="value" x="1040" y="124">—</text>
+  <text class="label" x="38" y="168">Winograd W4A8 PTQ</text><text class="value" x="610" y="168">INT4</text><text class="value" x="820" y="168">95.21%</text><text class="value" x="1040" y="168">94.00%</text>
+  <text class="label" x="38" y="212">Winograd W4A8 QAT</text><text class="value" x="610" y="212">INT4</text><text class="value" x="820" y="212">96.25%</text><text class="value" x="1040" y="212">97.00%</text>
+  <text class="label" x="38" y="256">Exported integer model</text><text class="value" x="610" y="256">INT4</text><text class="value" x="820" y="256">96.25%</text><text class="value" x="1040" y="256">97.00%</text>
+  <line class="rule-major" x1="24" y1="286" x2="1136" y2="286"/>
+</svg>

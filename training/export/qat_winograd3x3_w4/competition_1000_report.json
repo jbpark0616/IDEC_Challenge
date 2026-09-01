@@ -1,0 +1,91 @@
+{
+  "input_file": "data\\input_1000.txt",
+  "image_count": 1000,
+  "pixels_per_image": 784,
+  "pixel_count": 784000,
+  "pixel_order": "image,row,column (row-major)",
+  "label_rule": "image_index_modulo_10",
+  "accuracy_percent": 94.0,
+  "correct": 940,
+  "total": 1000,
+  "hex_decimal_value_mismatches": 0,
+  "observed_ranges": {
+    "conv1.V": {
+      "min": -510,
+      "max": 1020,
+      "signed_bits": 11
+    },
+    "conv1.product": {
+      "min": -3570,
+      "max": 3570,
+      "signed_bits": 13
+    },
+    "conv1.M": {
+      "min": -3570,
+      "max": 3570,
+      "signed_bits": 13
+    },
+    "conv1.Y_before_bias": {
+      "min": -4844,
+      "max": 2804,
+      "signed_bits": 14
+    },
+    "conv1.bias": {
+      "min": -232,
+      "max": -19,
+      "signed_bits": 9
+    },
+    "conv1.Y_after_bias": {
+      "min": -5004,
+      "max": 2644,
+      "signed_bits": 14
+    },
+    "conv2.V": {
+      "min": -459,
+      "max": 683,
+      "signed_bits": 11
+    },
+    "conv2.product": {
+      "min": -4781,
+      "max": 2688,
+      "signed_bits": 14
+    },
+    "conv2.M": {
+      "min": -5379,
+      "max": 3037,
+      "signed_bits": 14
+    },
+    "conv2.Y_before_bias": {
+      "min": -4309,
+      "max": 2769,
+      "signed_bits": 14
+    },
+    "conv2.bias": {
+      "min": -233,
+      "max": 0,
+      "signed_bits": 9
+    },
+    "conv2.Y_after_bias": {
+      "min": -4282,
+      "max": 2536,
+      "signed_bits": 14
+    }
+  },
+  "saturations": {
+    "conv1.V": 0,
+    "conv1.product": 0,
+    "conv1.M_add": 0,
+    "conv1.AT_left": 0,
+    "conv1.AT_right": 0,
+    "conv1.bias_add": 0,
+    "conv2.V": 0,
+    "conv2.product": 0,
+    "conv2.M_add": 0,
+    "conv2.AT_left": 0,
+    "conv2.AT_right": 0,
+    "conv2.bias_add": 0,
+    "fc.product": 0,
+    "fc.acc_add": 0,
+    "fc.bias_add": 0
+  }
+}

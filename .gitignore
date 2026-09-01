@@ -25,6 +25,15 @@ Desktop.ini
 .DS_Store
 *.swp
 *~
+.claude/
+
+# --- Python / local datasets ---
+__pycache__/
+*.py[cod]
+training/data/
+
+# --- Temporary analysis workspace ---
+tmp/
 
 # VS Code: ignore user prefs, keep shared tasks/launch/settings
 .vscode/*

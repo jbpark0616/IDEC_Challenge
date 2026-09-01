@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="440" viewBox="0 0 1320 440">
+  <title>Numerical format selection rationale</title>
+  <desc>Publication-style table summarizing the selected numerical formats and their rationale.</desc>
+  <style>
+    text { font-family: Arial, "Noto Sans KR", sans-serif; fill: #111111; font-size: 18px; }
+    .header { font-weight: 700; }
+    .rule-major { stroke: #111111; stroke-width: 2.2; }
+    .rule-minor { stroke: #111111; stroke-width: 1.2; }
+    .label { text-anchor: start; }
+    .format { text-anchor: middle; font-weight: 700; }
+  </style>
+
+  <line class="rule-major" x1="24" y1="24" x2="1296" y2="24"/>
+
+  <text class="header label" x="38" y="62">Data</text>
+  <text class="header format" x="370" y="62">Format</text>
+  <text class="header label" x="540" y="62">Rationale</text>
+
+  <line class="rule-minor" x1="24" y1="82" x2="1296" y2="82"/>
+
+  <text class="label" x="38" y="126">Activation</text>
+  <text class="format" x="370" y="126">UINT8</text>
+  <text class="label" x="540" y="126">I/O interface and activation QAT; code range 0–255</text>
+
+  <text class="label" x="38" y="180">U / FC weight</text>
+  <text class="format" x="370" y="180">INT4</text>
+  <text class="label" x="540" y="180">W4A8 QAT accuracy 96.25%</text>
+
+  <text class="label" x="38" y="234">V</text>
+  <text class="format" x="370" y="234">INT11</text>
+  <text class="label" x="540" y="234">Observed −510 to 1020; minimum saturation-free width</text>
+
+  <text class="label" x="38" y="288">Compute</text>
+  <text class="format" x="370" y="288">INT18</text>
+  <text class="label" x="540" y="288">INT14 saturation-free; INT18 retained as current RTL margin</text>
+
+  <text class="label" x="38" y="342">Bias</text>
+  <text class="format" x="370" y="342">INT16</text>
+  <text class="label" x="540" y="342">Observed requirement ≤ 9 bit; scale and implementation margin</text>
+
+  <text class="label" x="38" y="396">Requantization</text>
+  <text class="format" x="370" y="396">24-bit / S=24</text>
+  <text class="label" x="540" y="396">24-bit scale approximation; integer round-trip mismatch 0</text>
+
+  <line class="rule-major" x1="24" y1="424" x2="1296" y2="424"/>
+</svg>

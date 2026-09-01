@@ -2,57 +2,54 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "sim: 1000-image accuracy",
+      "label": "sim: Winograd chip 1000-image regression",
       "type": "shell",
-      "command": "make sim",
-      "group": { "kind": "build", "isDefault": true },
+      "command": "make sim-chip-winograd-1000 FIFO_DEPTH=2 V_REPLAY_DEPTH=2 M_FIFO_DEPTH=1",
+      "group": { "kind": "test", "isDefault": true },
       "presentation": { "clear": true, "reveal": "always", "panel": "dedicated" },
       "problemMatcher": []
     },
     {
-      "label": "sim: single-image smoke",
+      "label": "test: PyTorch unit tests",
       "type": "shell",
-      "command": "make sim TOP=top_tb",
+      "command": "& 'C:\\Users\\jbpar\\miniconda3\\envs\\idec-winograd\\python.exe' -m unittest discover -s training -p 'test_*.py'",
+      "options": { "shell": { "executable": "powershell.exe", "args": ["-NoProfile", "-Command"] } },
+      "group": "test",
       "presentation": { "clear": true, "reveal": "always", "panel": "dedicated" },
       "problemMatcher": []
     },
     {
-      "label": "sim: 1000-image + waves",
-      "type": "shell",
-      "command": "make sim WAVE=1",
-      "presentation": { "clear": true, "reveal": "always", "panel": "dedicated" },
-      "problemMatcher": []
-    },
-    {
-      "label": "wave: open latest",
-      "type": "shell",
-      "command": "make wave",
-      "presentation": { "reveal": "silent", "panel": "shared" },
-      "problemMatcher": []
-    },
-    {
-      "label": "synth: Vivado (FPGA, quick)",
+      "label": "synth: Vivado RTL sanity check",
       "type": "shell",
       "command": "make synth",
+      "group": "build",
       "presentation": { "clear": true, "reveal": "always", "panel": "dedicated" },
       "problemMatcher": []
     },
     {
-      "label": "synth: OpenROAD (ASAP7, competition metric)",
+      "label": "synth: OpenROAD ASAP7",
       "type": "shell",
-      "command": "make synth-asic",
+      "command": "make synth-asic ASIC_TOP=chip ASIC_CLK_PERIOD_PS=1000",
+      "group": "build",
       "presentation": { "clear": true, "reveal": "always", "panel": "dedicated" },
       "problemMatcher": []
     },
     {
-      "label": "xpr: export for submission",
+      "label": "power: activity-based ASIC report",
+      "type": "shell",
+      "command": "make power-asic-activity",
+      "presentation": { "clear": true, "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": []
+    },
+    {
+      "label": "xpr: export competition project",
       "type": "shell",
       "command": "make xpr",
       "presentation": { "clear": true, "reveal": "always", "panel": "dedicated" },
       "problemMatcher": []
     },
     {
-      "label": "clean: wipe build/",
+      "label": "clean: remove generated build outputs",
       "type": "shell",
       "command": "make clean",
       "presentation": { "reveal": "silent", "panel": "shared" },

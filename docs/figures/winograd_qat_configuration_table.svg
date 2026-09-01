@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="510" viewBox="0 0 1160 510">
+  <title>Winograd-aware QAT configuration</title>
+  <desc>Publication-style table separating training stages, settings, and target numerical formats.</desc>
+  <style>
+    text { font-family: Arial, "Noto Sans KR", sans-serif; fill: #111111; font-size: 19px; }
+    .header { font-weight: 700; }
+    .stage { font-weight: 700; fill: #333333; }
+    .rule-major { stroke: #111111; stroke-width: 2.2; }
+    .rule-minor { stroke: #111111; stroke-width: 1.2; }
+    .label { text-anchor: start; }
+  </style>
+  <line class="rule-major" x1="24" y1="24" x2="1136" y2="24"/>
+  <text class="header label" x="38" y="62">Stage</text><text class="header label" x="260" y="62">Item</text><text class="header label" x="590" y="62">Configuration</text>
+  <line class="rule-minor" x1="24" y1="82" x2="1136" y2="82"/>
+  <text class="stage label" x="38" y="122">Common</text><text class="label" x="260" y="122">Dataset</text><text class="label" x="590" y="122">MNIST</text>
+  <text class="stage label" x="38" y="166">FP32</text><text class="label" x="260" y="166">Pretraining</text><text class="label" x="590" y="166">SGD, 25 epochs</text>
+  <text class="stage label" x="38" y="210">INT4 QAT</text><text class="label" x="260" y="210">Initial fine-tuning</text><text class="label" x="590" y="210">SGD, 8 epochs</text>
+  <text class="stage label" x="38" y="254">INT4 QAT</text><text class="label" x="260" y="254">Final fine-tuning</text><text class="label" x="590" y="254">Adam, 10 epochs, augmentation</text>
+  <text class="stage label" x="38" y="298">INT4 QAT</text><text class="label" x="260" y="298">Quantization scale</text><text class="label" x="590" y="298">Observers frozen during final fine-tuning</text>
+  <text class="stage label" x="38" y="342">Numerical</text><text class="label" x="260" y="342">Weights</text><text class="label" x="590" y="342">Transformed U / FC, signed INT4</text>
+  <text class="stage label" x="38" y="386">Numerical</text><text class="label" x="260" y="386">Stored activation</text><text class="label" x="590" y="386">Unsigned INT8</text>
+  <text class="stage label" x="38" y="430">Training</text><text class="label" x="260" y="430">Gradient approximation</text><text class="label" x="590" y="430">Straight-Through Estimator</text>
+  <text class="stage label" x="38" y="474">Export</text><text class="label" x="260" y="474">Bias</text><text class="label" x="590" y="474">Accumulator-domain signed INT16</text>
+  <line class="rule-major" x1="24" y1="496" x2="1136" y2="496"/>
+</svg>

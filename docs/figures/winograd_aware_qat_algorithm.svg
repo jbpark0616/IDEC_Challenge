@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="650" viewBox="0 0 1160 650">
+  <title>Winograd-aware quantization-aware training and parameter generation</title>
+  <desc>Compact publication-style algorithm showing the distinctive transformed-domain QAT flow.</desc>
+  <style>
+    text { font-family: Arial, "Noto Sans KR", sans-serif; fill: #111111; font-size: 19px; }
+    .title { font-weight: 700; font-size: 21px; }
+    .label { font-weight: 700; }
+    .line-no { text-anchor: end; fill: #555555; font-size: 17px; }
+    .math { font-family: "Cambria Math", "Times New Roman", serif; font-size: 19px; }
+    .rule-major { stroke: #111111; stroke-width: 2.2; }
+    .rule-minor { stroke: #111111; stroke-width: 1.2; }
+  </style>
+  <line class="rule-major" x1="24" y1="24" x2="1136" y2="24"/>
+  <text class="title" x="38" y="58">Algorithm 1</text>
+  <text class="title" x="166" y="58">Winograd-aware QAT and Parameter Generation</text>
+  <line class="rule-minor" x1="24" y1="78" x2="1136" y2="78"/>
+  <text class="label" x="38" y="112">Input:</text>
+  <text x="118" y="112">training dataset 𝒟, FP32 spatial CNN parameters θ</text>
+  <text class="label" x="38" y="144">Output:</text>
+  <text x="118" y="144">quantized weights, biases, and requantization parameters</text>
+  <line class="rule-minor" x1="24" y1="164" x2="1136" y2="164"/>
+  <text class="line-no" x="64" y="200">1</text><text x="86" y="200">Train the 3×3 spatial CNN in FP32.</text>
+  <text class="line-no" x="64" y="236">2</text><text x="86" y="236">Initialize the Winograd QAT model using θ.</text>
+  <text class="line-no" x="64" y="272">3</text><text class="label" x="86" y="272">for</text><text x="120" y="272">each training iteration</text><text class="label" x="339" y="272">do</text>
+  <text class="line-no" x="64" y="308">4</text><text x="122" y="308">Quantize stored activations:</text><text class="math" x="390" y="308">â ← Q<tspan baseline-shift="sub" font-size="14">UINT8</tspan>(a)</text>
+  <text class="line-no" x="64" y="344">5</text><text x="122" y="344">Transform spatial weights:</text><text class="math" x="361" y="344">U ← GgGᵀ</text>
+  <text class="line-no" x="64" y="380">6</text><text x="122" y="380">Quantize transformed weights:</text><text class="math" x="397" y="380">Û ← Q<tspan baseline-shift="sub" font-size="14">INT4</tspan>(U)</text>
+  <text class="line-no" x="64" y="416">7</text><text x="122" y="416">Quantize FC weights:</text><text class="math" x="323" y="416">Ŵ<tspan baseline-shift="sub" font-size="14">FC</tspan> ← Q<tspan baseline-shift="sub" font-size="14">INT4</tspan>(W<tspan baseline-shift="sub" font-size="14">FC</tspan>)</text>
+  <text class="line-no" x="64" y="452">8</text><text x="122" y="452">Perform forward propagation using</text><text class="math" x="440" y="452">â, Û, Ŵ<tspan baseline-shift="sub" font-size="14">FC</tspan></text>
+  <text class="line-no" x="64" y="488">9</text><text x="122" y="488">Update FP32 master parameters through the STE.</text>
+  <text class="line-no" x="64" y="524">10</text><text class="label" x="86" y="524">end for</text>
+  <text class="line-no" x="64" y="560">11</text><text x="86" y="560">Convert biases and generate requantization parameters.</text>
+  <text class="line-no" x="64" y="596">12</text><text x="86" y="596">Export and verify parameters using the integer golden model.</text>
+  <line class="rule-major" x1="24" y1="626" x2="1136" y2="626"/>
+</svg>
