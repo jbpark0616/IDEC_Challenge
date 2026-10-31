@@ -1,0 +1,24 @@
+HOST_POLICY continuous=1
+START layer=4 input=[1,8,8,128] Cout=256 U_block=8 preload=65584
+PROGRESS stage=4 clock=100000 U_words=65536 requests=160
+FEED_AUDIT cycles=110310 hit=25088 pad=7680 miss=25088 blocked=0 request=25088 request_stall=0 response=25088 response_stall=0 drain=1 other=2277 words=4096 last_feed=108033 unique_reads=1024
+CORE_AUDIT core=0 wait_v_slot=17 job=256 mac_state=108611 weights=1039 done=387 mac_beats=31185 v_missing=75654 row_blocked=0 mac_blocked=0 busy_other=1772 rx_missing=106214 rx_blocked=0 producer_no_tile=101611 finish=109933
+CORE_AUDIT core=1 wait_v_slot=17 job=256 mac_state=108232 weights=1443 done=362 mac_beats=31185 v_missing=75280 row_blocked=0 mac_blocked=0 busy_other=1767 rx_missing=106214 rx_blocked=0 producer_no_tile=101611 finish=109958
+CORE_AUDIT core=2 wait_v_slot=17 job=256 mac_state=107858 weights=1842 done=337 mac_beats=31185 v_missing=74910 row_blocked=1 mac_blocked=0 busy_other=1762 rx_missing=106214 rx_blocked=0 producer_no_tile=101612 finish=109983
+CORE_AUDIT core=3 wait_v_slot=17 job=256 mac_state=107478 weights=2247 done=312 mac_beats=31185 v_missing=74539 row_blocked=0 mac_blocked=0 busy_other=1754 rx_missing=106214 rx_blocked=0 producer_no_tile=101619 finish=110008
+CORE_AUDIT core=4 wait_v_slot=17 job=256 mac_state=107107 weights=2643 done=287 mac_beats=31185 v_missing=74163 row_blocked=0 mac_blocked=0 busy_other=1759 rx_missing=106214 rx_blocked=0 producer_no_tile=101610 finish=110033
+CORE_AUDIT core=5 wait_v_slot=17 job=256 mac_state=106730 weights=3045 done=262 mac_beats=31185 v_missing=73790 row_blocked=0 mac_blocked=0 busy_other=1755 rx_missing=106214 rx_blocked=0 producer_no_tile=101610 finish=110058
+CORE_AUDIT core=6 wait_v_slot=17 job=256 mac_state=106350 weights=3450 done=237 mac_beats=31185 v_missing=73418 row_blocked=0 mac_blocked=0 busy_other=1747 rx_missing=106214 rx_blocked=0 producer_no_tile=101615 finish=110083
+CORE_AUDIT core=7 wait_v_slot=17 job=256 mac_state=105982 weights=3843 done=212 mac_beats=31185 v_missing=73050 row_blocked=0 mac_blocked=0 busy_other=1747 rx_missing=106214 rx_blocked=0 producer_no_tile=101614 finish=110108
+CORE_AUDIT core=8 wait_v_slot=17 job=256 mac_state=105606 weights=4244 done=187 mac_beats=31185 v_missing=72675 row_blocked=0 mac_blocked=0 busy_other=1746 rx_missing=106214 rx_blocked=0 producer_no_tile=101607 finish=110133
+CORE_AUDIT core=9 wait_v_slot=17 job=256 mac_state=105231 weights=4644 done=162 mac_beats=31185 v_missing=72305 row_blocked=0 mac_blocked=0 busy_other=1741 rx_missing=106214 rx_blocked=0 producer_no_tile=101610 finish=110158
+CORE_AUDIT core=10 wait_v_slot=17 job=256 mac_state=104853 weights=5047 done=137 mac_beats=31185 v_missing=71933 row_blocked=0 mac_blocked=0 busy_other=1735 rx_missing=106214 rx_blocked=0 producer_no_tile=101613 finish=110183
+CORE_AUDIT core=11 wait_v_slot=17 job=256 mac_state=104474 weights=5451 done=112 mac_beats=31185 v_missing=71562 row_blocked=0 mac_blocked=0 busy_other=1727 rx_missing=106214 rx_blocked=0 producer_no_tile=101617 finish=110208
+CORE_AUDIT core=12 wait_v_slot=17 job=256 mac_state=104100 weights=5850 done=87 mac_beats=31185 v_missing=71192 row_blocked=0 mac_blocked=0 busy_other=1723 rx_missing=106214 rx_blocked=0 producer_no_tile=101616 finish=110233
+CORE_AUDIT core=13 wait_v_slot=17 job=256 mac_state=103726 weights=6249 done=62 mac_beats=31185 v_missing=70819 row_blocked=0 mac_blocked=0 busy_other=1722 rx_missing=106214 rx_blocked=0 producer_no_tile=101615 finish=110258
+CORE_AUDIT core=14 wait_v_slot=17 job=256 mac_state=103350 weights=6650 done=37 mac_beats=31185 v_missing=70448 row_blocked=0 mac_blocked=0 busy_other=1717 rx_missing=106214 rx_blocked=0 producer_no_tile=101616 finish=110283
+CORE_AUDIT core=15 wait_v_slot=17 job=256 mac_state=102975 weights=7050 done=12 mac_beats=31185 v_missing=70076 row_blocked=0 mac_blocked=0 busy_other=1714 rx_missing=106214 rx_blocked=0 producer_no_tile=101615 finish=110308
+PROFILE layer=4 sparse=1 activation_preload=1024 weight_preload=65584 cycles=110311 mac_beats=498960 mac_lanes=7578624 weight_wait_corecycles=60513 writer_stall_corecycles=0
+LAYER_PASS layer=4 shape=[1,8,8,128]->256 cycles=110311 preload=65584 U_words=65536 replacements=496 source_reads=25088 compared_words=2048 resident_u=1
+PASS ISOLATED_LAYER stage=4 sparse=1 checked_words=2048
+- /mnt/c/IDEC_challenge/free_topic_vgg/build/cluster_bottleneck/tb.sv:283: Verilog $finish

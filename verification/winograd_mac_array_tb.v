@@ -40,6 +40,7 @@ module winograd_mac_array_tb;
         .clk(clk),
         .rst_n(rst_n),
         .mode_fc(mode_fc),
+        .conv_row_enable(4'b1111),
         .in_valid(in_valid),
         .in_ready(in_ready),
         .txn_first(txn_first),

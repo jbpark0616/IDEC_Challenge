@@ -16,7 +16,7 @@ from matplotlib.colors import LogNorm
 
 ROOT = Path(__file__).resolve().parents[2]
 RUNS = ROOT / "training" / "runs"
-OUTPUT = ROOT / "docs" / "figures"
+OUTPUT = ROOT / "docs" / "report_assets" / "designated_topic" / "figures"
 DATA_OUTPUT = ROOT / "docs" / "numerical_precision"
 WIDTHS = [18, 17, 16, 15, 14, 13, 12]
 

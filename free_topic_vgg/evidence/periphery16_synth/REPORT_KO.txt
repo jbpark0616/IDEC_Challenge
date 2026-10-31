@@ -1,0 +1,42 @@
+16코어 주변 회로 표준셀 매핑 — 통제 실험 통과 후
+================================================
+대상: 실제 rtl/vgg_sixteen_core_cluster.v와 vgg_ab_layer_cluster.v.
+포함: command/host/result 제어, shared activation feed, multicast fanout,
+      각 코어의 rx FIFO 및 A/B activation SRAM 중재/매크로.
+제외: vgg_sram_conv_layer 계산 코어 16개. 인터페이스 선언을 그대로 사용한
+      합성용 blackbox. 원본 RTL의 파라미터/인터페이스/구조를 바꾸지 않았다.
+
+결과
+  표준셀 Liberty 면적         12,869.080740 um^2
+  A/B SRAM Liberty 면적      151,031.070720 um^2
+  둘의 합                   163,900.151460 um^2 (계산 코어 제외)
+  FF cell 수                 17,607
+  A/B SRAM 매크로             64 (코어별4개 ×16)
+  계산 코어 blackbox          16
+  synth check                0 problems
+  미매핑 로직 primitive       0 ($scopeinfo는 Yosys 메타데이터이므로 제외)
+
+조건
+  Yosys synth/flatten + dfflibmap + ABC mapping, ASAP7 RVT FF.
+  ABC -D 1000은 매핑 목표이며 STA timing 결과가 아니다.
+  기존 작은셀 제외 패턴 *x1p*_ASAP7*, *xp*_ASAP7*, SDF*를 ABC에 전달했다.
+  라이브러리는 AO/INVBUF/OA/SEQ/SIMPLE의 cell 및 timing template를 통합했다.
+  SRAM은 Liberty blackbox로 읽었으며 behavioral SRAM을 FF로 합성하지 않았다.
+  코어16개 경계는 timing/area 모델이 없는 blackbox라 전체 Fmax를 산출할 수 없다.
+  배치/배선/CTS/전력/전체16코어 netlist simulation 미실행.
+  실제16코어 PPA 또는 물리 구현 완료 결과로 사용하지 않는다.
+  단일 코어 기존 합성 면적에는 축소된 cluster 제어와 A/B SRAM이 포함되어 있어
+  기존 단일 코어 면적×16 + 이번 면적을 단순 합산하면 중복 계산된다.
+
+실행
+  python3 free_topic_vgg/flow/single_core/synth_periphery.py
+  결과 재분석만: 위 명령에 --analyze-only 추가 (합성 재실행 안 함).
+  build/periphery16_synth/mapped.v, mapped.json, run.ys, std.lib
+  evidence/periphery16_synth/results.json: 정확한 cell 집계 및 RTL/library SHA256.
+  evidence/periphery16_synth/synthesis.log: 전체 합성 로그.
+
+실험 근거
+  evidence/bypass_controlled/REPORT_KO.txt 및 effects.csv.
+  64회 통제 실험 출력 일치; 행별 max 작업량과 실제 MAC beat가 일치하거나
+  스트리밍 종료용 빈 beat 최대4개만 추가. dense에서 사이클 손해 없음.
+  고정 코어를 유지하고 주변 회로를 매핑하는 판단 근거로 사용했다.

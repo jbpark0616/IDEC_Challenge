@@ -1,0 +1,8 @@
+{
+  "folders": [{"name": "자유주제 · CIFAR-10 VGG Winograd", "path": "."}],
+  "settings": {
+    "python.defaultInterpreterPath": "C:/Users/jbpar/miniconda3/envs/idec-winograd/python.exe",
+    "files.exclude": {"**/__pycache__": true},
+    "search.exclude": {"data": true, "weights": true}
+  }
+}

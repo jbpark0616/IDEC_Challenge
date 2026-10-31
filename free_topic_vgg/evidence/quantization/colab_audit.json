@@ -1,0 +1,22 @@
+{
+  "zip_sha256": "b735545e9097e7ae2cc0eb91d090b32ee632c91b626a0b3a15739cda78201bc2",
+  "checkpoint_sha256": "6ee7ea24b52cfbbe9751608a81d5a7b2f5bac4e8f7d19e420030072ca257ed97",
+  "accuracy": {
+    "U16_V16": {
+      "correct": 9411,
+      "accuracy": 94.11,
+      "agreement": 10000
+    },
+    "U8_V16": {
+      "correct": 9415,
+      "accuracy": 94.15,
+      "agreement": 9960
+    },
+    "U8_V8": {
+      "correct": 9394,
+      "accuracy": 93.94,
+      "agreement": 9898
+    }
+  },
+  "note": "Recounted downloaded predictions against CIFAR labels; not a new model inference run."
+}

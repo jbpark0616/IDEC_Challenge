@@ -1,0 +1,28 @@
+HOST_POLICY continuous=1
+START layer=10 input=[1,2,2,512] Cout=512 U_block=4 preload=65584
+PROGRESS stage=10 clock=100000 U_words=95541 requests=7
+PROGRESS stage=10 clock=200000 U_words=195228 requests=31
+PROGRESS stage=10 clock=300000 U_words=294912 requests=55
+PROGRESS stage=10 clock=400000 U_words=394587 requests=80
+PROGRESS stage=10 clock=500000 U_words=494274 requests=104
+FEED_AUDIT cycles=466242 emit=1024 pad=768 prepare=256 blocked=0 request=256 request_stall=0 response=256 response_stall=0 finished=463682 other=0 words=1024 last_feed=2560 unique_reads=256
+CORE_AUDIT core=0 wait_v_slot=2 job=32 mac_state=17733 weights=386828 done=61647 mac_beats=15552 v_missing=1830 row_blocked=0 mac_blocked=0 busy_other=351 rx_missing=464834 rx_blocked=320 producer_no_tile=1036 finish=404604
+CORE_AUDIT core=1 wait_v_slot=2 job=32 mac_state=17733 weights=390937 done=57538 mac_beats=15552 v_missing=1830 row_blocked=0 mac_blocked=0 busy_other=351 rx_missing=464834 rx_blocked=320 producer_no_tile=1036 finish=408713
+CORE_AUDIT core=2 wait_v_slot=2 job=32 mac_state=17733 weights=395046 done=53429 mac_beats=15552 v_missing=1830 row_blocked=0 mac_blocked=0 busy_other=351 rx_missing=464834 rx_blocked=320 producer_no_tile=1036 finish=412822
+CORE_AUDIT core=3 wait_v_slot=2 job=32 mac_state=17733 weights=399155 done=49320 mac_beats=15552 v_missing=1830 row_blocked=0 mac_blocked=0 busy_other=351 rx_missing=464834 rx_blocked=320 producer_no_tile=1036 finish=416931
+CORE_AUDIT core=4 wait_v_slot=2 job=32 mac_state=17733 weights=403264 done=45211 mac_beats=15552 v_missing=1830 row_blocked=0 mac_blocked=0 busy_other=351 rx_missing=464834 rx_blocked=320 producer_no_tile=1036 finish=421040
+CORE_AUDIT core=5 wait_v_slot=2 job=32 mac_state=17733 weights=407373 done=41102 mac_beats=15552 v_missing=1830 row_blocked=0 mac_blocked=0 busy_other=351 rx_missing=464834 rx_blocked=320 producer_no_tile=1036 finish=425149
+CORE_AUDIT core=6 wait_v_slot=2 job=32 mac_state=17733 weights=411482 done=36993 mac_beats=15552 v_missing=1830 row_blocked=0 mac_blocked=0 busy_other=351 rx_missing=464834 rx_blocked=320 producer_no_tile=1036 finish=429258
+CORE_AUDIT core=7 wait_v_slot=2 job=32 mac_state=17733 weights=415591 done=32884 mac_beats=15552 v_missing=1830 row_blocked=0 mac_blocked=0 busy_other=351 rx_missing=464834 rx_blocked=320 producer_no_tile=1036 finish=433367
+CORE_AUDIT core=8 wait_v_slot=2 job=32 mac_state=17733 weights=419700 done=28775 mac_beats=15552 v_missing=1830 row_blocked=0 mac_blocked=0 busy_other=351 rx_missing=464834 rx_blocked=320 producer_no_tile=1036 finish=437476
+CORE_AUDIT core=9 wait_v_slot=2 job=32 mac_state=17733 weights=423809 done=24666 mac_beats=15552 v_missing=1830 row_blocked=0 mac_blocked=0 busy_other=351 rx_missing=464834 rx_blocked=320 producer_no_tile=1036 finish=441585
+CORE_AUDIT core=10 wait_v_slot=2 job=32 mac_state=17733 weights=427918 done=20557 mac_beats=15552 v_missing=1830 row_blocked=0 mac_blocked=0 busy_other=351 rx_missing=464834 rx_blocked=320 producer_no_tile=1036 finish=445694
+CORE_AUDIT core=11 wait_v_slot=2 job=32 mac_state=17733 weights=432027 done=16448 mac_beats=15552 v_missing=1830 row_blocked=0 mac_blocked=0 busy_other=351 rx_missing=464834 rx_blocked=320 producer_no_tile=1036 finish=449803
+CORE_AUDIT core=12 wait_v_slot=2 job=32 mac_state=17733 weights=436136 done=12339 mac_beats=15552 v_missing=1830 row_blocked=0 mac_blocked=0 busy_other=351 rx_missing=464834 rx_blocked=320 producer_no_tile=1036 finish=453912
+CORE_AUDIT core=13 wait_v_slot=2 job=32 mac_state=17733 weights=440245 done=8230 mac_beats=15552 v_missing=1830 row_blocked=0 mac_blocked=0 busy_other=351 rx_missing=464834 rx_blocked=320 producer_no_tile=1036 finish=458021
+CORE_AUDIT core=14 wait_v_slot=2 job=32 mac_state=17733 weights=444354 done=4121 mac_beats=15552 v_missing=1830 row_blocked=0 mac_blocked=0 busy_other=351 rx_missing=464834 rx_blocked=320 producer_no_tile=1036 finish=462130
+CORE_AUDIT core=15 wait_v_slot=2 job=32 mac_state=17733 weights=448463 done=12 mac_beats=15552 v_missing=1830 row_blocked=0 mac_blocked=0 busy_other=351 rx_missing=464834 rx_blocked=320 producer_no_tile=1036 finish=466239
+PROFILE layer=10 sparse=1 activation_preload=256 weight_preload=65584 cycles=466243 mac_beats=248832 mac_lanes=3563520 weight_wait_corecycles=6681320 writer_stall_corecycles=0
+LAYER_PASS layer=10 shape=[1,2,2,512]->512 cycles=466243 preload=65584 U_words=524288 replacements=112 source_reads=256 compared_words=256 resident_u=0
+PASS ISOLATED_LAYER stage=10 sparse=1 checked_words=256
+- /mnt/c/IDEC_challenge/free_topic_vgg/build/feed8_bypass_audit/tb.sv:282: Verilog $finish

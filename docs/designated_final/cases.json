@@ -1,0 +1,29 @@
+{
+  "b0_g0": {
+    "sparse_bypass": false,
+    "icg": false,
+    "defines": [
+      "DISABLE_SPARSE_BYPASS",
+      "CLOCK_GATING_BYPASS"
+    ]
+  },
+  "b1_g0": {
+    "sparse_bypass": true,
+    "icg": false,
+    "defines": [
+      "CLOCK_GATING_BYPASS"
+    ]
+  },
+  "b0_g1": {
+    "sparse_bypass": false,
+    "icg": true,
+    "defines": [
+      "DISABLE_SPARSE_BYPASS"
+    ]
+  },
+  "b1_g1": {
+    "sparse_bypass": true,
+    "icg": true,
+    "defines": []
+  }
+}

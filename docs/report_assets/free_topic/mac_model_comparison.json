@@ -1,0 +1,34 @@
+{
+  "totals": {
+    "direct_analytical": 313196544,
+    "winograd_rtl": 139198464,
+    "sparse_rtl": 96382208
+  },
+  "model": {
+    "designated": {
+      "conv_weights": 108,
+      "fc_weights": 750,
+      "weights": 858,
+      "biases": 16,
+      "folded_parameters": 874,
+      "direct_conv_mac": 28053,
+      "fc_mac": 750
+    },
+    "vgg": {
+      "conv_weights": 14710464,
+      "fc_weights": 529408,
+      "weights": 15239872,
+      "biases": 5258,
+      "folded_parameters": 15245130,
+      "trainable_parameters_before_bn_folding": 15253578,
+      "direct_conv_mac": 313196544,
+      "fc_mac": 529408
+    }
+  },
+  "source": "free_topic_vgg/evidence/report700/cluster_all/measurements.csv",
+  "sha256": "e74c6890df8ed4b5f8cddf2b846f3c22f6a8324e3d60b743d781832dce831fce",
+  "image_index": 0,
+  "cores": 16,
+  "scope": "13 independently executed convolution layers; FC and transforms excluded",
+  "direct_definition": "Hout*Wout*Cin*Cout*9; dense padded arithmetic reference, not RTL measurement"
+}

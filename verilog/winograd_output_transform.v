@@ -134,14 +134,14 @@ module winograd_output_transform #(
 
     // Datapath registers intentionally have no reset. Valid bits make their
     // contents unobservable until real data has passed through each stage.
-    always @(posedge clk) begin
+    always @(posedge left_clk) begin
         if (left_stage_ready && in_valid) begin
             left_tile <= left_next;
             left_user <= in_user;
         end
     end
 
-    always @(posedge clk) begin
+    always @(posedge y_clk) begin
         if (output_stage_ready && left_valid) begin
             y_tile <= y_next;
             out_user <= left_user;
@@ -159,5 +159,12 @@ module winograd_output_transform #(
                 left_valid <= in_valid;
         end
     end
+
+
+    // Data clocks only; handshake/control registers retain the root clock.
+    wire left_clk;
+    winograd_clock_gate cg_left_clk (.clk(clk), .enable(left_stage_ready && in_valid), .gclk(left_clk));
+    wire y_clk;
+    winograd_clock_gate cg_y_clk (.clk(clk), .enable(output_stage_ready && left_valid), .gclk(y_clk));
 
 endmodule

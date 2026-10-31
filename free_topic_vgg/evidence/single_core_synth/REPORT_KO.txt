@@ -1,0 +1,71 @@
+단일 코어 + SRAM 합성 결과 (2026-10-29)
+=======================================
+완료: make synth-report EXIT_CODE=0.
+전체 실행 745초(12분25초), Yosys 합성 단계 655.58초(10분55.58초).
+합성 단계 프로세스 트리 최대 RSS 4,636,012KB(약4.42GiB).
+이전 실행은 32분에 사용자 요청으로 종료했으므로 완주 시간의 직접 비교는 불가.
+이전 최대 RSS 11,384,304KB. 이번 RTL 표현 정리 후 중간 전개 자원은 감소했다.
+이전 유효 mapped baseline이 없으므로 셀 면적 감소는 주장하지 않는다.
+
+구성
+  현재 메인 RTL, 1코어용 shell, U8/V8, 16MAC, FC 활성화, 512채널 표현 범위.
+  U 4 + V/line 4 + activation A/B 4 = SRAM 매크로12개, 총96KiB.
+  Liberty blackbox로 유지. behavioral SRAM을 FF로 풀지 않았다.
+  연산 코어 원본은 수정하지 않았으며 shell의 코어 수 허용 검사만 1코어를 허용.
+  클러스터 제어/activation 공급 로직의 1코어 축소본도 면적에 포함된다.
+  16코어 전체 통신 회로의 PPA를 의미하지 않는다.
+
+셀 면적 (배치 면적/다이 면적 아님)
+  전체          93,817.459440 um^2
+  SRAM 12개     28,318.325760 um^2
+  표준셀        65,499.133680 um^2
+  순차셀 면적   24,535.573920 um^2 (synth_stat 기준)
+  전체 셀       556,246개 (SRAM 포함)
+  FF             82,868개
+  ICG                11개
+  합성 CHECK     0 problems
+
+FF의 계층 이름별 집계 (논리 최적화 후 남은 netlist instance 기준)
+  tile generator u_window    49,175
+  SRAM line adapter u_lines  16,409
+  activation reader           4,188
+  MAC                         2,585
+  V metadata                  2,088
+  FC engine                   1,121
+  기타는 structure.json 참조.
+  앞단 세 모듈 합계69,772개로 전체 FF의 약84.2%다.
+  SRAM은 긴 세로 행 이력을 보관하지만 가로 윈도/픽셀 작업 상태는 여전히 FF다.
+  이것이 다음 구조 검토의 구체적 대상이다. 이번 표현 정리는 이 상태를 제거하지 않았다.
+  next_window 조합 벡터를 FF로 잘못 센 결과가 아니라 mapped FF instance 집계다.
+
+타이밍
+  목표 clock period 1000ps, 입출력 지연 각200ps, ideal clock.
+  WNS -664.25ps, 따라서 현재 조건에서1GHz 미충족.
+  보고서 period_min 1664.25ps / fmax 600.87MHz.
+  이 값은 배치/배선 전 STA 추정이며 실제 최대 동작 주파수 보장이 아니다.
+  최악 경로: u_cluster.u_feed.y[2] FF -> host_ready 출력.
+  data arrival 1464.25ps, output external delay200ps 포함.
+  MAC 자체의 최대 주파수가600.87MHz라고 해석하면 안 된다.
+  feed 주소/선택/ready 조합 경로를 따로 분석할 필요가 있다.
+
+ICG
+  MAC acc/product/result 3개, input transform2개,
+  output transform2개, postprocess3개, window1개 =11개.
+  지정주제 최종본의16개와 같은 숫자라고 가정하면 안 된다.
+  게이트는 매핑됐지만 CTS와 gated-clock 물리 타이밍 검증은 하지 않았다.
+
+해석 제한/경고
+  표준셀 RVT FF 0.77V/0C와 SRAM0.7V/25C Liberty의 corner가 다르다.
+  SRAM LEF coreSite 및 sdel[0:4] Liberty 핀 불일치 경고가 있다.
+  기존 GDS/LEF 불일치도 미해결이다. 물리 구현 완료로 보고하지 않는다.
+  초기 read_sdc에서 clock 포트에 대한 input delay가 거절되는 STA-0441 경고가
+  있었다. clock period는 정상 생성됐으며 max path는 출력 delay200ps를 사용한다.
+  Windows/WSL 파일 시간 차이에 의한 make clock skew 경고가 있었다.
+  이번 경로는 빈 build 디렉터리에서 실행했고 소스 해시를 보관했다.
+  활동 기반 전력, CTS, 배치/배선, SDF netlist 기능 검증은 이번 범위에 없다.
+  보고서의 vectorless power는 측정된 추론 전력/TOPS/W로 인용하지 않는다.
+
+원본 산출물: build/single_core_sram_style/
+재현 설정: flow/single_core/
+검증 근거: synth_check.txt / synth_stat.txt / 1_Post_synthesis.rpt /
+           structure.json / source_sha256.json / STATUS.txt

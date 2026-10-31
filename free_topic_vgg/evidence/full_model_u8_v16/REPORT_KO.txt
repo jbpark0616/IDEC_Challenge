@@ -1,0 +1,54 @@
+실제 CIFAR-10 이미지 전체 VGG RTL 검증 — 2026-10-28
+
+CIFAR-10 official test image 0: label=3 (cat).
+U8/V16 software prediction=3; RTL prediction=3 (cat).
+
+검증 범위
+  동일 16코어 RTL과 실제 SRAM behavioral model에서 13 Conv + 5 pool + 3 FC + argmax를 순차 실행했다.
+  테스트벤치는 host command/가중치를 공급한다. 모델 연산을 Python이나 TB로 대체하지 않았다.
+  최초 입력 32x32x3 INT8 = 3072B = 384 host word만 activation으로 적재했다.
+  이후 activation은 SRAM A/B와 기존 gather/multicast로 전달하며 중간 activation host write를 금지했다.
+  레이어별 output 22986개의 64비트 word가 기준값과 bit-exact 일치했다.
+  기준은 실제 quantized VGG weight/bias/multiplier와 고정 Winograd U8/V16 소프트웨어 연산이다.
+  모든 final logits를 비교하고 argmax/class를 확인했으며 마지막 A/B lease 해제를 검사했다.
+
+레이어별 실제 TB 사이클
+  layer | command 실행(재적재 포함) | 최초 U 사전 적재 | U payload writes | U replacements | 비교 words
+  00 | 14888 | 1024 | 512 | 0 | 8192
+  01 | 143318 | 16384 | 8192 | 0 | 2048
+  02 | 42988 | 32768 | 16384 | 0 | 4096
+  03 | 83625 | 65536 | 32768 | 0 | 1024
+  04 | 2064475 | 65536 | 1048576 | 496 | 2048
+  05 | 4106374 | 131072 | 2097152 | 496 | 2048
+  06 | 4106130 | 131072 | 2097152 | 496 | 512
+  07 | 1987684 | 131072 | 1048576 | 240 | 1024
+  08 | 4096506 | 131072 | 2097152 | 496 | 1024
+  09 | 4096442 | 131072 | 2097152 | 496 | 256
+  10 | 929882 | 131072 | 524288 | 112 | 256
+  11 | 931962 | 131072 | 524288 | 112 | 256
+  12 | 932015 | 131072 | 524288 | 112 | 64
+  13 | 1277 | 66560 | 32768 | 0 | 64
+  14 | 1277 | 66560 | 32768 | 0 | 64
+  15 | 731 | 2080 | 1024 | 0 | 10
+
+Command 합계: 23539574 cycles.
+최초 가중치 적재 합계: 1365024 cycles.
+합계(위 두 항목): 24904598 cycles.
+별도 검증용 output host read: 91937 cycles; 위 합계에서 제외.
+  최초 image host loading, command/done handshake 경계의 소수 idle cycles도 위 합계에 포함하지 않았다.
+  host writes는 기존 테스트와 동일하게 워드 단위 handshake, 최소 2 cycles/word다.
+  실제 DRAM timing model, burst 최적화 또는 weight-load/compute overlap을 가정한 성능이 아니다.
+
+최종 logits (공통 출력 스케일의 signed integer)
+[-2934, -11590, -1589, 27807, -2172, 547, -860, -2951, -3946, -2284]
+
+결론의 범위
+  실제 이미지 한 장의 전체 분류 경로를 검증했다. 10000장 RTL 정확도를 검증한 것은 아니다.
+  기존 Colab U8/V16 94.15%는 software test-set 결과이며 이번 한 장 RTL smoke와 구별한다.
+  자동 하드웨어 모델 sequencer가 아니라 host/TB가 layer command를 발행하는 실행 방식이다.
+  V8 RTL, post-layout Fmax/전력 및 SRAM LEF/GDS/Liberty 정합 문제는 별도 과제다.
+
+재현 (free_topic_vgg에서)
+  python experiments/full_model/generate.py --image 0  # 프로젝트 PyTorch 환경
+  bash experiments/full_model/run.sh
+  python experiments/full_model/report.py

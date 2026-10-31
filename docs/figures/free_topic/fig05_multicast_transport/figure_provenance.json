@@ -1,0 +1,60 @@
+{
+  "source": "free_topic_vgg\\evidence\\multicast_profile\\effects.csv",
+  "sha256": "b53450eced6245b6135f290ca3a824a7c0f00fa7aab75956a11876a781784b63",
+  "rows": [
+    {
+      "bytes_per_core": "512",
+      "source_period": "1",
+      "unicast_cycles": "1026",
+      "multicast_cycles": "66",
+      "speedup": "15.545454545454545",
+      "external_bytes_unicast": "8192",
+      "external_bytes_multicast": "512"
+    },
+    {
+      "bytes_per_core": "512",
+      "source_period": "4",
+      "unicast_cycles": "4095",
+      "multicast_cycles": "255",
+      "speedup": "16.058823529411764",
+      "external_bytes_unicast": "8192",
+      "external_bytes_multicast": "512"
+    },
+    {
+      "bytes_per_core": "4096",
+      "source_period": "1",
+      "unicast_cycles": "8194",
+      "multicast_cycles": "514",
+      "speedup": "15.941634241245136",
+      "external_bytes_unicast": "65536",
+      "external_bytes_multicast": "4096"
+    },
+    {
+      "bytes_per_core": "4096",
+      "source_period": "4",
+      "unicast_cycles": "32767",
+      "multicast_cycles": "2047",
+      "speedup": "16.00732779677577",
+      "external_bytes_unicast": "65536",
+      "external_bytes_multicast": "4096"
+    },
+    {
+      "bytes_per_core": "16384",
+      "source_period": "1",
+      "unicast_cycles": "32770",
+      "multicast_cycles": "2050",
+      "speedup": "15.985365853658537",
+      "external_bytes_unicast": "262144",
+      "external_bytes_multicast": "16384"
+    },
+    {
+      "bytes_per_core": "16384",
+      "source_period": "4",
+      "unicast_cycles": "131071",
+      "multicast_cycles": "8191",
+      "speedup": "16.001831278232206",
+      "external_bytes_unicast": "262144",
+      "external_bytes_multicast": "16384"
+    }
+  ]
+}

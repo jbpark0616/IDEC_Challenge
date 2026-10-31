@@ -1,0 +1,17 @@
+HOST_POLICY continuous=1
+START layer=0 input=[1,32,32,3] Cout=64 U_block=4 preload=560
+PROFILE layer=0 sparse=1 activation_preload=384 weight_preload=560 cycles=30561 mac_beats=49152 mac_lanes=784896 weight_wait_corecycles=0 writer_stall_corecycles=0
+LAYER_PASS layer=0 shape=[1,32,32,3]->64 cycles=30561 preload=560 U_words=512 replacements=0 source_reads=6076 compared_words=8192 resident_u=1
+START layer=1 input=[1,32,32,64] Cout=64 U_block=4 preload=8240
+PROGRESS stage=1 clock=100000 U_words=8192 requests=0
+PROGRESS stage=1 clock=200000 U_words=8192 requests=0
+PROGRESS stage=1 clock=300000 U_words=8192 requests=0
+PROGRESS stage=1 clock=400000 U_words=8192 requests=0
+PROGRESS stage=1 clock=500000 U_words=8192 requests=0
+PROGRESS stage=1 clock=600000 U_words=8192 requests=0
+PROGRESS stage=1 clock=700000 U_words=8192 requests=0
+PROGRESS stage=1 clock=800000 U_words=8192 requests=0
+PROFILE layer=1 sparse=1 activation_preload=0 weight_preload=8240 cycles=754610 mac_beats=775680 mac_lanes=11885824 weight_wait_corecycles=0 writer_stall_corecycles=0
+LAYER_PASS layer=1 shape=[1,32,32,64]->64 cycles=754610 preload=8240 U_words=8192 replacements=0 source_reads=164096 compared_words=2048 resident_u=1
+PASS ISOLATED_LAYER stage=1 sparse=1 checked_words=10240
+- /mnt/c/IDEC_challenge/free_topic_vgg/build/cluster_immediate/tb.sv:214: Verilog $finish

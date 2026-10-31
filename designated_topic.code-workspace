@@ -1,0 +1,11 @@
+{
+  "folders": [
+    {"name": "지정주제 · 최종 bypass ICG RTL", "path": "verilog"},
+    {"name": "지정주제 · 검증", "path": "verification"},
+    {"name": "지정주제 · 최종 측정 근거", "path": "docs/designated_final"},
+    {"name": "합성 및 시뮬레이션", "path": "flow"},
+    {"name": "대회 제공 standard cells", "path": "OpenRoad project/std_cell"},
+    {"name": "지정주제 · 고정 모델", "path": "training/export/qat_winograd3x3_w4_frozen_aug"}
+  ],
+  "settings": {"files.exclude": {"**/__pycache__": true}}
+}

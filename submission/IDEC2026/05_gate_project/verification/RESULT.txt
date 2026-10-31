@@ -1,0 +1,9 @@
+﻿Gate-level functional simulation: PASS
+Vivado: 2024.1
+Completed: 2026-10-31 17:56 KST
+Images: 1000
+Correct: 970/1000
+Accuracy: 97.0%
+RTL mismatches (against integer reference): 0
+Simulation: ASAP7 standard-cell models + synthesized netlist
+Log: gate_1000_vivado2024_1.log

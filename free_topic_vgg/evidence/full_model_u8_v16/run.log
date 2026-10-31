@@ -1,0 +1,283 @@
+START layer=0 input=[1,32,32,3] Cout=64 U_block=4 preload=1024
+LAYER_PASS layer=0 shape=[1,32,32,3]->64 cycles=14888 preload=1024 U_words=512 replacements=0 source_reads=384 compared_words=8192
+START layer=1 input=[1,32,32,64] Cout=64 U_block=4 preload=16384
+PROGRESS stage=1 clock=100000 U_words=8192 requests=0
+PROGRESS stage=1 clock=200000 U_words=8192 requests=0
+LAYER_PASS layer=1 shape=[1,32,32,64]->64 cycles=143318 preload=16384 U_words=8192 replacements=0 source_reads=16384 compared_words=2048
+START layer=2 input=[1,16,16,64] Cout=128 U_block=8 preload=32768
+PROGRESS stage=2 clock=300000 U_words=16384 requests=0
+LAYER_PASS layer=2 shape=[1,16,16,64]->128 cycles=42988 preload=32768 U_words=16384 replacements=0 source_reads=2048 compared_words=4096
+START layer=3 input=[1,16,16,128] Cout=128 U_block=8 preload=65536
+PROGRESS stage=3 clock=400000 U_words=32768 requests=0
+LAYER_PASS layer=3 shape=[1,16,16,128]->128 cycles=83625 preload=65536 U_words=32768 replacements=0 source_reads=8192 compared_words=1024
+PROGRESS stage=4 clock=500000 U_words=18622 requests=0
+START layer=4 input=[1,8,8,128] Cout=256 U_block=8 preload=65536
+PROGRESS stage=4 clock=600000 U_words=65670 requests=16
+PROGRESS stage=4 clock=700000 U_words=115021 requests=40
+PROGRESS stage=4 clock=800000 U_words=164372 requests=64
+PROGRESS stage=4 clock=900000 U_words=213724 requests=88
+PROGRESS stage=4 clock=1000000 U_words=263075 requests=112
+PROGRESS stage=4 clock=1100000 U_words=312426 requests=136
+PROGRESS stage=4 clock=1200000 U_words=361777 requests=160
+PROGRESS stage=4 clock=1300000 U_words=411129 requests=184
+PROGRESS stage=4 clock=1400000 U_words=460480 requests=208
+PROGRESS stage=4 clock=1500000 U_words=509831 requests=232
+PROGRESS stage=4 clock=1600000 U_words=559155 requests=257
+PROGRESS stage=4 clock=1700000 U_words=608506 requests=281
+PROGRESS stage=4 clock=1800000 U_words=657858 requests=305
+PROGRESS stage=4 clock=1900000 U_words=707209 requests=329
+PROGRESS stage=4 clock=2000000 U_words=756560 requests=353
+PROGRESS stage=4 clock=2100000 U_words=805911 requests=377
+PROGRESS stage=4 clock=2200000 U_words=855263 requests=401
+PROGRESS stage=4 clock=2300000 U_words=904614 requests=425
+PROGRESS stage=4 clock=2400000 U_words=953965 requests=449
+PROGRESS stage=4 clock=2500000 U_words=1003316 requests=473
+PROGRESS stage=4 clock=2600000 U_words=1048576 requests=496
+LAYER_PASS layer=4 shape=[1,8,8,128]->256 cycles=2064475 preload=65536 U_words=1048576 replacements=496 source_reads=1024 compared_words=2048
+PROGRESS stage=5 clock=2700000 U_words=49518 requests=0
+START layer=5 input=[1,8,8,256] Cout=256 U_block=8 preload=131072
+PROGRESS stage=5 clock=2800000 U_words=91935 requests=6
+PROGRESS stage=5 clock=2900000 U_words=141611 requests=18
+PROGRESS stage=5 clock=3000000 U_words=191286 requests=30
+PROGRESS stage=5 clock=3100000 U_words=240962 requests=42
+PROGRESS stage=5 clock=3200000 U_words=290638 requests=54
+PROGRESS stage=5 clock=3300000 U_words=340286 requests=67
+PROGRESS stage=5 clock=3400000 U_words=389962 requests=79
+PROGRESS stage=5 clock=3500000 U_words=439638 requests=91
+PROGRESS stage=5 clock=3600000 U_words=489313 requests=103
+PROGRESS stage=5 clock=3700000 U_words=538989 requests=115
+PROGRESS stage=5 clock=3800000 U_words=588664 requests=127
+PROGRESS stage=5 clock=3900000 U_words=638340 requests=139
+PROGRESS stage=5 clock=4000000 U_words=688016 requests=151
+PROGRESS stage=5 clock=4100000 U_words=737664 requests=164
+PROGRESS stage=5 clock=4200000 U_words=787340 requests=176
+PROGRESS stage=5 clock=4300000 U_words=837015 requests=188
+PROGRESS stage=5 clock=4400000 U_words=886691 requests=200
+PROGRESS stage=5 clock=4500000 U_words=936367 requests=212
+PROGRESS stage=5 clock=4600000 U_words=986042 requests=224
+PROGRESS stage=5 clock=4700000 U_words=1035718 requests=236
+PROGRESS stage=5 clock=4800000 U_words=1085394 requests=248
+PROGRESS stage=5 clock=4900000 U_words=1135042 requests=261
+PROGRESS stage=5 clock=5000000 U_words=1184718 requests=273
+PROGRESS stage=5 clock=5100000 U_words=1234393 requests=285
+PROGRESS stage=5 clock=5200000 U_words=1284069 requests=297
+PROGRESS stage=5 clock=5300000 U_words=1333745 requests=309
+PROGRESS stage=5 clock=5400000 U_words=1383420 requests=321
+PROGRESS stage=5 clock=5500000 U_words=1433096 requests=333
+PROGRESS stage=5 clock=5600000 U_words=1482752 requests=345
+PROGRESS stage=5 clock=5700000 U_words=1532420 requests=358
+PROGRESS stage=5 clock=5800000 U_words=1582096 requests=370
+PROGRESS stage=5 clock=5900000 U_words=1631771 requests=382
+PROGRESS stage=5 clock=6000000 U_words=1681447 requests=394
+PROGRESS stage=5 clock=6100000 U_words=1731123 requests=406
+PROGRESS stage=5 clock=6200000 U_words=1780798 requests=418
+PROGRESS stage=5 clock=6300000 U_words=1830474 requests=430
+PROGRESS stage=5 clock=6400000 U_words=1880123 requests=443
+PROGRESS stage=5 clock=6500000 U_words=1929798 requests=455
+PROGRESS stage=5 clock=6600000 U_words=1979474 requests=467
+PROGRESS stage=5 clock=6700000 U_words=2029149 requests=479
+PROGRESS stage=5 clock=6800000 U_words=2078825 requests=491
+LAYER_PASS layer=5 shape=[1,8,8,256]->256 cycles=4106374 preload=131072 U_words=2097152 replacements=496 source_reads=8192 compared_words=2048
+PROGRESS stage=6 clock=6900000 U_words=26697 requests=0
+START layer=6 input=[1,8,8,256] Cout=256 U_block=8 preload=131072
+PROGRESS stage=6 clock=7000000 U_words=69301 requests=0
+PROGRESS stage=6 clock=7100000 U_words=118949 requests=13
+PROGRESS stage=6 clock=7200000 U_words=168625 requests=25
+PROGRESS stage=6 clock=7300000 U_words=218301 requests=37
+PROGRESS stage=6 clock=7400000 U_words=267976 requests=49
+PROGRESS stage=6 clock=7500000 U_words=317652 requests=61
+PROGRESS stage=6 clock=7600000 U_words=367327 requests=73
+PROGRESS stage=6 clock=7700000 U_words=417003 requests=85
+PROGRESS stage=6 clock=7800000 U_words=466679 requests=97
+PROGRESS stage=6 clock=7900000 U_words=516327 requests=110
+PROGRESS stage=6 clock=8000000 U_words=566003 requests=122
+PROGRESS stage=6 clock=8100000 U_words=615679 requests=134
+PROGRESS stage=6 clock=8200000 U_words=665354 requests=146
+PROGRESS stage=6 clock=8300000 U_words=715030 requests=158
+PROGRESS stage=6 clock=8400000 U_words=764705 requests=170
+PROGRESS stage=6 clock=8500000 U_words=814381 requests=182
+PROGRESS stage=6 clock=8600000 U_words=864057 requests=194
+PROGRESS stage=6 clock=8700000 U_words=913705 requests=207
+PROGRESS stage=6 clock=8800000 U_words=963381 requests=219
+PROGRESS stage=6 clock=8900000 U_words=1013057 requests=231
+PROGRESS stage=6 clock=9000000 U_words=1062732 requests=243
+PROGRESS stage=6 clock=9100000 U_words=1112408 requests=255
+PROGRESS stage=6 clock=9200000 U_words=1162083 requests=267
+PROGRESS stage=6 clock=9300000 U_words=1211759 requests=279
+PROGRESS stage=6 clock=9400000 U_words=1261435 requests=291
+PROGRESS stage=6 clock=9500000 U_words=1311083 requests=304
+PROGRESS stage=6 clock=9600000 U_words=1360759 requests=316
+PROGRESS stage=6 clock=9700000 U_words=1410434 requests=328
+PROGRESS stage=6 clock=9800000 U_words=1460110 requests=340
+PROGRESS stage=6 clock=9900000 U_words=1509786 requests=352
+PROGRESS stage=6 clock=10000000 U_words=1559461 requests=364
+PROGRESS stage=6 clock=10100000 U_words=1609137 requests=376
+PROGRESS stage=6 clock=10200000 U_words=1658813 requests=388
+PROGRESS stage=6 clock=10300000 U_words=1708461 requests=401
+PROGRESS stage=6 clock=10400000 U_words=1758137 requests=413
+PROGRESS stage=6 clock=10500000 U_words=1807812 requests=425
+PROGRESS stage=6 clock=10600000 U_words=1857488 requests=437
+PROGRESS stage=6 clock=10700000 U_words=1907164 requests=449
+PROGRESS stage=6 clock=10800000 U_words=1956839 requests=461
+PROGRESS stage=6 clock=10900000 U_words=2006515 requests=473
+PROGRESS stage=6 clock=11000000 U_words=2056191 requests=485
+LAYER_PASS layer=6 shape=[1,8,8,256]->256 cycles=4106130 preload=131072 U_words=2097152 replacements=496 source_reads=8192 compared_words=512
+PROGRESS stage=7 clock=11100000 U_words=7070 requests=0
+PROGRESS stage=7 clock=11200000 U_words=57070 requests=0
+START layer=7 input=[1,4,4,256] Cout=512 U_block=8 preload=131072
+PROGRESS stage=7 clock=11300000 U_words=103347 requests=9
+PROGRESS stage=7 clock=11400000 U_words=153022 requests=21
+PROGRESS stage=7 clock=11500000 U_words=202698 requests=33
+PROGRESS stage=7 clock=11600000 U_words=252374 requests=45
+PROGRESS stage=7 clock=11700000 U_words=302049 requests=57
+PROGRESS stage=7 clock=11800000 U_words=351725 requests=69
+PROGRESS stage=7 clock=11900000 U_words=401400 requests=81
+PROGRESS stage=7 clock=12000000 U_words=451049 requests=94
+PROGRESS stage=7 clock=12100000 U_words=500725 requests=106
+PROGRESS stage=7 clock=12200000 U_words=550400 requests=118
+PROGRESS stage=7 clock=12300000 U_words=600076 requests=130
+PROGRESS stage=7 clock=12400000 U_words=649752 requests=142
+PROGRESS stage=7 clock=12500000 U_words=699427 requests=154
+PROGRESS stage=7 clock=12600000 U_words=749103 requests=166
+PROGRESS stage=7 clock=12700000 U_words=798751 requests=179
+PROGRESS stage=7 clock=12800000 U_words=848427 requests=191
+PROGRESS stage=7 clock=12900000 U_words=898103 requests=203
+PROGRESS stage=7 clock=13000000 U_words=947778 requests=215
+PROGRESS stage=7 clock=13100000 U_words=997454 requests=227
+PROGRESS stage=7 clock=13200000 U_words=1047130 requests=239
+LAYER_PASS layer=7 shape=[1,4,4,256]->512 cycles=1987684 preload=131072 U_words=1048576 replacements=240 source_reads=512 compared_words=1024
+PROGRESS stage=8 clock=13300000 U_words=45642 requests=0
+START layer=8 input=[1,4,4,512] Cout=512 U_block=4 preload=131072
+PROGRESS stage=8 clock=13400000 U_words=86970 requests=5
+PROGRESS stage=8 clock=13500000 U_words=136789 requests=17
+PROGRESS stage=8 clock=13600000 U_words=186609 requests=29
+PROGRESS stage=8 clock=13700000 U_words=236428 requests=41
+PROGRESS stage=8 clock=13800000 U_words=286248 requests=53
+PROGRESS stage=8 clock=13900000 U_words=336053 requests=66
+PROGRESS stage=8 clock=14000000 U_words=385872 requests=78
+PROGRESS stage=8 clock=14100000 U_words=435692 requests=90
+PROGRESS stage=8 clock=14200000 U_words=485512 requests=102
+PROGRESS stage=8 clock=14300000 U_words=535331 requests=114
+PROGRESS stage=8 clock=14400000 U_words=585151 requests=126
+PROGRESS stage=8 clock=14500000 U_words=634955 requests=139
+PROGRESS stage=8 clock=14600000 U_words=684775 requests=151
+PROGRESS stage=8 clock=14700000 U_words=734595 requests=163
+PROGRESS stage=8 clock=14800000 U_words=784414 requests=175
+PROGRESS stage=8 clock=14900000 U_words=834234 requests=187
+PROGRESS stage=8 clock=15000000 U_words=884054 requests=199
+PROGRESS stage=8 clock=15100000 U_words=933873 requests=211
+PROGRESS stage=8 clock=15200000 U_words=983678 requests=224
+PROGRESS stage=8 clock=15300000 U_words=1033497 requests=236
+PROGRESS stage=8 clock=15400000 U_words=1083317 requests=248
+PROGRESS stage=8 clock=15500000 U_words=1133137 requests=260
+PROGRESS stage=8 clock=15600000 U_words=1182956 requests=272
+PROGRESS stage=8 clock=15700000 U_words=1232776 requests=284
+PROGRESS stage=8 clock=15800000 U_words=1282580 requests=297
+PROGRESS stage=8 clock=15900000 U_words=1332400 requests=309
+PROGRESS stage=8 clock=16000000 U_words=1382220 requests=321
+PROGRESS stage=8 clock=16100000 U_words=1432039 requests=333
+PROGRESS stage=8 clock=16200000 U_words=1481859 requests=345
+PROGRESS stage=8 clock=16300000 U_words=1531679 requests=357
+PROGRESS stage=8 clock=16400000 U_words=1581483 requests=370
+PROGRESS stage=8 clock=16500000 U_words=1631303 requests=382
+PROGRESS stage=8 clock=16600000 U_words=1681122 requests=394
+PROGRESS stage=8 clock=16700000 U_words=1730942 requests=406
+PROGRESS stage=8 clock=16800000 U_words=1780762 requests=418
+PROGRESS stage=8 clock=16900000 U_words=1830581 requests=430
+PROGRESS stage=8 clock=17000000 U_words=1880386 requests=443
+PROGRESS stage=8 clock=17100000 U_words=1930206 requests=455
+PROGRESS stage=8 clock=17200000 U_words=1980025 requests=467
+PROGRESS stage=8 clock=17300000 U_words=2029845 requests=479
+PROGRESS stage=8 clock=17400000 U_words=2079664 requests=491
+LAYER_PASS layer=8 shape=[1,4,4,512]->512 cycles=4096506 preload=131072 U_words=2097152 replacements=496 source_reads=4096 compared_words=1024
+PROGRESS stage=9 clock=17500000 U_words=29802 requests=0
+START layer=9 input=[1,4,4,512] Cout=512 U_block=4 preload=131072
+PROGRESS stage=9 clock=17600000 U_words=71225 requests=1
+PROGRESS stage=9 clock=17700000 U_words=121044 requests=13
+PROGRESS stage=9 clock=17800000 U_words=170864 requests=25
+PROGRESS stage=9 clock=17900000 U_words=220684 requests=37
+PROGRESS stage=9 clock=18000000 U_words=270488 requests=50
+PROGRESS stage=9 clock=18100000 U_words=320308 requests=62
+PROGRESS stage=9 clock=18200000 U_words=370127 requests=74
+PROGRESS stage=9 clock=18300000 U_words=419947 requests=86
+PROGRESS stage=9 clock=18400000 U_words=469767 requests=98
+PROGRESS stage=9 clock=18500000 U_words=519586 requests=110
+PROGRESS stage=9 clock=18600000 U_words=569391 requests=123
+PROGRESS stage=9 clock=18700000 U_words=619211 requests=135
+PROGRESS stage=9 clock=18800000 U_words=669030 requests=147
+PROGRESS stage=9 clock=18900000 U_words=718850 requests=159
+PROGRESS stage=9 clock=19000000 U_words=768669 requests=171
+PROGRESS stage=9 clock=19100000 U_words=818489 requests=183
+PROGRESS stage=9 clock=19200000 U_words=868309 requests=195
+PROGRESS stage=9 clock=19300000 U_words=918113 requests=208
+PROGRESS stage=9 clock=19400000 U_words=967933 requests=220
+PROGRESS stage=9 clock=19500000 U_words=1017753 requests=232
+PROGRESS stage=9 clock=19600000 U_words=1067572 requests=244
+PROGRESS stage=9 clock=19700000 U_words=1117392 requests=256
+PROGRESS stage=9 clock=19800000 U_words=1167211 requests=268
+PROGRESS stage=9 clock=19900000 U_words=1217016 requests=281
+PROGRESS stage=9 clock=20000000 U_words=1266836 requests=293
+PROGRESS stage=9 clock=20100000 U_words=1316655 requests=305
+PROGRESS stage=9 clock=20200000 U_words=1366475 requests=317
+PROGRESS stage=9 clock=20300000 U_words=1416295 requests=329
+PROGRESS stage=9 clock=20400000 U_words=1466114 requests=341
+PROGRESS stage=9 clock=20500000 U_words=1515919 requests=354
+PROGRESS stage=9 clock=20600000 U_words=1565738 requests=366
+PROGRESS stage=9 clock=20700000 U_words=1615558 requests=378
+PROGRESS stage=9 clock=20800000 U_words=1665378 requests=390
+PROGRESS stage=9 clock=20900000 U_words=1715197 requests=402
+PROGRESS stage=9 clock=21000000 U_words=1765017 requests=414
+PROGRESS stage=9 clock=21100000 U_words=1814821 requests=427
+PROGRESS stage=9 clock=21200000 U_words=1864641 requests=439
+PROGRESS stage=9 clock=21300000 U_words=1914461 requests=451
+PROGRESS stage=9 clock=21400000 U_words=1964280 requests=463
+PROGRESS stage=9 clock=21500000 U_words=2014100 requests=475
+PROGRESS stage=9 clock=21600000 U_words=2063920 requests=487
+LAYER_PASS layer=9 shape=[1,4,4,512]->512 cycles=4096442 preload=131072 U_words=2097152 replacements=496 source_reads=4096 compared_words=256
+PROGRESS stage=10 clock=21700000 U_words=15531 requests=0
+PROGRESS stage=10 clock=21800000 U_words=65531 requests=0
+START layer=10 input=[1,2,2,512] Cout=512 U_block=4 preload=131072
+PROGRESS stage=10 clock=21900000 U_words=111847 requests=11
+PROGRESS stage=10 clock=22000000 U_words=161666 requests=23
+PROGRESS stage=10 clock=22100000 U_words=211486 requests=35
+PROGRESS stage=10 clock=22200000 U_words=261305 requests=47
+PROGRESS stage=10 clock=22300000 U_words=311125 requests=59
+PROGRESS stage=10 clock=22400000 U_words=360930 requests=72
+PROGRESS stage=10 clock=22500000 U_words=410749 requests=84
+PROGRESS stage=10 clock=22600000 U_words=460569 requests=96
+PROGRESS stage=10 clock=22700000 U_words=510389 requests=108
+LAYER_PASS layer=10 shape=[1,2,2,512]->512 cycles=929882 preload=131072 U_words=524288 replacements=112 source_reads=256 compared_words=256
+PROGRESS stage=11 clock=22800000 U_words=34539 requests=0
+START layer=11 input=[1,2,2,512] Cout=512 U_block=4 preload=131072
+PROGRESS stage=11 clock=22900000 U_words=79923 requests=3
+PROGRESS stage=11 clock=23000000 U_words=129742 requests=15
+PROGRESS stage=11 clock=23100000 U_words=179562 requests=27
+PROGRESS stage=11 clock=23200000 U_words=229376 requests=39
+PROGRESS stage=11 clock=23300000 U_words=279186 requests=52
+PROGRESS stage=11 clock=23400000 U_words=329006 requests=64
+PROGRESS stage=11 clock=23500000 U_words=378825 requests=76
+PROGRESS stage=11 clock=23600000 U_words=428645 requests=88
+PROGRESS stage=11 clock=23700000 U_words=478465 requests=100
+LAYER_PASS layer=11 shape=[1,2,2,512]->512 cycles=931962 preload=131072 U_words=524288 replacements=112 source_reads=1024 compared_words=256
+PROGRESS stage=12 clock=23800000 U_words=2507 requests=0
+PROGRESS stage=12 clock=23900000 U_words=52507 requests=0
+START layer=12 input=[1,2,2,512] Cout=512 U_block=4 preload=131072
+PROGRESS stage=12 clock=24000000 U_words=97819 requests=7
+PROGRESS stage=12 clock=24100000 U_words=147623 requests=20
+PROGRESS stage=12 clock=24200000 U_words=197443 requests=32
+PROGRESS stage=12 clock=24300000 U_words=247263 requests=44
+PROGRESS stage=12 clock=24400000 U_words=297082 requests=56
+PROGRESS stage=12 clock=24500000 U_words=346902 requests=68
+PROGRESS stage=12 clock=24600000 U_words=396722 requests=80
+PROGRESS stage=12 clock=24700000 U_words=446526 requests=93
+PROGRESS stage=12 clock=24800000 U_words=496346 requests=105
+LAYER_PASS layer=12 shape=[1,2,2,512]->512 cycles=932015 preload=131072 U_words=524288 replacements=112 source_reads=1024 compared_words=64
+PROGRESS stage=13 clock=24900000 U_words=20513 requests=0
+START layer=13 input=[1,1,1,512] Cout=512 U_block=0 preload=66560
+LAYER_PASS layer=13 shape=[1,1,1,512]->512 cycles=1277 preload=66560 U_words=32768 replacements=0 source_reads=64 compared_words=64
+START layer=14 input=[1,1,1,512] Cout=512 U_block=0 preload=66560
+LAYER_PASS layer=14 shape=[1,1,1,512]->512 cycles=1277 preload=66560 U_words=32768 replacements=0 source_reads=64 compared_words=64
+START layer=15 input=[1,1,1,512] Cout=10 U_block=0 preload=2080
+LAYER_PASS layer=15 shape=[1,1,1,512]->10 cycles=731 preload=2080 U_words=1024 replacements=0 source_reads=64 compared_words=10
+PASS FULL_VGG layers=16 checked_words=22986 class=3 activation_host_words=384 command_cycles=23539574 preload_cycles=1365024 debug_read_cycles=91937 no_intermediate_reload
+- experiments/full_model/tb_full_vgg.sv:149: Verilog $finish

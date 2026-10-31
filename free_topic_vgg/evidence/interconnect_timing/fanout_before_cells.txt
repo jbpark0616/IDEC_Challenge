@@ -1,0 +1,58 @@
+Found gzip magic in file `/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz', decompressing using zlib.
+Found gzip magic in file `/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz', decompressing using zlib.
+Found gzip magic in file `/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz', decompressing using zlib.
+Found gzip magic in file `/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz', decompressing using zlib.
+
+20. Printing statistics.
+
+=== fanout16_synth ===
+
+        +----------------------------Count including submodules.
+        |        +-------------------Area including submodules.
+        |        |        +----------Local count, excluding submodules.
+        |        |        |        +-Local area, excluding submodules.
+        |        |        |        | 
+     2173        -     2173        - wires
+     2358        -     2358        - wire bits
+       19        -       19        - public wires
+      204        -      204        - public wire bits
+       14        -       14        - ports
+      199        -      199        - port bits
+        -        -        -        - memories
+        -        -        -        - memory bits
+        -        -        -        - processes
+     2242  267.135     2242  267.135 cells
+       34    2.974       34    2.974   AND2x2_ASAP7_75t_R
+       10    0.875       10    0.875   AND3x1_ASAP7_75t_R
+      159   13.909      159   13.909   AO21x1_ASAP7_75t_R
+        1    0.146        1    0.146   AO221x1_ASAP7_75t_R
+        6    0.787        6    0.787   AO22x1_ASAP7_75t_R
+        2    0.233        2    0.233   AO32x1_ASAP7_75t_R
+        9     1.05        9     1.05   AOI21x1_ASAP7_75t_R
+      137    9.987      137    9.987   BUFx2_ASAP7_75t_R
+       39    3.412       39    3.412   BUFx3_ASAP7_75t_R
+        6    0.875        6    0.875   BUFx6f_ASAP7_75t_R
+       23    8.719       23    8.719   DFFASRHQNx1_ASAP7_75t_R
+      356   103.81      356   103.81   DFFHQNx1_ASAP7_75t_R
+        1    0.204        1    0.204   FAx1_ASAP7_75t_R
+        7    0.919        7    0.919   HAxp5_ASAP7_75t_R
+      389   17.015      389   17.015   INVx1_ASAP7_75t_R
+        1    0.058        1    0.058   INVx2_ASAP7_75t_R
+      117   10.235      117   10.235   NAND2x1_ASAP7_75t_R
+        1     0.16        1     0.16   NAND3x1_ASAP7_75t_R
+       80    6.998       80    6.998   NOR2x1_ASAP7_75t_R
+        1    0.146        1    0.146   NOR2x2_ASAP7_75t_R
+      106   12.364      106   12.364   OA211x2_ASAP7_75t_R
+      381   38.885      381   38.885   OA21x2_ASAP7_75t_R
+        1    0.219        1    0.219   OA31x2_ASAP7_75t_R
+        2    0.233        2    0.233   OAI21x1_ASAP7_75t_R
+        4     0.35        4     0.35   OR2x2_ASAP7_75t_R
+      359   31.405      359   31.405   OR3x1_ASAP7_75t_R
+        4    0.408        4    0.408   OR4x1_ASAP7_75t_R
+        2    0.233        2    0.233   OR5x1_ASAP7_75t_R
+        1    0.044        1    0.044   TIEHIx1_ASAP7_75t_R
+        3    0.481        3    0.481   XNOR2x2_ASAP7_75t_R
+
+   Chip area for module '\fanout16_synth': 267.134760
+     of which used for sequential elements: 112.528440 (42.12%)
+

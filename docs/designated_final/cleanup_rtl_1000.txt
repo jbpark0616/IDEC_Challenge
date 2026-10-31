@@ -1,0 +1,26 @@
+Progress: 100/1000, correct=97
+Progress: 200/1000, correct=194
+Progress: 300/1000, correct=291
+Progress: 400/1000, correct=388
+Progress: 500/1000, correct=485
+Progress: 600/1000, correct=582
+Progress: 700/1000, correct=679
+Progress: 800/1000, correct=776
+Progress: 900/1000, correct=873
+Progress: 1000/1000, correct=970
+RTL mismatches: 0
+Correct: 970/1000
+Accuracy: 97.0%
+Conv1 tile FIFO depth: 2
+Conv1 tile FIFO max occupancy: 2
+V replay group depth: 2
+V replay max group occupancy: 2
+V replay backpressure cycles: 205540
+M FIFO depth: 1
+M FIFO max occupancy: 1
+M FIFO backpressure cycles: 0
+Input backpressure cycles: 0
+Average post-input cycles: 214
+Maximum post-input cycles: 228
+PASS: Winograd chip 1000-image regression
+/mnt/c/IDEC_challenge/build/designated_final/rtl/tb.v:369: $finish called at 10018305 (1ps)

@@ -1,0 +1,26 @@
+﻿원본 보존 / 별도 8채널 HWC 공급기 — Conv5 검증 결과
+==================================================
+입력 [1,8,8,128], 출력256, 16코어, U8/V8, U32KiB/core 전체 상주.
+비교 양쪽 모두 동일 요청즉시TB, 공유64-bit host 포트와 ready/valid 유지.
+원본 rtl 및 sources.f/기준 manifest 수정 없음. 전후 SHA256 일치.
+
+실행사이클: 초기 activation/weight preload 제외; 실행중 metadata 전송 포함.
+sparse=0: 110446 -> 36833 cycles; 감소=66.6507%; speedup=2.9986x
+sparse=1: 110311 -> 35222 cycles; 감소=68.0703%; speedup=3.1319x
+bypass 절감: 원본=0.1222%, 변형=4.3738%
+source_reads 25088 -> 3136 (87.5% 감소). read traffic 196KiB ->24.5KiB.
+OFF MAC lane=8388608, ON=7578624, 연산 감소9.6558% 동일.
+U 전송65536word, metadata 전환496회, 출력2048word/실행 일치.
+
+검증: 실제 SRAM으로 단위12조건 PASS (C8/32/128/256/512 및 C3 fallback; stall 유무).
+단위 모든 output word/last independent oracle 비교, stall중 stable 확인.
+클러스터 OFF/ON 모두 최종 SRAM golden 비교 PASS.
+
+추가 회로: 고정128byte 작업버퍼, word별 write enable, byte 선택MUX, 주소/제어.
+채널수에 따라 크기 증가하지 않음. 한개 outstanding read, fill/emit 단일버퍼.
+HWC C8배수에서만 최적화; 분산저장 입력과 FC 등은 원본 fallback.
+본 비교는 Conv5 1이미지 조건에 한정. 전체모델 가속/전력절감/Fmax 미검증.
+기존 700MHz 달성을 이 변형에 자동 적용하지 않는다. 아직 합성 안 함.
+메인에 반영하지 않았으며 별도 verification/feed_hwc8/sources.f로만 빌드.
+
+재현: python3 verification/feed_hwc8/run_cluster.py (WSL free_topic_vgg cwd)

@@ -1,0 +1,46 @@
+지정주제 결과보고서 검토 기록 (2026-10-31)
+
+수정본: docs/IDEC_지정주제_결과보고서_검토수정본.docx
+원본: docs/IDEC_지정주제_결과보고서.docx (변경하지 않음)
+Word 렌더링: 원본 24쪽 → 수정본 20쪽.
+
+주장 구성
+Winograd의 곱셈 감소를 행별 sparsity-aware 실행, 저장 공간 최적화,
+ICG 셀 매핑으로 이어 실제 회로의 에너지 절감으로 연결한다.
+ICG 공통 조건 대비 평균 추론 사이클 7.11%, 이미지당 에너지 15.02% 감소를
+핵심 결과로 제시한다. 동일 모델의 2×2 비교와 대회 baseline 참고 비교를 구분한다.
+
+보강한 근거
+- 중간 변환 T와 최종 V의 영행 관계, 판정 범위와 정수 비트폭.
+- 21,900개 channel tile의 V/mask 정수 대조 결과 및 행 단위 생략 기회.
+- 행별 유효 channel 수와 MAC beat 수의 관계, 포화 누산 순서 보존.
+- Conv2 작업 감소 96.96 cycle - 공급 대기 증가 21.35 cycle = 75.61 cycle 절감.
+  Conv1 절감 0.56 cycle을 더하면 전체 절감 76.17 cycle과 일치.
+- 전력 20개 입력의 실제 VCD 구간으로 이미지당 에너지 계산.
+- 공식 MNIST 10,000장, 대회 고유 이미지 100개×10회,
+  전력 평가 20개 입력의 표본과 목적 구분.
+- W4A8의 경계 activation과 내부 V(INT11)/누산(INT18) 구분.
+
+줄인 내용
+중복 FIFO/저장소 그림, 일반적 ICG 구조 설명, 코드 listing,
+채택하지 않은 timing 대안, VGG/ResNet 배경, 가상 dense TOPS/W 비교.
+핵심 설계 그림과 측정 근거가 있는 buffer/storage 비교는 유지했다.
+
+수치 근거 (기존 측정 결과를 대조·재계산했으며 새 장시간 시뮬레이션은 실행하지 않음)
+docs/designated_final/summary.json
+docs/report_data/designated_ablation/ablation.csv
+docs/report_data/designated_ablation/provenance.json
+docs/report_data/designated_layers/layer_summary.csv
+docs/report_data/designated_sparsity/summary.csv
+docs/designated_final/core_c1.txt, core_c2.txt, core_c3.txt
+training/export/qat_winograd3x3_w4_frozen_aug/roundtrip_report.json
+docs/numerical_precision/w4_compute_width_sweep.csv
+verilog/winograd_input_transform.v
+
+검증 범위
+원본과 백업의 SHA256 동일 확인. RTL 및 설계는 변경하지 않았다.
+Word로 전체 페이지를 렌더링하여 표·그림·수식·마지막 페이지를 확인했다.
+전력은 zero-delay VCD/ideal clock 기반 post-synthesis 추정치이다.
+CTS, 배선 기생 성분, delay-dependent glitch를 포함한 실측 전력이 아니다.
+대회 baseline의 전력 활동 조건을 동일하게 재현하지 않았으므로
+그 수치로 개별 최적화의 에너지 개선율을 주장하지 않는다.

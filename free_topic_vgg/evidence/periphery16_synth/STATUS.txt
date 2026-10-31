@@ -1,0 +1,1 @@
+PASS: mapped periphery; 16 compute core blackboxes + 64 A/B SRAM macros verified

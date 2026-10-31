@@ -1,0 +1,73 @@
+{
+  "retrieved_utc": "2026-10-25T10:34:01.753424+00:00",
+  "model_repository": "chenyaofo/pytorch-cifar-models",
+  "model_commit": "786c16252c0fc58ee9adac063f8337cc4a7a497a",
+  "assets": [
+    {
+      "url": "https://raw.githubusercontent.com/chenyaofo/pytorch-cifar-models/786c16252c0fc58ee9adac063f8337cc4a7a497a/pytorch_cifar_models/vgg.py",
+      "path": "reference/upstream/vgg.py.txt",
+      "sha256": "5562540e312da9184ff2e4ebc290dc68a9aec1e2a3f5b1e395b9cab4d7e8c3e5",
+      "bytes": 6875
+    },
+    {
+      "url": "https://raw.githubusercontent.com/chenyaofo/pytorch-cifar-models/786c16252c0fc58ee9adac063f8337cc4a7a497a/LICENSE",
+      "path": "reference/upstream/LICENSE.txt",
+      "sha256": "0eab51837bca1227951f45df5d2c4e07c5fc9926862d758ab3fe629ff31b04bc",
+      "bytes": 1509
+    },
+    {
+      "url": "https://raw.githubusercontent.com/chenyaofo/pytorch-cifar-models/786c16252c0fc58ee9adac063f8337cc4a7a497a/README.md",
+      "path": "reference/upstream/UPSTREAM_README.txt",
+      "sha256": "8b2fa675a6e334aa9fecd5fe1d4ebbb92434b9fb7e35282470706f4178dc5e71",
+      "bytes": 12893
+    },
+    {
+      "url": "https://github.com/chenyaofo/pytorch-cifar-models/releases/download/vgg/cifar10_vgg16_bn-6ee7ea24.pt",
+      "path": "weights/cifar10_vgg16_bn-6ee7ea24.pt",
+      "sha256": "6ee7ea24b52cfbbe9751608a81d5a7b2f5bac4e8f7d19e420030072ca257ed97",
+      "bytes": 61080472
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/chenyaofo/pytorch-cifar-models@logs/logs/cifar10/vgg16_bn/default.log",
+      "path": "reference/upstream/training_log.txt",
+      "sha256": "ce0f481e06b085284c1afda9f72c9318a3fd2afcd3ee0c4008bc690ef8525a20",
+      "bytes": 1319088
+    }
+  ],
+  "dataset_source": "https://www.cs.toronto.edu/~kriz/cifar.html",
+  "torchvision_dataset_md5_verified": true,
+  "dataset_files": [
+    {
+      "path": "data/cifar-10-batches-py/batches.meta",
+      "sha256": "f962466ef690d46b226450fb9aadc74ba4bc64a76aa526b5827fe4bc5c7125cb"
+    },
+    {
+      "path": "data/cifar-10-batches-py/data_batch_1",
+      "sha256": "54636561a3ce25bd3e19253c6b0d8538147b0ae398331ac4a2d86c6d987368cd"
+    },
+    {
+      "path": "data/cifar-10-batches-py/data_batch_2",
+      "sha256": "766b2cef9fbc745cf056b3152224f7cf77163b330ea9a15f9392beb8b89bc5a8"
+    },
+    {
+      "path": "data/cifar-10-batches-py/data_batch_3",
+      "sha256": "0f00d98ebfb30b3ec0ad19f9756dc2630b89003e10525f5e148445e82aa6a1f9"
+    },
+    {
+      "path": "data/cifar-10-batches-py/data_batch_4",
+      "sha256": "3f7bb240661948b8f4d53e36ec720d8306f5668bd0071dcb4e6c947f78e9682b"
+    },
+    {
+      "path": "data/cifar-10-batches-py/data_batch_5",
+      "sha256": "d91802434d8376bbaeeadf58a737e3a1b12ac839077e931237e0dcd43adcb154"
+    },
+    {
+      "path": "data/cifar-10-batches-py/readme.html",
+      "sha256": "4d1c3fb199d6a183ae03f5162b469d7bc04edf2fad9547bd5f224271d52f98e5"
+    },
+    {
+      "path": "data/cifar-10-batches-py/test_batch",
+      "sha256": "f53d8d457504f7cff4ea9e021afcf0e0ad8e24a91f3fc42091b8adef61157831"
+    }
+  ]
+}

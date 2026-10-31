@@ -1,0 +1,10 @@
+{
+  "data": "docs\\report_data\\designated_ablation\\icg_baseline_comparison.csv",
+  "sha256": "1f254f3806a14d029691ff9f7048bd1375b1230c82da12538e2df117fbf8ecfb",
+  "reference": "Winograd + ICG (zero-skipping disabled)",
+  "proposed": "Sparsity-Aware Winograd + ICG",
+  "normalization": "Each metric divided by its Winograd + ICG value",
+  "latency": "Fresh RTL simulation: 100 unique images per condition",
+  "power_energy": "Audited historical 20-image post-synthesis zero-delay gate VCD; reset/start included",
+  "conditions": "ASAP7 RVT FF, 0.77 V, 0 C, 1 GHz; no CTS/routed parasitics"
+}

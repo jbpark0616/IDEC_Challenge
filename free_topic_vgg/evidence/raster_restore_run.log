@@ -1,0 +1,30 @@
+V8_STORAGE case=0 shift=0 physical_bank_writes=32
+U_LOADING case=0 input=1,4,4,3 local_K=6 U_block=2 sparse=0 cycles=627 transforms=12 V_writes=12 releases=4 requests=11 U_words=48 weight_wait=285 rows=288 early=2
+RASTER_COMPARE raster=0 case=0 sparse=0 cycles=627 reads=18 tiles=12
+V8_STORAGE case=0 shift=0 physical_bank_writes=32
+U_LOADING case=0 input=1,4,4,3 local_K=6 U_block=2 sparse=1 cycles=586 transforms=12 V_writes=12 releases=4 requests=11 U_words=48 weight_wait=266 rows=192 early=1
+RASTER_COMPARE raster=0 case=0 sparse=1 cycles=586 reads=18 tiles=12
+V8_STORAGE case=6 shift=1 physical_bank_writes=32
+U_LOADING case=6 input=1,4,4,3 local_K=128 U_block=8 sparse=0 cycles=8013 transforms=12 V_writes=12 releases=4 requests=63 U_words=1024 weight_wait=3786 rows=6144 early=2
+RASTER_COMPARE raster=0 case=6 sparse=0 cycles=8013 reads=18 tiles=12
+V8_STORAGE case=6 shift=1 physical_bank_writes=32
+U_LOADING case=6 input=1,4,4,3 local_K=128 U_block=8 sparse=1 cycles=7497 transforms=12 V_writes=12 releases=4 requests=63 U_words=1024 weight_wait=3782 rows=4096 early=1
+RASTER_COMPARE raster=0 case=6 sparse=1 cycles=7497 reads=18 tiles=12
+PASS U_LOADING compared_words=536 last_use_release backpressure zero_bypass stale_commit
+- /mnt/c/IDEC_challenge/free_topic_vgg/build/raster_restore/tb.sv:257: Verilog $finish
+
+V8_STORAGE case=0 shift=0 physical_bank_writes=32
+U_LOADING case=0 input=1,4,4,3 local_K=6 U_block=2 sparse=0 cycles=599 transforms=12 V_writes=12 releases=4 requests=11 U_words=48 weight_wait=287 rows=288 early=2
+RASTER_COMPARE raster=1 case=0 sparse=0 cycles=599 reads=6 tiles=12
+V8_STORAGE case=0 shift=0 physical_bank_writes=32
+U_LOADING case=0 input=1,4,4,3 local_K=6 U_block=2 sparse=1 cycles=549 transforms=12 V_writes=12 releases=4 requests=11 U_words=48 weight_wait=264 rows=192 early=1
+RASTER_COMPARE raster=1 case=0 sparse=1 cycles=549 reads=6 tiles=12
+V8_STORAGE case=6 shift=1 physical_bank_writes=32
+U_LOADING case=6 input=1,4,4,3 local_K=128 U_block=8 sparse=0 cycles=7977 transforms=12 V_writes=12 releases=4 requests=63 U_words=1024 weight_wait=3783 rows=6144 early=2
+RASTER_COMPARE raster=1 case=6 sparse=0 cycles=7977 reads=6 tiles=12
+V8_STORAGE case=6 shift=1 physical_bank_writes=32
+U_LOADING case=6 input=1,4,4,3 local_K=128 U_block=8 sparse=1 cycles=7465 transforms=12 V_writes=12 releases=4 requests=63 U_words=1024 weight_wait=3783 rows=4096 early=1
+RASTER_COMPARE raster=1 case=6 sparse=1 cycles=7465 reads=6 tiles=12
+PASS U_LOADING compared_words=536 last_use_release backpressure zero_bypass stale_commit
+- /mnt/c/IDEC_challenge/free_topic_vgg/build/raster_restore/tb.sv:257: Verilog $finish
+

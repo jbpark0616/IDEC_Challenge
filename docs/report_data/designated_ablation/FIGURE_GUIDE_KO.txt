@@ -1,0 +1,41 @@
+지정주제 Figure 1 — Bypass / ICG 2x2 비교
+======================================
+
+앱에 전달할 파일: ablation.csv, cycles_per_image.csv, 이 설명.
+원본 데이터/RTL을 수정하지 말고 피겨만 별도 docs/figures/ 경로에 출력한다.
+
+패널 (a): cycles_mean, 단위 cycles/image.
+패널 (b): power_mw, 단위 mW.
+패널 (c): energy_nj_per_image, 단위 nJ/image.
+공통 순서: Baseline, Bypass, ICG, Bypass + ICG.
+같은 조건은 세 패널에서 같은 색. 막대 축은 0부터 시작한다.
+최종 에너지 감소 55.90%를 baseline 대비 표시할 수 있다.
+면적은 표에 따로 기입한다. 막대 차이를 과장하는 축 절단은 하지 않는다.
+
+측정 출처
+사이클: 이번에 4조건 각 100개 고유 이미지 RTL 재실행, 이미지별 CSV 제공.
+첫 입력 image_valid && image_ready 수락 상승 에지부터 valid_out_6 상승까지
+클록 번호 차이를 직접 관측. TB의 post-input counter와 오프셋 781도 검증.
+기존 1000회 결과는 같은 100장을 10회 반복했으며 새 평균과 비교 검증한다.
+정확도: 각 조건 97/100, 정수 기준 모델과 불일치 0.
+분포를 그릴 경우 cycles_per_image.csv를 쓰되, 이미지 변동성과 측정 오차를 혼동하지 않는다.
+
+전력/에너지/면적: 신규 합성 측정이 아니라 기존 matched_ablation 원본을 감사한 값.
+전력은 동일 20개 이미지의 zero-delay gate VCD, reset/start 포함 전체 구간 평균.
+ASAP7 RVT FF, 0.77V, 0C, 1GHz, post-synthesis. CTS/배선 기생 및 지연 기반 glitch 제외.
+에너지 = 전력(mW) x 전체 구간(ns) / 20 / 1000.
+100장 평균 사이클과 20장 전력을 곱해서 에너지를 다시 계산하지 않는다.
+원본 전력 보고서, gate 로그, 활동 주석 보고서를 함께 제공한다.
+활동 미주석 핀 0. 전력용 20장은 20/20 정답, 정수 모델 불일치 0.
+
+주의
+Baseline은 공통 최적화된 같은 구조에서 bypass/ICG를 끈 조건이다.
+대회 원본/direct convolution/이전 1214-cycle 회로와의 비교가 아니다.
+Bypass는 행 압축 + 전체 zero 우회 + 순서 제어의 기능 묶음이다.
+가중치 zero operand 처리는 공통 조건이다.
+활동 기반 추정값이며 실리콘 측정/배치배선 완료 PPA로 쓰지 않는다.
+이번 작업은 자유주제를 평가하지 않는다.
+
+재현: WSL python3 scripts/report_data/designated_ablation.py
+현재 지정주제 최종 RTL은 변경하지 않는다.
+실험별 복원 소스/실행물은 build/report_designated_ablation/에만 존재한다.

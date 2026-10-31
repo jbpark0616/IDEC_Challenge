@@ -1,0 +1,4 @@
+metric,unit,icg_baseline,icg_plus_bypass,baseline_normalized,bypass_normalized,reduction_percent
+cycles_mean,cycles/image,1072.0,995.83,1.0,0.928945895522388,7.105410447761196
+power_mw,mW,8.609996,7.868472,1.0,0.9138763827532556,8.612361724674445
+energy_nj_per_image,nJ/image,9.2817909379,7.8875530446,1.0,0.8497878369995429,15.021216300045715

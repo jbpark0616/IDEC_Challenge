@@ -1,0 +1,3 @@
+layer,run_cycles_reduction_percent,mac_beats_reduction_percent,active_lane_products_reduction_percent,output_transforms_reduction_percent
+Conv1,0.0744680851063717,51.04861111111112,57.81770833333333,51.04861111111112
+Conv2,31.768907563025216,46.160000000000004,53.19666666666667,9.200000000000008

@@ -1,0 +1,19 @@
+EDGE_LATENCY image=0 latency=995 tail=214 offset=781
+EDGE_LATENCY image=1 latency=986 tail=205 offset=781
+EDGE_LATENCY image=2 latency=1005 tail=224 offset=781
+RTL mismatches: 0
+Correct: 3/3
+Accuracy: 100%
+Conv1 tile FIFO depth: 2
+Conv1 tile FIFO max occupancy: 2
+V replay group depth: 2
+V replay max group occupancy: 2
+V replay backpressure cycles: 615
+M FIFO depth: 1
+M FIFO max occupancy: 1
+M FIFO backpressure cycles: 0
+Input backpressure cycles: 0
+Average post-input cycles: 214
+Maximum post-input cycles: 224
+PASS: one-image power activity regression
+/mnt/c/IDEC_challenge/experiments/row_sparse_fixed/iterations/matched_ablation/verification/b1_g1/export_tb.v:379: $finish called at 30045 (1ps)

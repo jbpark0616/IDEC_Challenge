@@ -1,0 +1,53 @@
+SRAM 제어 RTL 점검 — 2026-10-29
+================================
+
+현재 메인 구성: 16코어, 코어당 12개 8KiB 1RW 매크로.
+모든 bank가 서로 다른 제어 FSM을 갖는 구조는 아니다.
+
+U bank 0..3
+  네 MAC 행에 대응한다. host 적재와 MAC 읽기를 선택한다.
+  U 배치·상주·재적재 수명은 상위 layer/host 제어가 담당한다.
+  SRAM wrapper는 텐서 채널 수를 알지 못하고 물리 주소를 실행한다.
+
+V bank 4..7
+  네 행별 V 및 라인 이력을 저장한다.
+  MAC 읽기, 변환 결과 쓰기, 라인 이력 접근이 포트를 공유한다.
+  V writer/MAC은 충돌 시 기존 교대 우선순위를 유지한다.
+  row_accept는 현재 MAC beat 전체에 적용되며 line 접근도 영향을 준다.
+  CB는 저장 수명, watermark는 읽을 수 있는 범위를 관리한다.
+
+Activation bank 8..11
+  메인 클러스터의 vgg_activation_sram이 실제 네 매크로를 소유한다.
+  각 bank에 같은 host/source-read/result-write 3-client round-robin을 복제한다.
+  A/B 역할과 목적지는 상위 제어가 정하며 물리 SRAM의 고정 X/Y 기능이 아니다.
+  수신자가 응답을 받기 전에는 bank read-output register를 덮어쓰지 않도록
+  read lock이 필요하다. 이 상태를 불필요한 register로 제거하면 안 된다.
+
+생성 시 제거되는 기존 호환 경로
+  vgg_dataflow_scratchpad는 INTERNAL_ACTIVATION=0으로 인스턴스화되므로
+  내부의 legacy bank 8..11 매크로는 메인 구성에서 생성되지 않는다.
+  vgg_io_cbs도 EXTERNAL_ACTIVATION=1인 메인 layer에서 사용되지 않는다.
+  파일에 해당 분기가 있다고 실제 매크로가 중복되는 것은 아니다.
+  이전 독립 코어 fixture를 위해 호환 분기는 이번에 제거하지 않았다.
+
+이번 수정
+  vgg_dataflow_scratchpad의 반복 generate bank 판정을 U/V/IO 한 곳으로 통합.
+  row_accept 이후 승인된 행과 host read handshake를 공통 신호로 명명.
+  중재·read-response latency·CB 소유권·payload reset 정책은 유지.
+  runtime 범용 crossbar나 추가 FSM/캐시는 넣지 않았다.
+  기존에도 합성기의 상수 전파가 제거하던 부분이므로 PPA 감소를 주장하지 않는다.
+
+검증
+  verification/v8/run.sh로 12사례 x bypass OFF/ON x 상주/반복 적재 = 48회 실행.
+  각 공급 모드에서 출력 694워드의 기준값 일치.
+  수정 전 results.json과 모든 U_LOADING 필드를 비교해 완전 일치 확인:
+  cycles, rows, weight_wait, U_words, transforms, V_writes, releases, requests, early.
+  따라서 이번 정리는 이전에 보고한 bypass 사이클 절감값을 바꾸지 않았다.
+  전체 모델 및 PPA 재실행은 하지 않았다.
+
+후속 성능 계측에서 구분할 것
+  v_conflict_cycles는 요청 충돌 횟수다. MAC stall과 동일한 값이 아니다.
+  MAC 요청 대비 승인 거절, 미공개 V 대기, line grant, writer grant,
+  output backpressure를 구분해야 한다. 동시 발생 항목을 단순 합산하면 안 된다.
+  p_ready의 충돌 기준을 실제 V read enable로 바꾸거나 최근 워드를 재사용하는
+  변경은 이번 서술 정리와 달리 스케줄을 바꾸므로 별도의 성능 변경으로 검증한다.

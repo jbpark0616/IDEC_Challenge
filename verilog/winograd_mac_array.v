@@ -7,13 +7,18 @@
 //   FC mode  : lanes 0..9 compute classes 0..9; lanes 10..15 are gated.
 //
 // A transaction group is delimited by txn_first/txn_last.
-//   Conv1: one beat,  txn_first=1 and txn_last=1
-//   Conv2: three beats (one per input channel)
+//   Conv1: one beat, txn_first=1 and txn_last=1 for a nonzero tile
+//   Conv2: 1..3 compressed beats; each enabled row can use a different channel
 //   FC   : 75 beats (one per input feature)
 //
 // fc_bias_vec travels with the FC transaction and is added after the final
 // feature accumulation, matching training/integer_inference.py.
 // Convolution bias is intentionally handled after the output transform.
+// conv_row_enable gates each group of four lanes. The replay scheduler starts
+// every nonempty row on the common first beat, then exhausted rows hold ACC.
+// An all-zero row is initialized to zero by the common first beat. The common
+// last beat captures all rows, including rows which finished earlier.
+// In the integrated core, whole-zero jobs bypass this module entirely.
 module winograd_mac_array #(
     parameter integer NUM_MACS     = 16,
     parameter integer FC_CLASSES   = 10,
@@ -32,6 +37,7 @@ module winograd_mac_array #(
     output wire                              in_ready,
     input  wire                              txn_first,
     input  wire                              txn_last,
+    input  wire [3:0]                        conv_row_enable,
 
     input  wire [NUM_MACS*OPERAND_BITS-1:0]  conv_operand_vec,
     input  wire [NUM_MACS*WEIGHT_BITS-1:0]   conv_weight_vec,
@@ -121,14 +127,14 @@ module winograd_mac_array #(
                 assign fc_weight = fc_weight_vec[lane*WEIGHT_BITS +: WEIGHT_BITS];
                 assign pipe_fc_bias = pipe_fc_bias_vec[lane*BIAS_BITS +: BIAS_BITS];
                 assign selected_weight = mode_fc ? fc_weight : conv_weight;
-                assign lane_active = 1'b1;
+                assign lane_active = mode_fc | conv_row_enable[lane/4];
                 assign lane_base = pipe_mode_fc
                                  ? {{(ACC_BITS-BIAS_BITS){pipe_fc_bias[BIAS_BITS-1]}},
                                     pipe_fc_bias}
                                  : {ACC_BITS{1'b0}};
             end else begin : g_non_fc_lane
                 assign selected_weight = conv_weight;
-                assign lane_active = ~mode_fc;
+                assign lane_active = (~mode_fc) & conv_row_enable[lane/4];
                 assign lane_base = {ACC_BITS{1'b0}};
             end
 
@@ -160,7 +166,7 @@ module winograd_mac_array #(
 
             assign accumulator_vec[lane*ACC_BITS +: ACC_BITS] = accumulator[lane];
 
-            always @(posedge clk or negedge rst_n) begin
+            always @(posedge acc_clk or negedge rst_n) begin
                 if (!rst_n) begin
                     accumulator[lane] <= {ACC_BITS{1'b0}};
                 end else if (pipe_can_commit) begin
@@ -168,7 +174,7 @@ module winograd_mac_array #(
                 end
             end
 
-            always @(posedge clk or negedge rst_n) begin
+            always @(posedge product_clk or negedge rst_n) begin
                 if (!rst_n) begin
                     pipe_product_vec[lane*PRODUCT_BITS +: PRODUCT_BITS]
                         <= {PRODUCT_BITS{1'b0}};
@@ -181,7 +187,7 @@ module winograd_mac_array #(
                 end
             end
 
-            always @(posedge clk or negedge rst_n) begin
+            always @(posedge result_clk or negedge rst_n) begin
                 if (!rst_n) begin
                     result_vec[lane*ACC_BITS +: ACC_BITS] <= {ACC_BITS{1'b0}};
                 end else if (pipe_can_commit && pipe_last) begin
@@ -220,5 +226,14 @@ module winograd_mac_array #(
             end
         end
     end
+
+
+    // Data clocks only; handshake/control registers retain the root clock.
+    wire product_clk;
+    winograd_clock_gate cg_product_clk (.clk(clk), .enable(in_ready && in_valid), .gclk(product_clk));
+    wire acc_clk;
+    winograd_clock_gate cg_acc_clk (.clk(clk), .enable(pipe_can_commit), .gclk(acc_clk));
+    wire result_clk;
+    winograd_clock_gate cg_result_clk (.clk(clk), .enable(pipe_can_commit && pipe_last), .gclk(result_clk));
 
 endmodule

@@ -19,7 +19,11 @@ module winograd_cnn_accelerator #(
     // Elastic buffering selected from the Conv1 producer/consumer rate.
     parameter integer CONV1_TILE_FIFO_DEPTH = 2,
     parameter integer V_REPLAY_GROUP_DEPTH = 2,
-    parameter integer M_FIFO_DEPTH = 1
+    parameter integer M_FIFO_DEPTH = 1,
+    // Keep the standalone feature-stream contract by default. The fixed
+    // competition chip selects classification-only and dead-border pruning.
+    parameter integer EMIT_FEATURES = 1,
+    parameter integer PRUNE_UNUSED_CONV1 = 0
 ) (
     input  wire                         clk,
     input  wire                         rst_n,
@@ -209,8 +213,8 @@ module winograd_cnn_accelerator #(
         .FEATURE_WIDTH(28),
         .FEATURE_HEIGHT(28),
         .POSITION_BITS(5),
-        .TILE_ROWS(13),
-        .TILE_COLS(13),
+        .TILE_ROWS(PRUNE_UNUSED_CONV1 ? 12 : 13),
+        .TILE_COLS(PRUNE_UNUSED_CONV1 ? 12 : 13),
         .TILE_INDEX_BITS(4)
     ) u_conv1_window_generator (
         .clk(clk),
@@ -429,14 +433,14 @@ module winograd_cnn_accelerator #(
                             if (conv2_prefill_active)
                                 conv2_prefill_count <=
                                     conv2_prefill_count + 1'b1;
-                            if (conv1_output_col == 4'd12) begin
+                            if (conv1_output_col == (PRUNE_UNUSED_CONV1 ? 4'd11 : 4'd12)) begin
                                 conv1_output_col <= 4'd0;
                                 conv1_output_row <= conv1_output_row + 1'b1;
                             end else begin
                                 conv1_output_col <= conv1_output_col + 1'b1;
                             end
                         end
-                        if (conv_output_count == 9'd506) begin
+                        if (conv_output_count == (PRUNE_UNUSED_CONV1 ? 9'd431 : 9'd506)) begin
                             conv_output_count <= 9'd0;
                             spatial_index <= 8'd0;
                             state <= START_CONV2;
@@ -462,7 +466,7 @@ module winograd_cnn_accelerator #(
                             feature_read_index <= 7'd0;
                             feature_word_index <= 5'd0;
                             feature_channel_index <= 2'd0;
-                            state <= STREAM_FEATURES;
+                            state <= EMIT_FEATURES ? STREAM_FEATURES : START_FC;
                         end else begin
                             conv_output_count <= conv_output_count + 1'b1;
                         end

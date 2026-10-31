@@ -1,0 +1,80 @@
+from pathlib import Path
+import csv,json
+R=Path(__file__).resolve().parents[2];O=R/'evidence/bypass_controlled'
+rows=list(csv.DictReader((O/'effects.csv').open()));measure=list(csv.DictReader((O/'measurements.csv').open()))
+for p in rows:
+    gap=int(p['mac_beats_on'])-int(p['ideal_sparse_beats'])
+    assert 0<=gap<=4,(p,gap)
+    if p['pattern']=='unbalanced50':assert abs(float(p['cycle_reduction']))<1e-9
+    if p['pattern']=='dense':assert int(p['cycles_off'])==int(p['cycles_on'])
+lines=['자유주제 bypass 통제 실험 — 고정 RTL/U8V8',
+'========================================',
+'판정: 실측이 행별 최대 작업량 및 공급 제한과 일관된다. 코어 구조를 변경할 근거 없음.',
+'64회 실행, 공급 모드별1280개 출력 워드 reference 일치. RTL/소스 목록 SHA256 불변.',
+'비영/영 데이터 모두 포함한 MAC 활성 lane 수는 정수 oracle의 zero 행 통계와 정확히 일치.',
+'실험은 단일 코어 내부 경계. 16코어 전체의 성능/정확도/전력 입증은 아니다.',
+'',
+'설계: 실제 비음수 공간 activation [N,H,W,C]=[1,4,4,128].',
+'HWC 텐서 -> TB의 독립 padding/tile 변환 -> 고정 TILE_INPUT 코어 -> input transform',
+'-> V8 SRAM -> row MAC -> output transform/postprocess. 임의 mask 주입 없음.',
+'V shift=0, 모든 V는 INT8 범위 안에 있어 포화와 반올림이 실험 변수가 아니다.',
+'U는 고정된 3x3 정수 kernel의 스케일된 Winograd 변환. 동일 local_K 내 모든 패턴에서 동일.',
+'bias=2000, multiplier=65536, pooling 없음. 모든 출력은 독립 Python 정수식으로 검증.',
+'',
+'인자:',
+'- pattern 8개: dense, balanced25/50/75, allzero, unbalanced50, frontzero50, tailzero50.',
+'- local_K=8: U16KiB 전부 상주; local_K=32: U64KiB로 U32KiB 용량 초과.',
+'  두 크기는 별도 strata이며 K 변화가 있으므로 그 사이 차이를 순수 U 효과라 단정하지 않는다.',
+'- 공급: fast=매 cycle valid 가능, slow=4cycle에 한번 valid 가능. 출력 ready 항상1.',
+'  ready에 따른 backpressure는 그대로. 같은 공급 모드에서 sparse OFF/ON 동일 일정.',
+'- 총 8패턴 ×2 K ×2 공급 ×2 sparse=64회.',
+'',
+'패턴:',
+'dense 채널은 y행 값 [1,2,3,4]를 가로4칸에 반복한다. padding 포함 모든 변환 행 비영.',
+'balanced는 지정 비율의 입력 채널 전체를0으로 만들고 나머지는 dense.',
+'unbalanced50은 모든 행 값 [1,1,1,1]. 위쪽 공간 타일은 r2,r3이 zero,',
+'아래쪽 공간 타일은 r0,r2가 zero. 각 타일에서2개 행만 전 채널을 계산한다.',
+'따라서 balanced50과 unbalanced50의 MAC 총 작업량은 정확히 같지만 max-row는 다르다.',
+'frontzero50/tailzero50은 동일 zero 비율을 앞/뒤 채널에 몰아 공급 순서 민감도를 확인한다.',
+'',
+'수식 (tile t의 행 r에 남은 비영 채널 수 n[t,r], 출력 채널 K):',
+'dense_lane_slots = 16*C*K*Ntiles',
+'sparse_lane_slots = 4*K*sum_t sum_r n[t,r]',
+'ideal_sparse_beats = K*sum_t max_r n[t,r]',
+'ideal_dense_beats = C*K*Ntiles',
+'MAC 슬롯 감소율은 sum, 계산 beat 감소율은 max로 결정된다.',
+'이상적 beat는 모든 채널이 준비됐다고 가정한다. 전체 latency 예측값이 아니다.',
+'실측 accepted MAC beat는 이론값과 일치하거나 최대4개의 빈 종료 beat가 추가됐다.',
+'특히 zero 채널이 뒤에 몰리면 streaming reduction 종료를 위해 empty beat가 생긴다.',
+'빈 beat에는 활성 MAC lane이 없으므로 연산량 일치 검증에는 영향이 없다.',
+'',
+'대표 결과 (초기 U 적재 제외, 실제 실행 사이클):',
+'공급 | local_K | pattern | zero 행% | OFF -> ON | cycles절감% | 이상적 beat -> 실측beat']
+for p in rows:
+    if p['pattern'] not in ['dense','balanced25','balanced50','balanced75','allzero','unbalanced50']:continue
+    lines.append(f"{p['rate']} | {p['local_K']} | {p['pattern']} | {float(p['zero_row_percent']):g} | {p['cycles_off']} -> {p['cycles_on']} | {float(p['cycle_reduction']):.2f} | {p['ideal_sparse_beats']} -> {p['mac_beats_on']}")
+lines+=['','해석:',
+'1) fast/K8,50%균등:4681->2690 (42.53%). 이상적 beat4096->2048과 일치.',
+'   같은50%라도 불균등은4681->4681. 회로 실패가 아니라 4행 중 가장 긴 행이 그대로다.',
+'2) slow/K8,50%균등:5321->4587 (13.79%). 공급이 느려 절감한 계산시간이 대기로 치환된다.',
+'3) fast/K32,50%균등:79789->71589 (10.28%). U 재적재/commit 대기는 유지된다.',
+'4) 모든 zero에서도0cycle이 되지 않는다. 생성/변환/쓰기/완료·출력은 여전히 필요하다.',
+'5) dense 패턴은 전 조건에서 ON/OFF 사이클이 동일해 sparse 선택으로 인한 사이클 손해 없음.',
+'6) 이 통제 실험은 실제 VGG Conv9의49.93% MAC 감소가21.01% 사이클 감소로',
+'   이어진 것이 모순이 아님을 설명한다. VGG 사례의 각 원인 기여도를 역산하는 실험은 아니다.',
+'',
+'대기 지표:',
+'measurements.csv의 v_read_blocked, no_ready_channel, weight_wait 등은 서로 겹칠 수 있다.',
+'weight_wait에는 TB 상태 polling/메타데이터 갱신/stale-commit 검증/5cycle 지연도 포함된다.',
+'TB U쓰기64bit/2cycle이며 실물 DRAM 모델이 아니다. 대기량을 DRAM bandwidth로 해석 금지.',
+'elapsed+preload는 초기 U load task+실행 구간; config 초기화 등 모든 host 작업을 포함하지 않는다.',
+'',
+'합성 판단: 기능과 스케줄 동작은 합리적. 고정 코어는 유지하고 실제16코어 주변 논리 합성 진행.',
+'전체16코어 연결된 타이밍/배선/전력 및 전체모델 U8V8 검증은 별도 과제로 남는다.',
+'보고서용 회귀 직선 하나보다 zero율/행균형/공급모드별 curve와 위 수식을 사용한다.',
+'이번에는 CSV와 리포트만 생성. figure는 별도 담당자가 생성할 수 있다.',
+'',
+'재현: python3 free_topic_vgg/verification/bypass_profile/controlled.py',
+'검토: python free_topic_vgg/verification/bypass_profile/controlled_report.py']
+(O/'REPORT_KO.txt').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+print('PASS: 32 paired comparisons; dense/no regression; imbalance/max-row; ideal beat deviation <=4')

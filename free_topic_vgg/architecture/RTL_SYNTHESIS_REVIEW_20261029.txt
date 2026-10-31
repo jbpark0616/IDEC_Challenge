@@ -1,0 +1,86 @@
+자유주제 RTL 합성 관점 점검 — 2026-10-29
+
+범위와 상태
+  rtl/sources.f 메인 경로와 1코어 합성 wrapper 설정을 정적으로 점검했다.
+  U8/V8, CHANNEL_BITS=9, EXTERNAL_LINES=1, STREAM_TILE=1 기준이다.
+  합성은 사용자 요청으로 종료했다. 재실행하지 않았다.
+  이번 점검에서는 RTL 동작/구조를 변경하지 않았다.
+  아래 비트 수는 RTL 선언 기준이며 최종 매핑 FF 수나 면적이 아니다.
+  합성 장시간/메모리 사용의 원인이 특정 회로로 입증된 상태도 아니다.
+
+1. 최우선: 가로 윈도와 픽셀 작업 상태가 여전히 채널 상한에 비례
+  winograd_sliding_window_generator.v의 horizontal0..3[0:2]:
+    4행 x 3열 x 512채널 x 8비트 = 49,152비트 = 6KiB.
+  vgg_sram_line_buffer.v의 pixel_hold, tap0, tap1, tap2:
+    4 x 512 x 8 = 16,384비트 = 2KiB.
+  vgg_activation_reader.v의 vector:
+    512 x 8 = 4,096비트 = 0.5KiB.
+  합계 69,632비트 = 8.5KiB의 선언상 순차 작업 상태가 있다.
+  SRAM으로 이동한 것은 긴 세로 행 이력이며, 위 작업 상태까지 사라진 것은 아니다.
+  next_window는 조합 연결이다. reg 선언이라고 추가 FF로 세면 안 된다.
+  STREAM_TILE=1에서는 pending tile 전체 복사 분기가 제거된다.
+  이 상태를 줄이려면 데이터 공급/윈도 보존 시점의 검토가 필요하다.
+  단순 문법 정리로 제거하거나 임의로 채널 상한을 줄이면 안 된다.
+
+2. 동작 유지 표현 개선 후보: 먼저 고정 범위를 자르고 가변 선택
+  generator의 현재 선택:
+    next_window[tile_lane*PIXEL_BITS + channel_cursor*ACT_BITS +: ACT_BITS]
+  next_window는 현재 설정에서 65,536비트다. 각 tile_lane의 고정 4,096비트
+  범위를 wire로 먼저 분리하고 그 안에서 채널을 선택하면 의도를 명확히 한다.
+  channel_cursor의 표현 범위와 CHANNELS가 일치하는 메인 설정에서는 같은 선택이다.
+  비정상 인덱스/비거듭제곱 채널 parameter 설정의 동작까지 확인해야 한다.
+  합성기가 이미 줄일 수도 있으므로 최종 MUX 면적 감소는 아직 주장하지 않는다.
+
+3. 동작 유지 표현 개선 후보: 넓은 벡터의 가변 부분 쓰기
+  line buffer의 tapN[beat*256 +: 256] 갱신은 4,096비트 벡터의 부분 쓰기다.
+  고정 256비트 slice별 enable로 표현하면 write mask/shift 중간 논리를
+  줄일 후보가 된다. FF 비트 수 자체를 줄이는 수정은 아니다.
+  비트 폭을 좁힐 때 범위 밖 beat 및 X 동작을 임의로 바꾸면 안 된다.
+  reader의 vector는 이미 고정 slice + channel 비교 enable 방식이다.
+  SRAM payload 전체 reset을 추가하지 않는다.
+
+4. SRAM 제어: bank마다 전혀 다른 FSM이 붙는 구조는 아님
+  activation 4bank는 같은 3-client round-robin을 generate로 복제한다.
+  read response를 소비하기 전 출력 레지스터를 보호하는 read lock은 필요하다.
+  U는 host/연산 읽기, V는 producer/MAC/line 접근이라는 실제 역할 차이가 있다.
+  이를 범용 crossbar나 단일 거대 FSM으로 통일할 이유는 없다.
+  vgg_dataflow_scratchpad의 b<4/b<8 분기는 elaboration-time 조건이다.
+  source에 여러 분기가 있다고 runtime 선택기가 모두 생기는 것은 아니다.
+  기존 동일 동작 정리는 SRAM_CONTROL_REVIEW.txt에 기록돼 있다.
+
+5. SRAM 스케줄과 스타일 정리는 분리해야 함
+  V collision은 p_valid & row_read를 사용한다.
+  실제 V read는 accepted_rows & v_read_enable이므로 요청 충돌이 실제 포트
+  충돌보다 보수적일 수 있다. 검증 후보이며 이번에 수정하지 않았다.
+  writer_wins와 line_fire는 row_accept 전체를 막는다.
+  행별 grant로 바꾸면 MAC 응답/누산 handshake도 바뀌므로 단순 리팩터링이 아니다.
+
+6. mask/우선순위 선택기
+  wide physical_mask는 4 x 512 = 2,048비트로 물리 V 영역에 대응한다.
+  row MAC의 remaining은 4 x 512 = 2,048비트로 별도의 진행 상태다.
+  둘은 같은 정보가 아니므로 단순 중복 저장이라고 지우면 안 된다.
+  physical_mask >> read_base는 넓은 가변 shift 후보다. 허용되는 base를
+  명시적인 고정 slice 선택으로 바꿀 여지는 있지만 허용 주소 검증이 먼저다.
+  vgg_first_one_channels는 이름과 달리 현재 7비트 또는 9비트 설정에만
+  맞춰져 있다. 다른 설정을 일반 지원한다고 문서화하면 안 된다.
+
+7. 수치 경로
+  U8/V8은 SRAM 저장 정밀도다. MAC 입력은 scale 복원 후 16비트이며
+  acc는 48비트다. 저장 폭만 보고 8x8 MAC 면적을 기대하면 안 된다.
+  postprocess에는 requantization 곱셈이 따로 있다.
+  폭 축소는 overflow/rounding/bit-exact 검증 대상이지 코딩 스타일 변경이 아니다.
+
+다음 순서
+  (1) 고정 slice 분리 및 가변 부분 쓰기 표현을 작은 독립 사례로 비교.
+  (2) 기존 tb_window_equivalence와 line response/backpressure 부분 검증.
+  (3) 짧은 RTLIL/부분 합성으로 중간 셀 수와 메모리 사용량 비교.
+  (4) 실제 작업 FF 축소는 공급 순서를 합의한 후 별도 변경.
+  (5) 단일 코어 전체 합성은 Virtuoso 작업 후 자원 여유가 있을 때 재실행.
+  지정주제 최종 verilog/는 변경하지 않는다.
+
+후속 적용 (2026-10-29)
+  항목 2의 고정 slice 분리 및 항목 3의 고정 tap 쓰기를 적용했다.
+  128/512채널 line/window 전후 비교 4사례, 총 48,000사이클 PASS.
+  범위가 일치하지 않는 generator parameter는 기존 선택 표현을 보존했다.
+  항목 1의 작업 FF 용량 및 SRAM 중재/스케줄은 변경하지 않았다.
+  상세 재현 방법: verification/rtl_style/README.txt.

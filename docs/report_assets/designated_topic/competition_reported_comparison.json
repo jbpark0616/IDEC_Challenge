@@ -1,0 +1,31 @@
+{
+  "metrics": [
+    "Clock frequency",
+    "Cycles / image",
+    "Inference latency",
+    "Cell area",
+    "Power"
+  ],
+  "reported_reference": [
+    476.0,
+    1335.0,
+    2.8,
+    0.024848,
+    335.0
+  ],
+  "proposed": [
+    1000.0,
+    995.83,
+    0.99583,
+    0.0077690259,
+    7.868472
+  ],
+  "change_percent": [
+    110.08403361344538,
+    -25.405992509363294,
+    -64.43464285714285,
+    -68.73379789117837,
+    -97.6512023880597
+  ],
+  "scope": "Reported implementation comparison; model/kernel and power activity conditions differ. Accuracy: 97% for both. No direct-convolution speedup or matched-power claim."
+}

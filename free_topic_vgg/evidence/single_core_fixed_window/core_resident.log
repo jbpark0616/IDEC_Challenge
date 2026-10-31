@@ -1,0 +1,50 @@
+V8_STORAGE case=0 shift=0 physical_bank_writes=32
+U_LOADING case=0 input=1,4,4,3 local_K=6 U_block=2 sparse=0 cycles=573 transforms=12 V_writes=12 releases=4 requests=11 U_words=48 weight_wait=284 rows=288 early=2
+V8_STORAGE case=0 shift=0 physical_bank_writes=32
+U_LOADING case=0 input=1,4,4,3 local_K=6 U_block=2 sparse=1 cycles=529 transforms=12 V_writes=12 releases=4 requests=11 U_words=48 weight_wait=265 rows=192 early=1
+V8_STORAGE case=1 shift=1 physical_bank_writes=1024
+U_LOADING case=1 input=1,4,4,128 local_K=6 U_block=2 sparse=0 cycles=3973 transforms=512 V_writes=512 releases=4 requests=11 U_words=1536 weight_wait=272 rows=12288 early=126
+V8_STORAGE case=1 shift=1 physical_bank_writes=1024
+U_LOADING case=1 input=1,4,4,128 local_K=6 U_block=2 sparse=1 cycles=3229 transforms=512 V_writes=512 releases=4 requests=11 U_words=1536 weight_wait=272 rows=9204 early=94
+V8_STORAGE case=2 shift=2 physical_bank_writes=4096
+U_LOADING case=2 input=1,4,4,512 local_K=4 U_block=2 sparse=0 cycles=12520 transforms=2048 V_writes=2048 releases=4 requests=7 U_words=4096 weight_wait=174 rows=32768 early=2040
+V8_STORAGE case=2 shift=2 physical_bank_writes=4096
+U_LOADING case=2 input=1,4,4,512 local_K=4 U_block=2 sparse=1 cycles=10981 transforms=2048 V_writes=2048 releases=4 requests=7 U_words=4096 weight_wait=175 rows=24380 early=1528
+V8_STORAGE case=3 shift=3 physical_bank_writes=1024
+U_LOADING case=3 input=1,2,2,512 local_K=4 U_block=2 sparse=0 cycles=3134 transforms=512 V_writes=512 releases=1 requests=1 U_words=4096 weight_wait=26 rows=8192 early=510
+V8_STORAGE case=3 shift=3 physical_bank_writes=1024
+U_LOADING case=3 input=1,2,2,512 local_K=4 U_block=2 sparse=1 cycles=2746 transforms=512 V_writes=512 releases=1 requests=1 U_words=4096 weight_wait=27 rows=5696 early=381
+V8_STORAGE case=4 shift=0 physical_bank_writes=1040
+U_LOADING case=4 input=1,4,4,129 local_K=6 U_block=2 sparse=0 cycles=3972 transforms=516 V_writes=516 releases=4 requests=11 U_words=1560 weight_wait=283 rows=12384 early=128
+V8_STORAGE case=4 shift=0 physical_bank_writes=1040
+U_LOADING case=4 input=1,4,4,129 local_K=6 U_block=2 sparse=1 cycles=3218 transforms=516 V_writes=516 releases=4 requests=11 U_words=1560 weight_wait=294 rows=9216 early=96
+V8_STORAGE case=5 shift=2 physical_bank_writes=4096
+U_LOADING case=5 input=1,4,4,512 local_K=4 U_block=2 sparse=0 cycles=12498 transforms=2048 V_writes=2048 releases=4 requests=7 U_words=4096 weight_wait=179 rows=32768 early=2040
+V8_STORAGE case=5 shift=2 physical_bank_writes=4096
+U_LOADING case=5 input=1,4,4,512 local_K=4 U_block=2 sparse=1 cycles=6319 transforms=2048 V_writes=2048 releases=4 requests=7 U_words=4096 weight_wait=183 rows=0 early=0
+V8_STORAGE case=6 shift=1 physical_bank_writes=32
+U_LOADING case=6 input=1,4,4,3 local_K=128 U_block=8 sparse=0 cycles=7957 transforms=12 V_writes=12 releases=4 requests=63 U_words=1024 weight_wait=3780 rows=6144 early=2
+V8_STORAGE case=6 shift=1 physical_bank_writes=32
+U_LOADING case=6 input=1,4,4,3 local_K=128 U_block=8 sparse=1 cycles=7441 transforms=12 V_writes=12 releases=4 requests=63 U_words=1024 weight_wait=3780 rows=4096 early=1
+V8_STORAGE case=7 shift=3 physical_bank_writes=1024
+U_LOADING case=7 input=1,2,2,512 local_K=8 U_block=4 sparse=0 cycles=13407 transforms=512 V_writes=512 releases=1 requests=1 U_words=8192 weight_wait=8231 rows=16384 early=510
+V8_STORAGE case=7 shift=3 physical_bank_writes=1024
+U_LOADING case=7 input=1,2,2,512 local_K=8 U_block=4 sparse=1 cycles=12495 transforms=512 V_writes=512 releases=1 requests=1 U_words=8192 weight_wait=8229 rows=11272 early=380
+V8_STORAGE case=8 shift=4 physical_bank_writes=512
+U_LOADING case=8 input=1,2,2,256 local_K=16 U_block=8 sparse=0 cycles=12951 transforms=256 V_writes=256 releases=1 requests=1 U_words=8192 weight_wait=8255 rows=16384 early=254
+V8_STORAGE case=8 shift=4 physical_bank_writes=512
+U_LOADING case=8 input=1,2,2,256 local_K=16 U_block=8 sparse=1 cycles=11935 transforms=256 V_writes=256 releases=1 requests=1 U_words=8192 weight_wait=8255 rows=8864 early=186
+V8_STORAGE case=9 shift=1 physical_bank_writes=1024
+U_LOADING case=9 input=1,4,4,128 local_K=16 U_block=8 sparse=0 cycles=9377 transforms=512 V_writes=512 releases=4 requests=7 U_words=4096 weight_wait=422 rows=32768 early=126
+V8_STORAGE case=9 shift=1 physical_bank_writes=1024
+U_LOADING case=9 input=1,4,4,128 local_K=16 U_block=8 sparse=1 cycles=7361 transforms=512 V_writes=512 releases=4 requests=7 U_words=4096 weight_wait=424 rows=24528 early=94
+V8_STORAGE case=10 shift=1 physical_bank_writes=4096
+U_LOADING case=10 input=1,4,4,512 local_K=4 U_block=2 sparse=0 cycles=12520 transforms=2048 V_writes=2048 releases=4 requests=7 U_words=4096 weight_wait=174 rows=32768 early=2040
+V8_STORAGE case=10 shift=1 physical_bank_writes=4096
+U_LOADING case=10 input=1,4,4,512 local_K=4 U_block=2 sparse=1 cycles=9889 transforms=2048 V_writes=2048 releases=4 requests=7 U_words=4096 weight_wait=182 rows=16408 early=1339
+V8_STORAGE case=11 shift=1 physical_bank_writes=1024
+U_LOADING case=11 input=1,2,2,512 local_K=4 U_block=2 sparse=0 cycles=3134 transforms=512 V_writes=512 releases=1 requests=1 U_words=4096 weight_wait=26 rows=8192 early=510
+V8_STORAGE case=11 shift=1 physical_bank_writes=1024
+U_LOADING case=11 input=1,2,2,512 local_K=4 U_block=2 sparse=1 cycles=3062 transforms=512 V_writes=512 releases=1 requests=1 U_words=4096 weight_wait=25 rows=7060 early=487
+PASS U_LOADING compared_words=694 last_use_release backpressure zero_bypass stale_commit
+- verification/v8/tb_v8_packed.sv:200: Verilog $finish

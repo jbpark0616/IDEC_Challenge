@@ -399,8 +399,8 @@ INT18 정수 추론에서도 모든 단계의 saturation은 0회였다.
 
 출력:
 
-- `docs/figures/winograd_bitwidth_selection.png`
-- `docs/figures/winograd_bitwidth_selection.pdf`
+- `docs/report_assets/designated_topic/figures/winograd_bitwidth_selection.png`
+- `docs/report_assets/designated_topic/figures/winograd_bitwidth_selection.pdf`
 
 ## 11. 현재 상태
 

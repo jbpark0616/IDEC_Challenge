@@ -1,0 +1,11 @@
+{
+  "data": "docs\\report_data\\designated_sparsity",
+  "hashes": {
+    "per_image.csv": "1374f9ef6f9dd226c0ab82fe717b148cd3be346a4d94eaec93fb6383d9bb2b15",
+    "row_causes.csv": "31d0291f17181c9ac3ba4e0b6c6467e6581c529f2a405f75d974e26d7e9c5d7d",
+    "summary.csv": "e3616c006bb1f67ef649296913437d069c3858bfce72f46a882a4e22d092eb4b",
+    "tile_histogram_source.csv": "595afc67ba2c767dee884504d159873bd0e418bd5705692af6da85a356b4b12c"
+  },
+  "images": 100,
+  "note": "Unique accepted channel tiles; no output-channel replay weighting. Cancellation percentages are percentage points of all rows."
+}

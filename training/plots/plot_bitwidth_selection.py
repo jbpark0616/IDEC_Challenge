@@ -15,7 +15,7 @@ from matplotlib.ticker import MultipleLocator
 
 ROOT = Path(__file__).resolve().parents[2]
 RUNS = ROOT / "training" / "runs"
-OUTPUT = ROOT / "docs" / "figures"
+OUTPUT = ROOT / "docs" / "report_assets" / "designated_topic" / "figures"
 COMPETITION_BASELINE = 96.0
 
 

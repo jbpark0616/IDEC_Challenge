@@ -1,0 +1,2 @@
+PASS FANOUT16 words=192 endpoint_deliveries=1043 independent_stalls subset_masks empty_masks
+tests/tb_fanout16.sv:67: $finish called at 11125000 (1ps)

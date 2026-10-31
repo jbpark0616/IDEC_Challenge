@@ -27,7 +27,8 @@ module winograd_input_transform #(
 
     output reg                             out_valid,
     input  wire                            out_ready,
-    output reg [TILE_SIZE*TILE_SIZE*V_BITS-1:0] v_tile
+    output reg [TILE_SIZE*TILE_SIZE*V_BITS-1:0] v_tile,
+    output reg [TILE_SIZE-1:0] zero_rows
 );
 
     reg                                   temp_valid;
@@ -80,6 +81,15 @@ module winograd_input_transform #(
     genvar row;
     generate
         for (row = 0; row < TILE_SIZE; row = row + 1) begin : g_horizontal
+            // B is invertible: T[row,:] == 0 iff (T*B)[row,:] == 0.
+            // This reuses T0 arithmetic, including cancellation of nonzero
+            // input rows. Exact for the default 8/10/11-bit transform.
+            always @(posedge clk or negedge rst_n) begin
+                if (!rst_n)
+                    zero_rows[row] <= 1'b0;
+                else if (output_stage_ready && temp_valid)
+                    zero_rows[row] <= ~|temp_tile[row*TILE_SIZE*TEMP_BITS +: TILE_SIZE*TEMP_BITS];
+            end
             wire signed [TEMP_BITS-1:0] s0;
             wire signed [TEMP_BITS-1:0] s1;
             wire signed [TEMP_BITS-1:0] s2;
@@ -115,14 +125,14 @@ module winograd_input_transform #(
         end
     endgenerate
 
-    always @(posedge clk or negedge rst_n) begin
+    always @(posedge temp_clk or negedge rst_n) begin
         if (!rst_n)
             temp_tile <= {TILE_SIZE*TILE_SIZE*TEMP_BITS{1'b0}};
         else if (temp_stage_ready && in_valid)
             temp_tile <= temp_next;
     end
 
-    always @(posedge clk or negedge rst_n) begin
+    always @(posedge v_clk or negedge rst_n) begin
         if (!rst_n)
             v_tile <= {TILE_SIZE*TILE_SIZE*V_BITS{1'b0}};
         else if (output_stage_ready && temp_valid)
@@ -141,5 +151,12 @@ module winograd_input_transform #(
                 temp_valid <= in_valid;
         end
     end
+
+
+    // Data clocks only; handshake/control registers retain the root clock.
+    wire temp_clk;
+    winograd_clock_gate cg_temp_clk (.clk(clk), .enable(temp_stage_ready && in_valid), .gclk(temp_clk));
+    wire v_clk;
+    winograd_clock_gate cg_v_clk (.clk(clk), .enable(output_stage_ready && temp_valid), .gclk(v_clk));
 
 endmodule

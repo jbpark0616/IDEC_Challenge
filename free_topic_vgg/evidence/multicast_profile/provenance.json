@@ -1,0 +1,8 @@
+{
+  "files": {
+    "rtl/designated/elastic_fifo.v": "0530750ce499b58f87e50c9d80e80413512bdb8e02727aa68a59cb6cc9b8b199",
+    "rtl/interconnect/vgg_mcast_fanout.v": "b17630e1d6c807f84056752e13cf2c3205fcad94723adda41c2e054964d02dd8",
+    "verification/multicast_profile/tb_transport.sv": "3c7499364e03bf708cc993c6357baab9fca7e11e98d67123891d72b504281458"
+  },
+  "scope": "Measured fanout and sixteen depth-4 RX FIFOs; testbench traffic source and always-ready consumers. Not SRAM copy, DRAM model, or whole accelerator latency."
+}

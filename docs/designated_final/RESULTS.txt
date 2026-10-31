@@ -1,0 +1,32 @@
+Matched bypass / ICG comparison
+
+공통 최적화를 적용한 동일 RTL의 2x2 비교. 기존 1214-cycle 원본과의 차이를 bypass 단독 효과로 사용하지 않는다.
+ASAP7 RVT FF, 0.77 V, 0 C, 1 GHz, post-synthesis VCD power. CTS/배선 전력 제외.
+지연: 1000회 RTL, 100개 고유 이미지 반복. 전력: 동일 20개 고유 이미지, reset/start 포함.
+zero-delay gate VCD 기반 추정이며 실제 실리콘 측정 또는 물리 설계 signoff 수치가 아니다.
+
+case    bypass ICG   mean cyc  max cyc    area um2    power mW  energy nJ/image   virtual TOPS/W
+b0_g0   False False   1072.00     1072  7804.64484   16.591570      17.88612725         22.05940
+b1_g0   True  False    995.83     1009  7781.47722   16.273860      16.31332411         22.49005
+b0_g1   False True    1072.00     1072  7802.57448    8.609996       9.28179094         42.50873
+b1_g1   True  True     995.83     1009  7769.02590    7.868472       7.88755304         46.51475
+
+각 비교의 변화 (양의 reduction은 감소, 양의 area change는 증가):
+b0_g0 -> b1_g0: cycles -76.17 (7.105%), power -1.915%, energy -8.793%, area -0.297%
+b0_g0 -> b0_g1: cycles -0.00 (0.000%), power -48.106%, energy -48.106%, area -0.027%
+b1_g0 -> b1_g1: cycles -0.00 (0.000%), power -51.650%, energy -51.650%, area -0.160%
+b0_g1 -> b1_g1: cycles -76.17 (7.105%), power -8.612%, energy -15.021%, area -0.430%
+b0_g0 -> b1_g1: cycles -76.17 (7.105%), power -52.575%, energy -55.901%, area -0.456%
+
+검증: 모든 조건에서 RTL 1000개 모델 불일치 0, 정확도 970/1000, input stall 0.
+C=K=1,2,3의 zero/mixed/bias/output-stall 코어 비교 통과. 독립 RTL 폴더 전처리 일치 및 3-image 검증 통과.
+각 합성 netlist의 동일 20개 입력 모델 불일치 0, 20/20 정답. VCD 미주석 pin 0.
+ICG만 변경하면 사이클과 MAC/bypass 카운트 및 전력 측정 구간이 동일함을 확인.
+원본 verilog/와 이전 final_995_icg/ 소스 hash 보존 확인. 공통 소스 변경은 conv_core의 bypass 설정뿐.
+
+주의: bypass는 행별 압축+whole-zero 우회+순서 FIFO의 기능 묶음이다. 개별 알고리즘 효과 분리 실험은 아니다.
+Virtual TOPS/W는 부산의 인재팀 방식에 맞춘 183 MAC x 2 x 1 GHz / power. 실제 처리량을 뜻하지 않는다.
+면적의 작은 증감은 해당 기능 추가/제거에 따른 전체 합성 매핑 결과까지 포함한다.
+이전 final_995_icg의 전력/면적 수치 대신 이 네 조건의 재합성·재측정값끼리 비교한다.
+
+상세 값 및 경로: summary.json, README.txt, cases/<case>/rtl, openroad/<case>, power/synth/<case>.

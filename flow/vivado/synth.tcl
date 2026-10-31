@@ -39,7 +39,7 @@ if {[llength $argv] >= 3} {
 puts "===== Reading RTL (top: $top_module) ====="
 foreach f $rtl_files {
     puts "  $f"
-    read_verilog $f
+    read_verilog -define CLOCK_GATING_BYPASS $f
 }
 
 puts "===== Reading constraints ====="

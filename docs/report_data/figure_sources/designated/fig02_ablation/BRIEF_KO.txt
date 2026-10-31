@@ -1,0 +1,10 @@
+Figure 2: Four-way ablation
+===========================
+데이터: ../../../report_data/designated_ablation/ablation.csv
+상세 조건: ../../../report_data/designated_ablation/FIGURE_GUIDE_KO.txt
+4조건: Baseline / Bypass / ICG / Bypass + ICG.
+사이클, 전력, 이미지당 에너지의 세 패널. 같은 조건은 같은 색.
+이 그림은 ICG와 bypass 기여를 투명하게 분리하는 보조 그림이다.
+본문 핵심은 fig01의 ICG 공통 기준 15.02% 추가 절감.
+Baseline은 공통 최적화된 우리 Winograd 회로이며 대회 제공 회로가 아니다.
+출력은 figure.svg / figure.pdf / figure.png, 생성 스크립트를 함께 보존한다.

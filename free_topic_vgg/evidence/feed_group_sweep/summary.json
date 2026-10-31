@@ -1,0 +1,92 @@
+[
+  {
+    "layer": 3,
+    "shape": "[1,16,16,64] -> Cout128",
+    "variant": "original",
+    "cycles_off": 238837,
+    "cycles_on": 238823,
+    "bypass_percent": 0.005861738340373623,
+    "reads": 57600,
+    "off_speedup": 1.0
+  },
+  {
+    "layer": 3,
+    "shape": "[1,16,16,64] -> Cout128",
+    "variant": "group4",
+    "cycles_off": 53879,
+    "cycles_on": 53865,
+    "bypass_percent": 0.025984149668700773,
+    "reads": 14400,
+    "off_speedup": 4.432840253159858
+  },
+  {
+    "layer": 3,
+    "shape": "[1,16,16,64] -> Cout128",
+    "variant": "group8",
+    "cycles_off": 37121,
+    "cycles_on": 36071,
+    "bypass_percent": 2.8285875919290993,
+    "reads": 7200,
+    "off_speedup": 6.434013092319711
+  },
+  {
+    "layer": 5,
+    "shape": "[1,8,8,128] -> Cout256",
+    "variant": "original",
+    "cycles_off": 110446,
+    "cycles_on": 110311,
+    "bypass_percent": 0.12223167882947639,
+    "reads": 25088,
+    "off_speedup": 1.0
+  },
+  {
+    "layer": 5,
+    "shape": "[1,8,8,128] -> Cout256",
+    "variant": "group4",
+    "cycles_off": 37373,
+    "cycles_on": 35757,
+    "bypass_percent": 4.323977202793461,
+    "reads": 6272,
+    "off_speedup": 2.9552350627458326
+  },
+  {
+    "layer": 5,
+    "shape": "[1,8,8,128] -> Cout256",
+    "variant": "group8",
+    "cycles_off": 36833,
+    "cycles_on": 35222,
+    "bypass_percent": 4.3737952379659495,
+    "reads": 3136,
+    "off_speedup": 2.9985610729508863
+  },
+  {
+    "layer": 11,
+    "shape": "[1,2,2,512] -> Cout512",
+    "variant": "original",
+    "cycles_off": 478196,
+    "cycles_on": 478013,
+    "bypass_percent": 0.038268827008169914,
+    "reads": 2048,
+    "off_speedup": 1.0
+  },
+  {
+    "layer": 11,
+    "shape": "[1,2,2,512] -> Cout512",
+    "variant": "group4",
+    "cycles_off": 467958,
+    "cycles_on": 467775,
+    "bypass_percent": 0.03910607362199725,
+    "reads": 512,
+    "off_speedup": 1.0218780317891776
+  },
+  {
+    "layer": 11,
+    "shape": "[1,2,2,512] -> Cout512",
+    "variant": "group8",
+    "cycles_off": 466426,
+    "cycles_on": 466243,
+    "bypass_percent": 0.03923451951649559,
+    "reads": 256,
+    "off_speedup": 1.0252344423338322
+  }
+]

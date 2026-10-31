@@ -1,0 +1,18 @@
+PASS FEED H=4 C=8 stalls=0 words=64 reads=72
+PASS FEED H=4 C=8 stalls=1 words=64 reads=72
+PASS FEED H=4 C=32 stalls=0 words=256 reads=288
+PASS FEED H=4 C=32 stalls=1 words=256 reads=288
+PASS FEED H=8 C=128 stalls=0 words=4096 reads=6272
+PASS FEED H=8 C=128 stalls=1 words=4096 reads=6272
+PASS FEED H=8 C=256 stalls=0 words=8192 reads=12544
+PASS FEED H=8 C=256 stalls=1 words=8192 reads=12544
+PASS FEED H=4 C=512 stalls=0 words=4096 reads=4608
+PASS FEED H=4 C=512 stalls=1 words=4096 reads=4608
+PASS FEED H=4 C=3 stalls=0 words=24 reads=18
+PASS FEED H=4 C=3 stalls=1 words=24 reads=18
+PASS FEED H=4 C=4 stalls=0 words=32 reads=36
+PASS FEED H=4 C=4 stalls=1 words=32 reads=36
+PASS FEED H=4 C=12 stalls=0 words=96 reads=108
+PASS FEED H=4 C=12 stalls=1 words=96 reads=108
+PASS ALL_FEED
+/mnt/c/IDEC_challenge/free_topic_vgg/verification/feed_hwc4/tb_feed.sv:85: $finish called at 2218130000 (1ps)

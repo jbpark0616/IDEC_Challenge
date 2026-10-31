@@ -1,0 +1,17 @@
+icg	net	sinks	sink_types
+u_accelerator.u_conv1_output_frame_buffer.cg_memory_clk.u_icg.latch	u_accelerator.u_conv1_output_frame_buffer.cg_memory_clk.gclk	2496	DFFHQNx1_ASAP7_75t_R 2496
+u_accelerator.u_conv1_window_generator.cg_line_clk.u_icg.latch	u_accelerator.u_conv1_window_generator.cg_line_clk.gclk	696	DFFHQNx1_ASAP7_75t_R 696
+u_accelerator.u_conv1_window_generator.cg_window_clk.u_icg.latch	u_accelerator.u_conv1_window_generator.cg_window_clk.gclk	128	DFFHQNx1_ASAP7_75t_R 128
+u_accelerator.u_conv2_window_generator.cg_line_clk.u_icg.latch	u_accelerator.u_conv2_window_generator.cg_line_clk.gclk	936	DFFHQNx1_ASAP7_75t_R 936
+u_accelerator.u_conv2_window_generator.cg_window_clk.u_icg.latch	u_accelerator.u_conv2_window_generator.cg_window_clk.gclk	384	DFFHQNx1_ASAP7_75t_R 384
+u_accelerator.u_core.u_input_transform.cg_temp_clk.u_icg.latch	u_accelerator.u_core.u_input_transform.cg_temp_clk.gclk	142	DFFASRHQNx1_ASAP7_75t_R 142
+u_accelerator.u_core.u_input_transform.cg_v_clk.u_icg.latch	u_accelerator.u_core.u_input_transform.cg_v_clk.gclk	174	DFFASRHQNx1_ASAP7_75t_R 174
+u_accelerator.u_core.u_mac.cg_acc_clk.u_icg.latch	u_accelerator.u_core.u_mac.acc_clk	288	DFFASRHQNx1_ASAP7_75t_R 288
+u_accelerator.u_core.u_mac.cg_product_clk.u_icg.latch	u_accelerator.u_core.u_mac.cg_product_clk.gclk	259	DFFASRHQNx1_ASAP7_75t_R 259
+u_accelerator.u_core.u_mac.cg_result_clk.u_icg.latch	u_accelerator.u_core.u_mac.cg_result_clk.gclk	288	DFFASRHQNx1_ASAP7_75t_R 288
+u_accelerator.u_core.u_output_transform.cg_left_clk.u_icg.latch	u_accelerator.u_core.u_output_transform.cg_left_clk.gclk	144	DFFHQNx1_ASAP7_75t_R 144
+u_accelerator.u_core.u_output_transform.cg_y_clk.u_icg.latch	u_accelerator.u_core.u_output_transform.cg_y_clk.gclk	72	DFFHQNx1_ASAP7_75t_R 72
+u_accelerator.u_core.u_postprocess.cg_max_clk.u_icg.latch	u_accelerator.u_core.u_postprocess.cg_max_clk.gclk	60	DFFHQNx1_ASAP7_75t_R 60
+u_accelerator.u_core.u_postprocess.cg_relu_clk.u_icg.latch	u_accelerator.u_core.u_postprocess.cg_relu_clk.gclk	43	DFFHQNx1_ASAP7_75t_R 43
+u_accelerator.u_core.u_postprocess.cg_requant_clk.u_icg.latch	u_accelerator.u_core.u_postprocess.cg_requant_clk.gclk	10	DFFHQNx1_ASAP7_75t_R 10
+u_accelerator.u_core.u_v_buffer.cg_payload_clk.u_icg.latch	u_accelerator.u_core.u_v_buffer.cg_payload_clk.gclk	1068	DFFHQNx1_ASAP7_75t_R 1068

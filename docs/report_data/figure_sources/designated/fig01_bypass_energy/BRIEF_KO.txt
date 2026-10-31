@@ -1,0 +1,33 @@
+Figure 1: Energy benefit of sparsity-aware bypass
+================================================
+주장: ICG를 공통 적용한 Winograd 기준 설계 대비 bypass 추가로 추론 에너지 15.02% 절감.
+
+데이터: ../../../report_data/designated_ablation/icg_baseline_comparison.csv
+원본: ../../../report_data/designated_ablation/ablation.csv
+
+권장 구성
+  (a) Energy per image: ICG baseline 9.28179, ICG + bypass 7.88755 nJ/image.
+      두 막대. 세로축 0부터. -15.0% 표시. 본문의 핵심 패널.
+  (b) Relative to ICG baseline: cycles, power, energy 세 그룹.
+      각 그룹 기준본 1.0, 제안본 비율 표시. 세로축 0부터.
+      감소율: cycles 7.11%, power 8.61%, energy 15.02%.
+  두 조건의 색상은 모든 패널에서 동일하게 사용.
+  기준본 회색, 제안본 청록/파랑 등 색각 구분 가능한 조합.
+  정규화 수치와 절대값을 같은 단위 축에 섞지 않는다.
+
+영문 조건명
+  ICG baseline
+  ICG + bypass
+영문 캡션 초안
+  Incremental benefit of sparsity-aware bypass with clock gating enabled
+  in both designs. Energy per image decreases by 15.0% relative to the
+  ICG-enabled Winograd baseline. Power and energy are post-synthesis
+  estimates from identical 20-image zero-delay gate simulations at 1 GHz,
+  including reset/start. Latency is measured over 100 unique images.
+
+조건: ASAP7 RVT FF, 0.77V, 0C. CTS/배선 기생 및 지연 기반 glitch 미포함.
+에너지는 동일 20장 전체 측정 구간의 평균이며 100장 평균 사이클과 전력을
+곱해서 다시 산출하지 않는다. 측정 표본이 다른 점을 주석에 유지한다.
+Bypass는 행 압축/전체 zero 우회/관련 순서 제어 묶음이다.
+반복 측정 오차 데이터는 없으므로 임의 error bar를 만들지 않는다.
+RTL 또는 데이터 수정 없이 SVG/PDF/PNG 및 생성 스크립트를 이 폴더에 저장한다.

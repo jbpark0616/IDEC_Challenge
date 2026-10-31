@@ -17,6 +17,7 @@ create_project -force exported $build_dir -part xck26-sfvc784-2LV-c
 # RTL sources for the competition-interface Winograd chip.
 set rtl_names {
     chip.v
+    winograd_clock_gate.v
     elastic_fifo.v
     winograd_sliding_window_generator.v
     winograd_sequential_frame_buffer.v
@@ -34,6 +35,8 @@ foreach name $rtl_names {
     add_files -norecurse [file join $proj_root verilog $name]
 }
 set_property top chip [current_fileset]
+# RTL simulation retains the latch-based gate. Use make synth for an FPGA
+# sanity synthesis with CLOCK_GATING_BYPASS; ASIC synthesis uses OpenROAD.
 
 # Testbench → sim fileset
 add_files -fileset sim_1 -norecurse \

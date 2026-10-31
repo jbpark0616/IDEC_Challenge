@@ -1,0 +1,55 @@
+﻿자유주제 결과보고서 근거 및 검증 범위
+작성일: 2026-10-31
+문서: docs/IDEC_자유주제_결과보고서.docx
+
+양식
+지정주제 검토수정본의 페이지 설정과 1 과제 개요 / 2 설계 목표 /
+3 설계 및 시뮬레이션 / 4 결론 구성을 사용했다.
+로컬 대회 HWP는 중간보고서 양식이며 4번은 앞으로의 진행 계획이다.
+공식 최종보고서 양식은 별도로 확보되지 않아 최종 양식 일치 여부를 독립 확인하지 못했다.
+
+근거
+모델/저장: free_topic_vgg/architecture/U_STORAGE.txt, V8_STORAGE.txt, SRAM_CONTROL_REVIEW.txt
+양자화 10,000장: free_topic_vgg/evidence/quantization/colab_audit.json
+과거 전체 모델 RTL: free_topic_vgg/evidence/full_model_u8_v16/REPORT_KO.txt
+현재 Conv-FC 연결 및 타이밍: free_topic_vgg/evidence/timing_writer_pipeline/REPORT_KO.txt
+SRAM-멀티캐스트 전체 공급: free_topic_vgg/evidence/multicast_profile/SUPPLY_REPORT_KO.txt
+통제 실험: free_topic_vgg/evidence/report700/core_controlled/
+실제 13개 레이어: free_topic_vgg/evidence/report700/cluster_all/
+별도 공급 개선: free_topic_vgg/evidence/feed_hwc8/REPORT_KO.txt
+개선본 bypass 비교: free_topic_vgg/evidence/feed8_bypass_audit/REPORT_SELECTION_KO.txt
+합성 기준: free_topic_vgg/evidence/report_baseline_700mhz/
+계층 합성 검증: free_topic_vgg/evidence/full_cluster_reuse/REPORT_KO.txt
+SRAM 물리 모델 제한: free_topic_vgg/evidence/sram_macro/REPORT_KO.txt
+
+해석 경계
+U8/V8 93.94%는 소프트웨어 10,000장 정확도이며 RTL 10,000장 검증이 아니다.
+전체 모델의 과거 RTL 일치는 U8/V16 이미지 1장이다.
+실제 13개 레이어 MAC 합계 30.76%는 이미지 1장의 독립 레이어 실행이다.
+통제 실험 42.53%는 단일 코어 U 상주/빠른 공급/균등 50% zero-row 조건이다.
+HWC8 개선본은 별도 실험이며 700 MHz 합성 기준본과 동일하지 않다.
+725.89 MHz는 제공된 라이브러리 모델을 사용한 배치 전 STA 환산치이다.
+멀티캐스트 93.75%는 외부 payload 절감이다. 전체 공급 속도는 1.14~1.67배이다.
+MAC lane 활동 감소율을 전력 감소율로 표기하지 않았다.
+
+그림
+docs/report_assets/free_topic/figures 아래 제공된 SVG 7개를 Word에 삽입했다.
+원본 SVG와 RTL은 수정하지 않았다.
+검토: .report_review/free_topic/render_v2/ 페이지 렌더링, 최종 결론 페이지 분리 후 재검토.2026-10-31 검토수정본 추가 개정
+대상: IDEC_자유주제_결과보고서_검토수정본.docx
+수정 전 사본: .report_review/free_topic/review_before_mac_comparison.docx
+Fig.7: 13개 레이어에서 Direct 3x3 / Winograd / Winograd+sparsity-aware MAC 횟수를 비교.
+Direct는 dense padded 산출량이며 RTL 계측이 아님. Winograd OFF/ON은 기존 RTL 계측.
+Winograd OFF를 이론식과 전 레이어 대조하여 일치 검사.
+수치/재현: mac_three_way.csv, mac_model_comparison.json, generate_mac_comparison.py
+Conv 합계: 313196544 / 139198464 / 96382208 MACs.
+Winograd 감소 55.56%, 추가 sparse 감소 30.76%, 결합 direct 대비 69.23%.
+변환 덧셈/뺄셈, FC, 데이터 이동, 전력 및 실행시간 비교는 이 막대그래프에 포함하지 않음.
+모델 비교 근거: training/models.py의 Spatial3x3/Winograd3x3와 free_topic_vgg/model.py.
+지정주제: 858 weights + 16 biases = 874 parameters.
+VGG: 15239872 weights + 5258 folded biases = 15245130 inference parameters.
+BN 학습 affine 포함 trainable 수는 15253578; running statistics는 제외.
+U 변환 저장량과 spatial parameter 수를 구분.
+중복 사이클 표와 별도 HWC8 실험 절을 삭제하고, 통제 사이클 그림과 실제 MAC 비교를 중심으로 정리.
+실제 레이어의 작은 사이클 감소 관측은 본문에 보존.
+RTL 및 시뮬레이션 조건 변경 없음. 새 장시간 실행 없음.

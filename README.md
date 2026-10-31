@@ -1,5 +1,11 @@
 # Winograd CNN Accelerator 설계 개발 기록
 
+지정주제 최종본은 **bypass + ICG `b1_g1`**이며 `verilog/`의 14개 파일만 사용한다.
+소스 SHA-256과 최신 측정 근거는 [docs/designated_final/README.txt](docs/designated_final/README.txt)에 있다.
+자유주제 `free_topic_vgg/`는 별도 프로젝트이다. 최종 보고서와 재현 자료 위치는
+[최종 자료 안내](docs/FINAL_DELIVERY.md)에 정리했다. 빌드 캐시와 폐기된 실험의 대용량 복구본은 삭제했으며,
+보고서 비교에 필요한 지정주제 RTL만 `verification/designated_ablation_reference.zip`에 보존했다.
+
 ## 1. 프로젝트 개요
 
 본 프로젝트의 목표는 대회에서 제공한 MNIST CNN의 정확도를 유지하면서 연산량,
@@ -14,7 +20,7 @@ ReLU, pooling 및 requantization을 거쳐 다음 계층의 activation storage�
 기록된다. 이를 통해 각 연산 사이에 전체 feature map을 반복 저장하는 구조를
 피하고, 제한된 연산 자원과 저장 공간을 재사용한다.
 
-![Single-core Winograd CNN accelerator](docs/figures/winograd_cnn_architecture.svg)
+![Single-core Winograd CNN accelerator](docs/report_assets/designated_topic/figures/winograd_cnn_architecture.svg)
 
 ## 2. 최종 설계 사양
 
@@ -87,12 +93,12 @@ sliding-window generator로 4×4 tile을 순차 생성한다.
 
 | 블록 | 설계도 |
 |---|---|
-| Tile generator | [winograd_tile_generator_microarchitecture.svg](docs/figures/winograd_tile_generator_microarchitecture.svg) |
-| Input transform | [winograd_input_transform_microarchitecture.svg](docs/figures/winograd_input_transform_microarchitecture.svg) |
-| MAC array | [winograd_mac_array_microarchitecture.svg](docs/figures/winograd_mac_array_microarchitecture.svg) |
-| Output transform | [winograd_output_transform_microarchitecture.svg](docs/figures/winograd_output_transform_microarchitecture.svg) |
-| Elastic FIFO | [elastic_fifo_microarchitecture.svg](docs/figures/elastic_fifo_microarchitecture.svg) |
-| Fused output unit | [winograd_fused_output_unit_microarchitecture.svg](docs/figures/winograd_fused_output_unit_microarchitecture.svg) |
+| Tile generator | [winograd_tile_generator_microarchitecture.svg](docs/report_assets/designated_topic/figures/winograd_tile_generator_microarchitecture.svg) |
+| Input transform | [winograd_input_transform_microarchitecture.svg](docs/report_assets/designated_topic/figures/winograd_input_transform_microarchitecture.svg) |
+| MAC array | [winograd_mac_array_microarchitecture.svg](docs/report_assets/designated_topic/figures/winograd_mac_array_microarchitecture.svg) |
+| Output transform | [winograd_output_transform_microarchitecture.svg](docs/report_assets/designated_topic/figures/winograd_output_transform_microarchitecture.svg) |
+| Elastic FIFO | [elastic_fifo_microarchitecture.svg](docs/report_assets/designated_topic/figures/elastic_fifo_microarchitecture.svg) |
+| Fused output unit | [winograd_fused_output_unit_microarchitecture.svg](docs/report_assets/designated_topic/figures/winograd_fused_output_unit_microarchitecture.svg) |
 
 ### 3.3 Pipeline buffer 깊이 결정
 
@@ -176,9 +182,9 @@ pipeline latency는 유지하면서 Fmax는 1,056.86 MHz에서 1,180.21 MHz로 1
 - Timing/area: 동일한 ASAP7 OpenROAD post-synthesis flow로 비교
 - Power: gate-level VCD activity를 합성 netlist에 annotation하여 1 GHz에서 분석
 
-최종 RTL 및 gate-level regression 모두 1,000장 전체에서 golden mismatch 0을
-기록하였다. 분류 결과는 970/1,000으로 정확도 97.0%이며, 고정 속도 입력 구간의
-backpressure는 발생하지 않았다.
+최종 b1_g1 RTL은 1,000회에서 golden mismatch 0, 분류 결과 970/1,000을 기록했다.
+이는 고유 이미지 100개를 10회 반복한 검사이다. 전력 측정용 gate-level 검증은
+별도의 20개 이미지에서 mismatch 0, 20/20 정답이었다.
 
 ## 5. 최종 결과
 
@@ -186,20 +192,22 @@ backpressure는 발생하지 않았다.
 |---|---:|
 | Accuracy | 97.0% |
 | Target frequency | 1 GHz |
-| Estimated Fmax | 1,180.21 MHz |
-| Minimum period | 847.31 ps |
-| Post-synthesis cell area | 7,953.89 µm² |
-| Activity-based power at 1 GHz | 16.60 mW |
-| Average cycles per image | 약 1,220 cycle |
-| Inference latency at 1 GHz | 약 1.220 µs |
-| Dense-equivalent throughput | 0.366 TOPS |
-| Dense-equivalent energy efficiency | 22.05 TOPS/W |
+| Estimated Fmax | 1,162.696 MHz |
+| Minimum period | 860.07 ps |
+| Post-synthesis cell area | 7,769.02590 µm² |
+| Activity-based power at 1 GHz | 7.868472 mW |
+| Average / maximum cycles per image | 995.83 / 1009 cycle |
+| Average inference latency at 1 GHz | 0.99583 µs |
+| Energy per image, power measurement window | 7.88755304 nJ |
+| ICG cells | 16 |
+| Virtual dense reference | 0.366 TOPS |
+| Virtual dense energy efficiency | 46.51475 TOPS/W |
 
-대회 baseline과 동일한 dense-equivalent 계산 기준으로 비교하면 정확도 97.0%를
-유지하면서 cell area는 68.0%, power는 95.0%, inference latency는 56.4%
-감소하였다. Dense-equivalent throughput은 10.5% 증가했고 energy efficiency는
-약 22.3배 향상되었다. Timing과 area는 배치배선 전 post-synthesis 결과이며,
-power는 workload switching activity를 반영한 분석값이다.
+ASAP7 RVT FF corner, 0.77 V, 0°C, 배치배선 및 CTS 이전 결과이다.
+전력은 20개 이미지의 reset/start를 포함한 zero-delay gate VCD로 계산했다.
+가상 dense 지표는 183 MAC × 2 × 1 GHz를 기준으로 하며 실제 처리량이 아니다.
+동일한 공통 최적화를 적용한 bypass/ICG OFF 대비 평균 사이클 7.105%,
+전력 52.575%, 에너지 55.901% 감소했다. 정리 작업에서 PPA를 재측정하지 않았다.
 
 ## 6. 저장소 구성
 
@@ -229,13 +237,12 @@ IDEC_challenge/
 ```text
 make sim-chip-winograd-1000 FIFO_DEPTH=2 V_REPLAY_DEPTH=2 M_FIFO_DEPTH=1
 make synth-asic ASIC_TOP=chip ASIC_CLK_PERIOD_PS=1000
-make synth-asic-fmax
-make sim-chip-winograd-gate-1000
+make verify-designated-final
 make power-asic-activity
 make xpr
 ```
 
-최종 보고 수치와 원본 리포트는 `docs/final_results/`에 보존하였다. 설계 단계별
+현재 최종 수치는 `docs/designated_final/`에, 중간보고서 당시 수치는 `docs/final_results/`에 보존하였다. 설계 단계별
 비교 자료는 다음 디렉터리에서 확인할 수 있다.
 
 - `docs/activation_storage_optimization/`: activation lifetime 및 storage 최적화
@@ -243,7 +250,7 @@ make xpr
 - `docs/mac_timing_optimization/`: zero-skip control retiming
 - `docs/dead_tile_pruning/`: 미채택 최적화의 비교 결과
 - `docs/numerical_precision/`: W4A8 compute bit-width sweep
-- `docs/figures/`: 전체 구조 및 블록별 publication figure
+- `docs/report_assets/designated_topic/figures/`: 전체 구조 및 블록별 publication figure
 
 ## 8. 향후 계획
 

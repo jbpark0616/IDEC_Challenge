@@ -1,0 +1,20 @@
+4-channel UNIT PASS
+BUILD COMPLETE
+PASS 1/18 Conv5 original sparse=0: cycles=110446 reads=25088
+PASS 2/18 Conv5 original sparse=1: cycles=110311 reads=25088
+PASS 3/18 Conv5 group4 sparse=0: cycles=37373 reads=6272
+PASS 4/18 Conv5 group4 sparse=1: cycles=35757 reads=6272
+PASS 5/18 Conv5 group8 sparse=0: cycles=36833 reads=3136
+PASS 6/18 Conv5 group8 sparse=1: cycles=35222 reads=3136
+PASS 7/18 Conv3 original sparse=0: cycles=238837 reads=57600
+PASS 8/18 Conv3 original sparse=1: cycles=238823 reads=57600
+PASS 9/18 Conv3 group4 sparse=0: cycles=53879 reads=14400
+PASS 10/18 Conv3 group4 sparse=1: cycles=53865 reads=14400
+PASS 11/18 Conv3 group8 sparse=0: cycles=37121 reads=7200
+PASS 12/18 Conv3 group8 sparse=1: cycles=36071 reads=7200
+PASS 13/18 Conv11 original sparse=0: cycles=478196 reads=2048
+PASS 14/18 Conv11 original sparse=1: cycles=478013 reads=2048
+PASS 15/18 Conv11 group4 sparse=0: cycles=467958 reads=512
+PASS 16/18 Conv11 group4 sparse=1: cycles=467775 reads=512
+PASS 17/18 Conv11 group8 sparse=0: cycles=466426 reads=256
+PASS 18/18 Conv11 group8 sparse=1: cycles=466243 reads=256

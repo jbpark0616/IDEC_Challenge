@@ -1,28 +1,12 @@
-# Parallel synthesis with SYNTH_BLACKBOXES
+# 지정주제 최종 ASIC 설정
 
-For large designs, it can be useful to split synthesis for the
-major blocks and combine the synthesized result.
+`config.mk`는 루트 `verilog/`의 bypass + ICG `b1_g1` 최종본을 사용한다.
+실행은 저장소 루트에서 `make synth-asic` 또는 WSL의
+`bash flow/openroad/run_designated_final.sh`를 사용한다.
 
-SYNTH_HIERARCHICAL=1 and SYNTH_MINIMUM_KEEP_SIZE can be used to adjust which
-modules are flattened and which are kept.
+기준 설정과 SDC는 `flow/openroad/designated_final.mk`, `designated_final.sdc`이다.
+`OPENROAD_CLKGATE`와 ASAP7 플랫폼 ICG mapping을 유지해야 한다.
+결과는 `build/designated_final/openroad/`에 저장한다.
 
-A module that is not flattened, can be built separately without any
-loss in quality of results and combined as shown below. The module
-that is built separately be built with and without SYNTH_HIERARCHICAL=1.
-
-1. Synthesize aes_key_expand_128 module
-
-       make DESIGN_CONFIG=designs/asap7/aes/config.mk FLOW_VARIANT=blackbox clean_synth synth
-2. Synthesize top module, which could happen in parallel to 1 but with aes_key_expand_128 blacklisted:
-
-       make DESIGN_CONFIG=designs/asap7/aes/config.mk FLOW_VARIANT=top clean_synth synth
-3. Combine the synthesis results above:
-
-       make DESIGN_CONFIG=designs/asap7/aes/config.mk FLOW_VARIANT=combine clean_synth synth
-
-4. View final result:
-
-       make DESIGN_CONFIG=designs/asap7/aes/config.mk FLOW_VARIANT=combine
-       make DESIGN_CONFIG=designs/asap7/aes/config.mk FLOW_VARIANT=combine gui_final
-
-![alt text](final.png)
+기존 AES 예제 설정과 생성물은 정리 전 복구용 ZIP에 보관했다.
+현재 측정 근거는 `docs/designated_final/`에 있다.

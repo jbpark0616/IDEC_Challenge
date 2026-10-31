@@ -1,0 +1,22 @@
+{
+  "sha256": "1b7322e824da348da9a77b5b563ab614bc967aa443e1116119e01cc38494733b",
+  "bytes": 69323942,
+  "files": [
+    "model.py",
+    "config.json",
+    "winograd_probe.py",
+    "reference/upstream/LICENSE.txt",
+    "reference/upstream/revision.json",
+    "model_tools/quantization/README.txt",
+    "weights/cifar10_vgg16_bn-6ee7ea24.pt",
+    "artifacts/integer_vgg/integer_parameters.pt",
+    "artifacts/integer_vgg/manifest.json",
+    "model_tools/quantization/probe.py",
+    "model_tools/quantization/uv_common.py",
+    "model_tools/quantization/evaluate_uv.py",
+    "model_tools/quantization/test_uv.py",
+    "model_tools/quantization/artifacts/uv8/v_calibration.json",
+    "model_tools/quantization/artifacts/uv8/validation_1000.json"
+  ],
+  "status": "prepared; Colab not executed"
+}

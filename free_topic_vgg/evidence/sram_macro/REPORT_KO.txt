@@ -1,0 +1,43 @@
+ASAP7 SRAM 단독 검증 결과 — 2026-10-26
+
+후보: srambank_256x4x64_6t122, 1024 words x 64 bits = 8192 bytes.
+공식 출처: https://github.com/The-OpenROAD-Project/asap7_sram_0p0
+고정 commit: 9f5af0939e8dd3cc1a9693a50b23441691dd7d25
+원본과 license/hash: ../../third_party/asap7_sram/manifest.json 및 LICENSE.
+
+완료한 검사
+- Icarus: 전체 주소 초기화/역순 읽기, 임의 read/write, disabled write, output hold,
+  synchronous output 확인. 총 2805 read check 통과.
+- Yosys: behavioral array를 읽지 않고 Liberty blackbox로 합성.
+  vgg_sram_8k 내부 cell은 SRAM 1개, FF 0개. SRAM 내부 트랜지스터 수를 뜻하지 않는다.
+- OpenROAD: 기존 ASAP7 1x tech/standard-cell LEF와 매크로 LEF/Liberty 연결.
+  SRAM을 BLOCK master로 인식, floorplan에 배치 후 .odb/.def 기록.
+  LEF 치수 30.348 x 77.76 um, area 2359.86048 um^2.
+  이는 매크로 LEF 면적이며 가속기 전체 합성/배치 면적이 아니다.
+
+발견한 물리 통합 문제
+- LEF에는 sdel[4:0] 핀이 있지만 Liberty와 behavioral Verilog에는 없다.
+  해당 핀의 의미와 정상 설정 근거를 확인해야 하며 경고를 숨기거나 임의 연결하지 않았다.
+- LEF의 coreSite는 현재 표준셀의 asap7sc7p5t와 다르다. block 인식은 가능했으나
+  unknown site 경고가 남아 있다. standard-cell site를 읽어 floorplan 자체는 생성했다.
+- 받은 gds/srambank_64b.gds의 실제 최상위 cell은 srambank_64b이다.
+  KLayout 검사: bbox 16.524 x 77.804 um, sram_cell_6t_122 instance 32768개.
+  선택한 8KiB 모델 이름과 LEF 크기에 대응하지 않는다. 단순 rename은 올바른 통합이 아니다.
+  이 비트셀 계수만으로 주소/배선의 동작까지 검증한 것은 아니다.
+- Liberty leakage 값이 0이고 nominal 0.7V/25C이다. 기존 standard cell corner와의
+  정합 및 timing/internal-power 모델 신뢰성을 별도 점검해야 한다.
+
+판정
+기능 모델과 macro blackbox 방식은 검증했다.
+물리적으로 완결된 8KiB SRAM 통합, routed STA/PPA, gate timing simulation은 미완료이다.
+이 결과를 VGG 가속기 완성, SRAM signoff, 면적·전력 개선 측정값으로 인용하면 안 된다.
+다음 작업은 정확히 대응하는 물리 macro 세트 확보/확인과 메모리 전송 제어이다.
+가속기 개발은 동일 single-port synchronous memory contract로 이어갈 수 있다.
+
+재현 (WSL Ubuntu)
+cd /mnt/c/IDEC_challenge/free_topic_vgg
+bash scripts/run_sram_smoke.sh
+klayout -b -r scripts/inspect_sram_gds.py
+
+로그: simulation.log, synthesis.log, openroad.log, audit.json, gds_inspection.json.
+생성물: netlist.v/json, macro.odb/def. 기존 지정주제 결과와 별도 저장한다.

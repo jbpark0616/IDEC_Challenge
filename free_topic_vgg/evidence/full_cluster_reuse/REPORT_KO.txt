@@ -1,0 +1,40 @@
+16코어 전체 합성 재진행 — 계산 코어 계층 재사용
+================================================
+
+사용자 승인: 이전 전체 실행 대신 재사용 방식으로 다시 합성.
+재시작 시 기존 Yosys 프로세스는 이미 없었다. 이전 STATUS에는
+EXIT_CODE=0, ELAPSED_SECONDS=10836이 있으나 netlist/STA가 없어
+성공으로 인정하지 않는다. 종료 원인은 이 로그만으로 확정하지 않는다.
+이전 build/full_cluster_timing 로그와 소스 해시는 그대로 보존한다.
+
+이번 방법
+  기존 단일 코어 top netlist를 그대로 16개 복사하지 않는다.
+  실제 vgg_sram_conv_layer의 파라미터 적용 모듈에 keep_hierarchy를
+  coarse 합성 전에 지정한다. 동일 계산 코어 모듈을 한 번 매핑하여
+  상위의 16개 인스턴스가 그 모듈 정의를 참조하도록 한다.
+  최종 netlist에는 계산 코어의 표준셀 내부와 SRAM 인스턴스가 포함된다.
+  계산 코어 blackbox를 이용한 면적/타이밍 생략이 아니다.
+  이전 합성 netlist의 직접 재사용이 아니라, 이번에 한 번 매핑한
+  모듈 정의를 16개 인스턴스에서 재사용하는 계층 합성이다.
+
+설정
+  SYNTH_HIERARCHICAL=0 (크기 추정에 의한 자동 계층 결정 미사용)
+  SYNTH_KEEP_MODULES=*vgg_sram_conv_layer (명시적 계층 보존)
+  SYNTH_ARGS=-noshare (SAT 기반 share 탐색 제외)
+  ABC_AREA=0 (속도 우선 매핑), 목표 주기 1000ps.
+  이 변경은 합성 흐름에 한정되며 RTL 기능/용량/연산기는 수정하지 않는다.
+  SRAM은 기존 Liberty/LEF 매크로로 연결한다.
+
+실행
+  bash free_topic_vgg/flow/full_cluster/run_reuse.sh
+  build/full_cluster_reuse/run.log, STATUS.txt
+  현재 결과는 진행 중. 완료 시 16개 계산 코어/192개 SRAM의
+  연결 및 STA 보고서 존재를 확인해야 전체 합성 성공으로 인정한다.
+
+완료 확인
+  합성 및 배치배선 전 STA 완료: 3471초 (57분 51초).
+  계산 코어 인스턴스 16개, SRAM 총 192개 확인. synth check 0 problems.
+  최소 주기 1638.28ps, STA 환산 610.39MHz. 목표 1GHz 미달.
+  전체 Liberty 면적 738434.615940 um^2 (SRAM 포함).
+  배치/배선/CTS 결과가 아니며 SRAM LEF/Liberty 핀 불일치 경고는 후속 검토 필요.
+  위 본문의 진행 중 표기는 당시 중간 기록이며 이 완료 확인으로 갱신한다.

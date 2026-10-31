@@ -1,0 +1,98 @@
+V8_STORAGE case=0 shift=0 physical_bank_writes=256
+U_LOADING case=0 input=1,4,4,32 local_K=8 U_block=8 sparse=0 cycles=1433 transforms=128 V_writes=128 releases=4 requests=0 U_words=512 weight_wait=0 rows=4096 early=30
+DETAIL case=0 sparse=0 resident=1 preload=1024 elapsed=1436 mac_beats=1024 mac_lanes=16384 v_read_blocked=42 v_write_blocked=42 no_ready_channel=224 mac_backpressure=0 busy=1386 result_blocked=0
+V8_STORAGE case=0 shift=0 physical_bank_writes=256
+U_LOADING case=0 input=1,4,4,32 local_K=8 U_block=8 sparse=1 cycles=1433 transforms=128 V_writes=128 releases=4 requests=0 U_words=512 weight_wait=0 rows=4096 early=30
+DETAIL case=0 sparse=1 resident=1 preload=1024 elapsed=1436 mac_beats=1024 mac_lanes=16384 v_read_blocked=42 v_write_blocked=42 no_ready_channel=224 mac_backpressure=0 busy=1386 result_blocked=0
+V8_STORAGE case=1 shift=0 physical_bank_writes=256
+U_LOADING case=1 input=1,4,4,32 local_K=8 U_block=8 sparse=0 cycles=1433 transforms=128 V_writes=128 releases=4 requests=0 U_words=512 weight_wait=0 rows=4096 early=30
+DETAIL case=1 sparse=0 resident=1 preload=1024 elapsed=1436 mac_beats=1024 mac_lanes=16384 v_read_blocked=42 v_write_blocked=42 no_ready_channel=224 mac_backpressure=0 busy=1386 result_blocked=0
+V8_STORAGE case=1 shift=0 physical_bank_writes=256
+U_LOADING case=1 input=1,4,4,32 local_K=8 U_block=8 sparse=1 cycles=1236 transforms=128 V_writes=128 releases=4 requests=0 U_words=512 weight_wait=0 rows=3072 early=88
+DETAIL case=1 sparse=1 resident=1 preload=1024 elapsed=1236 mac_beats=768 mac_lanes=12288 v_read_blocked=33 v_write_blocked=33 no_ready_channel=292 mac_backpressure=0 busy=1189 result_blocked=0
+V8_STORAGE case=2 shift=0 physical_bank_writes=256
+U_LOADING case=2 input=1,4,4,32 local_K=8 U_block=8 sparse=0 cycles=1433 transforms=128 V_writes=128 releases=4 requests=0 U_words=512 weight_wait=0 rows=4096 early=30
+DETAIL case=2 sparse=0 resident=1 preload=1024 elapsed=1436 mac_beats=1024 mac_lanes=16384 v_read_blocked=42 v_write_blocked=42 no_ready_channel=224 mac_backpressure=0 busy=1386 result_blocked=0
+V8_STORAGE case=2 shift=0 physical_bank_writes=256
+U_LOADING case=2 input=1,4,4,32 local_K=8 U_block=8 sparse=1 cycles=1179 transforms=128 V_writes=128 releases=4 requests=0 U_words=512 weight_wait=0 rows=2048 early=60
+DETAIL case=2 sparse=1 resident=1 preload=1024 elapsed=1180 mac_beats=512 mac_lanes=8192 v_read_blocked=24 v_write_blocked=24 no_ready_channel=500 mac_backpressure=0 busy=1132 result_blocked=0
+V8_STORAGE case=3 shift=0 physical_bank_writes=256
+U_LOADING case=3 input=1,4,4,32 local_K=8 U_block=8 sparse=0 cycles=1433 transforms=128 V_writes=128 releases=4 requests=0 U_words=512 weight_wait=0 rows=4096 early=30
+DETAIL case=3 sparse=0 resident=1 preload=1024 elapsed=1436 mac_beats=1024 mac_lanes=16384 v_read_blocked=42 v_write_blocked=42 no_ready_channel=224 mac_backpressure=0 busy=1386 result_blocked=0
+V8_STORAGE case=3 shift=0 physical_bank_writes=256
+U_LOADING case=3 input=1,4,4,32 local_K=8 U_block=8 sparse=1 cycles=1123 transforms=128 V_writes=128 releases=4 requests=0 U_words=512 weight_wait=0 rows=1024 early=28
+DETAIL case=3 sparse=1 resident=1 preload=1024 elapsed=1124 mac_beats=256 mac_lanes=4096 v_read_blocked=9 v_write_blocked=9 no_ready_channel=715 mac_backpressure=0 busy=1076 result_blocked=0
+V8_STORAGE case=4 shift=0 physical_bank_writes=256
+U_LOADING case=4 input=1,4,4,32 local_K=8 U_block=8 sparse=0 cycles=1433 transforms=128 V_writes=128 releases=4 requests=0 U_words=512 weight_wait=0 rows=4096 early=30
+DETAIL case=4 sparse=0 resident=1 preload=1024 elapsed=1436 mac_beats=1024 mac_lanes=16384 v_read_blocked=42 v_write_blocked=42 no_ready_channel=224 mac_backpressure=0 busy=1386 result_blocked=0
+V8_STORAGE case=4 shift=0 physical_bank_writes=256
+U_LOADING case=4 input=1,4,4,32 local_K=8 U_block=8 sparse=1 cycles=1063 transforms=128 V_writes=128 releases=4 requests=0 U_words=512 weight_wait=0 rows=0 early=0
+DETAIL case=4 sparse=1 resident=1 preload=1024 elapsed=1064 mac_beats=0 mac_lanes=0 v_read_blocked=0 v_write_blocked=0 no_ready_channel=947 mac_backpressure=0 busy=1011 result_blocked=0
+V8_STORAGE case=5 shift=0 physical_bank_writes=256
+U_LOADING case=5 input=1,4,4,32 local_K=8 U_block=8 sparse=0 cycles=1433 transforms=128 V_writes=128 releases=4 requests=0 U_words=512 weight_wait=0 rows=4096 early=30
+DETAIL case=5 sparse=0 resident=1 preload=1024 elapsed=1436 mac_beats=1024 mac_lanes=16384 v_read_blocked=42 v_write_blocked=42 no_ready_channel=224 mac_backpressure=0 busy=1386 result_blocked=0
+V8_STORAGE case=5 shift=0 physical_bank_writes=256
+U_LOADING case=5 input=1,4,4,32 local_K=8 U_block=8 sparse=1 cycles=1433 transforms=128 V_writes=128 releases=4 requests=0 U_words=512 weight_wait=0 rows=2048 early=30
+DETAIL case=5 sparse=1 resident=1 preload=1024 elapsed=1436 mac_beats=1024 mac_lanes=8192 v_read_blocked=42 v_write_blocked=42 no_ready_channel=224 mac_backpressure=0 busy=1386 result_blocked=0
+V8_STORAGE case=6 shift=0 physical_bank_writes=256
+U_LOADING case=6 input=1,4,4,32 local_K=8 U_block=8 sparse=0 cycles=1433 transforms=128 V_writes=128 releases=4 requests=0 U_words=512 weight_wait=0 rows=4096 early=30
+DETAIL case=6 sparse=0 resident=1 preload=1024 elapsed=1436 mac_beats=1024 mac_lanes=16384 v_read_blocked=42 v_write_blocked=42 no_ready_channel=224 mac_backpressure=0 busy=1386 result_blocked=0
+V8_STORAGE case=6 shift=0 physical_bank_writes=256
+U_LOADING case=6 input=1,4,4,32 local_K=8 U_block=8 sparse=1 cycles=1180 transforms=128 V_writes=128 releases=4 requests=0 U_words=512 weight_wait=0 rows=2048 early=56
+DETAIL case=6 sparse=1 resident=1 preload=1024 elapsed=1180 mac_beats=512 mac_lanes=8192 v_read_blocked=18 v_write_blocked=18 no_ready_channel=507 mac_backpressure=0 busy=1133 result_blocked=0
+V8_STORAGE case=7 shift=0 physical_bank_writes=256
+U_LOADING case=7 input=1,4,4,32 local_K=8 U_block=8 sparse=0 cycles=1433 transforms=128 V_writes=128 releases=4 requests=0 U_words=512 weight_wait=0 rows=4096 early=30
+DETAIL case=7 sparse=0 resident=1 preload=1024 elapsed=1436 mac_beats=1024 mac_lanes=16384 v_read_blocked=42 v_write_blocked=42 no_ready_channel=224 mac_backpressure=0 busy=1386 result_blocked=0
+V8_STORAGE case=7 shift=0 physical_bank_writes=256
+U_LOADING case=7 input=1,4,4,32 local_K=8 U_block=8 sparse=1 cycles=1179 transforms=128 V_writes=128 releases=4 requests=0 U_words=512 weight_wait=0 rows=2048 early=64
+DETAIL case=7 sparse=1 resident=1 preload=1024 elapsed=1180 mac_beats=516 mac_lanes=8192 v_read_blocked=24 v_write_blocked=24 no_ready_channel=496 mac_backpressure=0 busy=1132 result_blocked=0
+V8_STORAGE case=8 shift=0 physical_bank_writes=256
+U_LOADING case=8 input=1,4,4,32 local_K=32 U_block=8 sparse=0 cycles=5917 transforms=128 V_writes=128 releases=4 requests=15 U_words=2048 weight_wait=904 rows=16384 early=30
+DETAIL case=8 sparse=0 resident=1 preload=4096 elapsed=5919 mac_beats=4096 mac_lanes=65536 v_read_blocked=34 v_write_blocked=34 no_ready_channel=224 mac_backpressure=0 busy=4738 result_blocked=0
+V8_STORAGE case=8 shift=0 physical_bank_writes=256
+U_LOADING case=8 input=1,4,4,32 local_K=32 U_block=8 sparse=1 cycles=5917 transforms=128 V_writes=128 releases=4 requests=15 U_words=2048 weight_wait=904 rows=16384 early=30
+DETAIL case=8 sparse=1 resident=1 preload=4096 elapsed=5919 mac_beats=4096 mac_lanes=65536 v_read_blocked=34 v_write_blocked=34 no_ready_channel=224 mac_backpressure=0 busy=4738 result_blocked=0
+V8_STORAGE case=9 shift=0 physical_bank_writes=256
+U_LOADING case=9 input=1,4,4,32 local_K=32 U_block=8 sparse=0 cycles=5917 transforms=128 V_writes=128 releases=4 requests=15 U_words=2048 weight_wait=904 rows=16384 early=30
+DETAIL case=9 sparse=0 resident=1 preload=4096 elapsed=5919 mac_beats=4096 mac_lanes=65536 v_read_blocked=34 v_write_blocked=34 no_ready_channel=224 mac_backpressure=0 busy=4738 result_blocked=0
+V8_STORAGE case=9 shift=0 physical_bank_writes=256
+U_LOADING case=9 input=1,4,4,32 local_K=32 U_block=8 sparse=1 cycles=4901 transforms=128 V_writes=128 releases=4 requests=15 U_words=2048 weight_wait=905 rows=12288 early=22
+DETAIL case=9 sparse=1 resident=1 preload=4096 elapsed=4903 mac_beats=3072 mac_lanes=49152 v_read_blocked=33 v_write_blocked=33 no_ready_channel=232 mac_backpressure=0 busy=3721 result_blocked=0
+V8_STORAGE case=10 shift=0 physical_bank_writes=256
+U_LOADING case=10 input=1,4,4,32 local_K=32 U_block=8 sparse=0 cycles=5917 transforms=128 V_writes=128 releases=4 requests=15 U_words=2048 weight_wait=904 rows=16384 early=30
+DETAIL case=10 sparse=0 resident=1 preload=4096 elapsed=5919 mac_beats=4096 mac_lanes=65536 v_read_blocked=34 v_write_blocked=34 no_ready_channel=224 mac_backpressure=0 busy=4738 result_blocked=0
+V8_STORAGE case=10 shift=0 physical_bank_writes=256
+U_LOADING case=10 input=1,4,4,32 local_K=32 U_block=8 sparse=1 cycles=3873 transforms=128 V_writes=128 releases=4 requests=15 U_words=2048 weight_wait=901 rows=8192 early=15
+DETAIL case=10 sparse=1 resident=1 preload=4096 elapsed=3875 mac_beats=2048 mac_lanes=32768 v_read_blocked=26 v_write_blocked=26 no_ready_channel=239 mac_backpressure=0 busy=2697 result_blocked=0
+V8_STORAGE case=11 shift=0 physical_bank_writes=256
+U_LOADING case=11 input=1,4,4,32 local_K=32 U_block=8 sparse=0 cycles=5917 transforms=128 V_writes=128 releases=4 requests=15 U_words=2048 weight_wait=904 rows=16384 early=30
+DETAIL case=11 sparse=0 resident=1 preload=4096 elapsed=5919 mac_beats=4096 mac_lanes=65536 v_read_blocked=34 v_write_blocked=34 no_ready_channel=224 mac_backpressure=0 busy=4738 result_blocked=0
+V8_STORAGE case=11 shift=0 physical_bank_writes=256
+U_LOADING case=11 input=1,4,4,32 local_K=32 U_block=8 sparse=1 cycles=2853 transforms=128 V_writes=128 releases=4 requests=15 U_words=2048 weight_wait=903 rows=4096 early=7
+DETAIL case=11 sparse=1 resident=1 preload=4096 elapsed=2855 mac_beats=1024 mac_lanes=16384 v_read_blocked=20 v_write_blocked=21 no_ready_channel=247 mac_backpressure=0 busy=1675 result_blocked=0
+V8_STORAGE case=12 shift=0 physical_bank_writes=256
+U_LOADING case=12 input=1,4,4,32 local_K=32 U_block=8 sparse=0 cycles=5917 transforms=128 V_writes=128 releases=4 requests=15 U_words=2048 weight_wait=904 rows=16384 early=30
+DETAIL case=12 sparse=0 resident=1 preload=4096 elapsed=5919 mac_beats=4096 mac_lanes=65536 v_read_blocked=34 v_write_blocked=33 no_ready_channel=224 mac_backpressure=0 busy=4738 result_blocked=0
+V8_STORAGE case=12 shift=0 physical_bank_writes=256
+U_LOADING case=12 input=1,4,4,32 local_K=32 U_block=8 sparse=1 cycles=1810 transforms=128 V_writes=128 releases=4 requests=15 U_words=2048 weight_wait=945 rows=0 early=0
+DETAIL case=12 sparse=1 resident=1 preload=4096 elapsed=1811 mac_beats=0 mac_lanes=0 v_read_blocked=0 v_write_blocked=0 no_ready_channel=254 mac_backpressure=0 busy=510 result_blocked=0
+V8_STORAGE case=13 shift=0 physical_bank_writes=256
+U_LOADING case=13 input=1,4,4,32 local_K=32 U_block=8 sparse=0 cycles=5917 transforms=128 V_writes=128 releases=4 requests=15 U_words=2048 weight_wait=904 rows=16384 early=30
+DETAIL case=13 sparse=0 resident=1 preload=4096 elapsed=5919 mac_beats=4096 mac_lanes=65536 v_read_blocked=34 v_write_blocked=34 no_ready_channel=224 mac_backpressure=0 busy=4738 result_blocked=0
+V8_STORAGE case=13 shift=0 physical_bank_writes=256
+U_LOADING case=13 input=1,4,4,32 local_K=32 U_block=8 sparse=1 cycles=5917 transforms=128 V_writes=128 releases=4 requests=15 U_words=2048 weight_wait=904 rows=8192 early=30
+DETAIL case=13 sparse=1 resident=1 preload=4096 elapsed=5919 mac_beats=4096 mac_lanes=32768 v_read_blocked=34 v_write_blocked=34 no_ready_channel=224 mac_backpressure=0 busy=4738 result_blocked=0
+V8_STORAGE case=14 shift=0 physical_bank_writes=256
+U_LOADING case=14 input=1,4,4,32 local_K=32 U_block=8 sparse=0 cycles=5917 transforms=128 V_writes=128 releases=4 requests=15 U_words=2048 weight_wait=904 rows=16384 early=30
+DETAIL case=14 sparse=0 resident=1 preload=4096 elapsed=5919 mac_beats=4096 mac_lanes=65536 v_read_blocked=34 v_write_blocked=34 no_ready_channel=224 mac_backpressure=0 busy=4738 result_blocked=0
+V8_STORAGE case=14 shift=0 physical_bank_writes=256
+U_LOADING case=14 input=1,4,4,32 local_K=32 U_block=8 sparse=1 cycles=3873 transforms=128 V_writes=128 releases=4 requests=15 U_words=2048 weight_wait=901 rows=8192 early=14
+DETAIL case=14 sparse=1 resident=1 preload=4096 elapsed=3875 mac_beats=2048 mac_lanes=32768 v_read_blocked=25 v_write_blocked=25 no_ready_channel=240 mac_backpressure=0 busy=2697 result_blocked=0
+V8_STORAGE case=15 shift=0 physical_bank_writes=256
+U_LOADING case=15 input=1,4,4,32 local_K=32 U_block=8 sparse=0 cycles=5917 transforms=128 V_writes=128 releases=4 requests=15 U_words=2048 weight_wait=904 rows=16384 early=30
+DETAIL case=15 sparse=0 resident=1 preload=4096 elapsed=5919 mac_beats=4096 mac_lanes=65536 v_read_blocked=34 v_write_blocked=34 no_ready_channel=224 mac_backpressure=0 busy=4738 result_blocked=0
+V8_STORAGE case=15 shift=0 physical_bank_writes=256
+U_LOADING case=15 input=1,4,4,32 local_K=32 U_block=8 sparse=1 cycles=3873 transforms=128 V_writes=128 releases=4 requests=15 U_words=2048 weight_wait=901 rows=8192 early=16
+DETAIL case=15 sparse=1 resident=1 preload=4096 elapsed=3875 mac_beats=2049 mac_lanes=32768 v_read_blocked=26 v_write_blocked=26 no_ready_channel=238 mac_backpressure=0 busy=2697 result_blocked=0
+PASS U_LOADING compared_words=1280 last_use_release backpressure zero_bypass stale_commit
+- /mnt/c/IDEC_challenge/free_topic_vgg/build/report700/scale32/tb.sv:227: Verilog $finish

@@ -1,0 +1,54 @@
+U SRAM addressing and residency — 2026-10-29
+===========================================
+
+Four physical U banks remain 1024 x 64 bits each. MACs, V leases,
+activation storage, and tile generation are unchanged.
+
+Dense layout command
+--------------------
+Before a convolution command, write bank14/address4 bit0=1 while IDLE.
+Write bank14/address2 bit0=1 to request full local-layer U residency.
+The current full-model host programs both. Reset layout=0 only preserves
+old fixtures; it is not the full-model runner's chosen layout.
+
+With U8, each row-bank word holds two input-channel rows, four bytes each.
+words_per_output = ceil(command_input_channels / 2).
+address(row_bank, output, input_channel)
+  = output * words_per_output + floor(input_channel / 2).
+The high half of an odd tail is padding. U16 uses input_channels words.
+There is no minimum 128-channel U stride and no 16-output residency cap.
+Full-layer U residency is accepted when
+  total_local_outputs * words_per_output <= 1024.
+The arithmetic uses untruncated extents before physical-address generation.
+
+The layer controller maintains a physical U pointer, increments it by
+words_per_output after an output, and resets it at a new spatial tile.
+The MAC adapter receives a base address and adds the selected input-channel
+word offset. It does not multiply an output index in the per-row read path.
+Nonresident windows reset the U pointer when changing the loaded payload.
+Every output window must itself fit the physical U banks.
+
+Lifetime
+--------
+Resident U survives all output-window switches and all spatial tiles.
+Window switches still request bias/multiplier/shift metadata and commit;
+the host must not resend resident U payload. This work does not eliminate
+those metadata waits or implement prefetch/double buffering.
+
+Scope
+-----
+This removes U allocation limits unrelated to physical capacity. It does
+not claim arbitrary tensor dimensions: existing command field widths,
+the eight-output metadata window, accepted window sizes, spatial limits,
+V capacity, and <=128 local-output validation remain unchanged.
+Layers exceeding full U capacity still use the previous window reload
+schedule. Partial-layer U caching is not added in this change.
+
+Regression
+----------
+verification/u_supply/address_checks/generate.py generates an independent
+numpy oracle plus the existing lifetime/backpressure test harness.
+Run from free_topic_vgg:
+  python verification/u_supply/address_checks/generate.py
+  bash verification/u_supply/address_checks/run.sh
+Dense U8/V8 main fixtures also pass using tb_v8_packed with DENSE_U=1.

@@ -132,7 +132,7 @@ module winograd_postprocess #(
 
     // Datapath registers need no reset; valid bits hide their contents until
     // the corresponding pipeline stage contains a real transaction.
-    always @(posedge clk) begin
+    always @(posedge max_clk) begin
         if (max_stage_ready && in_valid) begin
             tile_max         <= tile_max_next;
             bias_stage0      <= bias;
@@ -141,7 +141,7 @@ module winograd_postprocess #(
         end
     end
 
-    always @(posedge clk) begin
+    always @(posedge relu_clk) begin
         if (relu_stage_ready && max_valid) begin
             relu_value        <= relu_next;
             multiplier_stage1 <= multiplier_stage0;
@@ -149,7 +149,7 @@ module winograd_postprocess #(
         end
     end
 
-    always @(posedge clk) begin
+    always @(posedge requant_clk) begin
         if (output_stage_ready && relu_valid) begin
             activation <= requantize_u8(relu_value, multiplier_stage1);
             out_user <= user_stage1;
@@ -170,5 +170,14 @@ module winograd_postprocess #(
                 max_valid <= in_valid;
         end
     end
+
+
+    // Data clocks only; handshake/control registers retain the root clock.
+    wire max_clk;
+    winograd_clock_gate cg_max_clk (.clk(clk), .enable(max_stage_ready && in_valid), .gclk(max_clk));
+    wire relu_clk;
+    winograd_clock_gate cg_relu_clk (.clk(clk), .enable(relu_stage_ready && max_valid), .gclk(relu_clk));
+    wire requant_clk;
+    winograd_clock_gate cg_requant_clk (.clk(clk), .enable(output_stage_ready && relu_valid), .gclk(requant_clk));
 
 endmodule

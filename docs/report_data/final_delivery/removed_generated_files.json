@@ -1,0 +1,42 @@
+﻿[
+    {
+        "path":  "build",
+        "bytes":  385295464
+    },
+    {
+        "path":  "tmp",
+        "bytes":  362861345
+    },
+    {
+        "path":  ".report_review",
+        "bytes":  250957630
+    },
+    {
+        "path":  ".submission_review",
+        "bytes":  249273730
+    },
+    {
+        "path":  "archive",
+        "bytes":  3756462690
+    },
+    {
+        "path":  "experiments",
+        "bytes":  null
+    },
+    {
+        "path":  "free_topic_vgg/build",
+        "bytes":  1558086679
+    },
+    {
+        "path":  "hs_err_pid31384.dmp",
+        "bytes":  147683
+    },
+    {
+        "path":  "xelab.pb",
+        "bytes":  0
+    },
+    {
+        "path":  "docs/IDEC_지정주제_결과보고서_검토수정본.docx",
+        "bytes":  4153374
+    }
+]

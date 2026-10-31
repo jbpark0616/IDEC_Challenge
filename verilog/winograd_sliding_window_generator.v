@@ -118,7 +118,14 @@ module winograd_sliding_window_generator #(
     assign output_transfer = out_valid && out_ready;
     assign can_replace_output = output_transfer && output_is_last_channel
                               && !pending_spatial_last;
-    assign in_ready = active && ((!out_valid) || can_replace_output);
+    // pending_window is independent of the line-buffer state. Accept a
+    // pixel while replaying channels if it cannot overwrite a pending tile.
+    wire position_forms_tile = (input_row >= 3) && (input_col >= 3)
+                            && input_row[0] && input_col[0]
+                            && (input_row <= LAST_TILE_BOTTOM_ROW)
+                            && (input_col <= LAST_TILE_RIGHT_COL);
+    assign in_ready = active && ((!out_valid) || can_replace_output
+                          || (!pending_spatial_last && !position_forms_tile));
     assign input_transfer = in_valid && in_ready;
 
     assign input_forms_tile = input_transfer
@@ -133,7 +140,7 @@ module winograd_sliding_window_generator #(
     assign busy = active || out_valid;
 
     integer delay_index;
-    always @(posedge clk) begin
+    always @(posedge line_clk) begin
         if (input_transfer) begin
             for (delay_index = FEATURE_WIDTH-1; delay_index > 0;
                  delay_index = delay_index - 1) begin
@@ -208,7 +215,7 @@ module winograd_sliding_window_generator #(
                     end
 
                     if (input_forms_tile) begin
-                        pending_window <= next_window;
+
                         output_input_channel <= {CHANNEL_BITS{1'b0}};
                         output_tile_row <= next_tile_row;
                         output_tile_col <= next_tile_col;
@@ -230,4 +237,13 @@ module winograd_sliding_window_generator #(
         end
     end
 
+
+    // Data clocks only; handshake/control registers retain the root clock.
+    wire line_clk;
+    winograd_clock_gate cg_line_clk (.clk(clk), .enable(input_transfer), .gclk(line_clk));
+    wire window_clk;
+    winograd_clock_gate cg_window_clk (.clk(clk), .enable(input_forms_tile), .gclk(window_clk));
+
+    always @(posedge window_clk)
+        if (input_forms_tile) pending_window <= next_window;
 endmodule

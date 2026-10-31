@@ -17,3 +17,11 @@
 # Tool-generated reports/plots preserve their producer's whitespace.
 *_synth_stat.txt -whitespace
 *.svg -whitespace
+
+# Frozen designated b1_g1 bytes: preserve SHA-256 across checkouts.
+verilog/*.v -text
+docs/designated_final/*.rpt -whitespace
+docs/designated_final/synth_stat.txt -whitespace
+submission/** -text
+docs/report_data/final_delivery/** -text
+*.sh text eol=lf

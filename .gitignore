@@ -51,3 +51,24 @@ build/
 **/reports/
 **/logs/
 **/objects/
+
+# Archived legacy experiments (manifests and restoration notes remain visible)
+archive/**/*.zip
+
+# Local review workspaces and simulator caches
+.report_review/
+.submission_review/
+.figure_review/
+~$*
+*.dmp
+*.pb
+*.vcd
+*.fst
+*.wdb
+*.vvp
+
+# Report evidence is intentionally versioned
+!docs/report_data/**/*.log
+!submission/IDEC2026/04_synthesis/reports/
+!submission/IDEC2026/04_synthesis/reports/**
+!submission/IDEC2026/05_gate_project/verification/*.log

@@ -1,0 +1,142 @@
+{
+  "organized_on": "2026-10-01",
+  "pdfs": [
+    {
+      "path": "01_winograd_foundations/Lavin_Fast_Algorithms_for_CVPR_2016_paper.pdf",
+      "previous_path": "docs/papers/Lavin_Fast_Algorithms_for_CVPR_2016_paper.pdf",
+      "sha256": "da532bb13337ebd3ff15d5ac50ef2479d6816c372c7cc60d8c13bd6ad2ee2466",
+      "pages": 9,
+      "download_url": null
+    },
+    {
+      "path": "02_winograd_hardware/Liu_2021_WinoCNN.pdf",
+      "previous_path": "docs/papers/2107.04244v1.pdf",
+      "sha256": "810b7cf67839ed6ea2e716817fc9657b938091327cebd6594f66e0dd6b9ca95d",
+      "pages": 8,
+      "download_url": null
+    },
+    {
+      "path": "02_winograd_hardware/Aydonat_2017_An_OpenCL_Deep_Learning_Accelerator_on_Arria_10.pdf",
+      "previous_path": "docs/papers/Aydonat_2017_An_OpenCL_Deep_Learning_Accelerator_on_Arria_10.pdf",
+      "sha256": "ce8747c4f23819be5028a6f0888b7ad87fe145928dc8f815b115db060bb75082",
+      "pages": 10,
+      "download_url": null
+    },
+    {
+      "path": "02_winograd_hardware/A_Scalable_Architecture_for_CNN_Accelerators.pdf",
+      "previous_path": "docs/papers/A_Scalable_Architecture_for_CNN_Accelerators.pdf",
+      "sha256": "008141f0079fb21dc45e55b4381bb265e9ec78cf0c28baccc2e2fc37a45dc486",
+      "pages": 6,
+      "download_url": null
+    },
+    {
+      "path": "02_winograd_hardware/Evaluating_Fast_Algorithms_for_Convolution_Neural_Networks_onFPGAs.pdf",
+      "previous_path": "docs/papers/Evaluating_Fast_Algorithms_for_Convolution_Neural_Networks_onFPGAs.pdf",
+      "sha256": "11faf23665425046f3edc5df1c5c47aade09a353820bdb877d4e2ed4279c2530",
+      "pages": 8,
+      "download_url": null
+    },
+    {
+      "path": "04_temporal_reuse/An_Efficient_CNN_Accelerator_Using_Inter-Frame_Data_Reuse_of_Videos_on_FPGAs.pdf",
+      "previous_path": "docs/papers/An_Efficient_CNN_Accelerator_Using_Inter-Frame_Data_Reuse_of_Videos_on_FPGAs.pdf",
+      "sha256": "6df899c11fa6fdc4452c5ff80b6d90b5000d279990972d87d66dafde0b094ca2",
+      "pages": 14,
+      "download_url": null
+    },
+    {
+      "path": "05_memory_dataflow_fusion/DNN_Accelerating_with_Advanced_Operator_Fusion.pdf",
+      "previous_path": "docs/papers/DNN_Accelerating_with_Advanced_Operator_Fusion.pdf",
+      "sha256": "69b55864c9ca9072e43bacdf09dc176ef506a47714bf84243bce788d48042459",
+      "pages": 17,
+      "download_url": null
+    },
+    {
+      "path": "05_memory_dataflow_fusion/eyeriss_isca_2016.pdf",
+      "previous_path": "docs/papers/eyeriss_isca_2016.pdf",
+      "sha256": "c6d46149eecf6541f7a5e1d0a5b800a87139a03a397ad14b732a81458803dcf5",
+      "pages": 13,
+      "download_url": null
+    },
+    {
+      "path": "06_circuit_reference/FIFO_Architecture.pdf",
+      "previous_path": "docs/papers/FIFO_Architecture.pdf",
+      "sha256": "a189420cc7e69e0fdd981fb6b6636b2dd3a3e5aca9631a69d2f8fbfc04b553ec",
+      "pages": 34,
+      "download_url": null
+    },
+    {
+      "path": "03_sparsity_patterns/Lu_2018_SpWA_DAC.pdf",
+      "previous_path": "tmp/SpWA_2018.pdf",
+      "sha256": "24780aec4022f1389b2efa2f34a546305e3ec8d6956119fba25a2d9fd5d06149",
+      "pages": 7,
+      "download_url": "https://liqianglu-zju.github.io/files/conference/2018/DAC_2018_SpWA.pdf"
+    },
+    {
+      "path": "03_sparsity_patterns/Liu_2018_Efficient_Sparse_Winograd_ICLR.pdf",
+      "previous_path": "tmp/Sparse_Winograd_2018.pdf",
+      "sha256": "24e0f1c9bfc7218b4abd890258c0b190cdd9a5062b437c4564831472198bfcb6",
+      "pages": 10,
+      "download_url": "https://arxiv.org/pdf/1802.06367"
+    },
+    {
+      "path": "03_sparsity_patterns/Zhang_2023_DREW_TKDE.pdf",
+      "previous_path": "tmp/DREW_2023.pdf",
+      "sha256": "1f1005a22552d46e5c7fa763b449a243de7c95fd4971fd780190bf648cad7446",
+      "pages": 16,
+      "download_url": "https://jamesthez.github.io/files/zhang-tkde23.pdf"
+    },
+    {
+      "path": "04_temporal_reuse/Parger_2022_DeltaCNN_CVPR.pdf",
+      "previous_path": "tmp/DeltaCNN_2022.pdf",
+      "sha256": "e91a136fd1ab1dba3d9cecd4c59142ee2a037999f02d2d169cbed9523d8c7e8b",
+      "pages": 10,
+      "download_url": "https://openaccess.thecvf.com/content/CVPR2022/papers/Parger_DeltaCNN_End-to-End_CNN_Inference_of_Sparse_Frame_Differences_in_Videos_CVPR_2022_paper.pdf"
+    },
+    {
+      "path": "03_sparsity_patterns/Parashar_2017_SCNN_ISCA.pdf",
+      "previous_path": null,
+      "sha256": "f6c3aab9dcf38ae15946b6e8d9895f29d60b3c679a9e85fb6b9878993fa3cc1b",
+      "pages": 12,
+      "download_url": "https://arxiv.org/pdf/1708.04485"
+    },
+    {
+      "path": "03_sparsity_patterns/Albericio_2016_Cnvlutin_ISCA.pdf",
+      "previous_path": null,
+      "title": "Cnvlutin: Ineffectual-Neuron-Free Deep Neural Network Computing",
+      "venue": "ISCA 2016",
+      "sha256": "8421e8b805b3a79479cf6bb380d9533933d000e7da97609a43f78ecb7cdc0770",
+      "pages": 13,
+      "download_url": "https://www.eecg.toronto.edu/~enright/albericio-isca2016.pdf",
+      "downloaded_on": "2026-10-26"
+    },
+    {
+      "path": "05_memory_dataflow_fusion/Chen_2019_Eyeriss_v2_JETCAS.pdf",
+      "previous_path": null,
+      "title": "Eyeriss v2: A Flexible Accelerator for Emerging Deep Neural Networks on Mobile Devices",
+      "venue": "IEEE JETCAS 2019",
+      "sha256": "3183e98e47f359998740a13ca32a13604b954e612dbc56b5c71da31a5367744c",
+      "pages": 17,
+      "download_url": "https://eems.mit.edu/wp-content/uploads/2019/04/2019_jetcas_eyerissv2.pdf",
+      "downloaded_on": "2026-10-26"
+    },
+    {
+      "path": "05_memory_dataflow_fusion/Kwon_2018_MAERI_ASPLOS.pdf",
+      "previous_path": null,
+      "title": "MAERI: Enabling Flexible Dataflow Mapping over DNN Accelerators via Reconfigurable Interconnects",
+      "venue": "ASPLOS 2018",
+      "sha256": "28cc8bf06d1b41bb3f3063d7b3f4eba0f56299475d6b22a5ad9e26c97497944d",
+      "pages": 15,
+      "download_url": "https://bpb-us-e1.wpmucdn.com/sites.gatech.edu/dist/c/332/files/2018/01/maeri_asplos2018.pdf?bid=332",
+      "downloaded_on": "2026-10-26"
+    },
+    {
+      "path": "05_memory_dataflow_fusion/Pellauer_2019_Buffets_ASPLOS.pdf",
+      "previous_path": null,
+      "sha256": "a66c46b7bf3a03a370139d6462ce988228f67dc2222688a7d49229c0c9a1f0a5",
+      "pages": 15,
+      "download_url": "https://ysshao.github.io/assets/papers/Buffet_ASPLOS19_Final.pdf",
+      "added_on": "2026-10-27"
+    }
+  ],
+  "updated_on": "2026-10-26"
+}

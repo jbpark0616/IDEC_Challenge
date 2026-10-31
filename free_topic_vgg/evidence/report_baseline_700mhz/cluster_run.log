@@ -1,0 +1,8 @@
+PASS Conv1 sparse=0 cycles=30561 lanes=786432
+PASS Conv1 sparse=1 cycles=30561 lanes=784896
+PASS Conv5 sparse=0 cycles=110512 lanes=8388608
+PASS Conv5 sparse=1 cycles=110375 lanes=7578624
+PASS Conv9 sparse=0 cycles=2065741 lanes=16777216
+PASS Conv9 sparse=1 cycles=2064212 lanes=8400896
+PASS Conv13 sparse=0 cycles=478640 lanes=4194304
+PASS Conv13 sparse=1 cycles=478479 lanes=3614720

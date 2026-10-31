@@ -1,0 +1,7 @@
+VCD info: dumpfile activity.vcd opened for output.
+RTL mismatches: 0
+Correct: 20/20
+Accuracy: 100%
+PASS: 20-image power activity regression
+Total post-input cycles: 4308
+/mnt/c/IDEC_challenge/experiments/row_sparse_fixed/iterations/matched_ablation/power/synth/b1_g1/tb.v:374: $finish called at 20048500 (1ps)

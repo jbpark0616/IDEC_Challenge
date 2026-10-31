@@ -1,0 +1,11 @@
+Winograd U-domain PTQ preliminary experiment
+No QAT training. No RTL changes. V remains INT16.
+First 100 CIFAR-10 test images; FP32 correct=95
+bits | correct | FP32 agreement | ideal packed U bytes (metadata excluded)
+16 | 96 | 99 | 52303872
+12 | 96 | 99 | 39227904
+10 | 96 | 99 | 32689920
+8 | 96 | 99 | 26151936
+U16 Winograd equals direct integer Conv at all 13 layers on first image.
+Storage savings require SRAM packing/unpacking RTL; current cycles unchanged.
+Only U quantized: no new V row-mask sparsity claim. No 8-bit ACC claim.

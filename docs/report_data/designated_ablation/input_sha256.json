@@ -1,0 +1,11 @@
+{
+  "data\\input_1000.txt": "cccf35e29a63989cd74b7c949a15bf87457700f82178e2afcc233495ef499cca",
+  "training\\export\\qat_winograd3x3_w4_frozen_aug\\conv1_bias_twos_complement.hex": "e0f741f4642a7d8c7145a84f32df1eef5ef839147da31c474f4166a7375e2a61",
+  "training\\export\\qat_winograd3x3_w4_frozen_aug\\conv1_u_twos_complement.hex": "14fea090da992247a484ff83d0ae9f863e7cf0669b0059371b20f8fdd475b313",
+  "training\\export\\qat_winograd3x3_w4_frozen_aug\\conv2_bias_twos_complement.hex": "352e0e3f0657796649930a9be8bfd93041c7507e024096ba29e1638ba7c28315",
+  "training\\export\\qat_winograd3x3_w4_frozen_aug\\conv2_u_twos_complement.hex": "004366b269bcdcf9301caa85ddd31b507e891ed4f11f88747abec458f01e9e43",
+  "training\\export\\qat_winograd3x3_w4_frozen_aug\\fc_bias_twos_complement.hex": "c5a99b138626d9f2ad18f31b098b185ef0280dae2a95c6f057782124813f99d9",
+  "training\\export\\qat_winograd3x3_w4_frozen_aug\\fc_weight_twos_complement.hex": "158b02d9b1b78792edeb402163cee01df21a157a8234ebdd189bfcf620ba00b3",
+  "training\\export\\qat_winograd3x3_w4_frozen_aug\\competition_labels_1000.txt": "72561c9e7ff321b44221ae9bc66d28a0228f7291eb24f88218fe99781da2fc0c",
+  "training\\export\\qat_winograd3x3_w4_frozen_aug\\competition_predictions_1000.txt": "51fdcf745bc54bb1c86a966ad949014b03b30f09a94533c98390877262594664"
+}

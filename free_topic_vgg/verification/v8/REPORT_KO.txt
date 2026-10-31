@@ -1,0 +1,44 @@
+U8/V8 RTL 적용 및 메모리 공급 부분 검증
+U는 실제 Cin 기반 밀집 배치이며, 상주는 bank당 1024워드 용량으로 판정한다. 출력 16개 상한 없음.
+
+양자화: floor((V + 2^(s-1))/2^s), s=0이면 V; -127~127 포화.
+Colab과 동일한 레이어 시프트: Conv1=2, Conv2~13=1. 보정값을 테스트 데이터로 재조정하지 않았다.
+mask는 양자화된 V에서 판정하며 재사용 수명 동안 유지한다.
+64비트 SRAM 워드에 두 채널의 4원소 INT8 행을 밀집 저장한다.
+짝수 채널 수에서 V 저장량과 bank 쓰기 횟수 50% 감소. 홀수 마지막 채널은 상위 절반 0 패딩.
+한 채널의 첫 절반은 행별 32비트 FF에 보관하고 다음 절반과 합쳐 쓰며, 실제 쓰기 완료 뒤 watermark를 공개한다.
+기존 CB 슬롯 수, bank 수, 코어 수, MAC 수, tile generator, accumulator 폭은 유지한다.
+MAC 입력에서 V8 부호 확장과 레이어 시프트를 복원한다. 8x8 곱셈기 축소를 구현한 것은 아니다.
+독립 행별 주소/반워드 선택을 유지한다. 같은 packed 워드의 두 채널을 읽을 때 SRAM 재읽기를 제거하는 캐시는 아직 없다.
+따라서 쓰기 절반을 읽기 대역폭 2배 또는 전체 속도 2배로 해석하지 않는다.
+
+검증: 12사례 x sparse OFF/ON x U 상주/반복적재 = 48회. 각 모드 694 출력 워드 일치.
+양자화 단위 검증: V=-1020..1020, shift=0..7의 16328 조합 전부 일치.
+case0~9: 합성 입력, 홀수 C/shift0~4/2994개 V 포화/전체0/pooling/backpressure/stale commit.
+case10: 실제 VGG Conv9, 4x4x512 입력, 해당 레이어 첫 출력 채널 4개.
+case11: 실제 VGG Conv13, 2x2x512 입력, 첫 출력 채널 4개 및 pooling.
+실제 사례의 입력은 이전 레이어도 U8/V8로 계산한 Python reference에서 가져왔다.
+V16 회귀 20회: 기존 결과값과 사이클/행 투입/U 대기 수치까지 동일.
+16코어 V8 full-model TB lint 통과. U8/V8 full-model RTL 전체 실행은 아직 하지 않았다.
+Python U8/V8 전체 reference 이미지0의 최종 분류는 3. 이는 RTL 전체 실행 결과가 아니다.
+
+실행 중 계측(초기 U 적재 제외):
+resident case9 input=1,4,4,128 local_K=16: 11506 -> 9465 cycles (17.74% 감소), rows 32768 -> 24528, weight_wait 424 -> 427
+resident case10 input=1,4,4,512 local_K=4: 22114 -> 20089 cycles (9.16% 감소), rows 32768 -> 16408, weight_wait 180 -> 181
+resident case11 input=1,2,2,512 local_K=4: 6884 -> 6814 cycles (1.02% 감소), rows 8192 -> 7060, weight_wait 25 -> 24
+streamed case9 input=1,4,4,128 local_K=16: 39937 -> 37889 cycles (5.13% 감소), rows 32768 -> 24528, weight_wait 29095 -> 29095
+streamed case10 input=1,4,4,512 local_K=4: 46205 -> 42849 cycles (7.26% 감소), rows 32768 -> 16408, weight_wait 28842 -> 28850
+streamed case11 input=1,2,2,512 local_K=4: 10980 -> 10910 cycles (0.64% 감소), rows 8192 -> 7060, weight_wait 4121 -> 4120
+
+다음 full-model 실행 진입점 run.sh는 V8을 기본 선택하며, 연속 host 전송과 U 상주를 켠다.
+기존 V16 run.log/results.json은 보존하고 V8 로그는 full_model/v8_run에 분리한다.
+
+추가 16코어 Conv/FC 전환 회귀 로그:
+FC_HEAD Conv source=[1,2,2,3] output=[1,1,1,512] cycles=4796
+FC_HEAD FC1 shape=512->512 active_cores=16 compute_and_feed=1277 preload=33280 U_words=32768 source_reads=64 core0_cycles=1275
+FC_HEAD FC2 shape=512->512 active_cores=16 compute_and_feed=1277 preload=33280 U_words=32768 source_reads=64 core0_cycles=1275
+FC_HEAD FC3 shape=512->10 active_cores=1 compute_and_feed=731 preload=1040 U_words=1024 source_reads=64 core0_cycles=729
+PASS FC_HEAD Conv_FC1_FC2_FC3 checked_words=202 class=8 initial_activation_words=4 no_intermediate_TB_reload
+PASS FC_MODE_RETURN rejected_bad_length released_final_region FC_to_Conv_without_reset cores=16
+PASS HOST_STREAM accepted_writes=73028 consecutive_writes=72975
+- verification/v8/tb_fc_v8_regression.sv:174: Verilog $finish

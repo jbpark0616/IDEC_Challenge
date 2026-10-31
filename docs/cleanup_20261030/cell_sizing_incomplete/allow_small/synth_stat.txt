@@ -1,0 +1,103 @@
+Found gzip magic in file `/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz', decompressing using zlib.
+Found gzip magic in file `/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz', decompressing using zlib.
+Found gzip magic in file `/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz', decompressing using zlib.
+Found gzip magic in file `/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz', decompressing using zlib.
+
+20. Printing statistics.
+
+=== chip ===
+
+        +----------------------------Count including submodules.
+        |        +-------------------Area including submodules.
+        |        |        +----------Local count, excluding submodules.
+        |        |        |        +-Local area, excluding submodules.
+        |        |        |        | 
+    69447        -    69447        - wires
+    73521        -    73521        - wire bits
+     2060        -     2060        - public wires
+     6134        -     6134        - public wire bits
+       13        -       13        - ports
+     4087        -     4087        - port bits
+        -        -        -        - memories
+        -        -        -        - memory bits
+        -        -        -        - processes
+    66422 6.79E+03    66422 6.79E+03 cells
+     1239  108.388     1239  108.388   A2O1A1Ixp33_ASAP7_75t_R
+      145   19.027      145   19.027   A2O1A1O1Ixp25_ASAP7_75t_R
+      508    44.44      508    44.44   AND2x2_ASAP7_75t_R
+      129   11.285      129   11.285   AND3x1_ASAP7_75t_R
+       31    3.164       31    3.164   AND4x1_ASAP7_75t_R
+     2354  205.928     2354  205.928   AO21x1_ASAP7_75t_R
+        7    1.021        7    1.021   AO221x1_ASAP7_75t_R
+        5    0.656        5    0.656   AO22x1_ASAP7_75t_R
+       10    1.166       10    1.166   AO32x1_ASAP7_75t_R
+        2     0.35        2     0.35   AOI211x1_ASAP7_75t_R
+      251   21.957      251   21.957   AOI211xp5_ASAP7_75t_R
+       25    2.916       25    2.916   AOI21x1_ASAP7_75t_R
+     4411  321.562     4411  321.562   AOI21xp33_ASAP7_75t_R
+      755   55.039      755   55.039   AOI21xp5_ASAP7_75t_R
+     1125  114.817     1125  114.817   AOI221xp5_ASAP7_75t_R
+      712   62.286      712   62.286   AOI22xp33_ASAP7_75t_R
+       17    1.487       17    1.487   AOI22xp5_ASAP7_75t_R
+       47    4.797       47    4.797   AOI311xp33_ASAP7_75t_R
+      486   42.515      486   42.515   AOI31xp33_ASAP7_75t_R
+        4    0.758        4    0.758   AOI31xp67_ASAP7_75t_R
+       24    2.449       24    2.449   AOI32xp33_ASAP7_75t_R
+      871   63.496      871   63.496   BUFx2_ASAP7_75t_R
+       34    2.974       34    2.974   BUFx3_ASAP7_75t_R
+        1    0.117        1    0.117   BUFx4f_ASAP7_75t_R
+     1531  580.371     1531  580.371   DFFASRHQNx1_ASAP7_75t_R
+     6783 1.98E+03     6783 1.98E+03   DFFHQNx1_ASAP7_75t_R
+      793  161.867      793  161.867   FAx1_ASAP7_75t_R
+     2224  291.833     2224  291.833   HAxp5_ASAP7_75t_R
+     3797  221.441     3797  221.441   HB1xp67_ASAP7_75t_R
+       16    4.199       16    4.199   ICGx1_ASAP7_75t_R
+      707   30.924      707   30.924   INVx1_ASAP7_75t_R
+       15    0.875       15    0.875   INVx2_ASAP7_75t_R
+        1    0.073        1    0.073   INVx3_ASAP7_75t_R
+     5957  260.559     5957  260.559   INVxp33_ASAP7_75t_R
+     2996  131.045     2996  131.045   INVxp67_ASAP7_75t_R
+       14    1.225       14    1.225   NAND2x1_ASAP7_75t_R
+        6      0.7        6      0.7   NAND2x1p5_ASAP7_75t_R
+     5737  334.582     5737  334.582   NAND2xp33_ASAP7_75t_R
+      393    22.92      393    22.92   NAND2xp5_ASAP7_75t_R
+        1    0.087        1    0.087   NAND2xp67_ASAP7_75t_R
+        1     0.16        1     0.16   NAND3x1_ASAP7_75t_R
+      659   48.041      659   48.041   NAND3xp33_ASAP7_75t_R
+      203   17.758      203   17.758   NAND4xp25_ASAP7_75t_R
+       13    2.654       13    2.654   NAND4xp75_ASAP7_75t_R
+      106   10.818      106   10.818   NAND5xp2_ASAP7_75t_R
+       69    6.036       69    6.036   NOR2x1_ASAP7_75t_R
+        3     0.35        3     0.35   NOR2x1p5_ASAP7_75t_R
+     5782  337.206     5782  337.206   NOR2xp33_ASAP7_75t_R
+       84    7.348       84    7.348   NOR2xp67_ASAP7_75t_R
+        2    0.321        2    0.321   NOR3x1_ASAP7_75t_R
+      494   36.013      494   36.013   NOR3xp33_ASAP7_75t_R
+      118   10.323      118   10.323   NOR4xp25_ASAP7_75t_R
+        2    0.408        2    0.408   NOR4xp75_ASAP7_75t_R
+      116   11.839      116   11.839   NOR5xp2_ASAP7_75t_R
+     1015   88.792     1015   88.792   O2A1O1Ixp33_ASAP7_75t_R
+       15     1.75       15     1.75   OA211x2_ASAP7_75t_R
+      567   57.868      567   57.868   OA21x2_ASAP7_75t_R
+      222   19.421      222   19.421   OAI211xp5_ASAP7_75t_R
+      149   17.379      149   17.379   OAI21x1_ASAP7_75t_R
+     8782  640.208     8782  640.208   OAI21xp33_ASAP7_75t_R
+     1693   123.42     1693   123.42   OAI21xp5_ASAP7_75t_R
+      461    47.05      461    47.05   OAI221xp5_ASAP7_75t_R
+        1    0.146        1    0.146   OAI22x1_ASAP7_75t_R
+      451   39.453      451   39.453   OAI22xp33_ASAP7_75t_R
+       11    0.962       11    0.962   OAI22xp5_ASAP7_75t_R
+       45    4.593       45    4.593   OAI311xp33_ASAP7_75t_R
+      244   21.345      244   21.345   OAI31xp33_ASAP7_75t_R
+       62    6.328       62    6.328   OAI32xp33_ASAP7_75t_R
+       25    2.187       25    2.187   OR2x2_ASAP7_75t_R
+       12     1.05       12     1.05   OR3x1_ASAP7_75t_R
+        6    0.612        6    0.612   OR4x1_ASAP7_75t_R
+        1    0.044        1    0.044   TIEHIx1_ASAP7_75t_R
+        1    0.044        1    0.044   TIELOx1_ASAP7_75t_R
+      617   80.963      617   80.963   XNOR2xp5_ASAP7_75t_R
+      226   29.656      226   29.656   XOR2xp5_ASAP7_75t_R
+
+   Chip area for module '\chip': 6785.765280
+     of which used for sequential elements: 2558.294280 (37.70%)
+

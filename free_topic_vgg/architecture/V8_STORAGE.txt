@@ -1,0 +1,58 @@
+U8/V8 operand storage contract
+=============================
+
+Scope
+-----
+The designated RTL is unchanged. Free-topic wrappers retain 16 MAC lanes,
+the existing accumulators, tile generation, CB ownership, and SRAM bank count.
+V8_PACKED=1 selects packed V storage. V8_PACKED=0 remains the V16 regression
+configuration. The full_model/run.sh entry point now selects the V8 testbench
+by default; V8=0 explicitly selects the old V16 runner.
+
+Quantization
+------------
+q = clamp(floor((V + 2^(s-1)) / 2^s), -127, 127), with no rounding bias for s=0.
+This is signed round-half-up, including negative half values. It is not
+round-to-even and it does not permit -128. The downloaded Colab calibration
+uses s=2 for Conv1 and s=1 for Conv2..13.
+
+Host bank14/address3, bits[2:0], sets s while the core is IDLE. Program every
+core before the layer command. Runtime writes during a layer do not change s.
+The full V16 input transform is evaluated first, then q and its zero-row mask
+are captured together. Output transforms and bias/requantization keep their
+original units by restoring q<<s at the MAC input. Multiplier widths have NOT
+been reduced to 8x8; that would be a separate arithmetic optimization.
+
+Packing and publication
+-----------------------
+Logical V address L = (CB slot << channel_stride) + input_channel.
+Physical V address = L >> 1, independently for each of the four row banks.
+64-bit word low half: even channel, four signed bytes in column order.
+64-bit word high half: odd channel, four signed bytes in column order.
+An odd final channel count pads the high half with zero.
+
+Four 32-bit first-half registers assemble pairs. No SRAM read-modify-write is
+needed. An even channel can enter those registers without using a SRAM port.
+The readable watermark advances only when the pair (or odd tail) is fully
+written. Masks remain indexed by logical channel, and are preserved through
+all output-channel reuses. Different rows may accept writes on different
+cycles; publication waits for all four rows.
+
+The MAC rows retain independent channel selection. Each row carries its own
+half selector with the synchronous SRAM response. FC accesses bypass this
+packing path. SRAM line history remains at physical words 512..1023.
+Logical V capacity/CB slots are intentionally unchanged; no channel-dependent
+FF expansion or extra SRAM banks were introduced.
+
+Supply implications
+-------------------
+For even C, V writes and V payload storage are halved. For one spatial tile
+with C=512, total V payload across four row banks is 8 KiB rather than 16 KiB.
+The physical macros are unchanged. Packed neighbors may still cause two
+reads of the same word; no new read cache is claimed. Consequently this
+change does not imply twice the MAC input throughput.
+
+The V8 full-model runner uses continuous host writes and the existing U
+residency policy. U blocks exceeding physical capacity still require reloads.
+Results are stored under verification/full_model/v8_run, separately from the
+completed V16 full-model baseline. A full V8 RTL run has not yet been performed.

@@ -1,0 +1,15 @@
+*.sh text eol=lf
+*.f text eol=lf
+*.v text eol=lf
+*.sv text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+*.gds binary
+*.ipynb text eol=lf
+# Preserve upstream byte hashes and formatting, including vendor whitespace.
+third_party/** -text -whitespace
+reference/upstream/** -text -whitespace
+# Frozen source/provenance bytes must survive checkout without normalization.
+rtl/** -text
+evidence/** -text

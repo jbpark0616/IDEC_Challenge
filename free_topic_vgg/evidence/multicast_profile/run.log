@@ -1,0 +1,14 @@
+RESULT bytes=512 period=1 multicast=0 cycles=1026 external_bytes=8192 received_words=1024
+RESULT bytes=512 period=1 multicast=1 cycles=66 external_bytes=512 received_words=1024
+RESULT bytes=512 period=4 multicast=0 cycles=4095 external_bytes=8192 received_words=1024
+RESULT bytes=512 period=4 multicast=1 cycles=255 external_bytes=512 received_words=1024
+RESULT bytes=4096 period=1 multicast=0 cycles=8194 external_bytes=65536 received_words=8192
+RESULT bytes=4096 period=1 multicast=1 cycles=514 external_bytes=4096 received_words=8192
+RESULT bytes=4096 period=4 multicast=0 cycles=32767 external_bytes=65536 received_words=8192
+RESULT bytes=4096 period=4 multicast=1 cycles=2047 external_bytes=4096 received_words=8192
+RESULT bytes=16384 period=1 multicast=0 cycles=32770 external_bytes=262144 received_words=32768
+RESULT bytes=16384 period=1 multicast=1 cycles=2050 external_bytes=16384 received_words=32768
+RESULT bytes=16384 period=4 multicast=0 cycles=131071 external_bytes=262144 received_words=32768
+RESULT bytes=16384 period=4 multicast=1 cycles=8191 external_bytes=16384 received_words=32768
+PASS TRANSPORT all_receivers_ordered_exactly_once
+verification/multicast_profile/tb_transport.sv:69: $finish called at 2231060000 (1ps)

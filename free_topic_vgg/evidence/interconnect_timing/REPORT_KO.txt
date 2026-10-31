@@ -1,0 +1,66 @@
+멀티캐스트 및 SRAM 공급 경로 타이밍 개선 — 중간 검증
+====================================================
+
+승인 범위: 사용자가 멀티캐스트 RTL 최적화 및 주파수 향상을 위한
+파이프라이닝과 합성을 요청했다. 기존 설계 고정본은 보존한다.
+
+변경
+1. vgg_mcast_fanout.v
+   DEPTH>=2에서 FIFO full 상태로 송신 ready를 결정한다.
+   수신 코어 ready -> FIFO full 상태에서 동시 pop/push lookahead
+   -> 송신 ready로 이어지는 조합 경로를 차단한다.
+   데이터 저장 용량과 목적지별 delivered mask는 유지한다.
+   full에서 복구할 때는 수락이 한 사이클 늦어질 수 있다.
+   DEPTH=1은 기존 동시 교체 경로를 유지한다.
+2. vgg_activation_feed.v
+   BUILD 단계에서 11비트 SRAM 워드 주소를 등록하고 REQUEST에서 사용한다.
+   기존 FSM 단계를 활용하므로 요청 단계/사이클을 추가하지 않는다.
+   공간 주소 계산 -> SRAM 중재 조합 경로를 분리한다.
+   추가 상태는 11비트이며 채널 수에 비례하는 저장소를 추가하지 않는다.
+
+변경하지 않은 범위
+   16개 코어, 코어당 16 MAC, U8/V8, SRAM 12개/코어,
+   U/V 재사용 및 해제, bypass/ICG, compute 파이프라인.
+   지정주제 RTL과 기존 freeze snapshot/manifest는 수정하지 않았다.
+   변경 직전 두 RTL은 before/에 보관했다.
+
+전후 비교 (comparison.json)
+   16목적지 독립 backpressure, 부분/빈 목적지 mask, 192개 입력:
+     두 버전 모두 1,109 cycles, 목적지별 총 1,043회 전달, 오류 없음.
+   연속 공급/수신: 두 버전 모두 195 cycles (192 words + 시작/종료).
+   입력 공급 10개 경우(C=3/32/128/512, HWC/sharded/pooled, A/B):
+     모두 독립 주소 oracle 통과. 읽기 횟수와 사이클도 전후 동일.
+   이는 측정한 경우의 결과이며 모든 backpressure 패턴에서
+   사이클이 같다는 보장은 아니다.
+
+16코어 통합 검증 (integration.log)
+   Conv -> FC1 -> FC2 -> FC3 -> Conv 연결 통과.
+   출력 202 words, class=8, 중간 activation의 TB 재적재 없음.
+   Conv 4,700 cycles, FC1/FC2 각 1,277, FC3 731 cycles.
+   FC 적재 시간은 별도: 33,280 / 33,280 / 1,040 cycles.
+   잘못된 길이 거절, 최종 SRAM 영역 해제, reset 없는 Conv 복귀 통과.
+   이 테스트는 전체 VGG 정확도 평가가 아니다.
+
+멀티캐스트 단독 합성/STA 전후 비교 (완료)
+   fanout16_synth: 16목적지, DEPTH=4, 같은 wrapper/제약/라이브러리.
+   ASAP7 RVT FF, ABC speed, 목표 1,000ps, 입출력 지연 각 200ps.
+   최소 주기: 572.24 -> 466.48 ps (-18.48%)
+   STA 환산 주파수: 1,747.53 -> 2,143.70 MHz (+22.67%)
+   표준셀 면적: 267.134760 -> 246.343680 um^2 (-7.78%)
+   FF: 379 -> 379. synth check: 둘 다 0 problems.
+   fanout_before/after_timing.rpt, *_cells.txt, *_check.txt 참조.
+   전체 가속기 Fmax가 아니다. 배치/배선/CTS 및 코어 연결 부하 미반영.
+   재현: bash flow/full_cluster/compare_fanout.sh
+
+전체 합성 (진행 중)
+   flow/full_cluster/run.sh로 실제 16코어 전체 합성을 실행 중이다.
+   compute를 blackbox 처리했던 이전 periphery-only 결과와 다르다.
+   현재 실행 로그/상태/소스 해시:
+     build/full_cluster_timing/run.log
+     build/full_cluster_timing/STATUS.txt
+     build/full_cluster_timing/source_sha256.json
+   타이밍 결과가 나오기 전에는 주파수 개선 달성을 주장하지 않는다.
+   배치/배선 및 CTS 전 합성이므로 최종 구현 Fmax와 구분해야 한다.
+   현재 전체 실행은 기존 ABC area 설정이다. 후속 속도 우선 매핑용
+   config_speed.mk는 별도로 준비했다(ABC speed, SYNTH_ARGS=-noshare).
+   현재 Yosys 중단은 자동 승인 검토에서 거절되어 기존 실행을 유지한다.

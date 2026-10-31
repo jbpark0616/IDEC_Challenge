@@ -1,0 +1,22 @@
+U_LOADING case=0 input=1,4,4,3 local_K=6 U_block=2 sparse=0 cycles=768 transforms=12 V_writes=12 releases=4 requests=11 U_words=48 weight_wait=284 rows=288 early=2
+U_LOADING case=0 input=1,4,4,3 local_K=6 U_block=2 sparse=1 cycles=729 transforms=12 V_writes=12 releases=4 requests=11 U_words=48 weight_wait=268 rows=192 early=1
+U_LOADING case=1 input=1,4,4,128 local_K=6 U_block=2 sparse=0 cycles=6209 transforms=512 V_writes=512 releases=4 requests=11 U_words=1536 weight_wait=274 rows=12288 early=127
+U_LOADING case=1 input=1,4,4,128 local_K=6 U_block=2 sparse=1 cycles=5617 transforms=512 V_writes=512 releases=4 requests=11 U_words=1536 weight_wait=275 rows=9204 early=190
+U_LOADING case=2 input=1,4,4,512 local_K=4 U_block=2 sparse=0 cycles=22114 transforms=2048 V_writes=2048 releases=4 requests=7 U_words=4096 weight_wait=176 rows=32768 early=2044
+U_LOADING case=2 input=1,4,4,512 local_K=4 U_block=2 sparse=1 cycles=20961 transforms=2048 V_writes=2048 releases=4 requests=7 U_words=4096 weight_wait=181 rows=24572 early=1532
+U_LOADING case=3 input=1,2,2,512 local_K=4 U_block=2 sparse=0 cycles=6884 transforms=512 V_writes=512 releases=1 requests=1 U_words=4096 weight_wait=26 rows=8192 early=511
+U_LOADING case=3 input=1,2,2,512 local_K=4 U_block=2 sparse=1 cycles=6501 transforms=512 V_writes=512 releases=1 requests=1 U_words=4096 weight_wait=26 rows=6120 early=383
+U_LOADING case=4 input=1,4,4,129 local_K=6 U_block=2 sparse=0 cycles=6360 transforms=516 V_writes=516 releases=4 requests=11 U_words=1560 weight_wait=281 rows=12384 early=174
+U_LOADING case=4 input=1,4,4,129 local_K=6 U_block=2 sparse=1 cycles=5786 transforms=516 V_writes=516 releases=4 requests=11 U_words=1560 weight_wait=285 rows=9216 early=192
+U_LOADING case=5 input=1,4,4,512 local_K=4 U_block=2 sparse=0 cycles=22101 transforms=2048 V_writes=2048 releases=4 requests=7 U_words=4096 weight_wait=181 rows=32768 early=2044
+U_LOADING case=5 input=1,4,4,512 local_K=4 U_block=2 sparse=1 cycles=17759 transforms=2048 V_writes=2048 releases=4 requests=7 U_words=4096 weight_wait=183 rows=0 early=0
+U_LOADING case=6 input=1,4,4,3 local_K=128 U_block=8 sparse=0 cycles=16213 transforms=12 V_writes=12 releases=4 requests=63 U_words=4096 weight_wait=11846 rows=6144 early=2
+U_LOADING case=6 input=1,4,4,3 local_K=128 U_block=8 sparse=1 cycles=15697 transforms=12 V_writes=12 releases=4 requests=63 U_words=4096 weight_wait=11845 rows=4096 early=1
+U_LOADING case=7 input=1,2,2,512 local_K=8 U_block=4 sparse=0 cycles=17161 transforms=512 V_writes=512 releases=1 requests=1 U_words=8192 weight_wait=8231 rows=16384 early=511
+U_LOADING case=7 input=1,2,2,512 local_K=8 U_block=4 sparse=1 cycles=16264 transforms=512 V_writes=512 releases=1 requests=1 U_words=8192 weight_wait=8231 rows=12232 early=383
+U_LOADING case=8 input=1,2,2,256 local_K=16 U_block=8 sparse=0 cycles=14834 transforms=256 V_writes=256 releases=1 requests=1 U_words=8192 weight_wait=8252 rows=16384 early=255
+U_LOADING case=8 input=1,2,2,256 local_K=16 U_block=8 sparse=1 cycles=13872 transforms=256 V_writes=256 releases=1 requests=1 U_words=8192 weight_wait=8252 rows=12224 early=191
+U_LOADING case=9 input=1,4,4,128 local_K=16 U_block=8 sparse=0 cycles=11688 transforms=512 V_writes=512 releases=4 requests=7 U_words=4096 weight_wait=424 rows=32768 early=127
+U_LOADING case=9 input=1,4,4,128 local_K=16 U_block=8 sparse=1 cycles=9629 transforms=512 V_writes=512 releases=4 requests=7 U_words=4096 weight_wait=422 rows=24560 early=95
+PASS U_LOADING compared_words=676 last_use_release backpressure zero_bypass stale_commit
+- experiments/u_resident/tb_u_resident.sv:171: Verilog $finish

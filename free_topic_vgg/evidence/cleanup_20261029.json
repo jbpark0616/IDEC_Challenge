@@ -1,0 +1,23 @@
+{
+  "canonical_top": "rtl/vgg_sixteen_core_cluster.v",
+  "rtl_files": 27,
+  "removed_rtl": [
+    "rtl/vgg_four_core_cluster.v",
+    "rtl/vgg_four_core_layer_cluster.v",
+    "rtl/core/vgg_sram_compute_core.v",
+    "rtl/interconnect/vgg_sram_multicast.v",
+    "rtl/memory/vgg_burst_dma.v",
+    "rtl/memory/vgg_scratchpad_12bank.v"
+  ],
+  "moves": {
+    "experiments/v8_packed": "verification/v8",
+    "experiments/u_resident": "verification/u_supply",
+    "experiments/fc_integration": "verification/fc",
+    "experiments/full_model": "verification/full_model",
+    "experiments/winograd_quantization": "model_tools/quantization"
+  },
+  "recovery_archive": "../archive/free_topic_cleanup_20261029.zip",
+  "verified_backup_files": 5873,
+  "designated_topic_modified": false,
+  "full_v8_rtl_run": false
+}

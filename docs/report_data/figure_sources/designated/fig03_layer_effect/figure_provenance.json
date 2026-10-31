@@ -1,0 +1,37 @@
+{
+  "data": "docs/report_data/designated_layers/layer_summary.csv",
+  "sha256": "ce55720a8ab5c66a3de2dc07fa3339e2a31bead686214ae97d31906d1ba66e1c",
+  "images_per_case": 100,
+  "normalization": "Per-layer Winograd + ICG = 1",
+  "values": {
+    "active_lane_products_mean": {
+      "reference": [
+        6912.0,
+        3600.0
+      ],
+      "proposed": [
+        2915.64,
+        1684.92
+      ],
+      "normalized": [
+        0.42182291666666666,
+        0.46803333333333336
+      ]
+    },
+    "run_cycles_mean": {
+      "reference": [
+        752.0,
+        238.0
+      ],
+      "proposed": [
+        751.44,
+        162.39
+      ],
+      "normalized": [
+        0.9992553191489363,
+        0.6823109243697478
+      ]
+    }
+  },
+  "note": "Slots are enabled lanes at accepted MAC inputs, not transistor switching or nonzero products. Cycles count layer RUN states only."
+}

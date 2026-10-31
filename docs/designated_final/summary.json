@@ -1,0 +1,243 @@
+{
+  "conditions": {
+    "stage": "post-synthesis, no CTS or routed parasitics",
+    "library": "ASAP7 RVT FF NLDM",
+    "voltage_v": 0.77,
+    "temperature_c": 0,
+    "period_ps": 1000,
+    "frequency_mhz": 1000,
+    "rtl_images": 1000,
+    "rtl_unique_images": 100,
+    "power_image_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "power_window": "entire 20-image gate simulation including reset/start",
+    "activity": "zero-delay gate VCD; delay-dependent glitches not modeled",
+    "cycles": "clock edges from first accepted pixel to decision-valid assertion",
+    "tops_w_convention": "Busan-style virtual dense MAC reference: 183 MAC x 2 x 1 GHz = 0.366 TOPS; not achieved throughput",
+    "bypass_factor": "row compression + whole-zero bypass + associated ordering logic",
+    "common_weight_zero_operand_isolation": true,
+    "original_and_previous_final_rtl_preserved": true
+  },
+  "cases": {
+    "b0_g0": {
+      "sparse_bypass": false,
+      "icg": false,
+      "defines": [
+        "DISABLE_SPARSE_BYPASS",
+        "CLOCK_GATING_BYPASS"
+      ],
+      "cycles_mean": 1072.0,
+      "cycles_max": 1072.0,
+      "model_mismatches": 0,
+      "correct": 970,
+      "core_matrix_pass": true,
+      "export_pass": true,
+      "layer_counts_over_1000_images": {
+        "conv1": {
+          "mac_beats": 432000,
+          "bypass_jobs": 0,
+          "output_transforms": 432000
+        },
+        "conv2": {
+          "mac_beats": 225000,
+          "bypass_jobs": 0,
+          "output_transforms": 75000
+        }
+      },
+      "area_um2": 7804.64484,
+      "power_mw": {
+        "Sequential": 13.07338,
+        "Combinational": 3.518192,
+        "Clock": 0.0,
+        "Total": 16.59157
+      },
+      "window_ns": 21560.5,
+      "energy_nj_per_image_including_reset": 17.886127249250002,
+      "min_period_ps": 855.6,
+      "estimated_setup_fmax_mhz": 1168.7704534829359,
+      "virtual_dense_tops_w": 22.059395222995775,
+      "icg_count": 0,
+      "dff_count": 8260,
+      "unannotated_pins": 0,
+      "gate_images_pass": 20
+    },
+    "b1_g0": {
+      "sparse_bypass": true,
+      "icg": false,
+      "defines": [
+        "CLOCK_GATING_BYPASS"
+      ],
+      "cycles_mean": 995.83,
+      "cycles_max": 1009.0,
+      "model_mismatches": 0,
+      "correct": 970,
+      "core_matrix_pass": true,
+      "export_pass": true,
+      "layer_counts_over_1000_images": {
+        "conv1": {
+          "mac_beats": 211470,
+          "bypass_jobs": 220530,
+          "output_transforms": 211470
+        },
+        "conv2": {
+          "mac_beats": 121140,
+          "bypass_jobs": 6900,
+          "output_transforms": 68100
+        }
+      },
+      "area_um2": 7781.47722,
+      "power_mw": {
+        "Sequential": 13.149849999999999,
+        "Combinational": 3.124041,
+        "Clock": 0.0,
+        "Total": 16.273860000000003
+      },
+      "window_ns": 20048.5,
+      "energy_nj_per_image_including_reset": 16.3133241105,
+      "min_period_ps": 870.53,
+      "estimated_setup_fmax_mhz": 1148.725489069877,
+      "virtual_dense_tops_w": 22.490054602903058,
+      "icg_count": 0,
+      "dff_count": 8315,
+      "unannotated_pins": 0,
+      "gate_images_pass": 20
+    },
+    "b0_g1": {
+      "sparse_bypass": false,
+      "icg": true,
+      "defines": [
+        "DISABLE_SPARSE_BYPASS"
+      ],
+      "cycles_mean": 1072.0,
+      "cycles_max": 1072.0,
+      "model_mismatches": 0,
+      "correct": 970,
+      "core_matrix_pass": true,
+      "export_pass": true,
+      "layer_counts_over_1000_images": {
+        "conv1": {
+          "mac_beats": 432000,
+          "bypass_jobs": 0,
+          "output_transforms": 432000
+        },
+        "conv2": {
+          "mac_beats": 225000,
+          "bypass_jobs": 0,
+          "output_transforms": 75000
+        }
+      },
+      "area_um2": 7802.57448,
+      "power_mw": {
+        "Sequential": 4.627948,
+        "Combinational": 3.491859,
+        "Clock": 0.49024370000000006,
+        "Total": 8.609996
+      },
+      "window_ns": 21560.5,
+      "energy_nj_per_image_including_reset": 9.2817909379,
+      "min_period_ps": 872.63,
+      "estimated_setup_fmax_mhz": 1145.961060243173,
+      "virtual_dense_tops_w": 42.50873054993289,
+      "icg_count": 16,
+      "dff_count": 8262,
+      "unannotated_pins": 0,
+      "gate_images_pass": 20
+    },
+    "b1_g1": {
+      "sparse_bypass": true,
+      "icg": true,
+      "defines": [],
+      "cycles_mean": 995.83,
+      "cycles_max": 1009.0,
+      "model_mismatches": 0,
+      "correct": 970,
+      "core_matrix_pass": true,
+      "export_pass": true,
+      "layer_counts_over_1000_images": {
+        "conv1": {
+          "mac_beats": 211470,
+          "bypass_jobs": 220530,
+          "output_transforms": 211470
+        },
+        "conv2": {
+          "mac_beats": 121140,
+          "bypass_jobs": 6900,
+          "output_transforms": 68100
+        }
+      },
+      "area_um2": 7769.0259,
+      "power_mw": {
+        "Sequential": 4.332168,
+        "Combinational": 3.1101560000000004,
+        "Clock": 0.426217,
+        "Total": 7.868472
+      },
+      "window_ns": 20048.5,
+      "energy_nj_per_image_including_reset": 7.887553044599999,
+      "min_period_ps": 860.07,
+      "estimated_setup_fmax_mhz": 1162.6960596230538,
+      "virtual_dense_tops_w": 46.514748988113574,
+      "icg_count": 16,
+      "dff_count": 8314,
+      "unannotated_pins": 0,
+      "gate_images_pass": 20
+    }
+  },
+  "effects": {
+    "b0_g0 -> b1_g0": {
+      "cycles_saved": 76.16999999999996,
+      "cycles_reduction_percent": 7.105410447761196,
+      "power_reduction_percent": 1.91488810281365,
+      "energy_reduction_percent": 8.793424741043099,
+      "area_change_percent": -0.29684400091164465
+    },
+    "b0_g0 -> b0_g1": {
+      "cycles_saved": 0.0,
+      "cycles_reduction_percent": 0.0,
+      "power_reduction_percent": 48.10620092010581,
+      "energy_reduction_percent": 48.10620092010581,
+      "area_change_percent": -0.026527280131816156
+    },
+    "b1_g0 -> b1_g1": {
+      "cycles_saved": 0.0,
+      "cycles_reduction_percent": 0.0,
+      "power_reduction_percent": 51.649627070651974,
+      "energy_reduction_percent": 51.649627070651974,
+      "area_change_percent": -0.1600122913422819
+    },
+    "b0_g1 -> b1_g1": {
+      "cycles_saved": 76.16999999999996,
+      "cycles_reduction_percent": 7.105410447761196,
+      "power_reduction_percent": 8.612361724674445,
+      "energy_reduction_percent": 15.021216300045726,
+      "area_change_percent": -0.42996808407268494
+    },
+    "b0_g0 -> b1_g1": {
+      "cycles_saved": 76.16999999999996,
+      "cycles_reduction_percent": 7.105410447761196,
+      "power_reduction_percent": 52.57548260954208,
+      "energy_reduction_percent": 55.90128072620786,
+      "area_change_percent": -0.4563813053663601
+    }
+  }
+}

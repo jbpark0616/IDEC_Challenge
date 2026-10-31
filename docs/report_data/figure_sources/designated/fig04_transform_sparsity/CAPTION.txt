@@ -1,0 +1,23 @@
+Figure. Origins of zero rows in the Winograd-transformed activation tiles.
+(a) The fraction of all transformed rows that are zero, decomposed into pairs
+of zero input rows and cancellation between nonzero input rows.
+(b) Zero-row rates for each exact input-row condition; within each pair,
+Conv1 is on the left and Conv2 on the right. d_r denotes a four-element input
+row vector. Rates use 100 unique input images and accepted channel tiles,
+without weighting by output-channel reuse. pp denotes percentage points.
+The unsigned 8-bit input transform was verified exactly against RTL outputs
+and masks for all 21,900 observed tiles. No datapath changes were made.
+
+Supplementary figure (granularity).
+(a) Distribution of transformed tiles by zero-row count.
+(b) Element-level zero rates in the corresponding accepted input tiles d and
+transformed tiles V. Input pixels shared by overlapping tiles are counted
+per tile. This is not the raw-image pixel histogram. Zero-row rates and
+zero-element rates have different denominators and do not directly predict
+end-to-end cycle savings.
+
+Report placement:
+Mathematical transform identity -> this figure -> measured active MAC slots
+and layer cycles (fig03) -> energy per image with common ICG (fig01).
+The nonzero cancellation contribution is small; do not describe it as the
+dominant source of sparsity or of energy reduction.

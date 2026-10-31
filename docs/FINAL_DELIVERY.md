@@ -1,0 +1,31 @@
+# 최종 보고서 및 설계 자료
+
+## 보고서
+
+| 구분 | 제출 PDF | 편집 원본 |
+|---|---|---|
+| 지정주제 | [제출용 PDF](IDEC_지정주제_결과보고서_제출용.pdf) | [결과보고서 Word](IDEC_지정주제_결과보고서.docx) |
+| 자유주제 | [제출용 PDF](IDEC_자유주제_결과보고서_제출용.pdf) | [검토수정본 Word](IDEC_자유주제_결과보고서_검토수정본.docx) |
+
+위 편집 원본을 기준으로 유지한다. 본문 PDF와 표지 PDF는 제출본 조립에 사용한 원본이다.
+
+## 설계와 제출물
+
+- `verilog/`: 지정주제 최종 bypass + ICG RTL.
+- `free_topic_vgg/rtl/`: 자유주제 RTL. 정리 작업으로 회로를 변경하지 않았다.
+- `submission/IDEC2026/`: Vivado 2024.1 제출 프로젝트, 소스, 합성 산출물.
+- `submission/IDEC2026_Vivado2024_1.zip`: 제출 폴더의 압축본. 보고서는 별도 PDF이다.
+- `docs/designated_final/`: 지정주제 합성·전력·정확도 근거와 RTL 해시.
+- `free_topic_vgg/evidence/timing_writer_pipeline/`: 자유주제 최종 합성·타이밍 및 통합 검증 근거. `netlist/`에 합성 netlist와 SDC를 보존했다.
+- `free_topic_vgg/evidence/report_baseline_700mhz/`: 보고용 소스 해시와 평가 조건.
+
+## 그림과 재현
+
+- `docs/report_assets/`: 보고서 그림, 표, 그림 생성 소스.
+- `docs/report_data/`: 원시 측정값, 비교 실험, 출처.
+- `scripts/report_data/`: 지정주제 데이터 추출 스크립트.
+- `free_topic_vgg/evidence/report700/`: 자유주제 통제 실험과 레이어별 결과.
+- `verification/designated_ablation_reference.zip`: 보고서 ablation을 재현하는 네 가지 비교 RTL 및 전력 검증 로그만 보존한 압축본. 최종 구현 소스로 사용하지 않는다.
+- `docs/report_data/final_delivery/`: 정리 전후 보호 파일 해시, 삭제 목록, Vivado RTL/게이트 1,000장 검증 로그.
+
+보고서의 비교 결과와 한계를 확인할 수 있도록 작은 측정 로그는 보존했다. 재생성 가능한 빌드 결과·파형·문서 렌더링 캐시와 폐기된 대용량 복구 ZIP은 삭제했다. 학습 가중치와 데이터셋은 로컬에 유지하며 Git에는 기존 다운로드·생성 스크립트와 manifest를 저장한다.

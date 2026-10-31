@@ -1,0 +1,9 @@
+16개 목적지에 동일 데이터를 전달하는 통신 블록 실험.
+현재 RTL의 fanout(depth4)과 각 코어 수신FIFO(depth4)를 사용했다.
+같은 입력 경로에서 한 코어씩16회 보내는 repeated unicast와16개 목적지 mask로1회 보내는 multicast 비교.
+입력word는64bit, 수신 소비자는 항상ready. 첫word 제공부터 마지막 수신 소비와queue drain까지 측정.
+모든 수신 데이터의 값·순서·중복을 검사했고12회 통과했다.
+SRAM read/activation_feed/타일생성/DRAM 지연/계산 중첩은 제외한 통신 블록 측정이다.
+외부 DRAM 대 실제 SRAM 복사 또는 전체 가속기 속도 비교가 아니다.
+동일payload를16회 보내는 조건 대비 입력 전송량은1/16(93.75% 감소)이다.
+각 패널 y축 범위는 다르며 단위는모두1000cycles다.

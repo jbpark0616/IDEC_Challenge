@@ -1,0 +1,2 @@
+PASS FANOUT16 words=192 endpoint_deliveries=1043 cycles=1109 independent_stalls subset_masks empty_masks
+/mnt/c/IDEC_challenge/free_topic_vgg/build/interconnect_timing/fanout_test.sv:67: $finish called at 11125000 (1ps)

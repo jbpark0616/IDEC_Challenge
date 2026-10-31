@@ -1,0 +1,19 @@
+Layer-wise effects of sparsity-aware execution: (a) active MAC-lane operation
+slots and (b) layer execution cycles. Each metric is normalized independently
+to the corresponding layer of Winograd + ICG. Results are averaged over the
+same 100 unique images in each configuration.
+
+An active operation slot is an enabled MAC lane at an accepted input
+transaction, including zero operands within enabled rows. It does not count
+nonzero multiplications or measure switching activity. Execution cycles count
+the respective RUN_CONV state; initialization and other network stages are
+excluded. Some Conv2 input preparation overlaps Conv1 execution.
+
+Conv1: active slots 6912 -> 2915.64 per image (-57.82%);
+       RUN cycles 752 -> 751.44 (-0.0745%).
+Conv2: active slots 3600 -> 1684.92 per image (-53.20%);
+       RUN cycles 238 -> 162.39 (-31.77%).
+
+Conv1과 Conv2의 연산 슬롯은 모두 절반 이상 감소하지만 실행 사이클 감소는
+Conv2에 집중된다. 외부 공급이 유일한 원인임을 이 그림만으로 주장하지 않는다.
+Both conditions use ICG. Data and final RTL are unchanged.

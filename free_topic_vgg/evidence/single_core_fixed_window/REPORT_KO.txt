@@ -1,0 +1,81 @@
+SRAM 직접 타일 공급 + 고정 작업 FF: 수정/재합성 결과
+=====================================================
+
+구조 변경
+  A/B SRAM의 원본 activation을 유지하고, 기존 공유 feed가
+  공간 타일 -> 입력 채널 -> row-major 4x4 픽셀 순서로 읽는다.
+  padding은 SRAM을 읽지 않고0을 공급한다. 기존 multicast/rx를 통과한다.
+  각 코어는 64bit 두 워드를128bit 타일로 조립해 기존 input transform에 전달한다.
+  변환된 V의 SRAM 보관/마지막 출력 채널까지 재사용/해제, row MAC,
+  output transform, postprocess, FC 연산부는 변경하지 않았다.
+  FC 입력은 원래 선형 순서를 유지한다.
+  메인 클러스터의 TILE_INPUT=1에서 기존 전체 채널 벡터 reader/line/window는
+  elaboration 단계에서 제거된다. 독립 기존 fixture의 TILE_INPUT=0 분기는 보존한다.
+  가로 겹침을 채널마다 FF에 보관하지 않고 SRAM에서 다시 읽는다.
+  공유 feed의 기존 4word/source 캐시는 유지하며 별도 대용량 캐시는 추가하지 않았다.
+  SRAM12개/코어 그대로. V bank의 이전 line 영역은 미사용 상태로 남긴다.
+
+동일 조건 단일 코어 합성 비교
+                       이전 전체벡터 FF       수정 후
+  FF 개수                  82,868             12,970   (-84.35%)
+  표준셀 면적 um^2          65,499.133680       19,228.905900 (-70.64%)
+  SRAM 면적 um^2            28,318.325760       28,318.325760
+  전체 셀 면적 um^2         93,817.459440       47,547.231660 (-49.32%)
+  SRAM 매크로               12                 12
+  ICG                       11                 10
+  WNS @1000ps               -664.25ps          -784.75ps
+  period_min                1664.25ps          1784.75ps
+  보고서 fmax               600.87MHz          560.30MHz
+
+FF 확인
+  기존 u_window49,175 + u_lines16,409 + u_reader4,188 instance가 사라졌다.
+  새로운 g_sram_tiles.u_tile은130FF(128bit payload + half/valid2bit).
+  공유 feed545FF, MAC2585FF, V metadata2088FF 등은 structure.json 참조.
+  ICG1개 감소는 사라진 가로 이력용 gate다. MAC3개/IT2개/OT2개/post3개 유지.
+  synth_check: 0 problems. SRAM은Liberty macro12개로 남아 FF화되지 않았다.
+
+타이밍/실행
+  1GHz 미충족. 최악 경로 u_feed.window_y[0] -> host_ready.
+  공간 주소 계산에서 SRAM request/중재 ready까지의 조합 경로가 남아 있다.
+  이번에 pipeline latency를 임의 추가해 타이밍 수치를 개선하지 않았다.
+  합성 단계6분28.93초, 최대 RSS1,976,900KB(약1.89GiB).
+  최초 실행424초 후 합성/STA 완료 뒤 shell EOF 오류 발생:
+    실행 도중 run.sh 기본 결과 경로를 수정한 영향으로 판단됨.
+  bash -n 검사PASS. 기존 netlist를 재합성하지 않고 make synth-report만 다시
+  실행해 종료0 확인. STATUS.txt의 REPORT_RECHECK_EXIT_CODE=0 참조.
+
+기능 검증
+  1. SRAM 주소 oracle 공급검사10사례PASS:
+     H4 W4, C3/32/128/512, HWC/분산tile/분산pooled, padding, phase 및 stalls.
+     feed.log 참조. 주소/데이터/최종word 모두검사.
+  2. 코어 U8/V8 12사례 x bypass OFF/ON x U상주/재적재 =48사례PASS.
+     각 공급 모드694워드 bit-exact. V last-use release, backpressure,
+     stale commit, zero bypass 검사 유지. core_resident.log/core_streamed.log 참조.
+  3. 16코어 Conv->FC1->FC2->FC3->Conv 통합202워드 및class8 PASS.
+     Conv [1,2,2,3]->pooled[1,1,1,512] 4796->4700cycles.
+     FC1/2/3는1277/1277/731cycles로 동일. fc_run.log 참조.
+  전체 VGG 및 gate-level 기능 시뮬레이션은 이번에 다시 실행하지 않았다.
+
+성능 해석: 코어 계산과 SRAM 공급을 반드시 구분
+  준비된 타일을TB가 공급하는 코어 검사(초기 U적재 제외):
+    입력[1,4,4,128], local K16, U상주: bypass OFF9377 / ON7361cycles.
+    입력[1,4,4,512], local K4, 실제 activation 사례: OFF12520 / ON9889cycles.
+    이 값에는 공유 feed가 SRAM에서 타일을 만드는 비용이 포함되지 않는다.
+  별도 feed 검사(지정된 read/output stall 자극, downstream MAC 없음):
+    입력[1,4,4,512] HWC: SRAM18432reads,4096stream words,102395cycles.
+    같은 크기 분산tile:12288reads,4096words,71694cycles.
+  따라서 큰 입력의 전체 레이어가 더 빨라졌다고 주장하지 않는다.
+  현재4word 캐시와 SRAM 재읽기로 공급 병목이 생길 수 있으며 후속 개선 대상이다.
+  위 수치를 코어 사이클과 단순 합산하지 않는다. 실제로는 일부 겹친다.
+
+물리/PPA 한계
+  배치/배선/CTS 전 셀 면적과 STA다. 실제 Fmax나 die area가 아니다.
+  표준셀RV TFF와 SRAM의corner 불일치, LEF sdel/coreSite 경고,
+  기존GDS/LEF 불일치는 해결되지 않았다. 기존 보고서와 동일한 제한이다.
+  활동 기반 power 또는TOPS/W는 측정하지 않았다.
+
+재현
+  bash flow/single_core/run.sh (free_topic_vgg 기준)
+  verification/fixed_window/README.txt
+  이전 비교 근거: evidence/single_core_synth/
+  최신 원본: build/single_core_sram_fixed_window/

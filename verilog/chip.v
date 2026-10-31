@@ -32,6 +32,13 @@ module chip #(
 );
 
     wire image_ready;
+    wire accelerator_image_ready;
+    // The pooled Conv2 map depends only on Conv1 coordinates 0..11.
+    // The last required input is raster index725 (row25,col25).
+    // Receive all 784 external pixels without stalls; drain the last58
+    // while the shared core starts Conv2.
+    assign image_ready = ((pixel_count >= 10'd726) && (pixel_count < 10'd784))
+                       || accelerator_image_ready;
     wire feature_valid;
     wire [7:0] feature_data;
     wire [6:0] feature_index;
@@ -55,12 +62,12 @@ module chip #(
     winograd_cnn_accelerator #(
         .CONV1_TILE_FIFO_DEPTH(CONV1_TILE_FIFO_DEPTH),
         .V_REPLAY_GROUP_DEPTH(V_REPLAY_GROUP_DEPTH),
-        .M_FIFO_DEPTH(M_FIFO_DEPTH)
+        .M_FIFO_DEPTH(M_FIFO_DEPTH), .EMIT_FEATURES(0), .PRUNE_UNUSED_CONV1(1)
     ) u_accelerator (
         .clk(clk),
         .rst_n(rst_n),
-        .image_valid(image_valid),
-        .image_ready(image_ready),
+        .image_valid(image_valid && (pixel_count < 10'd726)),
+        .image_ready(accelerator_image_ready),
         .image_pixel(data_in),
         .conv1_u_bank(conv1_u),
         .conv2_u_bank(conv2_u),

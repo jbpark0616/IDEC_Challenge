@@ -1,0 +1,7 @@
+HOST_POLICY continuous=1
+START layer=4 input=[1,8,8,128] Cout=256 U_block=8 preload=65584
+PROGRESS stage=4 clock=100000 U_words=65536 requests=157
+PROFILE layer=4 sparse=1 activation_preload=1024 weight_preload=65584 cycles=110375 mac_beats=498960 mac_lanes=7578624 weight_wait_corecycles=77675 writer_stall_corecycles=0
+LAYER_PASS layer=4 shape=[1,8,8,128]->256 cycles=110375 preload=65584 U_words=65536 replacements=496 source_reads=25088 compared_words=2048 resident_u=1
+PASS ISOLATED_LAYER stage=4 sparse=1 checked_words=2048
+- /mnt/c/IDEC_challenge/free_topic_vgg/build/report700/cluster/tb.sv:195: Verilog $finish

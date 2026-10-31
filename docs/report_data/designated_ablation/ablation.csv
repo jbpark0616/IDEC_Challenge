@@ -1,0 +1,5 @@
+case,label,cycles_mean,cycles_min,cycles_max,power_mw,energy_nj_per_image,area_um2,cycle_sample_unique_images,power_sample_images,power_source,cycle_source
+b0_g0,Baseline,1072.0,1072,1072,16.59157,17.886127249250002,7804.64484,100,20,historical_audited_gate_vcd,fresh_rtl100
+b1_g0,Bypass,995.83,983,1009,16.273860000000003,16.3133241105,7781.47722,100,20,historical_audited_gate_vcd,fresh_rtl100
+b0_g1,ICG,1072.0,1072,1072,8.609996,9.2817909379,7802.57448,100,20,historical_audited_gate_vcd,fresh_rtl100
+b1_g1,Bypass + ICG,995.83,983,1009,7.868472,7.8875530446,7769.0259,100,20,historical_audited_gate_vcd,fresh_rtl100

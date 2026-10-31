@@ -1,0 +1,65 @@
+{
+  "source": "free_topic_vgg\\evidence\\report700\\cluster\\effects.csv",
+  "sha256": "684c1f4beef380f738c79a2d6136670ae5aa3fe1b18a7dde14535580972fde40",
+  "scope": "Actual 16-core isolated VGG layers; image index 0 only; all output words checked against golden",
+  "normalization": "Each layer sparse OFF = 1; same data and architecture in ON/OFF",
+  "cycle_scope": "Run cycles: excludes initial preload, includes in-run weight reloads",
+  "rows": [
+    {
+      "layer": "1",
+      "input_NHWC": "[1,32,32,3]",
+      "output_channels": "64",
+      "resident_u": "1",
+      "u_bytes_per_core": "192",
+      "cycles_off": "30561",
+      "cycles_on": "30561",
+      "cycle_reduction_percent": "0.0",
+      "inclusive_off": "31505",
+      "inclusive_on": "31505",
+      "inclusive_reduction_percent": "0.0",
+      "mac_lane_reduction_percent": "0.1953125"
+    },
+    {
+      "layer": "5",
+      "input_NHWC": "[1,8,8,128]",
+      "output_channels": "256",
+      "resident_u": "1",
+      "u_bytes_per_core": "32768",
+      "cycles_off": "110512",
+      "cycles_on": "110375",
+      "cycle_reduction_percent": "0.12396843781671274",
+      "inclusive_off": "177120",
+      "inclusive_on": "176983",
+      "inclusive_reduction_percent": "0.07734869015356693",
+      "mac_lane_reduction_percent": "9.65576171875"
+    },
+    {
+      "layer": "9",
+      "input_NHWC": "[1,4,4,512]",
+      "output_channels": "512",
+      "resident_u": "0",
+      "u_bytes_per_core": "262144",
+      "cycles_off": "2065741",
+      "cycles_on": "2064212",
+      "cycle_reduction_percent": "0.07401702343130534",
+      "inclusive_off": "2132349",
+      "inclusive_on": "2130820",
+      "inclusive_reduction_percent": "0.07170496011675853",
+      "mac_lane_reduction_percent": "49.9267578125"
+    },
+    {
+      "layer": "13",
+      "input_NHWC": "[1,2,2,512]",
+      "output_channels": "512",
+      "resident_u": "0",
+      "u_bytes_per_core": "262144",
+      "cycles_off": "478640",
+      "cycles_on": "478479",
+      "cycle_reduction_percent": "0.03363697141901545",
+      "inclusive_off": "544480",
+      "inclusive_on": "544319",
+      "inclusive_reduction_percent": "0.029569497502202058",
+      "mac_lane_reduction_percent": "13.818359375"
+    }
+  ]
+}

@@ -54,9 +54,9 @@ module winograd_sequential_frame_buffer #(
                 write_pointer <= {ADDR_BITS{1'b0}};
                 full <= 1'b0;
             end else if (reuse_write_valid) begin
-                memory[reuse_write_address] <= reuse_write_data;
+
             end else if (write_valid && write_ready) begin
-                memory[write_pointer] <= write_data;
+
                 if (write_pointer == DEPTH-1)
                     full <= 1'b1;
                 else
@@ -72,6 +72,17 @@ module winograd_sequential_frame_buffer #(
                 else
                     read_pointer <= read_pointer + 1'b1;
             end
+        end
+    end
+
+    // Data clocks only; handshake/control registers retain the root clock.
+    wire memory_clk;
+    winograd_clock_gate cg_memory_clk (.clk(clk), .enable(rst_n && !write_clear && (reuse_write_valid || (write_valid && write_ready))), .gclk(memory_clk));
+
+    always @(posedge memory_clk) begin
+        if (rst_n && !write_clear) begin
+            if (reuse_write_valid) memory[reuse_write_address] <= reuse_write_data;
+            else if (write_valid && write_ready) memory[write_pointer] <= write_data;
         end
     end
 endmodule

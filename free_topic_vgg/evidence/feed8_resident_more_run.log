@@ -1,0 +1,2 @@
+PASS 1/4 Conv2 sparse=0 cycles=754658
+PASS 2/4 Conv2 sparse=1 cycles=754610

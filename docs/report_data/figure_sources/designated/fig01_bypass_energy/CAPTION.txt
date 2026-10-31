@@ -1,0 +1,15 @@
+Effect of sparsity-aware zero-skipping on latency, power, and energy per image.
+All metrics are normalized to the Winograd accelerator with ICG enabled and
+zero-skipping disabled. Sparsity-aware execution reduces latency, average power,
+and energy per image by 7.1%, 8.6%, and 15.0%, respectively.
+
+Latency: RTL simulation of 100 unique images per condition.
+Power and energy: audited historical post-synthesis estimates from identical
+20-image zero-delay gate simulations, including reset/start, at 1 GHz
+(ASAP7 RVT FF, 0.77 V, 0 C). CTS and routed parasitics are not included.
+Energy is computed from the complete power measurement interval, not by
+multiplying the 100-image mean latency by the 20-image average power.
+
+ICG 적용 Winograd 대비 sparsity-aware 연산 생략의 효과.
+평균 지연 7.1%, 평균 전력 8.6%, 이미지당 에너지 15.0% 감소.
+기준은 대회 제공 회로가 아니라 ICG를 공통 적용한 동일 Winograd 구조이다.

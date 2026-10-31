@@ -1,0 +1,507 @@
+[WARNING STA-0503] report_checks -group_count is deprecated. Use -group_path_count instead.
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: u_accelerator.state[0]$_DFF_PN1_
+          (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+ 200.00  200.00 ^ input external delay
+   0.00  200.00 ^ rst_n (in)
+   0.00  200.00 ^ u_accelerator.state[0]$_DFF_PN1_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+         200.00   data arrival time
+
+1000.00 1000.00   clock clk (rise edge)
+   0.00 1000.00   clock network delay (ideal)
+   0.00 1000.00   clock reconvergence pessimism
+        1000.00 ^ u_accelerator.state[0]$_DFF_PN1_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+   6.99 1006.99   library recovery time
+        1006.99   data required time
+---------------------------------------------------------
+        1006.99   data required time
+        -200.00   data arrival time
+---------------------------------------------------------
+         806.99   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: u_accelerator.u_core.u_v_buffer.row_remaining[0][0]$_DFFE_PN1P_
+          (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+ 200.00  200.00 ^ input external delay
+   0.00  200.00 ^ rst_n (in)
+   0.00  200.00 ^ u_accelerator.u_core.u_v_buffer.row_remaining[0][0]$_DFFE_PN1P_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+         200.00   data arrival time
+
+1000.00 1000.00   clock clk (rise edge)
+   0.00 1000.00   clock network delay (ideal)
+   0.00 1000.00   clock reconvergence pessimism
+        1000.00 ^ u_accelerator.u_core.u_v_buffer.row_remaining[0][0]$_DFFE_PN1P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+   6.99 1006.99   library recovery time
+        1006.99   data required time
+---------------------------------------------------------
+        1006.99   data required time
+        -200.00   data arrival time
+---------------------------------------------------------
+         806.99   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: u_accelerator.u_core.u_v_buffer.row_remaining[0][1]$_DFFE_PN1P_
+          (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+ 200.00  200.00 ^ input external delay
+   0.00  200.00 ^ rst_n (in)
+   0.00  200.00 ^ u_accelerator.u_core.u_v_buffer.row_remaining[0][1]$_DFFE_PN1P_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+         200.00   data arrival time
+
+1000.00 1000.00   clock clk (rise edge)
+   0.00 1000.00   clock network delay (ideal)
+   0.00 1000.00   clock reconvergence pessimism
+        1000.00 ^ u_accelerator.u_core.u_v_buffer.row_remaining[0][1]$_DFFE_PN1P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+   6.99 1006.99   library recovery time
+        1006.99   data required time
+---------------------------------------------------------
+        1006.99   data required time
+        -200.00   data arrival time
+---------------------------------------------------------
+         806.99   slack (MET)
+
+
+Startpoint: u_accelerator.u_core.u_mac.accumulator[7][3]$_DFFE_PN0P_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_accelerator.u_core.u_mac.accumulator[7][10]$_DFFE_PN0P_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ u_accelerator.u_core.u_mac.accumulator[7][3]$_DFFE_PN0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+  38.24   38.24 v u_accelerator.u_core.u_mac.accumulator[7][3]$_DFFE_PN0P_/QN (DFFASRHQNx1_ASAP7_75t_R)
+  13.22   51.45 ^ _066578_/Y (INVx1_ASAP7_75t_R)
+  67.45  118.91 v _120967_/SN (HAxp5_ASAP7_75t_R)
+  19.11  138.02 ^ _072403_/Y (OAI21x1_ASAP7_75t_R)
+  17.20  155.22 ^ _072404_/Y (AO21x1_ASAP7_75t_R)
+  18.33  173.54 ^ _072408_/Y (AO21x1_ASAP7_75t_R)
+  18.08  191.63 ^ _072411_/Y (AO21x1_ASAP7_75t_R)
+  11.99  203.61 v _072412_/Y (NAND2x1_ASAP7_75t_R)
+  17.38  220.99 v _072421_/Y (AO21x1_ASAP7_75t_R)
+  10.86  231.85 v _072423_/Y (AND3x1_ASAP7_75t_R)
+  14.82  246.67 v _072424_/Y (AO21x1_ASAP7_75t_R)
+  16.95  263.62 v _072425_/Y (BUFx2_ASAP7_75t_R)
+  10.34  273.95 ^ _072426_/Y (INVx1_ASAP7_75t_R)
+  10.93  284.89 v _121083_/CON (HAxp5_ASAP7_75t_R)
+  23.28  308.16 v _090830_/Y (OR3x1_ASAP7_75t_R)
+   8.50  316.66 ^ _090831_/Y (NOR2x1_ASAP7_75t_R)
+   7.27  323.94 v _090832_/Y (NAND2x1_ASAP7_75t_R)
+   9.09  333.03 ^ _090834_/Y (OAI21x1_ASAP7_75t_R)
+  24.75  357.78 ^ _090835_/Y (XOR2x2_ASAP7_75t_R)
+  13.18  370.96 v _090836_/Y (NAND2x1_ASAP7_75t_R)
+  19.23  390.19 ^ _090837_/Y (INVx1_ASAP7_75t_R)
+  32.00  422.19 ^ _090838_/Y (BUFx2_ASAP7_75t_R)
+  12.23  434.41 v _090898_/Y (NOR2x1_ASAP7_75t_R)
+  13.47  447.89 ^ _090900_/Y (OAI21x1_ASAP7_75t_R)
+  54.96  502.85 v _120699_/SN (HAxp5_ASAP7_75t_R)
+  18.38  521.23 ^ _068688_/Y (NOR2x1_ASAP7_75t_R)
+  18.29  539.52 ^ _068689_/Y (AND2x2_ASAP7_75t_R)
+   6.00  545.52 v _068690_/Y (INVx1_ASAP7_75t_R)
+  11.99  557.51 ^ _068697_/Y (OAI21x1_ASAP7_75t_R)
+  19.81  577.32 ^ _068700_/Y (AND3x1_ASAP7_75t_R)
+   6.70  584.01 v _068701_/Y (INVx1_ASAP7_75t_R)
+   9.51  593.52 ^ _068702_/Y (NAND2x1_ASAP7_75t_R)
+  13.95  607.47 ^ _068705_/Y (AO21x1_ASAP7_75t_R)
+  15.62  623.10 ^ _068708_/Y (AO21x1_ASAP7_75t_R)
+   9.49  632.59 v _068710_/Y (NAND2x1_ASAP7_75t_R)
+  16.92  649.51 v _068711_/Y (AND2x2_ASAP7_75t_R)
+  12.99  662.50 ^ _068712_/Y (INVx1_ASAP7_75t_R)
+  11.52  674.03 v _120391_/CON (HAxp5_ASAP7_75t_R)
+   7.96  681.99 ^ _099862_/Y (INVx1_ASAP7_75t_R)
+  17.19  699.18 ^ _099863_/Y (AND3x1_ASAP7_75t_R)
+  22.98  722.16 ^ _099865_/Y (AND4x1_ASAP7_75t_R)
+  16.69  738.85 ^ _099869_/Y (AO31x2_ASAP7_75t_R)
+  25.50  764.34 ^ _099870_/Y (XOR2x2_ASAP7_75t_R)
+  22.04  786.39 v _099871_/Y (NAND2x1_ASAP7_75t_R)
+  35.24  821.63 v _099872_/Y (BUFx2_ASAP7_75t_R)
+  13.67  835.30 ^ _099904_/Y (AOI21x1_ASAP7_75t_R)
+  11.74  847.04 v _099905_/Y (AOI21x1_ASAP7_75t_R)
+  10.42  857.46 ^ _099907_/Y (AOI21x1_ASAP7_75t_R)
+   0.00  857.46 ^ u_accelerator.u_core.u_mac.accumulator[7][10]$_DFFE_PN0P_/D (DFFASRHQNx1_ASAP7_75t_R)
+         857.46   data arrival time
+
+1000.00 1000.00   clock clk (rise edge)
+   0.00 1000.00   clock network delay (ideal)
+   0.00 1000.00   clock reconvergence pessimism
+        1000.00 ^ u_accelerator.u_core.u_mac.accumulator[7][10]$_DFFE_PN0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+ -15.17  984.83   library setup time
+         984.83   data required time
+---------------------------------------------------------
+         984.83   data required time
+        -857.46   data arrival time
+---------------------------------------------------------
+         127.37   slack (MET)
+
+
+Startpoint: u_accelerator.u_core.u_mac.accumulator[7][3]$_DFFE_PN0P_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_accelerator.u_core.u_mac.accumulator[7][11]$_DFFE_PN0P_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ u_accelerator.u_core.u_mac.accumulator[7][3]$_DFFE_PN0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+  38.24   38.24 v u_accelerator.u_core.u_mac.accumulator[7][3]$_DFFE_PN0P_/QN (DFFASRHQNx1_ASAP7_75t_R)
+  13.22   51.45 ^ _066578_/Y (INVx1_ASAP7_75t_R)
+  67.45  118.91 v _120967_/SN (HAxp5_ASAP7_75t_R)
+  19.11  138.02 ^ _072403_/Y (OAI21x1_ASAP7_75t_R)
+  17.20  155.22 ^ _072404_/Y (AO21x1_ASAP7_75t_R)
+  18.33  173.54 ^ _072408_/Y (AO21x1_ASAP7_75t_R)
+  18.08  191.63 ^ _072411_/Y (AO21x1_ASAP7_75t_R)
+  11.99  203.61 v _072412_/Y (NAND2x1_ASAP7_75t_R)
+  17.38  220.99 v _072421_/Y (AO21x1_ASAP7_75t_R)
+  10.86  231.85 v _072423_/Y (AND3x1_ASAP7_75t_R)
+  14.82  246.67 v _072424_/Y (AO21x1_ASAP7_75t_R)
+  16.95  263.62 v _072425_/Y (BUFx2_ASAP7_75t_R)
+  10.34  273.95 ^ _072426_/Y (INVx1_ASAP7_75t_R)
+  10.93  284.89 v _121083_/CON (HAxp5_ASAP7_75t_R)
+  23.28  308.16 v _090830_/Y (OR3x1_ASAP7_75t_R)
+   8.50  316.66 ^ _090831_/Y (NOR2x1_ASAP7_75t_R)
+   7.27  323.94 v _090832_/Y (NAND2x1_ASAP7_75t_R)
+   9.09  333.03 ^ _090834_/Y (OAI21x1_ASAP7_75t_R)
+  24.75  357.78 ^ _090835_/Y (XOR2x2_ASAP7_75t_R)
+  13.18  370.96 v _090836_/Y (NAND2x1_ASAP7_75t_R)
+  19.23  390.19 ^ _090837_/Y (INVx1_ASAP7_75t_R)
+  32.00  422.19 ^ _090838_/Y (BUFx2_ASAP7_75t_R)
+  12.23  434.41 v _090898_/Y (NOR2x1_ASAP7_75t_R)
+  13.47  447.89 ^ _090900_/Y (OAI21x1_ASAP7_75t_R)
+  54.96  502.85 v _120699_/SN (HAxp5_ASAP7_75t_R)
+  18.38  521.23 ^ _068688_/Y (NOR2x1_ASAP7_75t_R)
+  18.29  539.52 ^ _068689_/Y (AND2x2_ASAP7_75t_R)
+   6.00  545.52 v _068690_/Y (INVx1_ASAP7_75t_R)
+  11.99  557.51 ^ _068697_/Y (OAI21x1_ASAP7_75t_R)
+  19.81  577.32 ^ _068700_/Y (AND3x1_ASAP7_75t_R)
+   6.70  584.01 v _068701_/Y (INVx1_ASAP7_75t_R)
+   9.51  593.52 ^ _068702_/Y (NAND2x1_ASAP7_75t_R)
+  13.95  607.47 ^ _068705_/Y (AO21x1_ASAP7_75t_R)
+  15.62  623.10 ^ _068708_/Y (AO21x1_ASAP7_75t_R)
+   9.49  632.59 v _068710_/Y (NAND2x1_ASAP7_75t_R)
+  16.92  649.51 v _068711_/Y (AND2x2_ASAP7_75t_R)
+  12.99  662.50 ^ _068712_/Y (INVx1_ASAP7_75t_R)
+  11.52  674.03 v _120391_/CON (HAxp5_ASAP7_75t_R)
+   7.96  681.99 ^ _099862_/Y (INVx1_ASAP7_75t_R)
+  17.19  699.18 ^ _099863_/Y (AND3x1_ASAP7_75t_R)
+  22.98  722.16 ^ _099865_/Y (AND4x1_ASAP7_75t_R)
+  16.69  738.85 ^ _099869_/Y (AO31x2_ASAP7_75t_R)
+  25.50  764.34 ^ _099870_/Y (XOR2x2_ASAP7_75t_R)
+  22.04  786.39 v _099871_/Y (NAND2x1_ASAP7_75t_R)
+  35.24  821.63 v _099872_/Y (BUFx2_ASAP7_75t_R)
+  13.67  835.30 ^ _099899_/Y (AOI21x1_ASAP7_75t_R)
+  11.74  847.04 v _099900_/Y (AOI21x1_ASAP7_75t_R)
+  10.42  857.46 ^ _099902_/Y (AOI21x1_ASAP7_75t_R)
+   0.00  857.46 ^ u_accelerator.u_core.u_mac.accumulator[7][11]$_DFFE_PN0P_/D (DFFASRHQNx1_ASAP7_75t_R)
+         857.46   data arrival time
+
+1000.00 1000.00   clock clk (rise edge)
+   0.00 1000.00   clock network delay (ideal)
+   0.00 1000.00   clock reconvergence pessimism
+        1000.00 ^ u_accelerator.u_core.u_mac.accumulator[7][11]$_DFFE_PN0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+ -15.17  984.83   library setup time
+         984.83   data required time
+---------------------------------------------------------
+         984.83   data required time
+        -857.46   data arrival time
+---------------------------------------------------------
+         127.37   slack (MET)
+
+
+Startpoint: u_accelerator.u_core.u_mac.accumulator[7][3]$_DFFE_PN0P_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_accelerator.u_core.u_mac.accumulator[7][12]$_DFFE_PN0P_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ u_accelerator.u_core.u_mac.accumulator[7][3]$_DFFE_PN0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+  38.24   38.24 v u_accelerator.u_core.u_mac.accumulator[7][3]$_DFFE_PN0P_/QN (DFFASRHQNx1_ASAP7_75t_R)
+  13.22   51.45 ^ _066578_/Y (INVx1_ASAP7_75t_R)
+  67.45  118.91 v _120967_/SN (HAxp5_ASAP7_75t_R)
+  19.11  138.02 ^ _072403_/Y (OAI21x1_ASAP7_75t_R)
+  17.20  155.22 ^ _072404_/Y (AO21x1_ASAP7_75t_R)
+  18.33  173.54 ^ _072408_/Y (AO21x1_ASAP7_75t_R)
+  18.08  191.63 ^ _072411_/Y (AO21x1_ASAP7_75t_R)
+  11.99  203.61 v _072412_/Y (NAND2x1_ASAP7_75t_R)
+  17.38  220.99 v _072421_/Y (AO21x1_ASAP7_75t_R)
+  10.86  231.85 v _072423_/Y (AND3x1_ASAP7_75t_R)
+  14.82  246.67 v _072424_/Y (AO21x1_ASAP7_75t_R)
+  16.95  263.62 v _072425_/Y (BUFx2_ASAP7_75t_R)
+  10.34  273.95 ^ _072426_/Y (INVx1_ASAP7_75t_R)
+  10.93  284.89 v _121083_/CON (HAxp5_ASAP7_75t_R)
+  23.28  308.16 v _090830_/Y (OR3x1_ASAP7_75t_R)
+   8.50  316.66 ^ _090831_/Y (NOR2x1_ASAP7_75t_R)
+   7.27  323.94 v _090832_/Y (NAND2x1_ASAP7_75t_R)
+   9.09  333.03 ^ _090834_/Y (OAI21x1_ASAP7_75t_R)
+  24.75  357.78 ^ _090835_/Y (XOR2x2_ASAP7_75t_R)
+  13.18  370.96 v _090836_/Y (NAND2x1_ASAP7_75t_R)
+  19.23  390.19 ^ _090837_/Y (INVx1_ASAP7_75t_R)
+  32.00  422.19 ^ _090838_/Y (BUFx2_ASAP7_75t_R)
+  12.23  434.41 v _090898_/Y (NOR2x1_ASAP7_75t_R)
+  13.47  447.89 ^ _090900_/Y (OAI21x1_ASAP7_75t_R)
+  54.96  502.85 v _120699_/SN (HAxp5_ASAP7_75t_R)
+  18.38  521.23 ^ _068688_/Y (NOR2x1_ASAP7_75t_R)
+  18.29  539.52 ^ _068689_/Y (AND2x2_ASAP7_75t_R)
+   6.00  545.52 v _068690_/Y (INVx1_ASAP7_75t_R)
+  11.99  557.51 ^ _068697_/Y (OAI21x1_ASAP7_75t_R)
+  19.81  577.32 ^ _068700_/Y (AND3x1_ASAP7_75t_R)
+   6.70  584.01 v _068701_/Y (INVx1_ASAP7_75t_R)
+   9.51  593.52 ^ _068702_/Y (NAND2x1_ASAP7_75t_R)
+  13.95  607.47 ^ _068705_/Y (AO21x1_ASAP7_75t_R)
+  15.62  623.10 ^ _068708_/Y (AO21x1_ASAP7_75t_R)
+   9.49  632.59 v _068710_/Y (NAND2x1_ASAP7_75t_R)
+  16.92  649.51 v _068711_/Y (AND2x2_ASAP7_75t_R)
+  12.99  662.50 ^ _068712_/Y (INVx1_ASAP7_75t_R)
+  11.52  674.03 v _120391_/CON (HAxp5_ASAP7_75t_R)
+   7.96  681.99 ^ _099862_/Y (INVx1_ASAP7_75t_R)
+  17.19  699.18 ^ _099863_/Y (AND3x1_ASAP7_75t_R)
+  22.98  722.16 ^ _099865_/Y (AND4x1_ASAP7_75t_R)
+  16.69  738.85 ^ _099869_/Y (AO31x2_ASAP7_75t_R)
+  25.50  764.34 ^ _099870_/Y (XOR2x2_ASAP7_75t_R)
+  22.04  786.39 v _099871_/Y (NAND2x1_ASAP7_75t_R)
+  35.24  821.63 v _099872_/Y (BUFx2_ASAP7_75t_R)
+  13.67  835.30 ^ _099894_/Y (AOI21x1_ASAP7_75t_R)
+  11.74  847.04 v _099895_/Y (AOI21x1_ASAP7_75t_R)
+  10.42  857.46 ^ _099897_/Y (AOI21x1_ASAP7_75t_R)
+   0.00  857.46 ^ u_accelerator.u_core.u_mac.accumulator[7][12]$_DFFE_PN0P_/D (DFFASRHQNx1_ASAP7_75t_R)
+         857.46   data arrival time
+
+1000.00 1000.00   clock clk (rise edge)
+   0.00 1000.00   clock network delay (ideal)
+   0.00 1000.00   clock reconvergence pessimism
+        1000.00 ^ u_accelerator.u_core.u_mac.accumulator[7][12]$_DFFE_PN0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+ -15.17  984.83   library setup time
+         984.83   data required time
+---------------------------------------------------------
+         984.83   data required time
+        -857.46   data arrival time
+---------------------------------------------------------
+         127.37   slack (MET)
+
+
+clk period_min = 872.63 fmax = 1145.96
+Group                    Internal    Switching      Leakage        Total
+                            Power        Power        Power        Power (Watts)
+------------------------------------------------------------------------
+Sequential           4.508760e-03 1.177552e-04 1.433439e-06 4.627948e-03  53.8%
+Combinational        1.490394e-03 1.997641e-03 3.824515e-06 3.491859e-03  40.6%
+Clock                1.662714e-05 4.736134e-04 3.115799e-09 4.902437e-04   5.7%
+Macro                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Pad                  0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+------------------------------------------------------------------------
+Total                6.015775e-03 2.588960e-03 5.260952e-06 8.609996e-03 100.0%
+                            69.9%        30.1%         0.1%
+[WARNING STA-0503] report_checks -group_count is deprecated. Use -group_path_count instead.
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: u_accelerator.state[0]$_DFF_PN1_
+          (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+ 200.00  200.00 ^ input external delay
+   0.00  200.00 ^ rst_n (in)
+   0.00  200.00 ^ u_accelerator.state[0]$_DFF_PN1_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+         200.00   data arrival time
+
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00   clock reconvergence pessimism
+           0.00 ^ u_accelerator.state[0]$_DFF_PN1_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+  25.79   25.79   library removal time
+          25.79   data required time
+---------------------------------------------------------
+          25.79   data required time
+        -200.00   data arrival time
+---------------------------------------------------------
+         174.21   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: u_accelerator.u_core.u_v_buffer.row_remaining[0][0]$_DFFE_PN1P_
+          (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+ 200.00  200.00 ^ input external delay
+   0.00  200.00 ^ rst_n (in)
+   0.00  200.00 ^ u_accelerator.u_core.u_v_buffer.row_remaining[0][0]$_DFFE_PN1P_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+         200.00   data arrival time
+
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00   clock reconvergence pessimism
+           0.00 ^ u_accelerator.u_core.u_v_buffer.row_remaining[0][0]$_DFFE_PN1P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+  25.79   25.79   library removal time
+          25.79   data required time
+---------------------------------------------------------
+          25.79   data required time
+        -200.00   data arrival time
+---------------------------------------------------------
+         174.21   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: u_accelerator.u_core.u_v_buffer.row_remaining[0][1]$_DFFE_PN1P_
+          (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+ 200.00  200.00 ^ input external delay
+   0.00  200.00 ^ rst_n (in)
+   0.00  200.00 ^ u_accelerator.u_core.u_v_buffer.row_remaining[0][1]$_DFFE_PN1P_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+         200.00   data arrival time
+
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00   clock reconvergence pessimism
+           0.00 ^ u_accelerator.u_core.u_v_buffer.row_remaining[0][1]$_DFFE_PN1P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+  25.79   25.79   library removal time
+          25.79   data required time
+---------------------------------------------------------
+          25.79   data required time
+        -200.00   data arrival time
+---------------------------------------------------------
+         174.21   slack (MET)
+
+
+Startpoint: u_accelerator.u_argmax.stage1_index[0][0]$_DFFE_PP_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_accelerator.u_argmax.stage1_index[0][0]$_DFFE_PP_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ u_accelerator.u_argmax.stage1_index[0][0]$_DFFE_PP_/CLK (DFFHQNx1_ASAP7_75t_R)
+  35.24   35.24 ^ u_accelerator.u_argmax.stage1_index[0][0]$_DFFE_PP_/QN (DFFHQNx1_ASAP7_75t_R)
+   6.80   42.04 v _117863_/Y (OAI21x1_ASAP7_75t_R)
+   0.00   42.04 v u_accelerator.u_argmax.stage1_index[0][0]$_DFFE_PP_/D (DFFHQNx1_ASAP7_75t_R)
+          42.04   data arrival time
+
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00   clock reconvergence pessimism
+           0.00 ^ u_accelerator.u_argmax.stage1_index[0][0]$_DFFE_PP_/CLK (DFFHQNx1_ASAP7_75t_R)
+   8.70    8.70   library hold time
+           8.70   data required time
+---------------------------------------------------------
+           8.70   data required time
+         -42.04   data arrival time
+---------------------------------------------------------
+          33.34   slack (MET)
+
+
+Startpoint: u_accelerator.u_argmax.stage1_index[2][0]$_DFFE_PP_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_accelerator.u_argmax.stage2_index[1][0]$_DFFE_PP_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ u_accelerator.u_argmax.stage1_index[2][0]$_DFFE_PP_/CLK (DFFHQNx1_ASAP7_75t_R)
+  35.77   35.77 ^ u_accelerator.u_argmax.stage1_index[2][0]$_DFFE_PP_/QN (DFFHQNx1_ASAP7_75t_R)
+   6.88   42.65 v _119090_/Y (OAI21x1_ASAP7_75t_R)
+   0.00   42.65 v u_accelerator.u_argmax.stage2_index[1][0]$_DFFE_PP_/D (DFFHQNx1_ASAP7_75t_R)
+          42.65   data arrival time
+
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00   clock reconvergence pessimism
+           0.00 ^ u_accelerator.u_argmax.stage2_index[1][0]$_DFFE_PP_/CLK (DFFHQNx1_ASAP7_75t_R)
+   8.69    8.69   library hold time
+           8.69   data required time
+---------------------------------------------------------
+           8.69   data required time
+         -42.65   data arrival time
+---------------------------------------------------------
+          33.96   slack (MET)
+
+
+Startpoint: u_accelerator.u_argmax.stage1_index[1][0]$_DFFE_PP_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_accelerator.u_argmax.stage1_index[1][0]$_DFFE_PP_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ u_accelerator.u_argmax.stage1_index[1][0]$_DFFE_PP_/CLK (DFFHQNx1_ASAP7_75t_R)
+  35.78   35.78 ^ u_accelerator.u_argmax.stage1_index[1][0]$_DFFE_PP_/QN (DFFHQNx1_ASAP7_75t_R)
+   6.88   42.66 v _117866_/Y (OAI21x1_ASAP7_75t_R)
+   0.00   42.66 v u_accelerator.u_argmax.stage1_index[1][0]$_DFFE_PP_/D (DFFHQNx1_ASAP7_75t_R)
+          42.66   data arrival time
+
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00   clock reconvergence pessimism
+           0.00 ^ u_accelerator.u_argmax.stage1_index[1][0]$_DFFE_PP_/CLK (DFFHQNx1_ASAP7_75t_R)
+   8.70    8.70   library hold time
+           8.70   data required time
+---------------------------------------------------------
+           8.70   data required time
+         -42.66   data arrival time
+---------------------------------------------------------
+          33.96   slack (MET)
+
+
+Clock clk
+3383.55 source latency u_accelerator.u_conv1_output_frame_buffer.memory[0][0]$_DFFE_PP_/CLK ^
+-266.20 target latency u_accelerator.u_core.u_mac.pipe_product_vec[0]$_DFFE_PN0P_/CLK ^
+   0.00 CRPR
+--------------
+3117.35 setup skew
+

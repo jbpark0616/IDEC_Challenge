@@ -1,0 +1,15 @@
+{
+  "top": "vgg_sixteen_core_cluster",
+  "sources": "rtl/sources.f",
+  "cores": 16,
+  "mac_lanes_per_core": 16,
+  "sram_banks_per_core": 12,
+  "sram_bytes_per_bank": 8192,
+  "weight_storage_bits": 8,
+  "transformed_activation_storage_bits": 8,
+  "mac_operand_bits": 16,
+  "accumulator_bits": 48,
+  "sharding": "output_channel",
+  "full_model_runner": "verification/full_model/run.sh",
+  "full_v8_rtl_verified": false
+}

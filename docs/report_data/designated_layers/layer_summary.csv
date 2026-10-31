@@ -1,0 +1,5 @@
+case,layer,images,run_cycles_mean,mac_beats_mean,active_lane_products_mean,nonzero_operand_products_mean,bypass_jobs_mean,v_tiles_mean,zero_rows_mean,zero_tiles_mean,zero_elements_mean,output_transforms_mean,issue_cycles_mean,bypass_cycles_mean,mac_blocked_cycles_mean,order_blocked_cycles_mean,no_v_cycles_mean,other_cycles_mean,zero_row_percent,zero_tile_percent,zero_element_percent
+b0_g1,Conv1,100,752.0,432.0,6912.0,1050.64,0.0,144.0,333.03,73.51,1516.72,432.0,432.0,0.0,0.0,0.0,320.0,0.0,57.817708333333336,51.048611111111114,65.82986111111111
+b0_g1,Conv2,100,238.0,225.0,3600.0,1046.46,0.0,75.0,159.59,34.59,736.01,75.0,225.0,0.0,0.0,0.0,13.0,0.0,53.196666666666665,46.12,61.33416666666667
+b1_g1,Conv1,100,751.44,211.47,2915.64,1050.64,220.53,144.0,333.03,73.51,1516.72,211.47,211.47,220.53,0.0,0.0,319.44,0.0,57.817708333333336,51.048611111111114,65.82986111111111
+b1_g1,Conv2,100,162.39,121.14,1684.92,1046.46,6.9,75.0,159.59,34.59,736.01,68.1,121.14,6.9,0.0,0.0,34.35,0.0,53.196666666666665,46.12,61.33416666666667

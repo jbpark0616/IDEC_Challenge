@@ -1,0 +1,2 @@
+PASS bypass_core: C=3 K=3 outputs=768 bypass=264 MAC_beats=1260 OT_jobs=504; exact baseline match, positive/negative bias, stalls
+/mnt/c/IDEC_challenge/experiments/row_sparse_fixed/iterations/matched_ablation/verification/b1_g1/tb.v:172: $finish called at 24230000 (1ps)

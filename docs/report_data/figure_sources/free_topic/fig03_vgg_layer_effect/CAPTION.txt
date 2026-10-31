@@ -1,0 +1,11 @@
+실제 VGG activation에 대한16코어 sparsity-aware 실행의 레이어별 효과.
+(a) MAC-lane 투입량, (b) 레이어 실행 사이클. 각 레이어의 sparse OFF를1로 정규화했다.
+막대 위 수치는 OFF 대비 ON의 감소율이다. 모든 축은0부터 시작한다.
+입력 표기는[N,H,W,C] → 출력채널 수이며 Conv13에는 pooling이 포함된다.
+기존 이미지1장의 중간 activation으로 각 레이어를 독립 실행하고 모든 출력 SRAM word를 golden과 대조했다.
+core0 A SRAM에 입력을 적재한 뒤 실제 공급/multicast 경로를 사용했다.
+초기 activation/weight 적재는 실행 사이클에서 제외하며, 실행 중 weight 재적재와 대기는 포함한다.
+U8/V8,16코어×16 MAC. 코어당 U SRAM32KiB: Conv1/5는 상주, Conv9/13은 재적재 조건이다.
+전체 네트워크 latency 또는 여러 이미지 평균이 아니다. MAC 투입 감소는 전력 감소율을 뜻하지 않는다.
+Conv9에서49.93% MAC 투입 감소가0.074% 실행 사이클 감소로 나타났다.
+이 결과만으로 병목 원인을 특정하지 않으며 공급·제어·재적재의 겹침을 별도로 분석해야 한다.

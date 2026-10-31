@@ -1,0 +1,6582 @@
+{
+  "active_files": {
+    "AO": {
+      "file": "/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz",
+      "units": {
+        "current_unit": "1mA",
+        "leakage_power_unit": "1pW",
+        "time_unit": "1ps",
+        "voltage_unit": "1V"
+      },
+      "nominal": {
+        "nom_process": "1",
+        "nom_temperature": "0",
+        "nom_voltage": "0.77"
+      }
+    },
+    "INVBUF": {
+      "file": "/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz",
+      "units": {
+        "current_unit": "1mA",
+        "leakage_power_unit": "1pW",
+        "time_unit": "1ps",
+        "voltage_unit": "1V"
+      },
+      "nominal": {
+        "nom_process": "1",
+        "nom_temperature": "0",
+        "nom_voltage": "0.77"
+      }
+    },
+    "OA": {
+      "file": "/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz",
+      "units": {
+        "current_unit": "1mA",
+        "leakage_power_unit": "1pW",
+        "time_unit": "1ps",
+        "voltage_unit": "1V"
+      },
+      "nominal": {
+        "nom_process": "1",
+        "nom_temperature": "0",
+        "nom_voltage": "0.77"
+      }
+    },
+    "SIMPLE": {
+      "file": "/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz",
+      "units": {
+        "current_unit": "1mA",
+        "leakage_power_unit": "1pW",
+        "time_unit": "1ps",
+        "voltage_unit": "1V"
+      },
+      "nominal": {
+        "nom_process": "1",
+        "nom_temperature": "0",
+        "nom_voltage": "0.77"
+      }
+    },
+    "SEQ": {
+      "file": "/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib",
+      "units": {
+        "current_unit": "1mA",
+        "leakage_power_unit": "1pW",
+        "time_unit": "1ps",
+        "voltage_unit": "1V"
+      },
+      "nominal": {
+        "nom_process": "1",
+        "nom_temperature": "0",
+        "nom_voltage": "0.77"
+      }
+    }
+  },
+  "active_liberty_cells": 202,
+  "lef_macros": 212,
+  "lef_only": [
+    "DECAPx10_ASAP7_75t_R",
+    "DECAPx1_ASAP7_75t_R",
+    "DECAPx2_ASAP7_75t_R",
+    "DECAPx2b_ASAP7_75t_R",
+    "DECAPx4_ASAP7_75t_R",
+    "DECAPx6_ASAP7_75t_R",
+    "FILLER_ASAP7_75t_R",
+    "FILLERxp5_ASAP7_75t_R",
+    "TAPCELL_ASAP7_75t_R",
+    "TAPCELL_WITH_FILLER_ASAP7_75t_R"
+  ],
+  "default_dont_use_patterns": [
+    "*x1p*_ASAP7*",
+    "*xp*_ASAP7*",
+    "SDF*",
+    "ICG*"
+  ],
+  "installed_nldm_files": [
+    "asap7sc7p5t_AO_LVT_FF_nldm_211120.lib.gz",
+    "asap7sc7p5t_AO_LVT_SS_nldm_211120.lib.gz",
+    "asap7sc7p5t_AO_LVT_TT_nldm_211120.lib.gz",
+    "asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz",
+    "asap7sc7p5t_AO_RVT_SS_nldm_211120.lib.gz",
+    "asap7sc7p5t_AO_RVT_TT_nldm_211120.lib.gz",
+    "asap7sc7p5t_AO_SLVT_FF_nldm_211120.lib.gz",
+    "asap7sc7p5t_AO_SLVT_SS_nldm_211120.lib.gz",
+    "asap7sc7p5t_AO_SLVT_TT_nldm_211120.lib.gz",
+    "asap7sc7p5t_AO_SRAM_FF_nldm_211120.lib.gz",
+    "asap7sc7p5t_AO_SRAM_SS_nldm_211120.lib.gz",
+    "asap7sc7p5t_AO_SRAM_TT_nldm_211120.lib.gz",
+    "asap7sc7p5t_DFFHQNH2V2X_LVT_FF_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNH2V2X_LVT_SS_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNH2V2X_LVT_TT_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNH2V2X_RVT_FF_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNH2V2X_RVT_SS_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNH2V2X_RVT_TT_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNH2V2X_SLVT_FF_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNH2V2X_SLVT_SS_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNH2V2X_SLVT_TT_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNV2X_LVT_FF_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNV2X_LVT_SS_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNV2X_LVT_TT_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNV2X_RVT_FF_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNV2X_RVT_SS_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNV2X_RVT_TT_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNV2X_SLVT_FF_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNV2X_SLVT_SS_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNV2X_SLVT_TT_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNV4X_LVT_FF_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNV4X_LVT_SS_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNV4X_LVT_TT_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNV4X_RVT_FF_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNV4X_RVT_SS_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNV4X_RVT_TT_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNV4X_SLVT_FF_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNV4X_SLVT_SS_nldm_FAKE.lib",
+    "asap7sc7p5t_DFFHQNV4X_SLVT_TT_nldm_FAKE.lib",
+    "asap7sc7p5t_INVBUF_LVT_FF_nldm_220122.lib.gz",
+    "asap7sc7p5t_INVBUF_LVT_SS_nldm_220122.lib.gz",
+    "asap7sc7p5t_INVBUF_LVT_TT_nldm_220122.lib.gz",
+    "asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz",
+    "asap7sc7p5t_INVBUF_RVT_SS_nldm_220122.lib.gz",
+    "asap7sc7p5t_INVBUF_RVT_TT_nldm_220122.lib.gz",
+    "asap7sc7p5t_INVBUF_SLVT_FF_nldm_220122.lib.gz",
+    "asap7sc7p5t_INVBUF_SLVT_SS_nldm_220122.lib.gz",
+    "asap7sc7p5t_INVBUF_SLVT_TT_nldm_220122.lib.gz",
+    "asap7sc7p5t_INVBUF_SRAM_FF_nldm_220122.lib.gz",
+    "asap7sc7p5t_INVBUF_SRAM_SS_nldm_220122.lib.gz",
+    "asap7sc7p5t_INVBUF_SRAM_TT_nldm_220122.lib.gz",
+    "asap7sc7p5t_OA_LVT_FF_nldm_211120.lib.gz",
+    "asap7sc7p5t_OA_LVT_SS_nldm_211120.lib.gz",
+    "asap7sc7p5t_OA_LVT_TT_nldm_211120.lib.gz",
+    "asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz",
+    "asap7sc7p5t_OA_RVT_SS_nldm_211120.lib.gz",
+    "asap7sc7p5t_OA_RVT_TT_nldm_211120.lib.gz",
+    "asap7sc7p5t_OA_SLVT_FF_nldm_211120.lib.gz",
+    "asap7sc7p5t_OA_SLVT_SS_nldm_211120.lib.gz",
+    "asap7sc7p5t_OA_SLVT_TT_nldm_211120.lib.gz",
+    "asap7sc7p5t_OA_SRAM_FF_nldm_211120.lib.gz",
+    "asap7sc7p5t_OA_SRAM_SS_nldm_211120.lib.gz",
+    "asap7sc7p5t_OA_SRAM_TT_nldm_211120.lib.gz",
+    "asap7sc7p5t_SEQ_LVT_FF_nldm_220123.lib",
+    "asap7sc7p5t_SEQ_LVT_SS_nldm_220123.lib",
+    "asap7sc7p5t_SEQ_LVT_TT_nldm_220123.lib",
+    "asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib",
+    "asap7sc7p5t_SEQ_RVT_SS_nldm_220123.lib",
+    "asap7sc7p5t_SEQ_RVT_TT_nldm_220123.lib",
+    "asap7sc7p5t_SEQ_SLVT_FF_nldm_220123.lib",
+    "asap7sc7p5t_SEQ_SLVT_SS_nldm_220123.lib",
+    "asap7sc7p5t_SEQ_SLVT_TT_nldm_220123.lib",
+    "asap7sc7p5t_SEQ_SRAM_FF_nldm_220123.lib",
+    "asap7sc7p5t_SEQ_SRAM_SS_nldm_220123.lib",
+    "asap7sc7p5t_SEQ_SRAM_TT_nldm_220123.lib",
+    "asap7sc7p5t_SIMPLE_LVT_FF_nldm_211120.lib.gz",
+    "asap7sc7p5t_SIMPLE_LVT_SS_nldm_211120.lib.gz",
+    "asap7sc7p5t_SIMPLE_LVT_TT_nldm_211120.lib.gz",
+    "asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz",
+    "asap7sc7p5t_SIMPLE_RVT_FF_nldm_250407.lib.gz",
+    "asap7sc7p5t_SIMPLE_RVT_SS_nldm_211120.lib.gz",
+    "asap7sc7p5t_SIMPLE_RVT_TT_nldm_211120.lib.gz",
+    "asap7sc7p5t_SIMPLE_SLVT_FF_nldm_211120.lib.gz",
+    "asap7sc7p5t_SIMPLE_SLVT_SS_nldm_211120.lib.gz",
+    "asap7sc7p5t_SIMPLE_SLVT_TT_nldm_211120.lib.gz",
+    "asap7sc7p5t_SIMPLE_SRAM_FF_nldm_211120.lib.gz",
+    "asap7sc7p5t_SIMPLE_SRAM_SS_nldm_211120.lib.gz",
+    "asap7sc7p5t_SIMPLE_SRAM_TT_nldm_211120.lib.gz",
+    "fakeram7_128x64.lib",
+    "fakeram7_2048x39.lib",
+    "fakeram7_256x256.lib",
+    "fakeram7_256x32.lib",
+    "fakeram7_256x34.lib",
+    "fakeram7_64x21.lib",
+    "fakeram7_64x25.lib",
+    "fakeram7_64x256.lib",
+    "fakeram7_64x28.lib",
+    "fakeram_256x128.lib",
+    "fakeram_256x64.lib",
+    "fakeram_32x46.lib",
+    "fakeram_512x8.lib",
+    "fakeram_64x20.lib",
+    "fakeram_64x22.lib",
+    "fakeregfile_128x64.lib",
+    "fakeregfile_32x46.lib",
+    "fakeregfile_64x64.lib"
+  ],
+  "cells": [
+    {
+      "name": "A2O1A1Ixp33_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B) + (!A2 * !B) + (!C)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "A2O1A1O1Ixp25_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.13122,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B * !D) + (!A2 * !B * !D) + (!C * !D)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "AO211x2_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.23328,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * A2) + (B) + (C)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AO21x1_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * A2) + (B)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AO21x2_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.10206,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * A2) + (B)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AO221x1_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.1458,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * A2) + (B1 * B2) + (C)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AO221x2_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.16038,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * A2) + (B1 * B2) + (C)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AO222x2_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.17496,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * A2) + (B1 * B2) + (C1 * C2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AO22x1_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.13122,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * A2) + (B1 * B2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AO22x2_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.1458,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * A2) + (B1 * B2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AO31x2_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.23328,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * A2 * A3) + (B)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AO322x2_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.2187,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * A2 * A3) + (B1 * B2) + (C1 * C2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AO32x1_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.11664,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * A2 * A3) + (B1 * B2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AO32x2_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.13122,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * A2 * A3) + (B1 * B2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AO331x1_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.1458,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * A2 * A3) + (B1 * B2 * B3) + (C)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AO331x2_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.16038,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * A2 * A3) + (B1 * B2 * B3) + (C)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AO332x1_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.16038,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * A2 * A3) + (B1 * B2 * B3) + (C1 * C2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AO332x2_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.17496,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * A2 * A3) + (B1 * B2 * B3) + (C1 * C2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AO333x1_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.17496,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * A2 * A3) + (B1 * B2 * B3) + (C1 * C2 * C3)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C3",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AO333x2_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.18954,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * A2 * A3) + (B1 * B2 * B3) + (C1 * C2 * C3)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C3",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AO33x2_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.1458,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * A2 * A3) + (B1 * B2 * B3)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AOI211x1_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.17496,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B * !C) + (!A2 * !B * !C)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AOI211xp5_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B * !C) + (!A2 * !B * !C)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "AOI21x1_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.11664,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B) + (!A2 * !B)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AOI21xp33_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.0729,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B) + (!A2 * !B)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "AOI21xp5_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.0729,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B) + (!A2 * !B)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "AOI221x1_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.20412,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B1 * !C) + (!A1 * !B2 * !C) + (!A2 * !B1 * !C) + (!A2 * !B2 * !C)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AOI221xp5_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.10206,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B1 * !C) + (!A1 * !B2 * !C) + (!A2 * !B1 * !C) + (!A2 * !B2 * !C)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "AOI222xp33_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.1458,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B1 * !C1) + (!A1 * !B1 * !C2) + (!A1 * !B2 * !C1) + (!A1 * !B2 * !C2) + (!A2 * !B1 * !C1) + (!A2 * !B1 * !C2) + (!A2 * !B2 * !C1) + (!A2 * !B2 * !C2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "AOI22x1_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.1458,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B1) + (!A1 * !B2) + (!A2 * !B1) + (!A2 * !B2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AOI22xp33_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B1) + (!A1 * !B2) + (!A2 * !B1) + (!A2 * !B2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "AOI22xp5_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B1) + (!A1 * !B2) + (!A2 * !B1) + (!A2 * !B2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "AOI311xp33_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.10206,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B * !C) + (!A2 * !B * !C) + (!A3 * !B * !C)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "AOI31xp33_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B) + (!A2 * !B) + (!A3 * !B)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "AOI31xp67_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.18954,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B) + (!A2 * !B) + (!A3 * !B)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "AOI321xp33_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.11664,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B1 * !C) + (!A1 * !B2 * !C) + (!A2 * !B1 * !C) + (!A2 * !B2 * !C) + (!A3 * !B1 * !C) + (!A3 * !B2 * !C)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "AOI322xp5_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.13122,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B1 * !C1) + (!A1 * !B1 * !C2) + (!A1 * !B2 * !C1) + (!A1 * !B2 * !C2) + (!A2 * !B1 * !C1) + (!A2 * !B1 * !C2) + (!A2 * !B2 * !C1) + (!A2 * !B2 * !C2) + (!A3 * !B1 * !C1) + (!A3 * !B1 * !C2) + (!A3 * !B2 * !C1) + (!A3 * !B2 * !C2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "AOI32xp33_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.10206,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B1) + (!A1 * !B2) + (!A2 * !B1) + (!A2 * !B2) + (!A3 * !B1) + (!A3 * !B2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "AOI331xp33_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.13122,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B1 * !C1) + (!A1 * !B2 * !C1) + (!A1 * !B3 * !C1) + (!A2 * !B1 * !C1) + (!A2 * !B2 * !C1) + (!A2 * !B3 * !C1) + (!A3 * !B1 * !C1) + (!A3 * !B2 * !C1) + (!A3 * !B3 * !C1)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "AOI332xp33_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.1458,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B1 * !C1) + (!A1 * !B1 * !C2) + (!A1 * !B2 * !C1) + (!A1 * !B2 * !C2) + (!A1 * !B3 * !C1) + (!A1 * !B3 * !C2) + (!A2 * !B1 * !C1) + (!A2 * !B1 * !C2) + (!A2 * !B2 * !C1) + (!A2 * !B2 * !C2) + (!A2 * !B3 * !C1) + (!A2 * !B3 * !C2) + (!A3 * !B1 * !C1) + (!A3 * !B1 * !C2) + (!A3 * !B2 * !C1) + (!A3 * !B2 * !C2) + (!A3 * !B3 * !C1) + (!A3 * !B3 * !C2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "AOI333xp33_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.16038,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B1 * !C1) + (!A1 * !B1 * !C2) + (!A1 * !B1 * !C3) + (!A1 * !B2 * !C1) + (!A1 * !B2 * !C2) + (!A1 * !B2 * !C3) + (!A1 * !B3 * !C1) + (!A1 * !B3 * !C2) + (!A1 * !B3 * !C3) + (!A2 * !B1 * !C1) + (!A2 * !B1 * !C2) + (!A2 * !B1 * !C3) + (!A2 * !B2 * !C1) + (!A2 * !B2 * !C2) + (!A2 * !B2 * !C3) + (!A2 * !B3 * !C1) + (!A2 * !B3 * !C2) + (!A2 * !B3 * !C3) + (!A3 * !B1 * !C1) + (!A3 * !B1 * !C2) + (!A3 * !B1 * !C3) + (!A3 * !B2 * !C1) + (!A3 * !B2 * !C2) + (!A3 * !B2 * !C3) + (!A3 * !B3 * !C1) + (!A3 * !B3 * !C2) + (!A3 * !B3 * !C3)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C3",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "AOI33xp33_ASAP7_75t_R",
+      "group": "AO",
+      "kind": "combinational",
+      "area_lib": 0.11664,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !B1) + (!A1 * !B2) + (!A1 * !B3) + (!A2 * !B1) + (!A2 * !B2) + (!A2 * !B3) + (!A3 * !B1) + (!A3 * !B2) + (!A3 * !B3)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "BUFx10_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.20412,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "BUFx12_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.23328,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "BUFx12f_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.26244,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "BUFx16f_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.32076,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "BUFx24_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.4374,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "BUFx2_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.0729,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "BUFx3_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "BUFx4_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.10206,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "BUFx4f_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.11664,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "BUFx5_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.11664,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "BUFx6f_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.1458,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "BUFx8_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.17496,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "CKINVDCx10_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.34992,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "CKINVDCx11_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.37908,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "CKINVDCx12_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.37908,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "CKINVDCx14_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.40824,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "CKINVDCx16_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.4374,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "CKINVDCx20_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.55404,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "CKINVDCx5p33_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.32076,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "CKINVDCx6p67_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.34992,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "CKINVDCx8_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.32076,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "CKINVDCx9p33_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.40824,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "HB1xp67_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.05832,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "HB2xp67_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.0729,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "HB3xp67_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "HB4xp67_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.10206,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "INVx11_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.18954,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "INVx13_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.2187,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "INVx1_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.04374,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "INVx2_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.05832,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "INVx3_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.0729,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "INVx4_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "INVx5_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.10206,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "INVx6_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.11664,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "INVx8_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.1458,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "INVxp33_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.04374,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "INVxp67_ASAP7_75t_R",
+      "group": "INVBUF",
+      "kind": "combinational",
+      "area_lib": 0.04374,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "!A"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "O2A1O1Ixp33_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2 * !C) + (!B * !C)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "O2A1O1Ixp5_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.11664,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2 * !C) + (!B * !C)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "OA211x2_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.11664,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * B * C) + (A2 * B * C)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OA21x2_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.10206,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * B) + (A2 * B)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OA221x2_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.23328,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * B1 * C) + (A1 * B2 * C) + (A2 * B1 * C) + (A2 * B2 * C)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OA222x2_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.17496,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * B1 * C1) + (A1 * B1 * C2) + (A1 * B2 * C1) + (A1 * B2 * C2) + (A2 * B1 * C1) + (A2 * B1 * C2) + (A2 * B2 * C1) + (A2 * B2 * C2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OA22x2_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.1458,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * B1) + (A1 * B2) + (A2 * B1) + (A2 * B2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OA31x2_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.2187,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * B1) + (A2 * B1) + (A3 * B1)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OA331x1_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.1458,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * B1 * C1) + (A1 * B2 * C1) + (A1 * B3 * C1) + (A2 * B1 * C1) + (A2 * B2 * C1) + (A2 * B3 * C1) + (A3 * B1 * C1) + (A3 * B2 * C1) + (A3 * B3 * C1)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OA331x2_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.16038,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * B1 * C1) + (A1 * B2 * C1) + (A1 * B3 * C1) + (A2 * B1 * C1) + (A2 * B2 * C1) + (A2 * B3 * C1) + (A3 * B1 * C1) + (A3 * B2 * C1) + (A3 * B3 * C1)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OA332x1_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.16038,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * B1 * C1) + (A1 * B1 * C2) + (A1 * B2 * C1) + (A1 * B2 * C2) + (A1 * B3 * C1) + (A1 * B3 * C2) + (A2 * B1 * C1) + (A2 * B1 * C2) + (A2 * B2 * C1) + (A2 * B2 * C2) + (A2 * B3 * C1) + (A2 * B3 * C2) + (A3 * B1 * C1) + (A3 * B1 * C2) + (A3 * B2 * C1) + (A3 * B2 * C2) + (A3 * B3 * C1) + (A3 * B3 * C2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OA332x2_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.17496,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * B1 * C1) + (A1 * B1 * C2) + (A1 * B2 * C1) + (A1 * B2 * C2) + (A1 * B3 * C1) + (A1 * B3 * C2) + (A2 * B1 * C1) + (A2 * B1 * C2) + (A2 * B2 * C1) + (A2 * B2 * C2) + (A2 * B3 * C1) + (A2 * B3 * C2) + (A3 * B1 * C1) + (A3 * B1 * C2) + (A3 * B2 * C1) + (A3 * B2 * C2) + (A3 * B3 * C1) + (A3 * B3 * C2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OA333x1_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.17496,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * B1 * C1) + (A1 * B1 * C2) + (A1 * B1 * C3) + (A1 * B2 * C1) + (A1 * B2 * C2) + (A1 * B2 * C3) + (A1 * B3 * C1) + (A1 * B3 * C2) + (A1 * B3 * C3) + (A2 * B1 * C1) + (A2 * B1 * C2) + (A2 * B1 * C3) + (A2 * B2 * C1) + (A2 * B2 * C2) + (A2 * B2 * C3) + (A2 * B3 * C1) + (A2 * B3 * C2) + (A2 * B3 * C3) + (A3 * B1 * C1) + (A3 * B1 * C2) + (A3 * B1 * C3) + (A3 * B2 * C1) + (A3 * B2 * C2) + (A3 * B2 * C3) + (A3 * B3 * C1) + (A3 * B3 * C2) + (A3 * B3 * C3)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C3",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OA333x2_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.18954,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * B1 * C1) + (A1 * B1 * C2) + (A1 * B1 * C3) + (A1 * B2 * C1) + (A1 * B2 * C2) + (A1 * B2 * C3) + (A1 * B3 * C1) + (A1 * B3 * C2) + (A1 * B3 * C3) + (A2 * B1 * C1) + (A2 * B1 * C2) + (A2 * B1 * C3) + (A2 * B2 * C1) + (A2 * B2 * C2) + (A2 * B2 * C3) + (A2 * B3 * C1) + (A2 * B3 * C2) + (A2 * B3 * C3) + (A3 * B1 * C1) + (A3 * B1 * C2) + (A3 * B1 * C3) + (A3 * B2 * C1) + (A3 * B2 * C2) + (A3 * B2 * C3) + (A3 * B3 * C1) + (A3 * B3 * C2) + (A3 * B3 * C3)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C3",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OA33x2_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.1458,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A1 * B1) + (A1 * B2) + (A1 * B3) + (A2 * B1) + (A2 * B2) + (A2 * B3) + (A3 * B1) + (A3 * B2) + (A3 * B3)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OAI211xp5_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2) + (!B) + (!C)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "OAI21x1_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.11664,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2) + (!B)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OAI21xp33_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.0729,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2) + (!B)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "OAI21xp5_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.0729,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2) + (!B)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "OAI221xp5_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.10206,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2) + (!B1 * !B2) + (!C)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "OAI222xp33_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.1458,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2) + (!B1 * !B2) + (!C1 * !C2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "OAI22x1_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.1458,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2) + (!B1 * !B2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OAI22xp33_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2) + (!B1 * !B2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "OAI22xp5_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2) + (!B1 * !B2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "OAI311xp33_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.10206,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2 * !A3) + (!B1) + (!C1)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "OAI31xp33_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2 * !A3) + (!B)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "OAI31xp67_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.18954,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2 * !A3) + (!B)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "OAI321xp33_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.11664,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2 * !A3) + (!B1 * !B2) + (!C)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "OAI322xp33_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.13122,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2 * !A3) + (!B1 * !B2) + (!C1 * !C2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "OAI32xp33_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.10206,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2 * !A3) + (!B1 * !B2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "OAI331xp33_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.13122,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2 * !A3) + (!B1 * !B2 * !B3) + (!C1)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "OAI332xp33_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.1458,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2 * !A3) + (!B1 * !B2 * !B3) + (!C1 * !C2)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C2",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "OAI333xp33_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.16038,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2 * !A3) + (!B1 * !B2 * !B3) + (!C1 * !C2 * !C3)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C3",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "OAI33xp33_ASAP7_75t_R",
+      "group": "OA",
+      "kind": "combinational",
+      "area_lib": 0.11664,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A1 * !A2 * !A3) + (!B1 * !B2 * !B3)"
+        },
+        {
+          "name": "A1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "A3",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B1",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B2",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B3",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "AND2x2_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A * B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AND2x4_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.1458,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A * B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AND2x6_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.17496,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A * B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AND3x1_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A * B * C)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AND3x2_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.10206,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A * B * C)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AND3x4_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.20412,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A * B * C)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AND4x1_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.10206,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A * B * C * D)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AND4x2_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.11664,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A * B * C * D)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AND5x1_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.11664,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A * B * C * D * E)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "E",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "AND5x2_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.2916,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A * B * C * D * E)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "E",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "FAx1_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.20412,
+      "pins": [
+        {
+          "name": "CON",
+          "direction": "output",
+          "function": "(!A * !B) + (!A * !CI) + (!B * !CI)"
+        },
+        {
+          "name": "SN",
+          "direction": "output",
+          "function": "(A * B * !CI) + (A * !B * CI) + (!A * B * CI) + (!A * !B * !CI)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "CI",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "HAxp5_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.13122,
+      "pins": [
+        {
+          "name": "CON",
+          "direction": "output",
+          "function": "(!A) + (!B)"
+        },
+        {
+          "name": "SN",
+          "direction": "output",
+          "function": "(A * B) + (!A * !B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "MAJIxp5_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.10206,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A * !B) + (!A * !C) + (!B * !C)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "MAJx2_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.13122,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A * B) + (A * C) + (B * C)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "MAJx3_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.1458,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A * B) + (A * C) + (B * C)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "NAND2x1_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A) + (!B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "NAND2x1p5_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.11664,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A) + (!B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "NAND2x2_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.1458,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A) + (!B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "NAND2xp33_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.05832,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A) + (!B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "NAND2xp5_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.05832,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A) + (!B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "NAND2xp67_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A) + (!B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "NAND3x1_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.16038,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A) + (!B) + (!C)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "NAND3x2_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.2916,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A) + (!B) + (!C)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "NAND3xp33_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.0729,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A) + (!B) + (!C)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "NAND4xp25_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A) + (!B) + (!C) + (!D)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "NAND4xp75_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.20412,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A) + (!B) + (!C) + (!D)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "NAND5xp2_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.10206,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A) + (!B) + (!C) + (!D) + (!E)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "E",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "NOR2x1_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A * !B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "NOR2x1p5_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.11664,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A * !B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "NOR2x2_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.1458,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A * !B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "NOR2xp33_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.05832,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A * !B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "NOR2xp67_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A * !B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "NOR3x1_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.16038,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A * !B * !C)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "NOR3x2_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.2916,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A * !B * !C)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "NOR3xp33_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.0729,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A * !B * !C)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "NOR4xp25_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A * !B * !C * !D)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "NOR4xp75_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.20412,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A * !B * !C * !D)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "NOR5xp2_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.10206,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(!A * !B * !C * !D * !E)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "E",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "OR2x2_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A) + (B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OR2x4_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.11664,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A) + (B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OR2x6_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.17496,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A) + (B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OR3x1_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.08748,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A) + (B) + (C)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OR3x2_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.10206,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A) + (B) + (C)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OR3x4_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.13122,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A) + (B) + (C)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OR4x1_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.10206,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A) + (B) + (C) + (D)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OR4x2_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.11664,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A) + (B) + (C) + (D)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OR5x1_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.11664,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A) + (B) + (C) + (D) + (E)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "E",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "OR5x2_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.13122,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A) + (B) + (C) + (D) + (E)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "C",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "E",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "TIEHIx1_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.04374,
+      "pins": [
+        {
+          "name": "H",
+          "direction": "output",
+          "function": "1"
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "TIELOx1_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.04374,
+      "pins": [
+        {
+          "name": "L",
+          "direction": "output",
+          "function": "0"
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "XNOR2x1_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.17496,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A * B) + (!A * !B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "XNOR2x2_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.16038,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A * B) + (!A * !B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "XNOR2xp5_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.13122,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A * B) + (!A * !B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "XOR2x1_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.17496,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A * !B) + (!A * B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "XOR2x2_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.16038,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A * !B) + (!A * B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "XOR2xp5_ASAP7_75t_R",
+      "group": "SIMPLE",
+      "kind": "combinational",
+      "area_lib": 0.13122,
+      "pins": [
+        {
+          "name": "Y",
+          "direction": "output",
+          "function": "(A * !B) + (!A * B)"
+        },
+        {
+          "name": "A",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "B",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "DFFASRHQNx1_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "DFF",
+      "area_lib": 0.37908,
+      "pins": [
+        {
+          "name": "QN",
+          "direction": "output",
+          "function": "IQN"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "RESETN",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SETN",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "DFFHQNx1_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "DFF",
+      "area_lib": 0.2916,
+      "pins": [
+        {
+          "name": "QN",
+          "direction": "output",
+          "function": "IQN"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "DFFHQNx2_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "DFF",
+      "area_lib": 0.30618,
+      "pins": [
+        {
+          "name": "QN",
+          "direction": "output",
+          "function": "IQN"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "DFFHQNx3_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "DFF",
+      "area_lib": 0.32076,
+      "pins": [
+        {
+          "name": "QN",
+          "direction": "output",
+          "function": "IQN"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "DFFHQx4_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "DFF",
+      "area_lib": 0.3645,
+      "pins": [
+        {
+          "name": "Q",
+          "direction": "output",
+          "function": "IQ"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "DFFLQNx1_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "DFF",
+      "area_lib": 0.2916,
+      "pins": [
+        {
+          "name": "QN",
+          "direction": "output",
+          "function": "IQN"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "DFFLQNx2_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "DFF",
+      "area_lib": 0.30618,
+      "pins": [
+        {
+          "name": "QN",
+          "direction": "output",
+          "function": "IQN"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "DFFLQNx3_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "DFF",
+      "area_lib": 0.32076,
+      "pins": [
+        {
+          "name": "QN",
+          "direction": "output",
+          "function": "IQN"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "DFFLQx4_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "DFF",
+      "area_lib": 0.3645,
+      "pins": [
+        {
+          "name": "Q",
+          "direction": "output",
+          "function": "IQ"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "DHLx1_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "latch",
+      "area_lib": 0.2187,
+      "pins": [
+        {
+          "name": "Q",
+          "direction": "output",
+          "function": "IQ"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "DHLx2_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "latch",
+      "area_lib": 0.23328,
+      "pins": [
+        {
+          "name": "Q",
+          "direction": "output",
+          "function": "IQ"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "DHLx3_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "latch",
+      "area_lib": 0.24786,
+      "pins": [
+        {
+          "name": "Q",
+          "direction": "output",
+          "function": "IQ"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "DLLx1_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "latch",
+      "area_lib": 0.2187,
+      "pins": [
+        {
+          "name": "Q",
+          "direction": "output",
+          "function": "IQ"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "DLLx2_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "latch",
+      "area_lib": 0.23328,
+      "pins": [
+        {
+          "name": "Q",
+          "direction": "output",
+          "function": "IQ"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "DLLx3_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "latch",
+      "area_lib": 0.24786,
+      "pins": [
+        {
+          "name": "Q",
+          "direction": "output",
+          "function": "IQ"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": false
+    },
+    {
+      "name": "ICGx1_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "ICG",
+      "area_lib": 0.26244,
+      "pins": [
+        {
+          "name": "IQ",
+          "direction": "internal",
+          "function": null
+        },
+        {
+          "name": "GCLK",
+          "direction": "output",
+          "function": "CLK & IQ"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "ENA",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SE",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "ICGx2_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "ICG",
+      "area_lib": 0.27702,
+      "pins": [
+        {
+          "name": "IQ",
+          "direction": "internal",
+          "function": null
+        },
+        {
+          "name": "GCLK",
+          "direction": "output",
+          "function": "CLK & IQ"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "ENA",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SE",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "ICGx2p67DC_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "ICG",
+      "area_lib": 0.70038,
+      "pins": [
+        {
+          "name": "IQ",
+          "direction": "internal",
+          "function": null
+        },
+        {
+          "name": "GCLK",
+          "direction": "output",
+          "function": "CLK & IQ"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "ENA",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SE",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "ICGx3_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "ICG",
+      "area_lib": 0.2916,
+      "pins": [
+        {
+          "name": "IQ",
+          "direction": "internal",
+          "function": null
+        },
+        {
+          "name": "GCLK",
+          "direction": "output",
+          "function": "CLK & IQ"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "ENA",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SE",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "ICGx4DC_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "ICG",
+      "area_lib": 0.70038,
+      "pins": [
+        {
+          "name": "IQ",
+          "direction": "internal",
+          "function": null
+        },
+        {
+          "name": "GCLK",
+          "direction": "output",
+          "function": "CLK & IQ"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "ENA",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SE",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "ICGx4_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "ICG",
+      "area_lib": 0.30618,
+      "pins": [
+        {
+          "name": "IQ",
+          "direction": "internal",
+          "function": null
+        },
+        {
+          "name": "GCLK",
+          "direction": "output",
+          "function": "CLK & IQ"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "ENA",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SE",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "ICGx5_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "ICG",
+      "area_lib": 0.32076,
+      "pins": [
+        {
+          "name": "IQ",
+          "direction": "internal",
+          "function": null
+        },
+        {
+          "name": "GCLK",
+          "direction": "output",
+          "function": "CLK & IQ"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "ENA",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SE",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "ICGx5p33DC_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "ICG",
+      "area_lib": 0.70038,
+      "pins": [
+        {
+          "name": "IQ",
+          "direction": "internal",
+          "function": null
+        },
+        {
+          "name": "GCLK",
+          "direction": "output",
+          "function": "CLK & IQ"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "ENA",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SE",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "ICGx6p67DC_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "ICG",
+      "area_lib": 0.70038,
+      "pins": [
+        {
+          "name": "IQ",
+          "direction": "internal",
+          "function": null
+        },
+        {
+          "name": "GCLK",
+          "direction": "output",
+          "function": "CLK & IQ"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "ENA",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SE",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "ICGx8DC_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "ICG",
+      "area_lib": 0.70038,
+      "pins": [
+        {
+          "name": "IQ",
+          "direction": "internal",
+          "function": null
+        },
+        {
+          "name": "GCLK",
+          "direction": "output",
+          "function": "CLK & IQ"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "ENA",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SE",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "SDFHx1_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "scan DFF",
+      "area_lib": 0.3645,
+      "pins": [
+        {
+          "name": "QN",
+          "direction": "output",
+          "function": "IQN"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SE",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SI",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "SDFHx2_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "scan DFF",
+      "area_lib": 0.37908,
+      "pins": [
+        {
+          "name": "QN",
+          "direction": "output",
+          "function": "IQN"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SE",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SI",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "SDFHx3_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "scan DFF",
+      "area_lib": 0.39366,
+      "pins": [
+        {
+          "name": "QN",
+          "direction": "output",
+          "function": "IQN"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SE",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SI",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "SDFHx4_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "scan DFF",
+      "area_lib": 0.45198,
+      "pins": [
+        {
+          "name": "QN",
+          "direction": "output",
+          "function": "IQN"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SE",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SI",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "SDFLx1_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "scan DFF",
+      "area_lib": 0.3645,
+      "pins": [
+        {
+          "name": "QN",
+          "direction": "output",
+          "function": "IQN"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SE",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SI",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "SDFLx2_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "scan DFF",
+      "area_lib": 0.37908,
+      "pins": [
+        {
+          "name": "QN",
+          "direction": "output",
+          "function": "IQN"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SE",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SI",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "SDFLx3_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "scan DFF",
+      "area_lib": 0.39366,
+      "pins": [
+        {
+          "name": "QN",
+          "direction": "output",
+          "function": "IQN"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SE",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SI",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    },
+    {
+      "name": "SDFLx4_ASAP7_75t_R",
+      "group": "SEQ",
+      "kind": "scan DFF",
+      "area_lib": 0.45198,
+      "pins": [
+        {
+          "name": "QN",
+          "direction": "output",
+          "function": "IQN"
+        },
+        {
+          "name": "CLK",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "D",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SE",
+          "direction": "input",
+          "function": null
+        },
+        {
+          "name": "SI",
+          "direction": "input",
+          "function": null
+        }
+      ],
+      "default_dont_use": true
+    }
+  ]
+}

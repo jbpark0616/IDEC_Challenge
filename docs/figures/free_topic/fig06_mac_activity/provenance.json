@@ -1,0 +1,10 @@
+{
+  "source": "free_topic_vgg\\evidence\\report700\\cluster_all\\measurements.csv",
+  "sha256": "e74c6890df8ed4b5f8cddf2b846f3c22f6a8324e3d60b743d781832dce831fce",
+  "off_total": 139198464,
+  "on_total": 96382208,
+  "reduction_percent": 30.759144008945384,
+  "image_index": 0,
+  "cores": 16,
+  "rtl_modified": false
+}

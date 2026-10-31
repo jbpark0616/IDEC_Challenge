@@ -23,7 +23,7 @@ endif
 .DELETE_ON_ERROR:
 
 # ---------- Tool paths ----------
-VIVADO_BIN ?= C:/AMDDesignTools/2025.2/Vivado/bin
+VIVADO_BIN ?= C:/Xilinx/Vivado/2024.1/bin
 XVLOG      := $(VIVADO_BIN)/xvlog
 XELAB      := $(VIVADO_BIN)/xelab
 XSIM       := $(VIVADO_BIN)/xsim
@@ -43,7 +43,7 @@ ORFS_ROOT        := /home/junbeom/OpenROAD-flow-scripts
 ORFS_DESIGN_CFG  := ./designs/asap7/chip/config.mk
 ORFS_SDC         := $(ORFS_ROOT)/flow/designs/asap7/chip/constraint.sdc
 
-MAC_RTL := verilog/winograd_mac_array.v
+MAC_RTL := verilog/winograd_clock_gate.v verilog/winograd_mac_array.v
 MAC_TB  := verification/winograd_mac_array_tb.v
 TRANSFORM_RTL := verilog/winograd_input_transform.v
 TRANSFORM_TB  := verification/winograd_input_transform_tb.v
@@ -55,7 +55,8 @@ FIFO_RTL := verilog/elastic_fifo.v
 FIFO_TB  := verification/elastic_fifo_tb.v
 V_REPLAY_RTL := verilog/winograd_v_replay_buffer.v
 V_REPLAY_TB  := verification/winograd_v_replay_buffer_tb.v
-WINOGRAD_CORE_RTL := verilog/elastic_fifo.v \
+WINOGRAD_CORE_RTL := verilog/winograd_clock_gate.v \
+                     verilog/elastic_fifo.v \
                      verilog/winograd_input_transform.v \
                      verilog/winograd_v_replay_buffer.v \
                      verilog/winograd_mac_array.v \
@@ -82,7 +83,7 @@ ASAP7_SIM_LIB_ARGS := "../../../OpenRoad project/std_cell/asap7sc7p5t_AO_RVT_TT_
                       "../../../OpenRoad project/std_cell/asap7sc7p5t_SEQ_RVT_TT_220101.v" \
                       "../../../OpenRoad project/std_cell/asap7sc7p5t_SIMPLE_RVT_TT_201020.v" \
                       "../../../OpenRoad project/std_cell/empty.v"
-ASAP7_FUNCTIONAL_LIB := verification/asap7_functional_cells.v
+ASAP7_FUNCTIONAL_LIB := verification/asap7_functional_cells.v verification/asap7_final_extra_cells.v
 WINOGRAD_CHIP_NETLIST := build/asic/chip/netlist.v
 
 # ---------- Config (override on CLI) ----------
@@ -261,21 +262,14 @@ sim-chip-winograd-lifetime-trace: $(WINOGRAD_CHIP_RTL) $(WINOGRAD_CHIP_1000_TB) 
 sim-chip-winograd-gate-1000: $(WINOGRAD_CHIP_NETLIST) $(ASAP7_FUNCTIONAL_LIB) $(WINOGRAD_CHIP_1000_TB) $(FLOW)/sim.tcl
 	@mkdir -p $(SIM_DIR)/chip_winograd_gate_1000
 	@echo "===== [xvlog] ASAP7 gate-level 1000-image regression compile ====="
-	cd $(SIM_DIR)/chip_winograd_gate_1000 && $(XVLOG) -d GATE_LEVEL ../../../$(ASAP7_FUNCTIONAL_LIB) ../../../$(WINOGRAD_CHIP_NETLIST) ../../../$(WINOGRAD_CHIP_1000_TB)
+	cd $(SIM_DIR)/chip_winograd_gate_1000 && $(XVLOG) -d GATE_LEVEL $(addprefix ../../../,$(ASAP7_FUNCTIONAL_LIB)) ../../../$(WINOGRAD_CHIP_NETLIST) ../../../$(WINOGRAD_CHIP_1000_TB)
 	@echo "===== [xelab] ASAP7 gate-level 1000-image regression elaborate ====="
 	cd $(SIM_DIR)/chip_winograd_gate_1000 && $(XELAB) -top winograd_chip_1000_tb -snapshot chip_winograd_gate_functional_tb_snap
 	@echo "===== [xsim] ASAP7 gate-level 1000-image regression run ====="
 	cd $(SIM_DIR)/chip_winograd_gate_1000 && $(XSIM) chip_winograd_gate_functional_tb_snap -t ../../../$(FLOW)/sim.tcl
 
-sim-chip-winograd-gate-power: $(WINOGRAD_CHIP_NETLIST) $(WINOGRAD_CHIP_1000_TB) $(FLOW)/sim_power_vcd.tcl
-	@mkdir -p $(SIM_DIR)/chip_winograd_gate_power
-	node scripts/generate_gate_power_objects.js "$(WINOGRAD_CHIP_NETLIST)" "OpenRoad project/std_cell" "$(SIM_DIR)/chip_winograd_gate_power/power_objects.txt"
-	@echo "===== [xvlog] ASAP7 one-image power trace compile ====="
-	cd $(SIM_DIR)/chip_winograd_gate_power && $(XVLOG) -d GATE_LEVEL -d POWER_TRACE $(ASAP7_SIM_LIB_ARGS) ../../../$(WINOGRAD_CHIP_NETLIST) ../../../$(WINOGRAD_CHIP_1000_TB)
-	@echo "===== [xelab] ASAP7 one-image power trace elaborate ====="
-	cd $(SIM_DIR)/chip_winograd_gate_power && $(XELAB) -debug typical -top winograd_chip_1000_tb -snapshot chip_winograd_gate_power_snap
-	@echo "===== [xsim] ASAP7 one-image VCD capture ====="
-	cd $(SIM_DIR)/chip_winograd_gate_power && $(XSIM) chip_winograd_gate_power_snap -t ../../../$(FLOW)/sim_power_vcd.tcl
+sim-chip-winograd-gate-power:
+	wsl -d $(WSL_DIST) -- python3 /mnt/c/IDEC_challenge/scripts/power_designated_final.py
 
 synth-mac:
 	make synth SYNTH_TOP=winograd_mac_array SYNTH_RTL="$(MAC_RTL)"
@@ -309,32 +303,17 @@ ORFS_RESULTS := $(ORFS_ROOT)/flow/results/asap7/$(ASIC_TOP)/$(ASIC_VARIANT)
 ORFS_REPORTS := $(ORFS_ROOT)/flow/reports/asap7/$(ASIC_TOP)/$(ASIC_VARIANT)
 
 synth-asic:
-	@echo "===== OpenROAD synth: top=$(ASIC_TOP), platform=ASAP7 ====="
-	@echo "===== STA target: $(ASIC_CLK_PERIOD_PS) ps ====="
-	@mkdir -p $(ASIC_OUT)
-	wsl -d $(WSL_DIST) -- bash -c "cp -f '/mnt/c/IDEC_challenge/OpenRoad project/config/constraint.sdc' $(ORFS_SDC) && cd $(ORFS_ROOT) && source ./env.sh && cd flow && time ASIC_CLK_PERIOD_PS='$(ASIC_CLK_PERIOD_PS)' ASIC_CLK_IO_PCT='$(ASIC_CLK_IO_PCT)' make synth-report DESIGN_CONFIG=$(ORFS_DESIGN_CFG) DESIGN_NAME='$(ASIC_TOP)' DESIGN_NICKNAME='$(ASIC_TOP)' SDC_FILE='$(ORFS_SDC)' FLOW_VARIANT='$(ASIC_VARIANT)' $(ASIC_RTL_ARG)"
-	@echo ""
-	@echo "===== Copying artifacts to $(ASIC_OUT) ====="
-	wsl -d $(WSL_DIST) -- bash -c "cp -f $(ORFS_RESULTS)/1_*_yosys.v            /mnt/c/IDEC_challenge/$(ASIC_OUT)/netlist.v    2>/dev/null || true; \
-	                                cp -f $(ORFS_RESULTS)/1_synth.sdc            /mnt/c/IDEC_challenge/$(ASIC_OUT)/          2>/dev/null || true; \
-	                                cp -f $(ORFS_REPORTS)/synth_stat.txt         /mnt/c/IDEC_challenge/$(ASIC_OUT)/          2>/dev/null || true; \
-	                                cp -f $(ORFS_REPORTS)/1_Post_synthesis.rpt   /mnt/c/IDEC_challenge/$(ASIC_OUT)/          2>/dev/null || true"
-	@echo ""
-	@echo "===== $(ASIC_TOP) metrics ====="
-	@grep -E "^   Chip area for|of which used for sequential" $(ASIC_OUT)/synth_stat.txt 2>/dev/null || echo "(area info missing)"
-	@grep -E "^wns max|^tns max|clk period_min" $(ASIC_OUT)/1_Post_synthesis.rpt 2>/dev/null | head -5
-	@grep -E "^Total " $(ASIC_OUT)/1_Post_synthesis.rpt 2>/dev/null | head -1
+	wsl -d $(WSL_DIST) -- bash /mnt/c/IDEC_challenge/flow/openroad/run_designated_final.sh
 
 synth-asic-fmax:
-	$(MAKE) synth-asic ASIC_CLK_PERIOD_PS=400 ASIC_VARIANT=fmax_400ps
+	@echo "Use the reported min-period estimate; final synthesis is fixed at 1 GHz."
+	@exit 2
 
-power-asic-activity: sim-chip-winograd-gate-power flow/openroad/report_activity_power.tcl
-	@echo "===== OpenROAD activity-annotated power: top=$(ASIC_TOP) ====="
-	wsl -d $(WSL_DIST) -- bash -c "cd $(ORFS_ROOT) && source ./env.sh && POWER_LIBERTY_DIR='$(ORFS_ROOT)/flow/platforms/asap7/lib/NLDM' POWER_ODB='$(ORFS_RESULTS)/1_synth.odb' POWER_SDC='$(ORFS_RESULTS)/1_synth.sdc' POWER_VCD='/mnt/c/IDEC_challenge/$(SIM_DIR)/chip_winograd_gate_power/activity.vcd' POWER_REPORT='/mnt/c/IDEC_challenge/$(ASIC_OUT)/activity_power.rpt' POWER_ACTIVITY_REPORT='/mnt/c/IDEC_challenge/$(ASIC_OUT)/activity_annotation.rpt' openroad -no_init -exit /mnt/c/IDEC_challenge/flow/openroad/report_activity_power.tcl"
-	@echo "===== Activity annotation ====="
-	@grep -E "(Annotated|Unannotated)" $(ASIC_OUT)/activity_annotation.rpt 2>/dev/null || true
-	@echo "===== Activity-based power ====="
-	@grep -E "^Total " $(ASIC_OUT)/activity_power.rpt 2>/dev/null | tail -1
+power-asic-activity:
+	wsl -d $(WSL_DIST) -- python3 /mnt/c/IDEC_challenge/scripts/power_designated_final.py
+
+verify-designated-final:
+	wsl -d $(WSL_DIST) -- python3 /mnt/c/IDEC_challenge/scripts/verify_designated_final.py
 
 # ---------- XPR export (for submission) ----------
 xpr: $(XPR_DIR)/exported.xpr

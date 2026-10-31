@@ -1,0 +1,5 @@
+Python 3.12.14 (Windows project environment)
+torch 2.13.0+cpu
+torchvision 0.28.0+cpu
+numpy 2.5.2
+RTL verification: WSL Ubuntu, Verilator 5.020 (Debian 5.020-1), Icarus Verilog

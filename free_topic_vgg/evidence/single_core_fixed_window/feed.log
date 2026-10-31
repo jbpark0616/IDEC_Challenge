@@ -1,0 +1,20 @@
+PASS SRAM_TILE H=4 W=4 C=3 sharded=0 pooled=0 phase=0 words=24 reads=18 cycles=261
+verification/rtl_style/tb_sram_tile_feed.sv:61: $finish called at 2610000 (1ps)
+PASS SRAM_TILE H=4 W=4 C=32 sharded=0 pooled=0 phase=0 words=256 reads=1152 cycles=6395
+verification/rtl_style/tb_sram_tile_feed.sv:61: $finish called at 63950000 (1ps)
+PASS SRAM_TILE H=4 W=4 C=32 sharded=1 pooled=0 phase=0 words=256 reads=768 cycles=4491
+verification/rtl_style/tb_sram_tile_feed.sv:61: $finish called at 44910000 (1ps)
+PASS SRAM_TILE H=4 W=4 C=32 sharded=1 pooled=1 phase=1 words=256 reads=1152 cycles=6375
+verification/rtl_style/tb_sram_tile_feed.sv:61: $finish called at 63750000 (1ps)
+PASS SRAM_TILE H=4 W=4 C=128 sharded=0 pooled=0 phase=0 words=1024 reads=4608 cycles=25596
+verification/rtl_style/tb_sram_tile_feed.sv:61: $finish called at 255960000 (1ps)
+PASS SRAM_TILE H=4 W=4 C=128 sharded=1 pooled=0 phase=0 words=1024 reads=3072 cycles=17934
+verification/rtl_style/tb_sram_tile_feed.sv:61: $finish called at 179340000 (1ps)
+PASS SRAM_TILE H=4 W=4 C=128 sharded=1 pooled=1 phase=1 words=1024 reads=4608 cycles=25559
+verification/rtl_style/tb_sram_tile_feed.sv:61: $finish called at 255590000 (1ps)
+PASS SRAM_TILE H=4 W=4 C=512 sharded=0 pooled=0 phase=0 words=4096 reads=18432 cycles=102395
+verification/rtl_style/tb_sram_tile_feed.sv:61: $finish called at 1023950000 (1ps)
+PASS SRAM_TILE H=4 W=4 C=512 sharded=1 pooled=0 phase=0 words=4096 reads=12288 cycles=71694
+verification/rtl_style/tb_sram_tile_feed.sv:61: $finish called at 716940000 (1ps)
+PASS SRAM_TILE H=4 W=4 C=512 sharded=1 pooled=1 phase=1 words=4096 reads=18432 cycles=102363
+verification/rtl_style/tb_sram_tile_feed.sv:61: $finish called at 1023630000 (1ps)

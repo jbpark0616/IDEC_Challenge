@@ -1,0 +1,27 @@
+프로젝트 기준 경로
+
+지정주제 최종본: bypass + ICG (b1_g1)
+  RTL: verilog/ (14개 파일, 이 경로만 사용)
+  검증: verification/, scripts/verify_designated_final.py
+  ASIC 합성: flow/openroad/run_designated_final.sh
+  측정 근거: docs/designated_final/RESULTS.txt, summary.json
+  소스 지문: docs/designated_final/rtl_sha256.json
+  VS Code: designated_topic.code-workspace
+
+자유주제: free_topic_vgg/ (별도 SRAM 기반 16코어 설계)
+  RTL 목록: free_topic_vgg/rtl/sources.f
+  Top: free_topic_vgg/rtl/vgg_sixteen_core_cluster.v
+  구성: free_topic_vgg/design.json, README.txt
+  V8 검증: free_topic_vgg/verification/v8/
+  전체 모델 실행: free_topic_vgg/verification/full_model/run.sh
+  이전 U8/V16 결과: free_topic_vgg/evidence/full_model_u8_v16/
+  U8/V8 전체 모델 RTL 재실행은 아직 완료되지 않았다.
+
+정리 전 복구본 (Git 제외, 파일별 SHA-256 검증 완료)
+  지정주제: archive/designated_before_final_20261029.zip
+  자유주제: archive/free_topic_cleanup_20261029.zip
+experiments/의 이전 지정주제 설계는 현재 빌드 입력으로 사용하지 않는다.
+
+자유주제 최신 합성: free_topic_vgg/evidence/single_core_fixed_window/REPORT_KO.txt
+고정본: free_topic_vgg/architecture/DESIGN_FREEZE_20261030.txt
+2026-10-30 정리: docs/cleanup_20261030/README.txt (폐기 실험 폴더 제거)

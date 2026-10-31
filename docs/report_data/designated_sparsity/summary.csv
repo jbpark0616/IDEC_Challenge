@@ -1,0 +1,3 @@
+layer,images,tiles,input_zero_elements,v_zero_elements,zero_rows,fully_zero_tiles,partial_zero_tiles,no_zero_row_tiles,zero_input_pair,nonzero_cancellation,active,zero_input_pair_percent,nonzero_cancellation_percent,active_percent,zero_rows_percent,input_zero_percent,v_zero_percent
+Conv1,100,14400,172668,151672,33303,7351,1495,5554,32538,765,24297,56.489583333333336,1.328125,42.182291666666664,57.817708333333336,74.94270833333333,65.82986111111111
+Conv2,100,7500,94729,73601,15959,3459,843,3198,15896,63,14041,52.986666666666665,0.21,46.803333333333335,53.196666666666665,78.94083333333333,61.33416666666667

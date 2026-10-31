@@ -1,0 +1,14 @@
+export PLATFORM = asap7
+export DESIGN_NAME = fanout16_synth
+export DESIGN_NICKNAME = fanout16_synth
+export VERILOG_FILES = $(PROJECT_ROOT)/rtl/designated/elastic_fifo.v $(FANOUT_SOURCE) $(PROJECT_ROOT)/flow/full_cluster/fanout16_synth.v
+export SDC_FILE = $(PROJECT_ROOT)/flow/single_core/constraint.sdc
+export DONT_USE_CELLS = *x1p*_ASAP7* *xp*_ASAP7* SDF*
+export ABC_AREA = 0
+export ABC_CLOCK_PERIOD_IN_PS = 1000
+export SYNTH_ARGS = -noshare
+export CORE_UTILIZATION = 40
+export CORE_ASPECT_RATIO = 1
+export CORE_MARGIN = 2
+export PLACE_DENSITY = 0.65
+export EQUIVALENCE_CHECK = 0

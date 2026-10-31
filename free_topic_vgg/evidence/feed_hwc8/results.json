@@ -1,0 +1,76 @@
+[
+  {
+    "sparse": 0,
+    "original": {
+      "layer": 4,
+      "sparse": 0,
+      "activation_preload": 1024,
+      "weight_preload": 65584,
+      "cycles": 110446,
+      "mac_beats": 524288,
+      "mac_lanes": 8388608,
+      "weight_wait_corecycles": 60548,
+      "writer_stall_corecycles": 0,
+      "preload": 65584,
+      "U_words": 65536,
+      "replacements": 496,
+      "source_reads": 25088,
+      "compared_words": 2048,
+      "resident_u": 1
+    },
+    "hwc8": {
+      "layer": 4,
+      "sparse": 0,
+      "activation_preload": 1024,
+      "weight_preload": 65584,
+      "cycles": 36833,
+      "mac_beats": 524288,
+      "mac_lanes": 8388608,
+      "weight_wait_corecycles": 15772,
+      "writer_stall_corecycles": 0,
+      "preload": 65584,
+      "U_words": 65536,
+      "replacements": 496,
+      "source_reads": 3136,
+      "compared_words": 2048,
+      "resident_u": 1
+    }
+  },
+  {
+    "sparse": 1,
+    "original": {
+      "layer": 4,
+      "sparse": 1,
+      "activation_preload": 1024,
+      "weight_preload": 65584,
+      "cycles": 110311,
+      "mac_beats": 498960,
+      "mac_lanes": 7578624,
+      "weight_wait_corecycles": 60513,
+      "writer_stall_corecycles": 0,
+      "preload": 65584,
+      "U_words": 65536,
+      "replacements": 496,
+      "source_reads": 25088,
+      "compared_words": 2048,
+      "resident_u": 1
+    },
+    "hwc8": {
+      "layer": 4,
+      "sparse": 1,
+      "activation_preload": 1024,
+      "weight_preload": 65584,
+      "cycles": 35222,
+      "mac_beats": 498448,
+      "mac_lanes": 7578624,
+      "weight_wait_corecycles": 15740,
+      "writer_stall_corecycles": 0,
+      "preload": 65584,
+      "U_words": 65536,
+      "replacements": 496,
+      "source_reads": 3136,
+      "compared_words": 2048,
+      "resident_u": 1
+    }
+  }
+]

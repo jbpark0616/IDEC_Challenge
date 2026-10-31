@@ -1,0 +1,14 @@
+export PLATFORM = asap7
+export DESIGN_NAME = chip
+export DESIGN_NICKNAME = chip_row_sparse_fixed
+export VERILOG_FILES = $(sort $(wildcard $(PROJECT_ROOT)/verilog/*.v))
+export SDC_FILE = $(PROJECT_ROOT)/flow/openroad/designated_final.sdc
+export ABC_AREA = 1
+export ABC_CLOCK_PERIOD_IN_PS = 1000
+export CORE_UTILIZATION = 40
+export CORE_ASPECT_RATIO = 1
+export CORE_MARGIN = 2
+export PLACE_DENSITY = 0.65
+export TNS_END_PERCENT = 100
+export EQUIVALENCE_CHECK = 1
+export REMOVE_CELLS_FOR_EQY = TAPCELL*

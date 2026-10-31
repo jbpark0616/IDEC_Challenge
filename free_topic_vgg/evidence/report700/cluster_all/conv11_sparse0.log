@@ -1,0 +1,11 @@
+HOST_POLICY continuous=1
+START layer=10 input=[1,2,2,512] Cout=512 U_block=4 preload=65584
+PROGRESS stage=10 clock=100000 U_words=83708 requests=4
+PROGRESS stage=10 clock=200000 U_words=183299 requests=28
+PROGRESS stage=10 clock=300000 U_words=282872 requests=53
+PROGRESS stage=10 clock=400000 U_words=382463 requests=77
+PROGRESS stage=10 clock=500000 U_words=482053 requests=101
+PROFILE layer=10 sparse=0 activation_preload=256 weight_preload=65584 cycles=478647 mac_beats=262144 mac_lanes=4194304 weight_wait_corecycles=6678068 writer_stall_corecycles=0
+LAYER_PASS layer=10 shape=[1,2,2,512]->512 cycles=478647 preload=65584 U_words=524288 replacements=112 source_reads=2048 compared_words=256 resident_u=0
+PASS ISOLATED_LAYER stage=10 sparse=0 checked_words=256
+- /mnt/c/IDEC_challenge/free_topic_vgg/build/report700/cluster_all/tb.sv:205: Verilog $finish

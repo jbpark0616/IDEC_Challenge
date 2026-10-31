@@ -1,0 +1,11 @@
+Winograd U8/V8 PTQ: validation, 1000 images
+FP32: 1000/1000
+Existing model, transform matrices and RTL unchanged; no QAT performed.
+U16_V16: 1000/1000, agreement with U16/V16: 1000/1000
+U8_V16: 1000/1000, agreement with U16/V16: 1000/1000
+U8_V8: 1000/1000, agreement with U16/V16: 1000/1000
+V shifts per Conv: [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Evaluation seconds: 301.7
+Layer errors include propagation from earlier quantized layers.
+Validation train images are not independent test accuracy.
+Packing and cycle/energy improvements are not RTL-validated.
