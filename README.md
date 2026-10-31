@@ -1,261 +1,185 @@
-# Winograd CNN Accelerator 설계 개발 기록
+# Sparsity-Aware Winograd CNN Accelerators
 
-지정주제 최종본은 **bypass + ICG `b1_g1`**이며 `verilog/`의 14개 파일만 사용한다.
-소스 SHA-256과 최신 측정 근거는 [docs/designated_final/README.txt](docs/designated_final/README.txt)에 있다.
-자유주제 `free_topic_vgg/`는 별도 프로젝트이다. 최종 보고서와 재현 자료 위치는
-[최종 자료 안내](docs/FINAL_DELIVERY.md)에 정리했다. 빌드 캐시와 폐기된 실험의 대용량 복구본은 삭제했으며,
-보고서 비교에 필요한 지정주제 RTL만 `verification/designated_ablation_reference.zip`에 보존했다.
+2026 IDEC 창의회로설계 챌린지 디지털 부문 **SKKAF**팀의 지정주제·자유주제 설계와 검증 자료이다.
+Winograd, 변환 영역의 zero-row 생략, integrated clock gating(ICG)을 결합하고,
+MNIST 단일 코어에서 검증한 방법을 CIFAR-10 VGG의 SRAM 기반 16코어 구조로 확장하였다.
 
-## 1. 프로젝트 개요
+| | 지정주제 | 자유주제 |
+|---|---|---|
+| 응용 | MNIST 이미지 분류 | CIFAR-10 VGG 이미지 분류 |
+| 구조 | Conv/FC 공유 단일 코어 | 출력 채널을 분담하는 16코어, activation multicast |
+| 연산 자원 | 16-lane MAC | 코어당 16-lane MAC |
+| 수치 형식 | W4A8, 변환 V INT11, 누산 INT18 | 변환 U/V INT8 저장, 스케일 복원 후 연산 |
+| 저장 구조 | activation scratchpad와 소형 pipeline buffer | 코어당 12개 × 8KiB SRAM, 총 192개 macro |
+| 최종 RTL | [verilog/](verilog/) | [free_topic_vgg/rtl/](free_topic_vgg/rtl/) |
+| 결과보고서 | [지정주제 PDF](docs/IDEC_지정주제_결과보고서_제출용.pdf) | [자유주제 PDF](docs/IDEC_자유주제_결과보고서_제출용.pdf) |
 
-본 프로젝트의 목표는 대회에서 제공한 MNIST CNN의 정확도를 유지하면서 연산량,
-중간 데이터 저장량 및 데이터 이동을 줄인 합성 가능한 CNN 가속기를 설계하는
-것이다. 기존 5×5 convolution 기반 모델을 3×3 convolution 기반 모델로 변경하고,
-두 convolution layer에 Winograd F(2×2, 3×3) 알고리즘을 적용하였다. 학습 단계에서는
-하드웨어의 W4A8 수치 형식을 반영한 quantization-aware training(QAT)을 수행하였다.
+## 1. 공통 설계 방법
 
-최종 설계는 하나의 Winograd compute core를 convolution과 fully-connected(FC)
-연산에 시간 다중화하여 사용한다. Tile 단위로 생성된 convolution 결과는 bias,
-ReLU, pooling 및 requantization을 거쳐 다음 계층의 activation storage에 직접
-기록된다. 이를 통해 각 연산 사이에 전체 feature map을 반복 저장하는 구조를
-피하고, 제한된 연산 자원과 저장 공간을 재사용한다.
-
-![Single-core Winograd CNN accelerator](docs/report_assets/designated_topic/figures/winograd_cnn_architecture.svg)
-
-## 2. 최종 설계 사양
-
-| 항목 | 최종 사양 |
-|---|---|
-| CNN 구조 | Conv1 3×3 → ReLU/Pool → Conv2 3×3 → ReLU/Pool → FC → Argmax |
-| Winograd 알고리즘 | F(2×2, 3×3), 4×4 input tile에서 2×2 output tile 생성 |
-| 연산 구조 | 16-lane Winograd-domain MAC array, convolution/FC 공유 |
-| Weight | Signed INT4 |
-| Activation | Unsigned INT8 |
-| Input transform 결과 V | Signed INT11 |
-| Compute 및 accumulator | Signed INT18 |
-| Bias 저장 | Signed INT16 |
-| 중간 activation storage | 104 × 24-bit FF scratchpad |
-| Pipeline buffer depth | Conv1 tile FIFO 2, V replay 2, M FIFO 1 |
-| 목표 동작 주파수 | 1 GHz |
-| 검증 정확도 | 1,000장 중 970장 정답, 97.0% |
-
-## 3. 설계 과정
-
-### 3.1 알고리즘 및 수치 형식 결정
-
-대회 baseline의 전체 계층 구성과 채널 수는 유지하고 convolution kernel을 5×5에서
-3×3으로 변경하였다. 변경된 모델은 FP32 spatial convolution으로 먼저 학습한 뒤,
-동일한 spatial master weight를 Winograd domain으로 변환하여 학습하는 QAT 구조로
-구현하였다.
-
-Winograd convolution은 다음 네 단계로 구성된다.
+Winograd F(2×2, 3×3)는 4×4 입력 타일로부터 2×2 출력을 생성한다.
+동일한 네 출력을 만드는 direct 3×3 convolution의 36회 곱셈을 16회로 줄이며,
+입력·출력 변환은 덧셈과 뺄셈으로 구현한다.
 
 ```text
-U = G g G^T
-V = B^T d B
-M = sum_c(U ⊙ V)
-Y = A^T M A
+U = G g Gᵀ              변환 가중치
+V = Bᵀ d B              변환 activation
+M = Σc (U ⊙ V)          입력 채널 방향 누산
+Y = Aᵀ M A              출력 변환
 ```
 
-F(2×2, 3×3)의 input/output transform 행렬은 0, 1, -1로 구성할 수 있으므로,
-transform datapath는 multiplier 없이 adder와 subtractor만으로 구현하였다. Weight
-transform 결과 U와 FC weight에는 signed INT4 fake quantization을 적용하고,
-activation에는 unsigned INT8 fake quantization을 적용하였다. 최종 정수 모델은
-대회 입력 1,000장에서 97.00%, MNIST test set 10,000장에서 96.25%의 정확도를
-기록하였다.
+변환 과정에서 검출한 zero row는 MAC에 투입하지 않고 유효 행만 처리하도록 순서를 제어한다.
+ICG는 유효 작업이 없는 레지스터의 클록 활동을 억제한다. 생성된 결과에는 bias, ReLU,
+pooling 및 requantization을 연속 적용하여 중간 데이터 이동을 줄인다.
+두 주제는 이 최적화 방법을 공유하며, 저장 장치와 데이터 공급 구조는 모델의 규모에 맞춰 구성했다.
 
-중간 연산 폭은 bit-accurate integer inference로 결정하였다. 평가 데이터에서는
-14-bit compute까지 saturation이 발생하지 않았지만, 입력 분포 변화에 대한 여유를
-확보하기 위해 RTL의 product 및 accumulator 경로는 INT18로 유지하였다. 최종
-INT18 구성에서는 10,000장 추론의 모든 관측 지점에서 saturation이 0회였다.
+## 2. 지정주제: 단일 코어 MNIST 가속기
 
-### 3.2 단일 Winograd compute core 구성
+![지정주제 전체 구조](docs/report_assets/designated_topic/figures/winograd_cnn_architecture.svg)
 
-초기 구조는 activation 전체를 저장한 뒤 다중 포트 조합 MUX로 4×4 tile을 읽는
-방식이었다. 이 구조는 임의 주소 접근은 쉽지만 FF bank의 read MUX가 면적과
-critical path를 크게 증가시켰다. 최종 구조에서는 입력의 raster 순서를 이용한
-sliding-window generator로 4×4 tile을 순차 생성한다.
+3×3 convolution 두 계층과 FC를 하나의 연산기로 처리한다. W4A8 QAT와 정수 기준 모델로
+수치 형식을 결정하고, activation의 소비 시점에 따라 scratchpad 주소를 재사용한다.
+최종 구성은 sparsity-aware bypass와 ICG를 함께 적용한 **b1_g1**이다.
 
-생성된 tile은 다음 순서로 처리된다.
+### 최종 결과
 
-1. Input transform이 4×4 activation tile을 Winograd domain V로 변환한다.
-2. 16-lane MAC array가 V와 transformed weight U의 element-wise product를 계산한다.
-3. 입력 채널이 여러 개인 경우 동일 위치의 결과를 channel 방향으로 누산한다.
-4. Output transform이 4×4 M tile을 2×2 spatial output tile로 복원한다.
-5. Fused output unit이 bias, ReLU, pooling 및 requantization을 연속 처리한다.
-6. 처리된 UINT8 activation을 다음 계층의 scratchpad에 기록한다.
-
-동일한 MAC array는 FC 단계에서도 사용한다. FC mode에서는 75개 입력 feature를
-시간 방향으로 누산하고, 최종 10개 class score를 pipelined argmax tree에 전달한다.
-따라서 convolution과 FC를 위한 별도의 multiplier array를 두지 않는다.
-
-세부 microarchitecture는 다음 도면에 정리하였다.
-
-| 블록 | 설계도 |
-|---|---|
-| Tile generator | [winograd_tile_generator_microarchitecture.svg](docs/report_assets/designated_topic/figures/winograd_tile_generator_microarchitecture.svg) |
-| Input transform | [winograd_input_transform_microarchitecture.svg](docs/report_assets/designated_topic/figures/winograd_input_transform_microarchitecture.svg) |
-| MAC array | [winograd_mac_array_microarchitecture.svg](docs/report_assets/designated_topic/figures/winograd_mac_array_microarchitecture.svg) |
-| Output transform | [winograd_output_transform_microarchitecture.svg](docs/report_assets/designated_topic/figures/winograd_output_transform_microarchitecture.svg) |
-| Elastic FIFO | [elastic_fifo_microarchitecture.svg](docs/report_assets/designated_topic/figures/elastic_fifo_microarchitecture.svg) |
-| Fused output unit | [winograd_fused_output_unit_microarchitecture.svg](docs/report_assets/designated_topic/figures/winograd_fused_output_unit_microarchitecture.svg) |
-
-### 3.3 Pipeline buffer 깊이 결정
-
-각 블록은 valid/ready handshake로 연결하였다. 외부 입력은 ready 신호를 확인하지
-않고 784개 pixel을 연속 전송하므로, 내부 backpressure가 입력까지 전파되면 pixel이
-유실된다. 이에 따라 1,000장 RTL sweep을 수행하여 기능을 보존하는 최소 buffer
-깊이를 결정하였다.
-
-| Conv1 tile FIFO | V replay | M FIFO | 결과 | 입력 backpressure | 정확도 |
-|---:|---:|---:|---|---:|---:|
-| 2 | 2 | 2 | PASS | 0 cycle | 97% |
-| 2 | 2 | 1 | PASS, 최종 채택 | 0 cycle | 97% |
-| 2 | 1 | 2 | FAIL | 36,000 cycle/1,000 images | 9% |
-
-V replay buffer는 실제 최대 occupancy가 2이므로 depth 2가 필요하다. 반면 M FIFO는
-최대 occupancy가 1이고 downstream backpressure가 발생하지 않아 depth 1로
-축소하였다. 이 변경은 기능과 latency를 유지하면서 flip-flop 299개와 cell area
-1.29%를 줄였다.
-
-### 3.4 Activation lifetime 기반 저장 공간 최적화
-
-Conv1과 Conv2 사이의 activation을 모두 보존하는 169-entry 구조에서 시작하여,
-실제 데이터 lifetime과 소비 범위를 기준으로 storage를 단계적으로 축소하였다.
-
-1. Conv2가 참조하지 않는 Conv1 결과의 마지막 행과 열을 저장 대상에서 제외하였다.
-2. 첫 Conv2 window에 필요한 40개 vector를 window generator에 직접 선적재하였다.
-3. 나머지 104개 vector만 sequential frame buffer에 저장하였다.
-4. Conv2가 이미 읽은 주소 0~24를 Conv2 출력 및 FC 입력 저장 공간으로 재사용하였다.
-
-각 주소에는 세 채널의 activation을 하나의 24-bit word로 묶었다. Conv2에서는
-spatial position 단위로 접근하고, FC에서는 byte lane을 선택하여 channel-major
-순서를 복원한다. 접근 주체가 실행 단계별로 고정되어 있으므로 범용 memory
-arbitration은 필요하지 않다.
-
-| 구조 | 중간 저장량 | Post-input latency | Cell area | Fmax |
-|---|---:|---:|---:|---:|
-| 169-entry 기준 | 4,656 bit | 484 cycle | 9,366.15 µm² | 1,092.26 MHz |
-| 최종 104-entry reuse | 2,496 bit | 433 cycle | 7,880.81 µm² | 1,072.98 MHz |
-
-최종 구조는 기준 대비 중간 저장량을 46.39%, cell area를 15.86%, post-input
-latency를 10.54% 줄였다. 모든 단계에서 1,000장 RTL mismatch 0과 입력
-backpressure 0을 확인한 후 다음 단계로 진행하였다.
-
-### 3.5 Zero-skip 제어 경로 최적화
-
-MAC lane은 weight가 0이거나 lane이 비활성인 경우 multiplier 입력을 0으로
-고정하여 불필요한 switching을 억제하고 accumulator 값을 유지한다. 초기 구현은
-누산 단계에서 zero-weight 조건을 다시 조합하여 accumulator 앞의 제어 경로가
-critical path가 되었다.
-
-최종 구현에서는 다음 조건을 multiplier pipeline stage에서 미리 계산하여
-`pipe_accumulate` 레지스터에 저장한다.
-
-```text
-pipe_accumulate = lane_active && !weight_zero
-```
-
-Accumulator stage는 등록된 신호만으로 update 여부를 선택한다. 연산 결과와
-pipeline latency는 유지하면서 Fmax는 1,056.86 MHz에서 1,180.21 MHz로 11.67%
-향상되었고, cell area 증가는 0.18%에 그쳤다.
-
-### 3.6 미채택 설계 검토
-
-사용되지 않는 Conv1 경계 tile 25개를 core에 전달하지 않는 dead-tile pruning도
-검토하였다. 이 방식은 core 실행 tile을 14.79% 줄이고 전체 latency를 약 2.05%
-단축했으나, 추가 제어로 cell area가 0.73% 증가하고 Fmax가 2.55% 감소하였다.
-전체 PPA 개선이 확인되지 않아 최종 RTL에서는 원복하였다. 해당 결과는 연산량
-감소가 제어 비용을 포함한 하드웨어 효율 개선으로 항상 이어지지는 않는다는
-설계 탐색 근거로 보존하였다.
-
-## 4. 검증 방법
-
-기능 검증은 블록 단위와 전체 시스템 단위로 나누어 수행하였다.
-
-- Input/output transform: Python Winograd reference와 RTL 결과 비교
-- MAC array: zero-weight, channel accumulation, FC mode 및 saturation 검증
-- Elastic FIFO: full/empty, simultaneous push/pop, backpressure 시 데이터 유지 검증
-- Fused output unit: bias, pooling, ReLU, requantization 및 UINT8 clamp 검증
-- 전체 RTL: 대회 입력 1,000장에 대해 Python integer golden과 class decision 비교
-- 합성 netlist: ASAP7 zero-delay functional model을 이용한 1,000장 gate regression
-- Timing/area: 동일한 ASAP7 OpenROAD post-synthesis flow로 비교
-- Power: gate-level VCD activity를 합성 netlist에 annotation하여 1 GHz에서 분석
-
-최종 b1_g1 RTL은 1,000회에서 golden mismatch 0, 분류 결과 970/1,000을 기록했다.
-이는 고유 이미지 100개를 10회 반복한 검사이다. 전력 측정용 gate-level 검증은
-별도의 20개 이미지에서 mismatch 0, 20/20 정답이었다.
-
-## 5. 최종 결과
-
-| 평가 항목 | 결과 |
+| 항목 | 결과 |
 |---|---:|
-| Accuracy | 97.0% |
-| Target frequency | 1 GHz |
-| Estimated Fmax | 1,162.696 MHz |
-| Minimum period | 860.07 ps |
-| Post-synthesis cell area | 7,769.02590 µm² |
-| Activity-based power at 1 GHz | 7.868472 mW |
-| Average / maximum cycles per image | 995.83 / 1009 cycle |
-| Average inference latency at 1 GHz | 0.99583 µs |
-| Energy per image, power measurement window | 7.88755304 nJ |
-| ICG cells | 16 |
-| Virtual dense reference | 0.366 TOPS |
-| Virtual dense energy efficiency | 46.51475 TOPS/W |
+| 제공 입력 분류 정확도 | 970 / 1,000, **97.0%** |
+| 평가 동작 주파수 | **1 GHz** |
+| 합성 후 STA 환산 Fmax | 1,162.696 MHz |
+| 합성 셀 면적 | **7,769.03 µm²** |
+| 평균 사이클 / 이미지 | **995.83 cycles** |
+| 평균 추론 지연 @ 1 GHz | **0.99583 µs** |
+| 활동도 기반 전력 | **7.868 mW** |
+| 측정 구간 기준 에너지 / 이미지 | **7.888 nJ** |
 
-ASAP7 RVT FF corner, 0.77 V, 0°C, 배치배선 및 CTS 이전 결과이다.
-전력은 20개 이미지의 reset/start를 포함한 zero-delay gate VCD로 계산했다.
-가상 dense 지표는 183 MAC × 2 × 1 GHz를 기준으로 하며 실제 처리량이 아니다.
-동일한 공통 최적화를 적용한 bypass/ICG OFF 대비 평균 사이클 7.105%,
-전력 52.575%, 에너지 55.901% 감소했다. 정리 작업에서 PPA를 재측정하지 않았다.
+ASAP7 RVT FF, 0.77 V, 0°C의 합성 후 평가이다. 사이클은 제공 입력 1,000회
+(고유 이미지 100장 반복), 전력·에너지는 20개 이미지의 zero-delay gate VCD 구간에서 측정했다.
+배치배선 전 STA와 활동도 기반 전력 추정값이다.
 
-## 6. 저장소 구성
+### Sparsity와 ICG의 효과 분리
 
-```text
-IDEC_challenge/
-├── verilog/       최종 synthesizable RTL
-├── verification/  블록 및 전체 시스템 testbench, 검증 vector
-├── training/      PyTorch 학습, W4A8 QAT, 정수 추론 및 parameter export
-├── flow/          Vivado와 OpenROAD 자동화 script
-├── data/          대회 입력과 RTL parameter file
-├── docs/          설계 분석, 실험 결과, 보고서용 figure
-├── build/         simulation 및 synthesis 생성물(Git 제외)
-└── Makefile       검증·합성·전력 분석의 공통 실행 진입점
-```
+동일한 공통 구조에서 두 기능만 켜고 끈 비교이다.
 
-주요 RTL top은 `verilog/chip.v`이며, 내부에서
-`winograd_cnn_accelerator`를 인스턴스화한다. 전체 1,000장 검증 testbench는
-`verification/winograd_chip_1000_tb.v`, 최종 정수 parameter는
-`training/export/qat_winograd3x3_w4_frozen_aug/`에 있다. 학습 및 export 절차의
-상세 설명은 `training/README.md`, 중간보고서에 사용한 최종 합성·전력·검증
-근거는 `docs/final_results/README.md`에서 확인할 수 있다.
+| 구성 | 평균 사이클 | 면적 (µm²) | 전력 (mW) | 에너지 (nJ/image) |
+|---|---:|---:|---:|---:|
+| 공통 구조 | 1,072.00 | 7,804.64 | 16.592 | 17.886 |
+| Sparsity | 995.83 | 7,781.48 | 16.274 | 16.313 |
+| ICG | 1,072.00 | 7,802.57 | 8.610 | 9.282 |
+| **Sparsity + ICG** | **995.83** | **7,769.03** | **7.868** | **7.888** |
 
-## 7. 재현 방법
+두 기능의 동시 적용으로 공통 구조 대비 사이클 **7.11%**, 에너지 **55.90%**를 줄였다.
+ICG를 적용한 회로에 sparsity 처리를 추가했을 때의 에너지 감소는 **15.02%**이다.
+면적의 작은 감소는 전체 합성 매핑 차이를 포함한다.
 
-주요 검증 및 합성 명령은 다음과 같다.
+측정 원본은 [지정주제 최종 결과](docs/designated_final/RESULTS.txt),
+소스 해시와 실행 안내는 [최종본 안내](docs/designated_final/README.txt)에 있다.
 
-```text
-make sim-chip-winograd-1000 FIFO_DEPTH=2 V_REPLAY_DEPTH=2 M_FIFO_DEPTH=1
-make synth-asic ASIC_TOP=chip ASIC_CLK_PERIOD_PS=1000
+## 3. 자유주제: SRAM 기반 16코어 VGG 가속기
+
+![자유주제 16코어 구조](docs/report_assets/free_topic/figures/vgg_16core_accelerator_architecture.svg)
+
+각 코어가 서로 다른 출력 채널을 담당하고, 공통 activation을 multicast로 공급한다.
+변환 가중치 U와 입력 타일 V는 SRAM에 밀집 저장한다. V는 마지막 재사용까지 보존하며,
+U는 물리 용량에 들어가는 범위에서 상주시켜 반복 적재를 줄인다. 큰 가중치 텐서는 묶음으로 나누어 처리한다.
+FC 경로와 레이어 전환을 포함하고, 코어 내부 연산량과 SRAM 공급량을 구분하여 평가했다.
+
+### 전체 합성과 기능 검증
+
+| 항목 | 결과 |
+|---|---:|
+| 계산 코어 / SRAM macro | **16 / 192** |
+| SRAM 포함 Liberty 셀 면적 | **742,748.20 µm²** |
+| 합성 후 STA 최소 주기 | **1,377.62 ps** |
+| STA 환산 Fmax | **725.89 MHz** |
+| U8/V8 소프트웨어 정확도 | CIFAR-10 10,000장, **93.94%** |
+
+전체 모델 RTL 통과 기록은 **U8/V16 이미지 1장**이다. 최종 U8/V8은 부분 계층,
+Conv/FC 연결 및 모드 전환 검증을 수행했다. 소프트웨어 정확도와 전체 모델 RTL 검증은 구분한다.
+[전체 합성·통합 검증 자료](submission/IDEC2026_FREE_TOPIC/01_project/evidence/timing_writer_pipeline/)에서
+원본 리포트와 넷리스트를 확인할 수 있다.
+
+### 공급 속도와 sparsity에 따른 효과
+
+![공급 속도별 사이클·에너지 감소와 VGG 예시](docs/report_assets/free_topic/figures/vgg_controlled_cycle_energy_extended.svg)
+
+통제 실험은 입력 **[1, 4, 4, 32]**, 출력 채널 **8개**, U 상주 조건에서
+변환 후 zero-row 비율 0·25·50·75·100%와 공급 간격 1·4·8 cycles/word를 조합했다.
+각 조건의 sparsity OFF/ON을 비교한 **30회 게이트 시뮬레이션**으로 사이클과 에너지를 측정했다.
+
+| Zero-row 50% 조건 | 사이클 감소 | 에너지 감소 |
+|---|---:|---:|
+| 1 word / cycle | **39.28%** | **41.64%** |
+| 1 word / 4 cycles | 17.73% | 21.99% |
+| 1 word / 8 cycles | 4.89% | 8.92% |
+
+공급이 충분할수록 MAC 작업 생략이 실행 시간 감소로 이어진다. 공급 대기가 길어지면
+생략한 연산만큼 전체 사이클이 줄어들지는 않는다. 별표는 실제 CIFAR-10 이미지의
+Conv8·Conv9·Conv12·Conv13 레이어 슬라이스이며, 통제 곡선과 텐서 크기가 다른 응용 예시이다.
+
+이 전력 비교는 **계산 코어와 내부 U/V SRAM 8개**를 대상으로 하며, ICG는 양쪽 모두 유지했다.
+클록은 1,430 ps(약 699.3 MHz), 측정 구간은 초기 적재 이후 명령 시작부터 완료까지이다.
+전체 16코어와 외부 activation SRAM·multicast를 포함한 전력값은 아니다.
+Sparsity 제어의 순 면적 증가는 SRAM 포함 **0.576%**, 로직만 비교하면 **1.221%**이다.
+
+![레이어별 MAC 투입량](docs/report_assets/free_topic/figures/vgg_mac_three_way.svg)
+
+별도의 전체 convolution 계층 집계에서는 direct 연산량 313.20M MACs에 대해
+Winograd 139.20M, sparsity-aware Winograd 96.38M MAC 투입을 기록했다.
+이는 연산 투입량 비교이며 전력·사이클 감소율과는 구분한다.
+향후 과제는 SRAM 접근, multicast 통신, 외부 가중치 공급을 계산과 더 효율적으로 겹쳐
+데이터 공급 병목을 낮추는 것이다.
+
+## 4. 재현
+
+### 지정주제
+
+최종 RTL은 `verilog/chip.v`를 top으로 사용한다.
+Vivado 2024.1 프로젝트와 제출 산출물은 [submission/IDEC2026/](submission/IDEC2026/)에 있다.
+
+```sh
 make verify-designated-final
-make power-asic-activity
-make xpr
 ```
 
-현재 최종 수치는 `docs/designated_final/`에, 중간보고서 당시 수치는 `docs/final_results/`에 보존하였다. 설계 단계별
-비교 자료는 다음 디렉터리에서 확인할 수 있다.
+합성은 `flow/openroad/run_designated_final.sh`, 비교 실험은
+`scripts/report_data/`와 [지정주제 최종본 안내](docs/designated_final/README.txt)를 따른다.
 
-- `docs/activation_storage_optimization/`: activation lifetime 및 storage 최적화
-- `docs/buffer_depth_optimization/`: pipeline buffer depth sweep
-- `docs/mac_timing_optimization/`: zero-skip control retiming
-- `docs/dead_tile_pruning/`: 미채택 최적화의 비교 결과
-- `docs/numerical_precision/`: W4A8 compute bit-width sweep
-- `docs/report_assets/designated_topic/figures/`: 전체 구조 및 블록별 publication figure
+### 자유주제 PPA
 
-## 8. 향후 계획
+Linux/WSL에서 Icarus Verilog, Yosys, OpenROAD/ORFS를 사용한다.
+필요한 SRAM Verilog·Liberty·LEF, 게이트 모델, 벡터와 기존 결과를 제출 폴더에 포함했다.
+툴 버전은 [TOOL_VERSIONS.txt](submission/IDEC2026_FREE_TOPIC/TOOL_VERSIONS.txt)를 따른다.
 
-현재 single-core 설계는 중간보고서 기준 기능 검증과 post-synthesis PPA 분석을
-완료하였다. 다음 단계에서는 동일한 Winograd core를 여러 개 배치하고 공유 L1
-buffer 및 inter-core scheduling을 추가한 multi-core 구조로 확장할 예정이다.
-이를 통해 VGG 또는 ResNet 계열의 더 큰 CNN에서 layer별 workload를 분배하고,
-core 수에 따른 throughput, storage traffic 및 energy efficiency 변화를 평가한다.
+```sh
+cd submission/IDEC2026_FREE_TOPIC
+export ORFS_ROOT=/path/to/OpenROAD-flow-scripts
+python3 run.py check
+python3 run.py controlled    # 30조건 통제 실험
+python3 run.py vgg           # Conv9·Conv13 OFF/ON
+python3 run.py examples      # Conv8·Conv12 OFF/ON
+python3 run.py area          # 면적 비교
+# python3 run.py synth       # 전체 재합성: 별도 장시간 작업
+```
+
+Icarus 게이트 시뮬레이션으로 VCD를 생성하고 OpenROAD로 전력·타이밍을 분석한다.
+새 결과는 각 평가 폴더의 `reproduced_results/`에 저장한다.
+개발용 Verilator 흐름은 [free_topic_vgg/README.txt](free_topic_vgg/README.txt)에 정리했다.
+
+## 5. 저장소 안내
+
+| 경로 | 내용 |
+|---|---|
+| `verilog/`, `verification/`, `training/`, `flow/` | 지정주제 RTL·검증·학습·합성 |
+| `free_topic_vgg/` | 자유주제 RTL·모델 도구·검증 |
+| `docs/` | 최종 보고서, 그림, 수치 근거 |
+| `submission/IDEC2026/` | 지정주제 제출 산출물 |
+| `submission/IDEC2026_FREE_TOPIC/` | 자유주제 최종 소스·라이브러리·PPA 재현 패키지 |
+| `scripts/validate_free_topic_package.py` | 제출 파일·해시 검증 및 ZIP 생성 |
+| `scripts/audit_extended_ppa.py` | 실험 결과·에너지 계산·ZIP 일치 검사 |
+
+최종 문서 위치는 [자료 안내](docs/FINAL_DELIVERY.md)에 정리했다.
+제출 ZIP과 생성 캐시는 Git에서 제외하며, 저장소에는 압축 전 원본과 재현 근거를 유지한다.
+
+ASAP7 SRAM 및 외부 모델의 라이선스·출처는
+[SRAM 라이브러리](submission/IDEC2026_FREE_TOPIC/02_libraries/asap7_sram/)와
+[모델 원본 자료](submission/IDEC2026_FREE_TOPIC/01_project/reference/upstream/)에 포함되어 있다.
