@@ -183,3 +183,7 @@ Icarus 게이트 시뮬레이션으로 VCD를 생성하고 OpenROAD로 전력·�
 ASAP7 SRAM 및 외부 모델의 라이선스·출처는
 [SRAM 라이브러리](submission/IDEC2026_FREE_TOPIC/02_libraries/asap7_sram/)와
 [모델 원본 자료](submission/IDEC2026_FREE_TOPIC/01_project/reference/upstream/)에 포함되어 있다.
+
+## 개발 지원
+
+**AI-assisted development:** OpenAI Codex — RTL 구현·검토, 검증 자동화, 실험 분석 및 문서 작성 지원.
