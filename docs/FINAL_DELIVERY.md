@@ -21,6 +21,17 @@
 
 ## 그림과 재현
 
+자유주제 최종 PPA 재현 자료는 `submission/IDEC2026_FREE_TOPIC/`에 모았다.
+`README.md`의 절차에 따라 통제 실험 30조건, VGG 레이어 4개 OFF/ON,
+면적 비교를 각각 실행할 수 있다. 기존 측정 로그와 결과도 같은 폴더에 포함한다.
+전체 모델 실행과 레이어 단위 PPA 측정은 서로 다른 검증이다.
+
+메일 제출용 `IDEC2026_FREE_TOPIC_Compact.zip`과 일반 압축본은 로컬에만 보존한다.
+Git에는 압축 전 원본 폴더를 저장한다. 압축본의 대용량 파일은 `restore.py`로
+복원하지만, Git에서 받은 원본 폴더에는 이 과정이 필요 없다.
+실패한 면적 실험과 일회성 문서 수정 도구는 `.submission_review/`에 별도 보관하며
+최종 결과나 재현 경로에 포함하지 않는다.
+
 - `docs/report_assets/`: 보고서 그림, 표, 그림 생성 소스.
 - `docs/report_data/`: 원시 측정값, 비교 실험, 출처.
 - `scripts/report_data/`: 지정주제 데이터 추출 스크립트.

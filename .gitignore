@@ -72,3 +72,18 @@ archive/**/*.zip
 !submission/IDEC2026/04_synthesis/reports/
 !submission/IDEC2026/04_synthesis/reports/**
 !submission/IDEC2026/05_gate_project/verification/*.log
+
+# Final free-topic submission: retain all evidence needed for replay.
+!submission/IDEC2026_FREE_TOPIC/**/results/
+!submission/IDEC2026_FREE_TOPIC/**/results/**
+!submission/IDEC2026_FREE_TOPIC/**/*.log
+submission/IDEC2026_FREE_TOPIC/**/work/
+submission/IDEC2026_FREE_TOPIC/**/reproduced_results/
+submission/IDEC2026_FREE_TOPIC_*.zip
+
+# Local measurement workspaces; final copies live in the submission package.
+free_topic_vgg/evidence/area_static/
+free_topic_vgg/evidence/controlled_power/
+free_topic_vgg/evidence/extra_vgg_ppa/
+free_topic_vgg/evidence/layer_ppa/
+free_topic_vgg/verification/layer_ppa/

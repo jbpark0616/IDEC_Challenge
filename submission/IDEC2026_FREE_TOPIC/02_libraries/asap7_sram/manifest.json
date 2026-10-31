@@ -1,0 +1,49 @@
+{
+  "repository": "https://github.com/The-OpenROAD-Project/asap7_sram_0p0",
+  "commit": "9f5af0939e8dd3cc1a9693a50b23441691dd7d25",
+  "macro": "srambank_256x4x64_6t122",
+  "files": [
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/The-OpenROAD-Project/asap7_sram_0p0/9f5af0939e8dd3cc1a9693a50b23441691dd7d25/LICENSE",
+      "bytes": 1507,
+      "sha256": "f729eadf714ca54a7b665f9094f9687ba7b7f2c30e6c294431d1f0e2b1144245"
+    },
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/The-OpenROAD-Project/asap7_sram_0p0/9f5af0939e8dd3cc1a9693a50b23441691dd7d25/README.md",
+      "bytes": 513,
+      "sha256": "7f7a0ae69d7ad52f6f4fc90e862ac68a7dd4f7da6cbd745d4ed4a754bdcf5040"
+    },
+    {
+      "path": "verilog/README.txt",
+      "url": "https://raw.githubusercontent.com/The-OpenROAD-Project/asap7_sram_0p0/9f5af0939e8dd3cc1a9693a50b23441691dd7d25/verilog/README.txt",
+      "bytes": 210,
+      "sha256": "529dd44601434a5c2e46a57c18b6ece7206d2075763449e738e3e1bc5c84a595"
+    },
+    {
+      "path": "generated/verilog/srambank_256x4x64_6t122.v",
+      "url": "https://raw.githubusercontent.com/The-OpenROAD-Project/asap7_sram_0p0/9f5af0939e8dd3cc1a9693a50b23441691dd7d25/generated/verilog/srambank_256x4x64_6t122.v",
+      "bytes": 825,
+      "sha256": "3ad2e912ac733699fd46b3f207a80138ed45d02152464dbd5d029bf0f1983766"
+    },
+    {
+      "path": "generated/LIB/srambank_256x4x64_6t122.lib",
+      "url": "https://raw.githubusercontent.com/The-OpenROAD-Project/asap7_sram_0p0/9f5af0939e8dd3cc1a9693a50b23441691dd7d25/generated/LIB/srambank_256x4x64_6t122.lib",
+      "bytes": 73297,
+      "sha256": "e30778ec4e3593cb8cc972698e2c9a0e7883a330178f6edf0ceb9e88f75b6a35"
+    },
+    {
+      "path": "generated/LEF/srambank_256x4x64_6t122.lef",
+      "url": "https://raw.githubusercontent.com/The-OpenROAD-Project/asap7_sram_0p0/9f5af0939e8dd3cc1a9693a50b23441691dd7d25/generated/LEF/srambank_256x4x64_6t122.lef",
+      "bytes": 1029686,
+      "sha256": "700dbddb2175fab15f76f8f96d8ebbdf99b9dc37aeb39ec8b16ba13852740d24"
+    },
+    {
+      "path": "gds/srambank_64b.gds",
+      "url": "https://raw.githubusercontent.com/The-OpenROAD-Project/asap7_sram_0p0/9f5af0939e8dd3cc1a9693a50b23441691dd7d25/gds/srambank_64b.gds",
+      "bytes": 784384,
+      "sha256": "ce46131dc16844ab94ba69ad04e9eac896105d9ef46d2f427c1bde97dc581f94"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+Full-cluster mapped netlist producer (header and installed ORFS binary verified):
+  Yosys 0.64, git 8449dd470, the-openroad-project/yosys
+Layer power/static timing:
+  OpenROAD 26Q2-2270-g4c26918f5a
+Gate-level simulation:
+  Icarus Verilog 12.0 (stable)
+
+The layer comparison reuses the preserved mapped netlist; it does not invoke Yosys.
+The full synthesis launcher sources ORFS env.sh and uses its installed toolchain.
+ASAP7 RVT FF Liberty file names and hashes are in the comparison manifest.json.
+SRAM model and license are included in 02_libraries/asap7_sram/.
+Vivado is not used by this layer-comparison flow.

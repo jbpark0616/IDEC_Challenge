@@ -1,0 +1,29 @@
+
+-- Running command `read_liberty -lib /mnt/c/IDEC_challenge/free_topic_vgg/build/area_ablation_v2/std.lib
+read_liberty -lib /mnt/c/IDEC_challenge/free_topic_vgg/third_party/asap7_sram/generated/LIB/srambank_256x4x64_6t122.lib
+read_verilog /mnt/c/IDEC_challenge/free_topic_vgg/build/layer_ppa/core.v
+hierarchy -check -top ppa_core
+write_json /mnt/c/IDEC_challenge/free_topic_vgg/evidence/area_static/original.json
+' --
+
+1. Executing Liberty frontend: /mnt/c/IDEC_challenge/free_topic_vgg/build/area_ablation_v2/std.lib
+Imported 202 cell types from liberty file.
+
+2. Executing Liberty frontend: /mnt/c/IDEC_challenge/free_topic_vgg/third_party/asap7_sram/generated/LIB/srambank_256x4x64_6t122.lib
+Imported 1 cell types from liberty file.
+
+3. Executing Verilog-2005 frontend: /mnt/c/IDEC_challenge/free_topic_vgg/build/layer_ppa/core.v
+Parsing Verilog input from `/mnt/c/IDEC_challenge/free_topic_vgg/build/layer_ppa/core.v' to AST representation.
+Generating RTLIL representation for module `\ppa_core'.
+Successfully finished Verilog frontend.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \ppa_core
+
+4.2. Analyzing design hierarchy..
+Top module:  \ppa_core
+Removed 0 unused modules.
+
+5. Executing JSON backend.

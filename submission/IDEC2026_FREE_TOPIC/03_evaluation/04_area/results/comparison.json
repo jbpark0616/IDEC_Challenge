@@ -1,0 +1,9 @@
+{
+  "runtime_area_um2": 35958.2895,
+  "disabled_area_um2": 35752.347,
+  "overhead_pct": 0.576025120812341,
+  "logic_overhead_pct": 1.220511154391837,
+  "sram_area_um2": 18878.88384,
+  "removed_cells": 2099,
+  "method": "Mapped-cell constant propagation and unused-cone removal; sparse_enable tied 0; all remaining cell types unchanged; common ICG and SRAM."
+}

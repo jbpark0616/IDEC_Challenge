@@ -1,0 +1,1 @@
+PASS original runtime core (sparse=1) and constant-propagated mapped comparison (sparse=0) match 16 independent integer output words on controlled 50% zero-row input. Remaining cell mappings are unchanged. This is a sampled functional regression, not formal equivalence.

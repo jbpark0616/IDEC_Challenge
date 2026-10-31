@@ -1,0 +1,9 @@
+START case3_sparse0
+DONE case3_sparse0 {'case': 3, 'sparse': 0, 'input_NHWC': '[1,4,4,32]', 'local_output_channels': 8, 'duration_ps': 2054910, 'clock_period_ps': 1430, 'power_w': 0.03499246389, 'energy_nj': 71.9063639721999, 'unannotated_lef_only_sdel_pins': 40, 'analysis_elapsed_s': 73.01044001099945, 'vcd_sha256': '0eed3e2e1032eaf287a6b29f9870faf7eef780712e90b617e7e040c80ff5b77d'}
+START case3_sparse1
+DONE case3_sparse1 {'case': 3, 'sparse': 1, 'input_NHWC': '[1,4,4,32]', 'local_output_channels': 8, 'duration_ps': 1608750, 'clock_period_ps': 1430, 'power_w': 0.03356727213, 'energy_nj': 54.0013490391375, 'unannotated_lef_only_sdel_pins': 40, 'analysis_elapsed_s': 54.530527114002325, 'vcd_sha256': '3c3a64fbe94f4f6888887559a9e768546620197e84f6c78d8ac5de2a9c052467'}
+START case4_sparse0
+DONE case4_sparse0 {'case': 4, 'sparse': 0, 'input_NHWC': '[1,4,4,32]', 'local_output_channels': 8, 'duration_ps': 2054910, 'clock_period_ps': 1430, 'power_w': 0.03394185752, 'energy_nj': 69.7474624364232, 'unannotated_lef_only_sdel_pins': 40, 'analysis_elapsed_s': 65.92642894500023, 'vcd_sha256': '763a99c0f67f8c274582c179090ee11811a42a9b3b7d2ae8f68dde2f08b44da5'}
+START case4_sparse1
+DONE case4_sparse1 {'case': 4, 'sparse': 1, 'input_NHWC': '[1,4,4,32]', 'local_output_channels': 8, 'duration_ps': 1522950, 'clock_period_ps': 1430, 'power_w': 0.03217874467, 'energy_nj': 49.006619195176505, 'unannotated_lef_only_sdel_pins': 40, 'analysis_elapsed_s': 46.33663389800131, 'vcd_sha256': '977f86d8f547d51995b106f2ca356809a728bf77e7b796fbdb44e2edbdea652e'}
+PASS all requested layer-mode pairs

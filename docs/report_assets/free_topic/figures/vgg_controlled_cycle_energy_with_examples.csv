@@ -1,0 +1,3 @@
+layer,zero_row_pct,cycle_reduction_pct,energy_reduction_pct,input_NHWC,output_channels
+Conv9,49.9267578125,21.07623318385651,21.510909170664817,"[1,4,4,512]",4
+Conv13,13.818359375,2.2399999999999975,2.8088768296253064,"[1,2,2,512]",4

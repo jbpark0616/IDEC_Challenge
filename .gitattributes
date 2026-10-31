@@ -25,3 +25,6 @@ docs/designated_final/synth_stat.txt -whitespace
 submission/** -text
 docs/report_data/final_delivery/** -text
 *.sh text eol=lf
+
+# Preserve the submitted payload byte-for-byte, including its hash inventory.
+submission/IDEC2026_FREE_TOPIC/** -text

@@ -1,0 +1,6 @@
+VCD info: dumpfile /mnt/c/IDEC_challenge/free_topic_vgg/build/layer_ppa/case10_sparse1.vcd opened for output.
+PPA_WINDOW start_ps=11730290 end_ps=25828660 duration_ps=14098370
+V8_STORAGE case=10 shift=1 physical_bank_writes=0
+U_LOADING case=10 input=1,4,4,512 local_K=4 U_block=2 sparse=1 cycles=9856 transforms=0 V_writes=0 releases=0 requests=7 U_words=4096 weight_wait=0 rows=16408 early=0
+PASS U_LOADING compared_words=8 gate_outputs_match_integer_reference
+/mnt/c/IDEC_challenge/free_topic_vgg/build/layer_ppa/tb.sv:197: $finish called at 25831520 (1ps)

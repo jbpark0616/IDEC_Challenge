@@ -1,0 +1,2 @@
+COMPLETE: Conv9/Conv13, sparse OFF/ON, all four conditions passed output checks and activity annotation audit.
+See results/REPORT_KO.md and comparison.csv for scope and measurements.

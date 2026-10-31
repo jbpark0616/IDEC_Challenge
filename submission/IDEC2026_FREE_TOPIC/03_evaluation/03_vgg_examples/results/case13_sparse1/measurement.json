@@ -1,0 +1,13 @@
+{
+  "case": 13,
+  "sparse": 1,
+  "input_NHWC": "[1,2,2,512]",
+  "local_output_channels": 4,
+  "duration_ps": 4357210,
+  "clock_period_ps": 1430,
+  "power_w": 0.03740495443,
+  "energy_nj": 162.98124149194027,
+  "unannotated_lef_only_sdel_pins": 40,
+  "analysis_elapsed_s": 222.92208675000074,
+  "vcd_sha256": "c4507435cd39e33fb882105d3f3422a45d4d125ab04e6b0a7ae7434b1acea8f6"
+}
