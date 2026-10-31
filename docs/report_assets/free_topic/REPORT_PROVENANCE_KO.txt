@@ -1,6 +1,6 @@
 ﻿자유주제 결과보고서 근거 및 검증 범위
 작성일: 2026-10-31
-문서: docs/IDEC_자유주제_결과보고서.docx
+문서: docs/IDEC_자유주제_결과보고서_검토수정본.docx
 
 양식
 지정주제 검토수정본의 페이지 설정과 1 과제 개요 / 2 설계 목표 /
@@ -16,8 +16,7 @@
 SRAM-멀티캐스트 전체 공급: free_topic_vgg/evidence/multicast_profile/SUPPLY_REPORT_KO.txt
 통제 실험: free_topic_vgg/evidence/report700/core_controlled/
 실제 13개 레이어: free_topic_vgg/evidence/report700/cluster_all/
-별도 공급 개선: free_topic_vgg/evidence/feed_hwc8/REPORT_KO.txt
-개선본 bypass 비교: free_topic_vgg/evidence/feed8_bypass_audit/REPORT_SELECTION_KO.txt
+별도 HWC8 공급 개선은 최종 보고서에 채택하지 않았으며 2026-10-31 최종 정리에서 제거했다.
 합성 기준: free_topic_vgg/evidence/report_baseline_700mhz/
 계층 합성 검증: free_topic_vgg/evidence/full_cluster_reuse/REPORT_KO.txt
 SRAM 물리 모델 제한: free_topic_vgg/evidence/sram_macro/REPORT_KO.txt

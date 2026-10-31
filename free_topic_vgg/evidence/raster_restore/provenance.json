@@ -1,5 +1,0 @@
-{
-  "designated_generator_sha256": "f240a322391c251f77623492b8175bd62150f745588f3b3f01384a5635364f39",
-  "scope": "One core, H4 W4 C3 K6/K128, actual source SRAM; original and raster feed; sparse OFF/ON. No cluster changes.",
-  "tb_sha256": "b1cbb81601c4ffc4e0e2305389c7e1918c632d966eb0da5185cd3caaf4405a9d"
-}

@@ -17,11 +17,10 @@
   이전 U8/V16 결과: free_topic_vgg/evidence/full_model_u8_v16/
   U8/V8 전체 모델 RTL 재실행은 아직 완료되지 않았다.
 
-정리 전 복구본 (Git 제외, 파일별 SHA-256 검증 완료)
-  지정주제: archive/designated_before_final_20261029.zip
-  자유주제: archive/free_topic_cleanup_20261029.zip
-experiments/의 이전 지정주제 설계는 현재 빌드 입력으로 사용하지 않는다.
-
-자유주제 최신 합성: free_topic_vgg/evidence/single_core_fixed_window/REPORT_KO.txt
+최종 보고서/제출물 위치: docs/FINAL_DELIVERY.md
+보고서 비교 재현용 RTL: verification/designated_ablation_reference.zip
+  메인 설계가 아니라 지정주제 ablation 측정의 비교군이다.
+자유주제 최종 합성: free_topic_vgg/evidence/timing_writer_pipeline/REPORT_KO.txt
+  16코어, 배치 전 STA 725.89MHz. 성능 보고 기준 700MHz.
 고정본: free_topic_vgg/architecture/DESIGN_FREEZE_20261030.txt
-2026-10-30 정리: docs/cleanup_20261030/README.txt (폐기 실험 폴더 제거)
+정리 기록: docs/report_data/final_delivery/

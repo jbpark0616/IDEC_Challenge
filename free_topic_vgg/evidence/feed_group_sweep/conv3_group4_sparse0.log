@@ -1,6 +1,0 @@
-HOST_POLICY continuous=1
-START layer=2 input=[1,16,16,64] Cout=128 U_block=8 preload=16432
-PROFILE layer=2 sparse=0 activation_preload=2048 weight_preload=16432 cycles=53879 mac_beats=524288 mac_lanes=8388608 weight_wait_corecycles=0 writer_stall_corecycles=0
-LAYER_PASS layer=2 shape=[1,16,16,64]->128 cycles=53879 preload=16432 U_words=16384 replacements=0 source_reads=14400 compared_words=4096 resident_u=1
-PASS ISOLATED_LAYER stage=2 sparse=0 checked_words=4096
-- /mnt/c/IDEC_challenge/free_topic_vgg/build/cluster_immediate/tb.sv:214: Verilog $finish

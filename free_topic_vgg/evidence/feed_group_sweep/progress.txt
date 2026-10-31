@@ -1,2 +1,0 @@
-18/18 completed
-Conv11 group8 sparse=1

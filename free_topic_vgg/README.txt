@@ -55,9 +55,9 @@ U8/V8 부분 검증 48회, 양자화 16328조합, 실제 VGG Conv9/Conv13 부분
 U8/V8 full-model 전체 RTL 실행은 아직 미실시.
 evidence/full_model_u8_v16/의 전체 통과 기록은 U8/V16 이미지 한 장이다.
 Colab U8/V8 정확도 93.94%는 소프트웨어 10000장 결과이며 RTL 검증과 다르다.
-최신 단일 코어 합성은 evidence/single_core_fixed_window/REPORT_KO.txt 참고.
-FF 12,970개, SRAM 12개, 배치배선 전 추정 약 560MHz이며 1GHz 미달.
-최신 타일 공급 구조의 전체 VGG 재검증 및 큰 레이어 전후 사이클 비교는 미완료.
+최종 16코어 합성은 evidence/timing_writer_pipeline/REPORT_KO.txt 참고.
+배치 전 STA 최소 주기 1,377.62ps, 환산 주파수 725.89MHz이며 보고 기준은 700MHz다.
+단일 코어의 과거 고정 시점 결과는 evidence/single_core_fixed_window/에 별도 보존했다.
 SRAM physical view 관련 제한은
 evidence/sram_macro/REPORT_KO.txt 및 third_party/asap7_sram/README.md 참고.
 레이어 명령은 테스트벤치가 공급한다. PCIe/DRAM PHY 구현을 포함하지 않는다.
@@ -66,9 +66,9 @@ Git
 ---
 벡터, 모델 바이너리, 시뮬레이터 빌드 결과는 제외한다.
 모델/SRAM 라이선스와 provenance는 함께 유지한다.
-정리 전 복구 압축본은 상위 archive/에 있고 Git에서 제외된다.
+보고서 근거와 최종 합성 netlist는 evidence/에 보존한다. 폐기 실험의 복구 ZIP은 삭제했다.
 
 현재 설계 고정: architecture/DESIGN_FREEZE_20261030.txt
 메인 입력 경로: SRAM activation feed -> 고정 4x4 tile reader -> input transform -> V SRAM 재사용.
 현재 공급 회귀: verification/fixed_window/ (기존 v8 회귀도 보존).
-2026-10-30 폐기 실험과 이전 합성 빌드 정리 기록: ../docs/cleanup_20261030/README.txt
+최종 자료 안내: ../docs/FINAL_DELIVERY.md

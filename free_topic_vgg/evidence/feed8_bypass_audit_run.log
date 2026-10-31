@@ -1,7 +1,0 @@
-BUILD PASS
-PASS 1/6 Conv3 sparse=0 cycles=37121
-PASS 2/6 Conv3 sparse=1 cycles=36071
-PASS 3/6 Conv5 sparse=0 cycles=36833
-PASS 4/6 Conv5 sparse=1 cycles=35222
-PASS 5/6 Conv11 sparse=0 cycles=466426
-PASS 6/6 Conv11 sparse=1 cycles=466243
