@@ -32,6 +32,86 @@ ICG는 유효 작업이 없는 레지스터의 클록 활동을 억제한다. �
 pooling 및 requantization을 연속 적용하여 중간 데이터 이동을 줄인다.
 두 주제는 이 최적화 방법을 공유하며, 저장 장치와 데이터 공급 구조는 모델의 규모에 맞춰 구성했다.
 
+### 1.1 무엇을 검출하는가: 변환 영역의 zero row
+
+![입력 activation과 변환 영역 sparsity](docs/report_assets/designated_topic/figures/winograd_activation_sparsity_intuition.svg)
+
+검출 단위는 원본 이미지의 개별 zero pixel이 아니라 **변환된 4×4 타일의 한 행, 즉 네 원소 전체가 0인 경우**이다.
+입력값이 모두 0인 영역뿐 아니라, 서로 같은 비영 입력이 변환의 뺄셈에서 상쇄되는 경우도 검출한다.
+예를 들어 입력 타일의 첫 번째 행과 세 번째 행이 같으면, 첫 변환의 `T[0,:] = d[0,:] − d[2,:]`는 0이 된다.
+이 행은 가중치 값과 관계없이 곱셈·누산 결과에 기여하지 않는다.
+
+### 1.2 어디서 검출하는가: 두 변환 단계 사이
+
+![입력 변환 파이프라인의 zero-row 검출](docs/report_assets/designated_topic/figures/winograd_input_transform_zero_detection.svg)
+
+지정주제의 [입력 변환 RTL](verilog/winograd_input_transform.v)은 세로 방향 변환 T0와
+가로 방향 변환 T1의 두 단계로 구성된다.
+
+```text
+4×4 입력 d → T0: T = Bᵀd → T 레지스터 → T1: V = TB → V 레지스터
+                                       └→ 행별 NOR → zero_rows[3:0]
+```
+
+`temp_tile`에 저장된 한 행은 4 × 10 = 40비트이다. 각 행에 reduction NOR를 적용하여
+모든 비트가 0이면 해당 `zero_rows` 비트를 1로 설정한다. mask는 T1의 결과 V와 같은 클록 경계에서
+등록되며, 출력이 정지하면 데이터와 함께 유지된다. **검출 전용 파이프라인 단계를 추가하지 않는다.**
+
+```verilog
+zero_rows[row] <= ~|temp_tile[row*TILE_SIZE*TEMP_BITS +: TILE_SIZE*TEMP_BITS];
+```
+
+이 위치에서 검사할 수 있는 이유는 오른쪽 변환 행렬 B가 가역이기 때문이다.
+현재 지정주제의 ACT/TEMP/V = 8/10/11비트에서는 변환 중 잘림 없이 다음 관계가 성립한다.
+
+```text
+T[r,:] = 0  ⇔  V[r,:] = T[r,:]B = 0
+```
+
+따라서 **최종 변환의 행 전체가 0인 경우는 중간 단계에서도 검출할 수 있다.**
+T1에서 새로 생기는 개별 zero 원소는 있을 수 있지만, 행 전체가 0인 경우와는 다르다.
+이 설명은 지정주제의 정확한 정수 변환 기준이며, 자유주제의 V8 재양자화에서 생기는 zero와 구분한다.
+
+### 1.3 어떻게 사이클을 줄이는가: 행별 압축과 전체-zero 우회
+
+![V 버퍼의 행별 압축 및 전체-zero 작업 우회](docs/report_assets/designated_topic/figures/winograd_v_buffer_row_compaction_and_bypass.svg)
+
+지정주제의 [V replay buffer](verilog/winograd_v_replay_buffer.v)는 같은 공간 위치의 입력 채널 타일들과
+각 타일의 4비트 mask를 함께 저장한다. 출력 채널을 바꿔 재사용할 때도 mask를 유지한다.
+네 행은 각각 독립적으로 다음 유효 입력 채널을 선택하고, 그 채널에 대응하는 가중치 행을 가져온다.
+선택할 행이 없는 lane 그룹은 `row_enable`로 비활성화한다.
+
+예를 들어 한 공간 위치에 **입력 채널 3개, 채널마다 4×4 타일**이 있고,
+zero row를 제외한 각 행의 작업이 아래와 같다고 하자.
+
+| 변환 행 | 남은 입력 채널 | 첫 MAC 투입 | 두 번째 MAC 투입 |
+|---|---|---|---|
+| 0 | 채널 0, 2 | 채널 0의 행 0 | 채널 2의 행 0 |
+| 1 | 채널 1 | 채널 1의 행 1 | 비활성 |
+| 2 | 채널 0, 1 | 채널 0의 행 2 | 채널 1의 행 2 |
+| 3 | 채널 2 | 채널 2의 행 3 | 비활성 |
+
+채널을 일괄 처리하면 3번 필요한 MAC 투입을 행별 압축으로 **2번**에 끝낸다.
+각 행 내부의 입력 채널 누산 순서는 유지하며, 마지막 투입에서 네 행의 결과를 함께 완료한다.
+이때 활성 MAC lane 슬롯도 `3 × 16 = 48`개에서 `(2 + 1 + 2 + 1) × 4 = 24`개로 줄어든다.
+
+```text
+행 r의 유효 입력 채널 수 = n[r]
+일반 작업의 MAC 투입 횟수 = max(n[0], n[1], n[2], n[3])
+활성 MAC lane 슬롯 수 = 4 × Σr n[r]
+```
+
+이 식은 **한 공간 타일·한 출력 채널의 MAC 투입 횟수**이며, 공급 대기와 파이프라인 지연을 포함한 전체 사이클 식은 아니다.
+어느 한 행에 작업이 몰리면 MAC 투입량 감소와 사이클 감소가 같은 비율로 나타나지 않는다.
+
+모든 입력 채널의 네 행이 0이면 [코어 제어 RTL](verilog/winograd_conv_core.v)은 MAC과 출력 변환을 우회한다.
+이 작업은 순서 FIFO에 descriptor만 넣고, 앞선 일반 작업의 순서를 지킨 뒤 0인 convolution 결과를 후처리기로 전달한다.
+**Bias·ReLU·pooling 등의 후처리는 그대로 수행하므로, 전체-zero 입력의 최종 출력이 반드시 0인 것은 아니다.**
+
+이처럼 sparsity 제어는 실행할 작업 수를 줄이고, ICG는 남아 있는 유휴 구간의 클록 활동을 줄인다.
+공급 대기가 실행 시간을 지배하면 연산을 생략해도 전체 사이클 절감은 제한되며,
+자유주제의 공급 속도별 통제 실험에서는 이 차이를 별도로 측정했다.
+
 ## 2. 지정주제: 단일 코어 MNIST 가속기
 
 ![지정주제 전체 구조](docs/report_assets/designated_topic/figures/winograd_cnn_architecture.svg)
