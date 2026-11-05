@@ -1,0 +1,193 @@
+{
+  "scope": "one extracted compute core, 8 internal SRAM macros; activation SRAM and multicast excluded",
+  "comparison": "same physical netlist, ICG enabled in both, runtime sparsity OFF vs ON",
+  "source_netlist_sha256": "614c71ab29158ebf3b6de34fd788922c85c249fd0dac43c0e3ef57e2bfba8dd9",
+  "original_module": "\\$paramod$d587d930029aee64a0d8ff30998ae49675447cfa\\vgg_sram_conv_layer",
+  "extracted_core_sha256": "c7b43071f1e0e1982f467b431dbd0239d506dc6bd43d5a26f514248586e17fe2",
+  "tb_sha256": "04db80cdece4052e96f6ca406f0d4d041fd3e4683ef0e71d1ec664b7620d6567",
+  "clock_period_ps": 1430,
+  "clock_mhz": 699.3006993006993,
+  "vectors": {
+    "vectors/config.hex": "0eff42e16d3619a35b454a0c5e94e09db457d004cf96666554c6813d3e8c578f",
+    "vectors/vshift.hex": "ed2c76f613cb966d488f58ed9973c981489c62cb19f1f74d7380f50d165ede6a",
+    "vectors/case0/bias.hex": "a9cc017ce569955587a54f194f94b25f3bd3722eaa1d9f75b7c6628b176a1ee2",
+    "vectors/case0/gold.hex": "8e4c5a56303c610d8c3e21498e4c1f7ddc87f35b4d3b69014e68e7e73dfa9c04",
+    "vectors/case0/input.hex": "fce2322df9aead70fbad946aaa43524d401bf487edfdcbc1fc95ea1c710183c7",
+    "vectors/case0/mult.hex": "d570b1a723be25029f6b226367679a461c00b82d7292a6c661f0d11e06fccc4d",
+    "vectors/case0/shift.hex": "2de84622a56b51c09e96feabbe375cb7b1fdb1502810076b130475a40a7dc5a1",
+    "vectors/case0/u8.hex": "e070cbc0a10538a8a337ca3dee0e9e60b9b92c474959b70ad725e10b3e2a0318",
+    "vectors/case1/bias.hex": "a9cc017ce569955587a54f194f94b25f3bd3722eaa1d9f75b7c6628b176a1ee2",
+    "vectors/case1/gold.hex": "be8046503de0b3a9abcfc91eea67ee0a4756d58f6d97ef60bfd636edfaae7581",
+    "vectors/case1/input.hex": "463a8d8aa97365fcf120e966258d91b8224ecb505b2e7efdbbe126da299b8478",
+    "vectors/case1/mult.hex": "d570b1a723be25029f6b226367679a461c00b82d7292a6c661f0d11e06fccc4d",
+    "vectors/case1/shift.hex": "2de84622a56b51c09e96feabbe375cb7b1fdb1502810076b130475a40a7dc5a1",
+    "vectors/case1/u8.hex": "e070cbc0a10538a8a337ca3dee0e9e60b9b92c474959b70ad725e10b3e2a0318",
+    "vectors/case10/bias.hex": "233ad60cfa6de8f787d4730ecd6c18283b9b0bf5f2664cd769a1fe6ba59ae386",
+    "vectors/case10/gold.hex": "a1bbc27ba9669a36dabc936af98227fc624452942a52676d4f743695bf7da66b",
+    "vectors/case10/input.hex": "47c67213f3f58f04d5a77f65b269afd02fae89286ed066ca165c309ad4cce6d0",
+    "vectors/case10/mult.hex": "11bf850242447edad5bfecef2f050df2f9f34945bebf9bf8d997322e33927522",
+    "vectors/case10/shift.hex": "d0c5d56cd8ed40805691571b7c49946b4b125aacedd65c489c3dce9b7bcd7b0b",
+    "vectors/case10/u8.hex": "2f0132b88223a4fee62927ab22b9b17700ed956761d5b01adbaa66f1f8a3c50e",
+    "vectors/case11/bias.hex": "233ad60cfa6de8f787d4730ecd6c18283b9b0bf5f2664cd769a1fe6ba59ae386",
+    "vectors/case11/gold.hex": "ae41bacf85a166f1a0275a78cff2515a0d0c01af16e224b1fed36f7ffbb9266c",
+    "vectors/case11/input.hex": "44fe64f9dc685d42dcf9f33fd5e067e7fca68d5fbaf9b44e7393f2140256072d",
+    "vectors/case11/mult.hex": "11bf850242447edad5bfecef2f050df2f9f34945bebf9bf8d997322e33927522",
+    "vectors/case11/shift.hex": "d0c5d56cd8ed40805691571b7c49946b4b125aacedd65c489c3dce9b7bcd7b0b",
+    "vectors/case11/u8.hex": "2f0132b88223a4fee62927ab22b9b17700ed956761d5b01adbaa66f1f8a3c50e",
+    "vectors/case12/bias.hex": "233ad60cfa6de8f787d4730ecd6c18283b9b0bf5f2664cd769a1fe6ba59ae386",
+    "vectors/case12/gold.hex": "983fd96e793111f1ef33bc768087f4180c59b6190bd0c4ccc1f267ef06ef63db",
+    "vectors/case12/input.hex": "e2810e48003799173c303454a57f1aaf2c611183ee62ce13b5ddb92bbdf4184e",
+    "vectors/case12/mult.hex": "11bf850242447edad5bfecef2f050df2f9f34945bebf9bf8d997322e33927522",
+    "vectors/case12/shift.hex": "d0c5d56cd8ed40805691571b7c49946b4b125aacedd65c489c3dce9b7bcd7b0b",
+    "vectors/case12/u8.hex": "2f0132b88223a4fee62927ab22b9b17700ed956761d5b01adbaa66f1f8a3c50e",
+    "vectors/case13/bias.hex": "233ad60cfa6de8f787d4730ecd6c18283b9b0bf5f2664cd769a1fe6ba59ae386",
+    "vectors/case13/gold.hex": "2a478a9c7c6f0f66686e42e9fce9116cbb1446e69a0b9d321d94ff44ed5f2187",
+    "vectors/case13/input.hex": "7a44917302543e090d76f4a977e0adf58f2fef796620ec779c7182e046ed51fe",
+    "vectors/case13/mult.hex": "11bf850242447edad5bfecef2f050df2f9f34945bebf9bf8d997322e33927522",
+    "vectors/case13/shift.hex": "d0c5d56cd8ed40805691571b7c49946b4b125aacedd65c489c3dce9b7bcd7b0b",
+    "vectors/case13/u8.hex": "2f0132b88223a4fee62927ab22b9b17700ed956761d5b01adbaa66f1f8a3c50e",
+    "vectors/case14/bias.hex": "233ad60cfa6de8f787d4730ecd6c18283b9b0bf5f2664cd769a1fe6ba59ae386",
+    "vectors/case14/gold.hex": "a1bbc27ba9669a36dabc936af98227fc624452942a52676d4f743695bf7da66b",
+    "vectors/case14/input.hex": "c4d5751dd92ac13028cdbddb6042c11d44e154dacb8514889a786ac790dca085",
+    "vectors/case14/mult.hex": "11bf850242447edad5bfecef2f050df2f9f34945bebf9bf8d997322e33927522",
+    "vectors/case14/shift.hex": "d0c5d56cd8ed40805691571b7c49946b4b125aacedd65c489c3dce9b7bcd7b0b",
+    "vectors/case14/u8.hex": "2f0132b88223a4fee62927ab22b9b17700ed956761d5b01adbaa66f1f8a3c50e",
+    "vectors/case15/bias.hex": "233ad60cfa6de8f787d4730ecd6c18283b9b0bf5f2664cd769a1fe6ba59ae386",
+    "vectors/case15/gold.hex": "a1bbc27ba9669a36dabc936af98227fc624452942a52676d4f743695bf7da66b",
+    "vectors/case15/input.hex": "931cf7db8d95fbda594e0d84c1e78a1d5ffd341dbddfe4f8eb5af872dcfda7e9",
+    "vectors/case15/mult.hex": "11bf850242447edad5bfecef2f050df2f9f34945bebf9bf8d997322e33927522",
+    "vectors/case15/shift.hex": "d0c5d56cd8ed40805691571b7c49946b4b125aacedd65c489c3dce9b7bcd7b0b",
+    "vectors/case15/u8.hex": "2f0132b88223a4fee62927ab22b9b17700ed956761d5b01adbaa66f1f8a3c50e",
+    "vectors/case2/bias.hex": "a9cc017ce569955587a54f194f94b25f3bd3722eaa1d9f75b7c6628b176a1ee2",
+    "vectors/case2/gold.hex": "bab6c75592bd1a4ca5a12284a36a2520ca969151ac6dab9d336de6dd615d5a2f",
+    "vectors/case2/input.hex": "47c67213f3f58f04d5a77f65b269afd02fae89286ed066ca165c309ad4cce6d0",
+    "vectors/case2/mult.hex": "d570b1a723be25029f6b226367679a461c00b82d7292a6c661f0d11e06fccc4d",
+    "vectors/case2/shift.hex": "2de84622a56b51c09e96feabbe375cb7b1fdb1502810076b130475a40a7dc5a1",
+    "vectors/case2/u8.hex": "e070cbc0a10538a8a337ca3dee0e9e60b9b92c474959b70ad725e10b3e2a0318",
+    "vectors/case3/bias.hex": "a9cc017ce569955587a54f194f94b25f3bd3722eaa1d9f75b7c6628b176a1ee2",
+    "vectors/case3/gold.hex": "6a30ecc009ea23a5a3aa5625cbbd21d4fac560227027d7c3acc6c02326ef003a",
+    "vectors/case3/input.hex": "44fe64f9dc685d42dcf9f33fd5e067e7fca68d5fbaf9b44e7393f2140256072d",
+    "vectors/case3/mult.hex": "d570b1a723be25029f6b226367679a461c00b82d7292a6c661f0d11e06fccc4d",
+    "vectors/case3/shift.hex": "2de84622a56b51c09e96feabbe375cb7b1fdb1502810076b130475a40a7dc5a1",
+    "vectors/case3/u8.hex": "e070cbc0a10538a8a337ca3dee0e9e60b9b92c474959b70ad725e10b3e2a0318",
+    "vectors/case4/bias.hex": "a9cc017ce569955587a54f194f94b25f3bd3722eaa1d9f75b7c6628b176a1ee2",
+    "vectors/case4/gold.hex": "da2d466eb7ce172affdf1e7be58434e050fc8fa7cd676e2957897b59044e468b",
+    "vectors/case4/input.hex": "e2810e48003799173c303454a57f1aaf2c611183ee62ce13b5ddb92bbdf4184e",
+    "vectors/case4/mult.hex": "d570b1a723be25029f6b226367679a461c00b82d7292a6c661f0d11e06fccc4d",
+    "vectors/case4/shift.hex": "2de84622a56b51c09e96feabbe375cb7b1fdb1502810076b130475a40a7dc5a1",
+    "vectors/case4/u8.hex": "e070cbc0a10538a8a337ca3dee0e9e60b9b92c474959b70ad725e10b3e2a0318",
+    "vectors/case5/bias.hex": "a9cc017ce569955587a54f194f94b25f3bd3722eaa1d9f75b7c6628b176a1ee2",
+    "vectors/case5/gold.hex": "d9fbb6a920af2d1314ceb9ccf9b3c218c4afce901599792fcd200fd8c41d505c",
+    "vectors/case5/input.hex": "7a44917302543e090d76f4a977e0adf58f2fef796620ec779c7182e046ed51fe",
+    "vectors/case5/mult.hex": "d570b1a723be25029f6b226367679a461c00b82d7292a6c661f0d11e06fccc4d",
+    "vectors/case5/shift.hex": "2de84622a56b51c09e96feabbe375cb7b1fdb1502810076b130475a40a7dc5a1",
+    "vectors/case5/u8.hex": "e070cbc0a10538a8a337ca3dee0e9e60b9b92c474959b70ad725e10b3e2a0318",
+    "vectors/case6/bias.hex": "a9cc017ce569955587a54f194f94b25f3bd3722eaa1d9f75b7c6628b176a1ee2",
+    "vectors/case6/gold.hex": "bab6c75592bd1a4ca5a12284a36a2520ca969151ac6dab9d336de6dd615d5a2f",
+    "vectors/case6/input.hex": "c4d5751dd92ac13028cdbddb6042c11d44e154dacb8514889a786ac790dca085",
+    "vectors/case6/mult.hex": "d570b1a723be25029f6b226367679a461c00b82d7292a6c661f0d11e06fccc4d",
+    "vectors/case6/shift.hex": "2de84622a56b51c09e96feabbe375cb7b1fdb1502810076b130475a40a7dc5a1",
+    "vectors/case6/u8.hex": "e070cbc0a10538a8a337ca3dee0e9e60b9b92c474959b70ad725e10b3e2a0318",
+    "vectors/case7/bias.hex": "a9cc017ce569955587a54f194f94b25f3bd3722eaa1d9f75b7c6628b176a1ee2",
+    "vectors/case7/gold.hex": "bab6c75592bd1a4ca5a12284a36a2520ca969151ac6dab9d336de6dd615d5a2f",
+    "vectors/case7/input.hex": "931cf7db8d95fbda594e0d84c1e78a1d5ffd341dbddfe4f8eb5af872dcfda7e9",
+    "vectors/case7/mult.hex": "d570b1a723be25029f6b226367679a461c00b82d7292a6c661f0d11e06fccc4d",
+    "vectors/case7/shift.hex": "2de84622a56b51c09e96feabbe375cb7b1fdb1502810076b130475a40a7dc5a1",
+    "vectors/case7/u8.hex": "e070cbc0a10538a8a337ca3dee0e9e60b9b92c474959b70ad725e10b3e2a0318",
+    "vectors/case8/bias.hex": "233ad60cfa6de8f787d4730ecd6c18283b9b0bf5f2664cd769a1fe6ba59ae386",
+    "vectors/case8/gold.hex": "aa68cc57a4c23b10320a4b2d264d171833da5244e34e061cb7a0fa465bfc6c56",
+    "vectors/case8/input.hex": "fce2322df9aead70fbad946aaa43524d401bf487edfdcbc1fc95ea1c710183c7",
+    "vectors/case8/mult.hex": "11bf850242447edad5bfecef2f050df2f9f34945bebf9bf8d997322e33927522",
+    "vectors/case8/shift.hex": "d0c5d56cd8ed40805691571b7c49946b4b125aacedd65c489c3dce9b7bcd7b0b",
+    "vectors/case8/u8.hex": "2f0132b88223a4fee62927ab22b9b17700ed956761d5b01adbaa66f1f8a3c50e",
+    "vectors/case9/bias.hex": "233ad60cfa6de8f787d4730ecd6c18283b9b0bf5f2664cd769a1fe6ba59ae386",
+    "vectors/case9/gold.hex": "8cfa50aed6523acbf5336d5539cafed6b1dacabbc56a2677011fc4d20de04dd4",
+    "vectors/case9/input.hex": "463a8d8aa97365fcf120e966258d91b8224ecb505b2e7efdbbe126da299b8478",
+    "vectors/case9/mult.hex": "11bf850242447edad5bfecef2f050df2f9f34945bebf9bf8d997322e33927522",
+    "vectors/case9/shift.hex": "d0c5d56cd8ed40805691571b7c49946b4b125aacedd65c489c3dce9b7bcd7b0b",
+    "vectors/case9/u8.hex": "2f0132b88223a4fee62927ab22b9b17700ed956761d5b01adbaa66f1f8a3c50e"
+  },
+  "lib_files": {
+    "AO": {
+      "file": "/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz",
+      "units": {
+        "current_unit": "1mA",
+        "leakage_power_unit": "1pW",
+        "time_unit": "1ps",
+        "voltage_unit": "1V"
+      },
+      "nominal": {
+        "nom_process": "1",
+        "nom_temperature": "0",
+        "nom_voltage": "0.77"
+      }
+    },
+    "INVBUF": {
+      "file": "/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz",
+      "units": {
+        "current_unit": "1mA",
+        "leakage_power_unit": "1pW",
+        "time_unit": "1ps",
+        "voltage_unit": "1V"
+      },
+      "nominal": {
+        "nom_process": "1",
+        "nom_temperature": "0",
+        "nom_voltage": "0.77"
+      }
+    },
+    "OA": {
+      "file": "/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz",
+      "units": {
+        "current_unit": "1mA",
+        "leakage_power_unit": "1pW",
+        "time_unit": "1ps",
+        "voltage_unit": "1V"
+      },
+      "nominal": {
+        "nom_process": "1",
+        "nom_temperature": "0",
+        "nom_voltage": "0.77"
+      }
+    },
+    "SIMPLE": {
+      "file": "/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz",
+      "units": {
+        "current_unit": "1mA",
+        "leakage_power_unit": "1pW",
+        "time_unit": "1ps",
+        "voltage_unit": "1V"
+      },
+      "nominal": {
+        "nom_process": "1",
+        "nom_temperature": "0",
+        "nom_voltage": "0.77"
+      }
+    },
+    "SEQ": {
+      "file": "/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib",
+      "units": {
+        "current_unit": "1mA",
+        "leakage_power_unit": "1pW",
+        "time_unit": "1ps",
+        "voltage_unit": "1V"
+      },
+      "nominal": {
+        "nom_process": "1",
+        "nom_temperature": "0",
+        "nom_voltage": "0.77"
+      }
+    }
+  },
+  "library_sha256": {
+    "/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz": "9e3848d247f9bbc8d405ee55617af98797b6d5be9a1af02988ec5d59ca9dad99",
+    "/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz": "e0c65688e6067ee485b0693651298636ae9ef5a0512154bcd4b7c4914d1a0ac6",
+    "/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz": "cc9651e9235bcd29bba0737b7ba7a8afddde7462df3ff48d3870c22d05c86fb3",
+    "/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz": "0c93d44fcc6a30182d71031997771ea3fc0d09235201e9252f71daf48a1c7a38",
+    "/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib": "d9b6e75c8720cdd450cff15178528502cc8df34c5ab6b0ffb53fc99d664b5302"
+  },
+  "comparison_scope": "runtime sparsity OFF versus ON, ICG enabled in both; same mapped hardware",
+  "controlled_shape": "[1,4,4,32] -> 8 channels",
+  "generator_sha256": "1b59afab280446a2808181d11147764fdf0f6306f6f4ee05fb0a249325d5fdc2",
+  "offer_period_cycles": 1
+}

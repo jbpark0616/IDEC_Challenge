@@ -6,7 +6,7 @@ import json
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
-manifest = json.loads((ROOT / 'docs/designated_final/rtl_sha256.json').read_text())
+manifest = json.loads((ROOT / 'docs/experiment_results/designated/designated_final/rtl_sha256.json').read_text())
 rtl = sorted((ROOT / 'verilog').glob('*.v'))
 actual = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in rtl}
 assert actual == manifest, 'Final RTL differs from frozen b1_g1 manifest'

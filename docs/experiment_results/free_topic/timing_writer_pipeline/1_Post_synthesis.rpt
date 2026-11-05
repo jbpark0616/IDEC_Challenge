@@ -1,0 +1,591 @@
+
+==========================================================================
+Post synthesis report_tns
+--------------------------------------------------------------------------
+tns max -14115067.00
+
+==========================================================================
+Post synthesis report_wns
+--------------------------------------------------------------------------
+wns max -377.62
+
+==========================================================================
+Post synthesis report_worst_slack
+--------------------------------------------------------------------------
+worst slack max -377.62
+
+==========================================================================
+Post synthesis report_clock_min_period
+--------------------------------------------------------------------------
+clk period_min = 1377.62 fmax = 725.89
+
+==========================================================================
+Post synthesis report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: u_cluster.g_core[0].u_compute/consumer_state[0]$_DFF_PN1_
+          (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        200.00  200.00 ^ input external delay
+ 60614 42280.49    0.00    0.00  200.00 ^ rst_n (in)
+                                         rst_n (net)
+                  0.00    0.00  200.00 ^ u_cluster.g_core[0].u_compute/consumer_state[0]$_DFF_PN1_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                                200.00   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ u_cluster.g_core[0].u_compute/consumer_state[0]$_DFF_PN1_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                         25.79   25.79   library removal time
+                                 25.79   data required time
+-----------------------------------------------------------------------------
+                                 25.79   data required time
+                               -200.00   data arrival time
+-----------------------------------------------------------------------------
+                                174.21   slack (MET)
+
+
+Startpoint: u_cluster.u_feed.cache_tag[61][1]$_DFFE_PP_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_cluster.u_feed.cache_tag[61][1]$_DFFE_PP_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ u_cluster.u_feed.cache_tag[61][1]$_DFFE_PP_/CLK (DFFHQNx1_ASAP7_75t_R)
+     2    1.11   15.23   34.03   34.03 ^ u_cluster.u_feed.cache_tag[61][1]$_DFFE_PP_/QN (DFFHQNx1_ASAP7_75t_R)
+                                         _011727_ (net)
+                 15.23    0.00   34.03 ^ _191076_/B (AOI21x1_ASAP7_75t_R)
+     1    0.55    6.98    6.58   40.61 v _191076_/Y (AOI21x1_ASAP7_75t_R)
+                                         _032151_ (net)
+                  6.98    0.00   40.61 v u_cluster.u_feed.cache_tag[61][1]$_DFFE_PP_/D (DFFHQNx1_ASAP7_75t_R)
+                                 40.61   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ u_cluster.u_feed.cache_tag[61][1]$_DFFE_PP_/CLK (DFFHQNx1_ASAP7_75t_R)
+                          8.56    8.56   library hold time
+                                  8.56   data required time
+-----------------------------------------------------------------------------
+                                  8.56   data required time
+                                -40.61   data arrival time
+-----------------------------------------------------------------------------
+                                 32.05   slack (MET)
+
+
+
+==========================================================================
+Post synthesis report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: u_cluster.g_core[0].u_compute/consumer_state[0]$_DFF_PN1_
+          (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        200.00  200.00 ^ input external delay
+ 60614 48655.55    0.00    0.00  200.00 ^ rst_n (in)
+                                         rst_n (net)
+                  0.00    0.00  200.00 ^ u_cluster.g_core[0].u_compute/consumer_state[0]$_DFF_PN1_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                                200.00   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ u_cluster.g_core[0].u_compute/consumer_state[0]$_DFF_PN1_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                          6.99 1006.99   library recovery time
+                               1006.99   data required time
+-----------------------------------------------------------------------------
+                               1006.99   data required time
+                               -200.00   data arrival time
+-----------------------------------------------------------------------------
+                                806.99   slack (MET)
+
+
+Startpoint: u_cluster.g_core[0].u_compute/u_core.g_fc.u_fc.post_lane[1]$_DFFE_PN0P_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_cluster.g_core[0].u_compute/u_core.g_fc.u_fc.best_score[10]$_DFFE_PP_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ u_cluster.g_core[0].u_compute/u_core.g_fc.u_fc.post_lane[1]$_DFFE_PN0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+     6    4.43   36.29   50.00   50.00 ^ u_cluster.g_core[0].u_compute/u_core.g_fc.u_fc.post_lane[1]$_DFFE_PN0P_/QN (DFFASRHQNx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_044654_ (net)
+                 36.29    0.00   50.00 ^ u_cluster.g_core[0].u_compute/_170789_/A (BUFx2_ASAP7_75t_R)
+    10    8.73   29.17   30.62   80.62 ^ u_cluster.g_core[0].u_compute/_170789_/Y (BUFx2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146085_ (net)
+                 29.17    0.00   80.62 ^ u_cluster.g_core[0].u_compute/_170945_/A (BUFx2_ASAP7_75t_R)
+    10    5.80   20.52   25.29  105.90 ^ u_cluster.g_core[0].u_compute/_170945_/Y (BUFx2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146241_ (net)
+                 20.52    0.00  105.90 ^ u_cluster.g_core[0].u_compute/_187628_/A (BUFx2_ASAP7_75t_R)
+    10    5.77   20.20   23.61  129.51 ^ u_cluster.g_core[0].u_compute/_187628_/Y (BUFx2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_070777_ (net)
+                 20.20    0.00  129.51 ^ u_cluster.g_core[0].u_compute/_188248_/A (BUFx2_ASAP7_75t_R)
+    10    8.78   28.95   27.59  157.10 ^ u_cluster.g_core[0].u_compute/_188248_/Y (BUFx2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_071381_ (net)
+                 28.95    0.00  157.10 ^ u_cluster.g_core[0].u_compute/_188653_/A (BUFx2_ASAP7_75t_R)
+    10   10.79   34.98   32.00  189.10 ^ u_cluster.g_core[0].u_compute/_188653_/Y (BUFx2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_071775_ (net)
+                 34.98    0.00  189.10 ^ u_cluster.g_core[0].u_compute/_188958_/B (NAND2x1_ASAP7_75t_R)
+     1    0.43   10.12    7.41  196.51 v u_cluster.g_core[0].u_compute/_188958_/Y (NAND2x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_072071_ (net)
+                 10.12    0.00  196.51 v u_cluster.g_core[0].u_compute/_188959_/B (OA211x2_ASAP7_75t_R)
+     1    0.63    9.22   25.58  222.10 v u_cluster.g_core[0].u_compute/_188959_/Y (OA211x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_072072_ (net)
+                  9.22    0.00  222.10 v u_cluster.g_core[0].u_compute/_188960_/B (AO21x1_ASAP7_75t_R)
+     1    0.57    6.72   15.47  237.57 v u_cluster.g_core[0].u_compute/_188960_/Y (AO21x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_072073_ (net)
+                  6.72    0.00  237.57 v u_cluster.g_core[0].u_compute/_188968_/A2 (OA211x2_ASAP7_75t_R)
+     1    0.62    9.18   21.11  258.68 v u_cluster.g_core[0].u_compute/_188968_/Y (OA211x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_072081_ (net)
+                  9.18    0.00  258.68 v u_cluster.g_core[0].u_compute/_188984_/A1 (OA21x2_ASAP7_75t_R)
+     6    3.42   12.93   21.13  279.81 v u_cluster.g_core[0].u_compute/_188984_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_072097_ (net)
+                 12.93    0.00  279.81 v u_cluster.g_core[0].u_compute/_190585_/A (BUFx2_ASAP7_75t_R)
+    10    5.54   16.81   21.67  301.48 v u_cluster.g_core[0].u_compute/_190585_/Y (BUFx2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_073060_ (net)
+                 16.81    0.00  301.48 v u_cluster.g_core[0].u_compute/_191345_/A (AND2x2_ASAP7_75t_R)
+     1    2.24    9.30   20.01  321.49 v u_cluster.g_core[0].u_compute/_191345_/Y (AND2x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_031997_ (net)
+                  9.30    0.00  321.49 v u_cluster.g_core[0].u_compute/_285582_/B (FAx1_ASAP7_75t_R)
+     1    0.68   24.63   15.93  337.42 ^ u_cluster.g_core[0].u_compute/_285582_/CON (FAx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_031999_ (net)
+     1    0.68   19.35   11.49  348.91 v u_cluster.g_core[0].u_compute/_285582_/SN (FAx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_032000_ (net)
+                 19.35    0.00  348.91 v u_cluster.g_core[0].u_compute/_211534_/A (INVx1_ASAP7_75t_R)
+     1    1.65   14.84   12.02  360.93 ^ u_cluster.g_core[0].u_compute/_211534_/Y (INVx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_032001_ (net)
+                 14.84    0.00  360.93 ^ u_cluster.g_core[0].u_compute/_285740_/CI (FAx1_ASAP7_75t_R)
+     1    0.68   20.18   28.57  389.50 v u_cluster.g_core[0].u_compute/_285740_/SN (FAx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_032782_ (net)
+                 20.18    0.00  389.50 v u_cluster.g_core[0].u_compute/_211532_/A (INVx1_ASAP7_75t_R)
+     1    2.24   18.05   14.10  403.60 ^ u_cluster.g_core[0].u_compute/_211532_/Y (INVx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_032783_ (net)
+                 18.05    0.00  403.60 ^ u_cluster.g_core[0].u_compute/_286066_/B (FAx1_ASAP7_75t_R)
+     1    0.68   20.26   29.26  432.87 v u_cluster.g_core[0].u_compute/_286066_/SN (FAx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_034375_ (net)
+                 20.26    0.00  432.87 v u_cluster.g_core[0].u_compute/_211524_/A (INVx1_ASAP7_75t_R)
+     1    2.24   18.07   14.12  446.99 ^ u_cluster.g_core[0].u_compute/_211524_/Y (INVx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_034377_ (net)
+                 18.07    0.00  446.99 ^ u_cluster.g_core[0].u_compute/_286374_/B (FAx1_ASAP7_75t_R)
+     1    0.68   20.27   29.27  476.26 v u_cluster.g_core[0].u_compute/_286374_/SN (FAx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_035805_ (net)
+                 20.27    0.00  476.26 v u_cluster.g_core[0].u_compute/_211506_/A (INVx1_ASAP7_75t_R)
+     1    2.24   18.08   14.12  490.38 ^ u_cluster.g_core[0].u_compute/_211506_/Y (INVx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_035806_ (net)
+                 18.08    0.00  490.38 ^ u_cluster.g_core[0].u_compute/_286586_/B (FAx1_ASAP7_75t_R)
+     1    0.68   20.27   29.27  519.65 v u_cluster.g_core[0].u_compute/_286586_/SN (FAx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_036835_ (net)
+                 20.27    0.00  519.65 v u_cluster.g_core[0].u_compute/_202960_/A (INVx1_ASAP7_75t_R)
+     1    2.24   18.08   14.12  533.78 ^ u_cluster.g_core[0].u_compute/_202960_/Y (INVx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_032740_ (net)
+                 18.08    0.00  533.78 ^ u_cluster.g_core[0].u_compute/_285732_/B (FAx1_ASAP7_75t_R)
+     1    0.68   20.27   29.27  563.05 v u_cluster.g_core[0].u_compute/_285732_/SN (FAx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_032742_ (net)
+                 20.27    0.00  563.05 v u_cluster.g_core[0].u_compute/_185906_/A (INVx1_ASAP7_75t_R)
+     1    2.24   18.08   14.12  577.17 ^ u_cluster.g_core[0].u_compute/_185906_/Y (INVx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_032744_ (net)
+                 18.08    0.00  577.17 ^ u_cluster.g_core[0].u_compute/_287149_/B (FAx1_ASAP7_75t_R)
+     1    0.68   20.27   29.27  606.44 v u_cluster.g_core[0].u_compute/_287149_/SN (FAx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_039231_ (net)
+                 20.27    0.00  606.44 v u_cluster.g_core[0].u_compute/_272468_/A (INVx1_ASAP7_75t_R)
+     1    0.93   11.34    9.56  616.00 ^ u_cluster.g_core[0].u_compute/_272468_/Y (INVx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_039233_ (net)
+                 11.34    0.00  616.00 ^ u_cluster.g_core[0].u_compute/_290958_/B (HAxp5_ASAP7_75t_R)
+     4    2.87   35.26   44.50  660.50 v u_cluster.g_core[0].u_compute/_290958_/SN (HAxp5_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_050176_ (net)
+                 35.26    0.00  660.50 v u_cluster.g_core[0].u_compute/_170960_/A2 (OA21x2_ASAP7_75t_R)
+     1    0.65    7.02   23.48  683.98 v u_cluster.g_core[0].u_compute/_170960_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146256_ (net)
+                  7.02    0.00  683.98 v u_cluster.g_core[0].u_compute/_170961_/A2 (OA21x2_ASAP7_75t_R)
+     2    1.22    8.18   17.08  701.06 v u_cluster.g_core[0].u_compute/_170961_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146257_ (net)
+                  8.18    0.00  701.06 v u_cluster.g_core[0].u_compute/_170963_/A2 (OA211x2_ASAP7_75t_R)
+     1    0.65    9.25   21.55  722.61 v u_cluster.g_core[0].u_compute/_170963_/Y (OA211x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146259_ (net)
+                  9.25    0.00  722.61 v u_cluster.g_core[0].u_compute/_170967_/A2 (OA21x2_ASAP7_75t_R)
+     3    2.44   10.57   19.78  742.39 v u_cluster.g_core[0].u_compute/_170967_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146263_ (net)
+                 10.57    0.00  742.39 v u_cluster.g_core[0].u_compute/_170971_/B (OR2x2_ASAP7_75t_R)
+     3    1.85    9.53   18.59  760.98 v u_cluster.g_core[0].u_compute/_170971_/Y (OR2x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146267_ (net)
+                  9.53    0.00  760.98 v u_cluster.g_core[0].u_compute/_170974_/C (OR4x1_ASAP7_75t_R)
+     1    0.43    8.85   24.66  785.64 v u_cluster.g_core[0].u_compute/_170974_/Y (OR4x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146270_ (net)
+                  8.85    0.00  785.64 v u_cluster.g_core[0].u_compute/_170975_/B (OA211x2_ASAP7_75t_R)
+     1    0.55    9.00   25.01  810.65 v u_cluster.g_core[0].u_compute/_170975_/Y (OA211x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146271_ (net)
+                  9.00    0.00  810.65 v u_cluster.g_core[0].u_compute/_170976_/B1 (OA31x2_ASAP7_75t_R)
+     4    2.72   12.95   22.92  833.57 v u_cluster.g_core[0].u_compute/_170976_/Y (OA31x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146272_ (net)
+                 12.95    0.00  833.57 v u_cluster.g_core[0].u_compute/_170978_/B2 (AO221x1_ASAP7_75t_R)
+     2    1.17   11.00   23.26  856.84 v u_cluster.g_core[0].u_compute/_170978_/Y (AO221x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146274_ (net)
+                 11.00    0.00  856.84 v u_cluster.g_core[0].u_compute/_170982_/A1 (AO21x1_ASAP7_75t_R)
+     3    2.16   13.94   20.13  876.96 v u_cluster.g_core[0].u_compute/_170982_/Y (AO21x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146278_ (net)
+                 13.94    0.00  876.96 v u_cluster.g_core[0].u_compute/_170993_/A1 (AO211x2_ASAP7_75t_R)
+     2    1.84    8.71   19.18  896.14 v u_cluster.g_core[0].u_compute/_170993_/Y (AO211x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146289_ (net)
+                  8.71    0.00  896.14 v u_cluster.g_core[0].u_compute/_170999_/A1 (AO31x2_ASAP7_75t_R)
+     4    2.99   10.55   16.28  912.42 v u_cluster.g_core[0].u_compute/_170999_/Y (AO31x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146295_ (net)
+                 10.55    0.00  912.42 v u_cluster.g_core[0].u_compute/_172157_/A1 (OA21x2_ASAP7_75t_R)
+     2    1.72    8.80   18.67  931.08 v u_cluster.g_core[0].u_compute/_172157_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_147130_ (net)
+                  8.80    0.00  931.08 v u_cluster.g_core[0].u_compute/_172158_/A2 (OA21x2_ASAP7_75t_R)
+     3    2.32   10.50   19.46  950.54 v u_cluster.g_core[0].u_compute/_172158_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_147131_ (net)
+                 10.50    0.00  950.54 v u_cluster.g_core[0].u_compute/_172161_/B1 (OA222x2_ASAP7_75t_R)
+     3    1.80   11.13   23.78  974.32 v u_cluster.g_core[0].u_compute/_172161_/Y (OA222x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_147134_ (net)
+                 11.13    0.00  974.32 v u_cluster.g_core[0].u_compute/_210365_/C2 (OA222x2_ASAP7_75t_R)
+     2    1.15    9.14   23.87  998.20 v u_cluster.g_core[0].u_compute/_210365_/Y (OA222x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_082178_ (net)
+                  9.14    0.00  998.20 v u_cluster.g_core[0].u_compute/_210368_/B1 (AO221x1_ASAP7_75t_R)
+     2    1.72   13.73   23.35 1021.55 v u_cluster.g_core[0].u_compute/_210368_/Y (AO221x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_082181_ (net)
+                 13.73    0.00 1021.55 v u_cluster.g_core[0].u_compute/_210369_/A2 (OA21x2_ASAP7_75t_R)
+     2    1.72    9.03   19.89 1041.44 v u_cluster.g_core[0].u_compute/_210369_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_082182_ (net)
+                  9.03    0.00 1041.44 v u_cluster.g_core[0].u_compute/_210370_/A2 (OA21x2_ASAP7_75t_R)
+     2    1.72    9.03   18.50 1059.94 v u_cluster.g_core[0].u_compute/_210370_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_082183_ (net)
+                  9.03    0.00 1059.94 v u_cluster.g_core[0].u_compute/_210382_/A2 (OA21x2_ASAP7_75t_R)
+     1    0.92    7.06   17.13 1077.07 v u_cluster.g_core[0].u_compute/_210382_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_082193_ (net)
+                  7.06    0.00 1077.07 v u_cluster.g_core[0].u_compute/_210383_/B (XNOR2x2_ASAP7_75t_R)
+     4    2.80   12.86   23.03 1100.10 ^ u_cluster.g_core[0].u_compute/_210383_/Y (XNOR2x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/u_core.g_fc.u_fc.rounded[73] (net)
+                 12.86    0.00 1100.10 ^ u_cluster.g_core[0].u_compute/_293165_/B (HAxp5_ASAP7_75t_R)
+     3    1.83   24.82   33.90 1133.99 v u_cluster.g_core[0].u_compute/_293165_/SN (HAxp5_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_055374_ (net)
+                 24.82    0.00 1133.99 v u_cluster.g_core[0].u_compute/_237534_/A (OR4x1_ASAP7_75t_R)
+     2    1.10   12.07   28.16 1162.16 v u_cluster.g_core[0].u_compute/_237534_/Y (OR4x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100603_ (net)
+                 12.07    0.00 1162.16 v u_cluster.g_core[0].u_compute/_237535_/E (OR5x1_ASAP7_75t_R)
+     1    0.66   10.98   32.36 1194.52 v u_cluster.g_core[0].u_compute/_237535_/Y (OR5x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100604_ (net)
+                 10.98    0.00 1194.52 v u_cluster.g_core[0].u_compute/_237539_/A (OR4x1_ASAP7_75t_R)
+     1    0.68    9.73   22.87 1217.39 v u_cluster.g_core[0].u_compute/_237539_/Y (OR4x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100608_ (net)
+                  9.73    0.00 1217.39 v u_cluster.g_core[0].u_compute/_237540_/A (INVx1_ASAP7_75t_R)
+     1    0.57    6.71    6.09 1223.47 ^ u_cluster.g_core[0].u_compute/_237540_/Y (INVx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100609_ (net)
+                  6.71    0.00 1223.47 ^ u_cluster.g_core[0].u_compute/_237599_/B1 (AO221x1_ASAP7_75t_R)
+     3    2.35   19.12   22.82 1246.29 ^ u_cluster.g_core[0].u_compute/_237599_/Y (AO221x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100668_ (net)
+                 19.12    0.00 1246.29 ^ u_cluster.g_core[0].u_compute/_237600_/B (OA21x2_ASAP7_75t_R)
+     1    0.63    6.64   17.35 1263.64 ^ u_cluster.g_core[0].u_compute/_237600_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100669_ (net)
+                  6.64    0.00 1263.64 ^ u_cluster.g_core[0].u_compute/_237601_/C (OR3x1_ASAP7_75t_R)
+     1    0.58    6.44   10.97 1274.61 ^ u_cluster.g_core[0].u_compute/_237601_/Y (OR3x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100670_ (net)
+                  6.44    0.00 1274.61 ^ u_cluster.g_core[0].u_compute/_237602_/A (BUFx2_ASAP7_75t_R)
+     7    4.04   15.02   17.24 1291.85 ^ u_cluster.g_core[0].u_compute/_237602_/Y (BUFx2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100671_ (net)
+                 15.02    0.00 1291.85 ^ u_cluster.g_core[0].u_compute/_237603_/A (BUFx2_ASAP7_75t_R)
+    10    8.78   28.89   26.21 1318.06 ^ u_cluster.g_core[0].u_compute/_237603_/Y (BUFx2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100672_ (net)
+                 28.89    0.00 1318.06 ^ u_cluster.g_core[0].u_compute/_237671_/A (BUFx2_ASAP7_75t_R)
+    10    6.48   22.50   26.16 1344.23 ^ u_cluster.g_core[0].u_compute/_237671_/Y (BUFx2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100710_ (net)
+                 22.50    0.00 1344.23 ^ u_cluster.g_core[0].u_compute/_237690_/A2 (OA21x2_ASAP7_75t_R)
+     1    0.62    6.57   18.34 1362.57 ^ u_cluster.g_core[0].u_compute/_237690_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_059373_ (net)
+                  6.57    0.00 1362.57 ^ u_cluster.g_core[0].u_compute/u_core.g_fc.u_fc.best_score[10]$_DFFE_PP_/D (DFFHQNx1_ASAP7_75t_R)
+                               1362.57   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ u_cluster.g_core[0].u_compute/u_core.g_fc.u_fc.best_score[10]$_DFFE_PP_/CLK (DFFHQNx1_ASAP7_75t_R)
+                        -15.06  984.94   library setup time
+                                984.94   data required time
+-----------------------------------------------------------------------------
+                                984.94   data required time
+                               -1362.57   data arrival time
+-----------------------------------------------------------------------------
+                               -377.62   slack (VIOLATED)
+
+
+
+==========================================================================
+Post synthesis report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: u_cluster.g_core[0].u_compute/consumer_state[0]$_DFF_PN1_
+          (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        200.00  200.00 ^ input external delay
+ 60614 48655.55    0.00    0.00  200.00 ^ rst_n (in)
+                                         rst_n (net)
+                  0.00    0.00  200.00 ^ u_cluster.g_core[0].u_compute/consumer_state[0]$_DFF_PN1_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                                200.00   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ u_cluster.g_core[0].u_compute/consumer_state[0]$_DFF_PN1_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                          6.99 1006.99   library recovery time
+                               1006.99   data required time
+-----------------------------------------------------------------------------
+                               1006.99   data required time
+                               -200.00   data arrival time
+-----------------------------------------------------------------------------
+                                806.99   slack (MET)
+
+
+Startpoint: u_cluster.g_core[0].u_compute/u_core.g_fc.u_fc.post_lane[1]$_DFFE_PN0P_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_cluster.g_core[0].u_compute/u_core.g_fc.u_fc.best_score[10]$_DFFE_PP_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ u_cluster.g_core[0].u_compute/u_core.g_fc.u_fc.post_lane[1]$_DFFE_PN0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+     6    4.43   36.29   50.00   50.00 ^ u_cluster.g_core[0].u_compute/u_core.g_fc.u_fc.post_lane[1]$_DFFE_PN0P_/QN (DFFASRHQNx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_044654_ (net)
+                 36.29    0.00   50.00 ^ u_cluster.g_core[0].u_compute/_170789_/A (BUFx2_ASAP7_75t_R)
+    10    8.73   29.17   30.62   80.62 ^ u_cluster.g_core[0].u_compute/_170789_/Y (BUFx2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146085_ (net)
+                 29.17    0.00   80.62 ^ u_cluster.g_core[0].u_compute/_170945_/A (BUFx2_ASAP7_75t_R)
+    10    5.80   20.52   25.29  105.90 ^ u_cluster.g_core[0].u_compute/_170945_/Y (BUFx2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146241_ (net)
+                 20.52    0.00  105.90 ^ u_cluster.g_core[0].u_compute/_187628_/A (BUFx2_ASAP7_75t_R)
+    10    5.77   20.20   23.61  129.51 ^ u_cluster.g_core[0].u_compute/_187628_/Y (BUFx2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_070777_ (net)
+                 20.20    0.00  129.51 ^ u_cluster.g_core[0].u_compute/_188248_/A (BUFx2_ASAP7_75t_R)
+    10    8.78   28.95   27.59  157.10 ^ u_cluster.g_core[0].u_compute/_188248_/Y (BUFx2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_071381_ (net)
+                 28.95    0.00  157.10 ^ u_cluster.g_core[0].u_compute/_188653_/A (BUFx2_ASAP7_75t_R)
+    10   10.79   34.98   32.00  189.10 ^ u_cluster.g_core[0].u_compute/_188653_/Y (BUFx2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_071775_ (net)
+                 34.98    0.00  189.10 ^ u_cluster.g_core[0].u_compute/_188958_/B (NAND2x1_ASAP7_75t_R)
+     1    0.43   10.12    7.41  196.51 v u_cluster.g_core[0].u_compute/_188958_/Y (NAND2x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_072071_ (net)
+                 10.12    0.00  196.51 v u_cluster.g_core[0].u_compute/_188959_/B (OA211x2_ASAP7_75t_R)
+     1    0.63    9.22   25.58  222.10 v u_cluster.g_core[0].u_compute/_188959_/Y (OA211x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_072072_ (net)
+                  9.22    0.00  222.10 v u_cluster.g_core[0].u_compute/_188960_/B (AO21x1_ASAP7_75t_R)
+     1    0.57    6.72   15.47  237.57 v u_cluster.g_core[0].u_compute/_188960_/Y (AO21x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_072073_ (net)
+                  6.72    0.00  237.57 v u_cluster.g_core[0].u_compute/_188968_/A2 (OA211x2_ASAP7_75t_R)
+     1    0.62    9.18   21.11  258.68 v u_cluster.g_core[0].u_compute/_188968_/Y (OA211x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_072081_ (net)
+                  9.18    0.00  258.68 v u_cluster.g_core[0].u_compute/_188984_/A1 (OA21x2_ASAP7_75t_R)
+     6    3.42   12.93   21.13  279.81 v u_cluster.g_core[0].u_compute/_188984_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_072097_ (net)
+                 12.93    0.00  279.81 v u_cluster.g_core[0].u_compute/_190585_/A (BUFx2_ASAP7_75t_R)
+    10    5.54   16.81   21.67  301.48 v u_cluster.g_core[0].u_compute/_190585_/Y (BUFx2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_073060_ (net)
+                 16.81    0.00  301.48 v u_cluster.g_core[0].u_compute/_191345_/A (AND2x2_ASAP7_75t_R)
+     1    2.24    9.30   20.01  321.49 v u_cluster.g_core[0].u_compute/_191345_/Y (AND2x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_031997_ (net)
+                  9.30    0.00  321.49 v u_cluster.g_core[0].u_compute/_285582_/B (FAx1_ASAP7_75t_R)
+     1    0.68   24.63   15.93  337.42 ^ u_cluster.g_core[0].u_compute/_285582_/CON (FAx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_031999_ (net)
+     1    0.68   19.35   11.49  348.91 v u_cluster.g_core[0].u_compute/_285582_/SN (FAx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_032000_ (net)
+                 19.35    0.00  348.91 v u_cluster.g_core[0].u_compute/_211534_/A (INVx1_ASAP7_75t_R)
+     1    1.65   14.84   12.02  360.93 ^ u_cluster.g_core[0].u_compute/_211534_/Y (INVx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_032001_ (net)
+                 14.84    0.00  360.93 ^ u_cluster.g_core[0].u_compute/_285740_/CI (FAx1_ASAP7_75t_R)
+     1    0.68   20.18   28.57  389.50 v u_cluster.g_core[0].u_compute/_285740_/SN (FAx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_032782_ (net)
+                 20.18    0.00  389.50 v u_cluster.g_core[0].u_compute/_211532_/A (INVx1_ASAP7_75t_R)
+     1    2.24   18.05   14.10  403.60 ^ u_cluster.g_core[0].u_compute/_211532_/Y (INVx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_032783_ (net)
+                 18.05    0.00  403.60 ^ u_cluster.g_core[0].u_compute/_286066_/B (FAx1_ASAP7_75t_R)
+     1    0.68   20.26   29.26  432.87 v u_cluster.g_core[0].u_compute/_286066_/SN (FAx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_034375_ (net)
+                 20.26    0.00  432.87 v u_cluster.g_core[0].u_compute/_211524_/A (INVx1_ASAP7_75t_R)
+     1    2.24   18.07   14.12  446.99 ^ u_cluster.g_core[0].u_compute/_211524_/Y (INVx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_034377_ (net)
+                 18.07    0.00  446.99 ^ u_cluster.g_core[0].u_compute/_286374_/B (FAx1_ASAP7_75t_R)
+     1    0.68   20.27   29.27  476.26 v u_cluster.g_core[0].u_compute/_286374_/SN (FAx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_035805_ (net)
+                 20.27    0.00  476.26 v u_cluster.g_core[0].u_compute/_211506_/A (INVx1_ASAP7_75t_R)
+     1    2.24   18.08   14.12  490.38 ^ u_cluster.g_core[0].u_compute/_211506_/Y (INVx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_035806_ (net)
+                 18.08    0.00  490.38 ^ u_cluster.g_core[0].u_compute/_286586_/B (FAx1_ASAP7_75t_R)
+     1    0.68   20.27   29.27  519.65 v u_cluster.g_core[0].u_compute/_286586_/SN (FAx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_036835_ (net)
+                 20.27    0.00  519.65 v u_cluster.g_core[0].u_compute/_202960_/A (INVx1_ASAP7_75t_R)
+     1    2.24   18.08   14.12  533.78 ^ u_cluster.g_core[0].u_compute/_202960_/Y (INVx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_032740_ (net)
+                 18.08    0.00  533.78 ^ u_cluster.g_core[0].u_compute/_285732_/B (FAx1_ASAP7_75t_R)
+     1    0.68   20.27   29.27  563.05 v u_cluster.g_core[0].u_compute/_285732_/SN (FAx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_032742_ (net)
+                 20.27    0.00  563.05 v u_cluster.g_core[0].u_compute/_185906_/A (INVx1_ASAP7_75t_R)
+     1    2.24   18.08   14.12  577.17 ^ u_cluster.g_core[0].u_compute/_185906_/Y (INVx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_032744_ (net)
+                 18.08    0.00  577.17 ^ u_cluster.g_core[0].u_compute/_287149_/B (FAx1_ASAP7_75t_R)
+     1    0.68   20.27   29.27  606.44 v u_cluster.g_core[0].u_compute/_287149_/SN (FAx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_039231_ (net)
+                 20.27    0.00  606.44 v u_cluster.g_core[0].u_compute/_272468_/A (INVx1_ASAP7_75t_R)
+     1    0.93   11.34    9.56  616.00 ^ u_cluster.g_core[0].u_compute/_272468_/Y (INVx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_039233_ (net)
+                 11.34    0.00  616.00 ^ u_cluster.g_core[0].u_compute/_290958_/B (HAxp5_ASAP7_75t_R)
+     4    2.87   35.26   44.50  660.50 v u_cluster.g_core[0].u_compute/_290958_/SN (HAxp5_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_050176_ (net)
+                 35.26    0.00  660.50 v u_cluster.g_core[0].u_compute/_170960_/A2 (OA21x2_ASAP7_75t_R)
+     1    0.65    7.02   23.48  683.98 v u_cluster.g_core[0].u_compute/_170960_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146256_ (net)
+                  7.02    0.00  683.98 v u_cluster.g_core[0].u_compute/_170961_/A2 (OA21x2_ASAP7_75t_R)
+     2    1.22    8.18   17.08  701.06 v u_cluster.g_core[0].u_compute/_170961_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146257_ (net)
+                  8.18    0.00  701.06 v u_cluster.g_core[0].u_compute/_170963_/A2 (OA211x2_ASAP7_75t_R)
+     1    0.65    9.25   21.55  722.61 v u_cluster.g_core[0].u_compute/_170963_/Y (OA211x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146259_ (net)
+                  9.25    0.00  722.61 v u_cluster.g_core[0].u_compute/_170967_/A2 (OA21x2_ASAP7_75t_R)
+     3    2.44   10.57   19.78  742.39 v u_cluster.g_core[0].u_compute/_170967_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146263_ (net)
+                 10.57    0.00  742.39 v u_cluster.g_core[0].u_compute/_170971_/B (OR2x2_ASAP7_75t_R)
+     3    1.85    9.53   18.59  760.98 v u_cluster.g_core[0].u_compute/_170971_/Y (OR2x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146267_ (net)
+                  9.53    0.00  760.98 v u_cluster.g_core[0].u_compute/_170974_/C (OR4x1_ASAP7_75t_R)
+     1    0.43    8.85   24.66  785.64 v u_cluster.g_core[0].u_compute/_170974_/Y (OR4x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146270_ (net)
+                  8.85    0.00  785.64 v u_cluster.g_core[0].u_compute/_170975_/B (OA211x2_ASAP7_75t_R)
+     1    0.55    9.00   25.01  810.65 v u_cluster.g_core[0].u_compute/_170975_/Y (OA211x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146271_ (net)
+                  9.00    0.00  810.65 v u_cluster.g_core[0].u_compute/_170976_/B1 (OA31x2_ASAP7_75t_R)
+     4    2.72   12.95   22.92  833.57 v u_cluster.g_core[0].u_compute/_170976_/Y (OA31x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146272_ (net)
+                 12.95    0.00  833.57 v u_cluster.g_core[0].u_compute/_170978_/B2 (AO221x1_ASAP7_75t_R)
+     2    1.17   11.00   23.26  856.84 v u_cluster.g_core[0].u_compute/_170978_/Y (AO221x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146274_ (net)
+                 11.00    0.00  856.84 v u_cluster.g_core[0].u_compute/_170982_/A1 (AO21x1_ASAP7_75t_R)
+     3    2.16   13.94   20.13  876.96 v u_cluster.g_core[0].u_compute/_170982_/Y (AO21x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146278_ (net)
+                 13.94    0.00  876.96 v u_cluster.g_core[0].u_compute/_170993_/A1 (AO211x2_ASAP7_75t_R)
+     2    1.84    8.71   19.18  896.14 v u_cluster.g_core[0].u_compute/_170993_/Y (AO211x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146289_ (net)
+                  8.71    0.00  896.14 v u_cluster.g_core[0].u_compute/_170999_/A1 (AO31x2_ASAP7_75t_R)
+     4    2.99   10.55   16.28  912.42 v u_cluster.g_core[0].u_compute/_170999_/Y (AO31x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_146295_ (net)
+                 10.55    0.00  912.42 v u_cluster.g_core[0].u_compute/_172157_/A1 (OA21x2_ASAP7_75t_R)
+     2    1.72    8.80   18.67  931.08 v u_cluster.g_core[0].u_compute/_172157_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_147130_ (net)
+                  8.80    0.00  931.08 v u_cluster.g_core[0].u_compute/_172158_/A2 (OA21x2_ASAP7_75t_R)
+     3    2.32   10.50   19.46  950.54 v u_cluster.g_core[0].u_compute/_172158_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_147131_ (net)
+                 10.50    0.00  950.54 v u_cluster.g_core[0].u_compute/_172161_/B1 (OA222x2_ASAP7_75t_R)
+     3    1.80   11.13   23.78  974.32 v u_cluster.g_core[0].u_compute/_172161_/Y (OA222x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_147134_ (net)
+                 11.13    0.00  974.32 v u_cluster.g_core[0].u_compute/_210365_/C2 (OA222x2_ASAP7_75t_R)
+     2    1.15    9.14   23.87  998.20 v u_cluster.g_core[0].u_compute/_210365_/Y (OA222x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_082178_ (net)
+                  9.14    0.00  998.20 v u_cluster.g_core[0].u_compute/_210368_/B1 (AO221x1_ASAP7_75t_R)
+     2    1.72   13.73   23.35 1021.55 v u_cluster.g_core[0].u_compute/_210368_/Y (AO221x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_082181_ (net)
+                 13.73    0.00 1021.55 v u_cluster.g_core[0].u_compute/_210369_/A2 (OA21x2_ASAP7_75t_R)
+     2    1.72    9.03   19.89 1041.44 v u_cluster.g_core[0].u_compute/_210369_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_082182_ (net)
+                  9.03    0.00 1041.44 v u_cluster.g_core[0].u_compute/_210370_/A2 (OA21x2_ASAP7_75t_R)
+     2    1.72    9.03   18.50 1059.94 v u_cluster.g_core[0].u_compute/_210370_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_082183_ (net)
+                  9.03    0.00 1059.94 v u_cluster.g_core[0].u_compute/_210382_/A2 (OA21x2_ASAP7_75t_R)
+     1    0.92    7.06   17.13 1077.07 v u_cluster.g_core[0].u_compute/_210382_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_082193_ (net)
+                  7.06    0.00 1077.07 v u_cluster.g_core[0].u_compute/_210383_/B (XNOR2x2_ASAP7_75t_R)
+     4    2.80   12.86   23.03 1100.10 ^ u_cluster.g_core[0].u_compute/_210383_/Y (XNOR2x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/u_core.g_fc.u_fc.rounded[73] (net)
+                 12.86    0.00 1100.10 ^ u_cluster.g_core[0].u_compute/_293165_/B (HAxp5_ASAP7_75t_R)
+     3    1.83   24.82   33.90 1133.99 v u_cluster.g_core[0].u_compute/_293165_/SN (HAxp5_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_055374_ (net)
+                 24.82    0.00 1133.99 v u_cluster.g_core[0].u_compute/_237534_/A (OR4x1_ASAP7_75t_R)
+     2    1.10   12.07   28.16 1162.16 v u_cluster.g_core[0].u_compute/_237534_/Y (OR4x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100603_ (net)
+                 12.07    0.00 1162.16 v u_cluster.g_core[0].u_compute/_237535_/E (OR5x1_ASAP7_75t_R)
+     1    0.66   10.98   32.36 1194.52 v u_cluster.g_core[0].u_compute/_237535_/Y (OR5x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100604_ (net)
+                 10.98    0.00 1194.52 v u_cluster.g_core[0].u_compute/_237539_/A (OR4x1_ASAP7_75t_R)
+     1    0.68    9.73   22.87 1217.39 v u_cluster.g_core[0].u_compute/_237539_/Y (OR4x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100608_ (net)
+                  9.73    0.00 1217.39 v u_cluster.g_core[0].u_compute/_237540_/A (INVx1_ASAP7_75t_R)
+     1    0.57    6.71    6.09 1223.47 ^ u_cluster.g_core[0].u_compute/_237540_/Y (INVx1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100609_ (net)
+                  6.71    0.00 1223.47 ^ u_cluster.g_core[0].u_compute/_237599_/B1 (AO221x1_ASAP7_75t_R)
+     3    2.35   19.12   22.82 1246.29 ^ u_cluster.g_core[0].u_compute/_237599_/Y (AO221x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100668_ (net)
+                 19.12    0.00 1246.29 ^ u_cluster.g_core[0].u_compute/_237600_/B (OA21x2_ASAP7_75t_R)
+     1    0.63    6.64   17.35 1263.64 ^ u_cluster.g_core[0].u_compute/_237600_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100669_ (net)
+                  6.64    0.00 1263.64 ^ u_cluster.g_core[0].u_compute/_237601_/C (OR3x1_ASAP7_75t_R)
+     1    0.58    6.44   10.97 1274.61 ^ u_cluster.g_core[0].u_compute/_237601_/Y (OR3x1_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100670_ (net)
+                  6.44    0.00 1274.61 ^ u_cluster.g_core[0].u_compute/_237602_/A (BUFx2_ASAP7_75t_R)
+     7    4.04   15.02   17.24 1291.85 ^ u_cluster.g_core[0].u_compute/_237602_/Y (BUFx2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100671_ (net)
+                 15.02    0.00 1291.85 ^ u_cluster.g_core[0].u_compute/_237603_/A (BUFx2_ASAP7_75t_R)
+    10    8.78   28.89   26.21 1318.06 ^ u_cluster.g_core[0].u_compute/_237603_/Y (BUFx2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100672_ (net)
+                 28.89    0.00 1318.06 ^ u_cluster.g_core[0].u_compute/_237671_/A (BUFx2_ASAP7_75t_R)
+    10    6.48   22.50   26.16 1344.23 ^ u_cluster.g_core[0].u_compute/_237671_/Y (BUFx2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_100710_ (net)
+                 22.50    0.00 1344.23 ^ u_cluster.g_core[0].u_compute/_237690_/A2 (OA21x2_ASAP7_75t_R)
+     1    0.62    6.57   18.34 1362.57 ^ u_cluster.g_core[0].u_compute/_237690_/Y (OA21x2_ASAP7_75t_R)
+                                         u_cluster.g_core[0].u_compute/_059373_ (net)
+                  6.57    0.00 1362.57 ^ u_cluster.g_core[0].u_compute/u_core.g_fc.u_fc.best_score[10]$_DFFE_PP_/D (DFFHQNx1_ASAP7_75t_R)
+                               1362.57   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ u_cluster.g_core[0].u_compute/u_core.g_fc.u_fc.best_score[10]$_DFFE_PP_/CLK (DFFHQNx1_ASAP7_75t_R)
+                        -15.06  984.94   library setup time
+                                984.94   data required time
+-----------------------------------------------------------------------------
+                                984.94   data required time
+                               -1362.57   data arrival time
+-----------------------------------------------------------------------------
+                               -377.62   slack (VIOLATED)
+
+
+
+==========================================================================
+Post synthesis report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             2.87e-01   1.90e-02   2.57e-05   3.06e-01  12.2%
+Combinational          6.99e-01   7.07e-01   1.89e-04   1.41e+00  55.9%
+Clock                  1.54e-04   1.84e-03   3.35e-08   1.99e-03   0.1%
+Macro                  8.04e-01   0.00e+00   0.00e+00   8.04e-01  31.9%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.79e+00   7.28e-01   2.14e-04   2.52e+00 100.0%
+                          71.1%      28.9%       0.0%

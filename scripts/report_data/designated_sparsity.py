@@ -4,9 +4,9 @@ import csv, hashlib, json, re, subprocess
 from collections import defaultdict
 
 R=Path(__file__).resolve().parents[2]
-O=R/'docs/report_data/designated_sparsity'; O.mkdir(parents=True,exist_ok=True)
+O=R/'docs/experiment_results/designated/designated_sparsity'; O.mkdir(parents=True,exist_ok=True)
 W=R/'build/report_designated_sparsity'; W.mkdir(parents=True,exist_ok=True)
-frozen=json.loads((R/'docs/designated_final/rtl_sha256.json').read_text())
+frozen=json.loads((R/'docs/experiment_results/designated/designated_final/rtl_sha256.json').read_text())
 def check():
     assert {p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (R/'verilog').glob('*.v')}==frozen
 check()

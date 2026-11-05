@@ -1,0 +1,13 @@
+멀티캐스트 통신 블록 비교
+현재 메인 RTL의 fanout(depth4)와16개 수신 FIFO(depth4)를 사용했다. RTL 변경 없음.
+개별 전송은 목적지 mask를 한 코어씩 지정하여 같은 payload를16번 보낸다.
+멀티캐스트는 mask=16개 전체로 같은 payload를 한 번 보낸다.
+두 경우 모두 동일 fanout 경로를 사용하여 전달 방식만 비교한다.
+입력64-bit word 제공 기회는1사이클당1회 또는4사이클당1회, 수신 소비자는 항상 ready.
+512B/4KiB/16KiB를 각 코어가 받으며 모든 word의 내용/순서/중복 여부를 검증한다.
+시작은 첫 전송 제공, 끝은 마지막 코어 수신 FIFO의 소비 완료 및 전체 drain이다.
+전송 시뮬레이션12회 통과. 결과는effects.csv 참조.
+이 실험은 외부 전송원의 데이터가 fanout 입력까지 도착했다고 가정한다.
+SRAM 읽기, activation_feed 타일 생성, 실제 DRAM 지연, MAC과 통신 중첩은 포함하지 않는다.
+따라서 SRAM간 복사 또는 가속기 전체의16배 가속 증거로 사용하면 안 된다.
+실제 메인 경로는 source SRAM -> activation_feed -> fanout -> 수신 FIFO -> compute이다.

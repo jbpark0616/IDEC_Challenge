@@ -1,0 +1,351 @@
+%Warning-TIMESCALEMOD: rtl/core/vgg_activation_reader.v:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    5 | module vgg_activation_reader #(
+      |        ^~~~~~~~~~~~~~~~~~~~~
+                       rtl/designated/elastic_fifo.v:6:8: ... Location of module with timescale
+    6 | module elastic_fifo #(
+      |        ^~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.020
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-TIMESCALEMOD: rtl/core/vgg_tile_stream_reader.v:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    4 | module vgg_tile_stream_reader (
+      |        ^~~~~~~~~~~~~~~~~~~~~~
+                       rtl/designated/elastic_fifo.v:6:8: ... Location of module with timescale
+    6 | module elastic_fifo #(
+      |        ^~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/core/vgg_dataflow_core.v:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    4 | module vgg_dataflow_core #(
+      |        ^~~~~~~~~~~~~~~~~
+                       rtl/designated/elastic_fifo.v:6:8: ... Location of module with timescale
+    6 | module elastic_fifo #(
+      |        ^~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/core/vgg_fc_engine.v:8:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    8 | module vgg_fc_engine (
+      |        ^~~~~~~~~~~~~
+                       rtl/designated/elastic_fifo.v:6:8: ... Location of module with timescale
+    6 | module elastic_fifo #(
+      |        ^~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/core/vgg_first_one128.v:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    3 | module vgg_first_one128 (
+      |        ^~~~~~~~~~~~~~~~
+                       rtl/designated/elastic_fifo.v:6:8: ... Location of module with timescale
+    6 | module elastic_fifo #(
+      |        ^~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/core/vgg_first_one128.v:55:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+   55 | module vgg_first_one_channels #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~
+                       rtl/designated/elastic_fifo.v:6:8: ... Location of module with timescale
+    6 | module elastic_fifo #(
+      |        ^~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/core/vgg_result_pipeline.v:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    5 | module vgg_result_pipeline (
+      |        ^~~~~~~~~~~~~~~~~~~
+                       rtl/designated/elastic_fifo.v:6:8: ... Location of module with timescale
+    6 | module elastic_fifo #(
+      |        ^~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/core/vgg_row_mac_engine.v:6:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    6 | module vgg_row_mac_engine #(
+      |        ^~~~~~~~~~~~~~~~~~
+                       rtl/designated/elastic_fifo.v:6:8: ... Location of module with timescale
+    6 | module elastic_fifo #(
+      |        ^~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/core/vgg_sram_conv_layer.v:7:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    7 | module vgg_sram_conv_layer #(
+      |        ^~~~~~~~~~~~~~~~~~~
+                       rtl/designated/elastic_fifo.v:6:8: ... Location of module with timescale
+    6 | module elastic_fifo #(
+      |        ^~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/core/vgg_sram_line_buffer.v:6:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    6 | module vgg_sram_line_buffer #(
+      |        ^~~~~~~~~~~~~~~~~~~~
+                       rtl/designated/elastic_fifo.v:6:8: ... Location of module with timescale
+    6 | module elastic_fifo #(
+      |        ^~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/core/vgg_v8_quantizer.v:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    4 | module vgg_v8_quantizer (
+      |        ^~~~~~~~~~~~~~~~
+                       rtl/designated/elastic_fifo.v:6:8: ... Location of module with timescale
+    6 | module elastic_fifo #(
+      |        ^~~~~~~~~~~~
+%Warning-WIDTHTRUNC: rtl/core/vgg_sram_conv_layer.v:359:38: Logical operator LOGAND expects 1 bit on the RHS, but RHS's VARREF 'TILE_INPUT' generates 32 bits.
+                                                          : ... note: In instance 'tb_v8_packed.dut'
+  359 |     generate if (EXTERNAL_ACTIVATION && TILE_INPUT) begin : g_sram_tiles
+      |                                      ^~
+%Warning-WIDTHTRUNC: rtl/core/vgg_row_mac_engine.v:128:9: Logical operator GENIF expects 1 bit on the If, but If's VARREF 'U8_PACKED' generates 32 bits.
+                                                        : ... note: In instance 'tb_v8_packed.dut.u_core.u_engine'
+  128 |         if (U8_PACKED) begin : g_unpack
+      |         ^~
+%Warning-WIDTHTRUNC: rtl/core/vgg_row_mac_engine.v:148:9: Logical operator GENIF expects 1 bit on the If, but If's VARREF 'V8_PACKED' generates 32 bits.
+                                                        : ... note: In instance 'tb_v8_packed.dut.u_core.u_engine'
+  148 |         if(V8_PACKED) begin : g_v_unpack
+      |         ^~
+%Warning-WIDTHEXPAND: rtl/designated/elastic_fifo.v:47:26: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'count' generates 1 bits.
+                                                         : ... note: In instance 'tb_v8_packed.dut.u_results.u_m_fifo.u_fifo'
+   47 |     assign full = (count == DEPTH);
+      |                          ^~
+%Warning-WIDTHEXPAND: rtl/designated/elastic_fifo.v:71:35: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'write_pointer' generates 1 bits.
+                                                         : ... note: In instance 'tb_v8_packed.dut.u_results.u_m_fifo.u_fifo'
+   71 |                 if (write_pointer == DEPTH-1)
+      |                                   ^~
+%Warning-WIDTHEXPAND: rtl/designated/elastic_fifo.v:78:34: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'read_pointer' generates 1 bits.
+                                                         : ... note: In instance 'tb_v8_packed.dut.u_results.u_m_fifo.u_fifo'
+   78 |                 if (read_pointer == DEPTH-1)
+      |                                  ^~
+%Warning-WIDTHEXPAND: rtl/designated/elastic_fifo.v:47:26: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'count' generates 4 bits.
+                                                         : ... note: In instance 'tb_v8_packed.dut.u_results.u_order_fifo'
+   47 |     assign full = (count == DEPTH);
+      |                          ^~
+%Warning-WIDTHEXPAND: rtl/designated/elastic_fifo.v:71:35: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'write_pointer' generates 3 bits.
+                                                         : ... note: In instance 'tb_v8_packed.dut.u_results.u_order_fifo'
+   71 |                 if (write_pointer == DEPTH-1)
+      |                                   ^~
+%Warning-WIDTHEXPAND: rtl/designated/elastic_fifo.v:78:34: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'read_pointer' generates 3 bits.
+                                                         : ... note: In instance 'tb_v8_packed.dut.u_results.u_order_fifo'
+   78 |                 if (read_pointer == DEPTH-1)
+      |                                  ^~
+%Warning-WIDTHTRUNC: rtl/core/vgg_row_mac_engine.v:90:46: Logical operator LOGAND expects 1 bit on the LHS, but LHS's VARREF 'STREAMING' generates 32 bits.
+                                                        : ... note: In instance 'tb_v8_packed.dut.u_core.u_engine'
+   90 |     wire streaming_zero_complete = STREAMING && request_beat
+      |                                              ^~
+%Warning-WIDTHTRUNC: rtl/core/vgg_row_mac_engine.v:93:24: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's VARREF 'ARBITRATED' generates 32 bits.
+                                                        : ... note: In instance 'tb_v8_packed.dut.u_core.u_engine'
+   93 |                    && (!ARBITRATED || row_accept);
+      |                        ^
+%Warning-WIDTHTRUNC: rtl/core/vgg_row_mac_engine.v:101:32: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's VARREF 'STREAMING' generates 32 bits.
+                                                         : ... note: In instance 'tb_v8_packed.dut.u_core.u_engine'
+  101 |         assign ready_mask[c] = !STREAMING || c < available_channels;
+      |                                ^
+%Warning-WIDTHTRUNC: rtl/core/vgg_row_mac_engine.v:108:52: Logical operator LOGAND expects 1 bit on the LHS, but LHS's VARREF 'STREAMING' generates 32 bits.
+                                                         : ... note: In instance 'tb_v8_packed.dut.u_core.u_engine'
+  108 |         wire [CHANNELS-1:0] known_zero = STREAMING && sparse_enable
+      |                                                    ^~
+%Warning-WIDTHTRUNC: rtl/core/vgg_row_mac_engine.v:121:13: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'EXPLICIT_U_BASE' generates 32 bits.
+                                                         : ... note: In instance 'tb_v8_packed.dut.u_core.u_engine'
+  121 |             ? saved_u_base + (U8_PACKED ? ({{(10-CHANNEL_BITS){1'b0}},next_channel} >> 1)
+      |             ^
+%Warning-WIDTHTRUNC: rtl/core/vgg_row_mac_engine.v:121:41: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'U8_PACKED' generates 32 bits.
+                                                         : ... note: In instance 'tb_v8_packed.dut.u_core.u_engine'
+  121 |             ? saved_u_base + (U8_PACKED ? ({{(10-CHANNEL_BITS){1'b0}},next_channel} >> 1)
+      |                                         ^
+%Warning-WIDTHTRUNC: rtl/core/vgg_row_mac_engine.v:124:13: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'U8_PACKED' generates 32 bits.
+                                                         : ... note: In instance 'tb_v8_packed.dut.u_core.u_engine'
+  124 |             ? (({6'b0,saved_output} << (saved_stride-4'd1))
+      |             ^
+%Warning-WIDTHTRUNC: rtl/core/vgg_row_mac_engine.v:147:44: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'V8_PACKED' generates 32 bits.
+                                                         : ... note: In instance 'tb_v8_packed.dut.u_core.u_engine'
+  147 |         assign v_addr[r*10 +:10]=V8_PACKED ? logical_v_addr >> 1 : logical_v_addr;
+      |                                            ^
+%Warning-WIDTHTRUNC: rtl/core/vgg_row_mac_engine.v:161:47: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's VARREF 'STREAMING' generates 32 bits.
+                                                         : ... note: In instance 'tb_v8_packed.dut.u_core.u_engine'
+  161 |                 remaining <= channel_mask & ((!STREAMING && sparse_enable)
+      |                                               ^
+%Warning-WIDTHTRUNC: rtl/core/vgg_row_mac_engine.v:190:40: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'U8_PACKED' generates 32 bits.
+                                                         : ... note: In instance 'tb_v8_packed.dut.u_core.u_engine'
+  190 |             saved_u_shift <= U8_PACKED ? u_shift : 3'd0;
+      |                                        ^
+%Warning-WIDTHTRUNC: rtl/core/vgg_row_mac_engine.v:191:40: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'V8_PACKED' generates 32 bits.
+                                                         : ... note: In instance 'tb_v8_packed.dut.u_core.u_engine'
+  191 |             saved_v_shift <= V8_PACKED ? v_shift : 3'd0;
+      |                                        ^
+%Warning-WIDTHTRUNC: rtl/core/vgg_row_mac_engine.v:224:33: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's VARREF 'STREAMING' generates 32 bits.
+                                                         : ... note: In instance 'tb_v8_packed.dut.u_core.u_engine'
+  224 |                 bypass_valid <= !STREAMING && whole_zero_job;
+      |                                 ^
+%Warning-WIDTHTRUNC: rtl/core/vgg_row_mac_engine.v:228:44: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's VARREF 'STREAMING' generates 32 bits.
+                                                         : ... note: In instance 'tb_v8_packed.dut.u_core.u_engine'
+  228 |                     accumulator_is_zero <= !STREAMING && whole_zero_job;
+      |                                            ^
+%Warning-WIDTHTRUNC: rtl/core/vgg_row_mac_engine.v:227:58: Logical operator LOGOR expects 1 bit on the RHS, but RHS's VARREF 'STREAMING' generates 32 bits.
+                                                         : ... note: In instance 'tb_v8_packed.dut.u_core.u_engine'
+  227 |                 if (clear_accumulator || !whole_zero_job || STREAMING)
+      |                                                          ^~
+%Warning-WIDTHEXPAND: rtl/memory/vgg_dataflow_scratchpad.v:145:48: Operator ADD expects 32 or 7 bits on the RHS, but RHS's VARREF 'x_read_slot' generates 1 bits.
+                                                                 : ... note: In instance 'tb_v8_packed.dut.u_core.u_scratchpad'
+  145 |         if (x_pending) x_rdata <= bank_rdata[(8+x_read_slot)*64 +: 64];
+      |                                                ^
+%Warning-WIDTHEXPAND: rtl/designated/winograd_postprocess.v:88:25: Operator GT expects 73 bits on the RHS, but RHS's CONST '8'hff' generates 8 bits.
+                                                                 : ... note: In instance 'tb_v8_packed.dut.u_results.u_post'
+   88 |             if (shifted > 8'd255)
+      |                         ^
+%Warning-WIDTHTRUNC: rtl/core/vgg_dataflow_core.v:99:29: Logical operator LOGAND expects 1 bit on the LHS, but LHS's VARREF 'V8_PACKED' generates 32 bits.
+                                                       : ... note: In instance 'tb_v8_packed.dut.u_core'
+   99 |     wire packed_v=V8_PACKED && !active_fc;
+      |                             ^~
+%Warning-WIDTHTRUNC: rtl/core/vgg_dataflow_core.v:104:26: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's VARREF 'V8_PACKED' generates 32 bits.
+                                                        : ... note: In instance 'tb_v8_packed.dut.u_core'
+  104 |     wire publish_channel=!V8_PACKED || pair_complete;
+      |                          ^
+%Warning-WIDTHTRUNC: rtl/core/vgg_dataflow_core.v:185:30: Operator ASSIGNW expects 3 bits on the Assign RHS, but Assign RHS's SHIFTR generates 10 bits.
+                                                        : ... note: In instance 'tb_v8_packed.dut.u_core'
+  185 |         wire [2:0] write_slot=mem_addr >> channel_stride;
+      |                              ^
+%Warning-WIDTHTRUNC: rtl/memory/vgg_cb_slots.v:47:41: Logical operator LOGAND expects 1 bit on the LHS, but LHS's VARREF 'EARLY_READ' generates 32 bits.
+                                                    : ... note: In instance 'tb_v8_packed.dut.u_cb_v'
+   47 |                          || (EARLY_READ && owner[wr_ptr] == READING);
+      |                                         ^~
+%Warning-WIDTHTRUNC: rtl/memory/vgg_cb_slots.v:51:41: Logical operator LOGAND expects 1 bit on the LHS, but LHS's VARREF 'EARLY_READ' generates 32 bits.
+                                                    : ... note: In instance 'tb_v8_packed.dut.u_cb_v'
+   51 |                          || (EARLY_READ && owner[rd_ptr] == RESERVED);
+      |                                         ^~
+%Warning-WIDTHTRUNC: rtl/core/vgg_sram_conv_layer.v:184:9: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'U8_PACKED' generates 32 bits.
+                                                         : ... note: In instance 'tb_v8_packed.dut'
+  184 |         ? ({1'b0,input_channels} + 11'd1) >> 1 : {1'b0,input_channels};
+      |         ^
+%Warning-WIDTHTRUNC: rtl/core/vgg_sram_conv_layer.v:186:48: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'U8_PACKED' generates 32 bits.
+                                                          : ... note: In instance 'tb_v8_packed.dut'
+  186 |         : (11'd1 << (command_stride-(U8_PACKED ? 4'd1 : 4'd0)));
+      |                                                ^
+%Warning-WIDTHTRUNC: rtl/core/vgg_sram_conv_layer.v:230:47: Logical operator LOGAND expects 1 bit on the RHS, but RHS's VARREF 'TILE_INPUT' generates 32 bits.
+                                                          : ... note: In instance 'tb_v8_packed.dut'
+  230 |                     || (!(EXTERNAL_ACTIVATION && TILE_INPUT) && CHANNEL_BITS>7 && required_line_words>512)
+      |                                               ^~
+%Warning-WIDTHEXPAND: rtl/core/vgg_sram_conv_layer.v:238:39: Operator EQ expects 4 bits on the LHS, but LHS's VARREF 'output_channel' generates 3 bits.
+                                                           : ... note: In instance 'tb_v8_packed.dut'
+  238 |     wire last_output = output_channel == outputs - 1'b1;
+      |                                       ^~
+%Warning-WIDTHEXPAND: rtl/core/vgg_sram_conv_layer.v:482:32: Operator EQ expects 10 bits on the LHS, but LHS's VARREF 'channel' generates 9 bits.
+                                                           : ... note: In instance 'tb_v8_packed.dut'
+  482 |         .v_last_channel(channel==channels-1'b1), .job_v_shift(v_shift),
+      |                                ^~
+%Warning-WIDTHTRUNC: rtl/core/vgg_sram_conv_layer.v:554:41: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'U8_PACKED' generates 32 bits.
+                                                          : ... note: In instance 'tb_v8_packed.dut'
+  554 |             saved_u_shifts <= U8_PACKED ? u_shifts : 24'd0;
+      |                                         ^
+%Warning-WIDTHTRUNC: rtl/core/vgg_sram_conv_layer.v:563:27: Logical operator LOGAND expects 1 bit on the LHS, but LHS's VARREF 'U8_PACKED' generates 32 bits.
+                                                          : ... note: In instance 'tb_v8_packed.dut'
+  563 |             if (U8_PACKED && mem_addr >= 24 && mem_addr < 32)
+      |                           ^~
+%Warning-WIDTHTRUNC: rtl/core/vgg_sram_conv_layer.v:567:40: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'V8_PACKED' generates 32 bits.
+                                                          : ... note: In instance 'tb_v8_packed.dut'
+  567 |             transformed_v <= V8_PACKED ? quantized_v : it_v;
+      |                                        ^
+%Warning-WIDTHTRUNC: rtl/core/vgg_sram_conv_layer.v:568:48: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'V8_PACKED' generates 32 bits.
+                                                          : ... note: In instance 'tb_v8_packed.dut'
+  568 |             transformed_zero_rows <= V8_PACKED ? quantized_zero : it_zero;
+      |                                                ^
+%Warning-WIDTHTRUNC: /mnt/c/IDEC_challenge/free_topic_vgg/build/report700/scale512/tb.sv:70:36: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'TILE_INPUT' generates 32 bits.
+                                                                                              : ... note: In instance 'tb_v8_packed'
+   70 |         activation_data=TILE_INPUT ? tile_word(sent) : inputs[sent];
+      |                                    ^
+%Warning-WIDTHEXPAND: /mnt/c/IDEC_challenge/free_topic_vgg/build/report700/scale512/tb.sv:82:47: Operator LT expects 32 bits on the LHS, but LHS's VARXREF 'engine_available' generates 10 bits.
+                                                                                               : ... note: In instance 'tb_v8_packed'
+   82 |                 && dut.u_core.engine_available<cin) early++;
+      |                                               ^
+%Warning-WIDTHEXPAND: /mnt/c/IDEC_challenge/free_topic_vgg/build/report700/scale512/tb.sv:84:76: Operator ADD expects 32 bits on the LHS, but LHS's VARXREF 'output_base' generates 8 bits.
+                                                                                               : ... note: In instance 'tb_v8_packed'
+   84 |                 if(!dut.release_ready || !dut.last_reuse || dut.output_base+block_k!=kout)
+      |                                                                            ^
+%Warning-WIDTHTRUNC: /mnt/c/IDEC_challenge/free_topic_vgg/build/report700/scale512/tb.sv:114:42: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'DENSE_U' generates 32 bits.
+                                                                                               : ... note: In instance 'tb_v8_packed'
+  114 |                     store(row,k*(DENSE_U ? (cin+1)/2 : stride/2)+c,u[row*kout*(stride/2)+(base_k+k)*(stride/2)+c]);
+      |                                          ^
+%Warning-WIDTHTRUNC: /mnt/c/IDEC_challenge/free_topic_vgg/build/report700/scale512/tb.sv:119:42: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'DENSE_U' generates 32 bits.
+                                                                                               : ... note: In instance 'tb_v8_packed'
+  119 |                     store(row,k*(DENSE_U ? cin : stride)+c,u[row*kout*stride+(base_k+k)*stride+c]);
+      |                                          ^
+%Warning-WIDTHTRUNC: /mnt/c/IDEC_challenge/free_topic_vgg/build/report700/scale512/tb.sv:112:13: Logical operator IF expects 1 bit on the If, but If's VARREF 'PACKED' generates 32 bits.
+                                                                                               : ... note: In instance 'tb_v8_packed'
+  112 |             if (PACKED) begin
+      |             ^~
+%Warning-WIDTHTRUNC: /mnt/c/IDEC_challenge/free_topic_vgg/build/report700/scale512/tb.sv:128:17: Logical operator IF expects 1 bit on the If, but If's VARREF 'PACKED' generates 32 bits.
+                                                                                               : ... note: In instance 'tb_v8_packed'
+  128 |                 if(PACKED) store(14,24+k,{61'b0,shift_words[base_k+k]});
+      |                 ^~
+%Warning-WIDTHTRUNC: /mnt/c/IDEC_challenge/free_topic_vgg/build/report700/scale512/tb.sv:170:13: Logical operator IF expects 1 bit on the If, but If's VARREF 'TILE_INPUT' generates 32 bits.
+                                                                                               : ... note: In instance 'tb_v8_packed'
+  170 |             if(TILE_INPUT) input_words=(h*h/4)*cin*2;
+      |             ^~
+%Warning-WIDTHTRUNC: /mnt/c/IDEC_challenge/free_topic_vgg/build/report700/scale512/tb.sv:172:95: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'PACKED' generates 32 bits.
+                                                                                               : ... note: In instance 'tb_v8_packed'
+  172 |             path=$sformatf("build/report700/scale512/vectors/case%0d/u%0d.hex",case_id,PACKED ? 8 : 16);$readmemh(path,u,0,4*kout*stride/(PACKED ? 2 : 1)-1);
+      |                                                                                               ^
+%Warning-WIDTHTRUNC: /mnt/c/IDEC_challenge/free_topic_vgg/build/report700/scale512/tb.sv:172:146: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'PACKED' generates 32 bits.
+                                                                                                : ... note: In instance 'tb_v8_packed'
+  172 |             path=$sformatf("build/report700/scale512/vectors/case%0d/u%0d.hex",case_id,PACKED ? 8 : 16);$readmemh(path,u,0,4*kout*stride/(PACKED ? 2 : 1)-1);
+      |                                                                                                                                                  ^
+%Warning-WIDTHTRUNC: /mnt/c/IDEC_challenge/free_topic_vgg/build/report700/scale512/tb.sv:179:59: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'DENSE_U' generates 32 bits.
+                                                                                               : ... note: In instance 'tb_v8_packed'
+  179 |                 resident=enable_resident && kout*(DENSE_U ? (cin+1)/2 : stride/2)<=1024;
+      |                                                           ^
+%Warning-WIDTHEXPAND: /mnt/c/IDEC_challenge/free_topic_vgg/build/report700/scale512/tb.sv:200:91: Operator NEQ expects 32 bits on the LHS, but LHS's SEL generates 4 bits.
+                                                                                                : ... note: In instance 'tb_v8_packed'
+  200 |                         if(tile!=expected_tile || offset!=expected_offset || status[35:32]!=block_k)
+      |                                                                                           ^~
+%Warning-WIDTHEXPAND: /mnt/c/IDEC_challenge/free_topic_vgg/build/report700/scale512/tb.sv:211:95: Operator NEQ expects 32 bits on the LHS, but LHS's VARREF 'output_bytes' generates 15 bits.
+                                                                                                : ... note: In instance 'tb_v8_packed'
+  211 |                 if(done_error || received!=expected_words || sent!=input_words || output_bytes!=expected_bytes
+      |                                                                                               ^~
+%Warning-WIDTHTRUNC: /mnt/c/IDEC_challenge/free_topic_vgg/build/report700/scale512/tb.sv:218:48: Logical operator LOGAND expects 1 bit on the RHS, but RHS's VARREF 'sparse' generates 32 bits.
+                                                                                               : ... note: In instance 'tb_v8_packed'
+  218 |                 if((case_id==4 || case_id==12) && sparse && mac_row_issues!=0) $fatal(1,"All-zero rows issued");
+      |                                                ^~
+%Warning-LATCH: rtl/designated/winograd_clock_gate.v:11:5: Latch inferred for signal 'tb_v8_packed.dut.u_input.cg_temp_clk.enable_latched' (not all control paths of combinational always assign a value)
+                                                         : ... Suggest use of always_latch for intentional latches
+   11 |     always @* if (!clk) enable_latched = enable;
+      |     ^~~~~~
+%Warning-LATCH: rtl/designated/winograd_clock_gate.v:11:5: Latch inferred for signal 'tb_v8_packed.dut.u_input.cg_v_clk.enable_latched' (not all control paths of combinational always assign a value)
+                                                         : ... Suggest use of always_latch for intentional latches
+   11 |     always @* if (!clk) enable_latched = enable;
+      |     ^~~~~~
+%Warning-LATCH: rtl/designated/winograd_clock_gate.v:11:5: Latch inferred for signal 'tb_v8_packed.dut.u_results.u_output.cg_left_clk.enable_latched' (not all control paths of combinational always assign a value)
+                                                         : ... Suggest use of always_latch for intentional latches
+   11 |     always @* if (!clk) enable_latched = enable;
+      |     ^~~~~~
+%Warning-LATCH: rtl/designated/winograd_clock_gate.v:11:5: Latch inferred for signal 'tb_v8_packed.dut.u_results.u_output.cg_y_clk.enable_latched' (not all control paths of combinational always assign a value)
+                                                         : ... Suggest use of always_latch for intentional latches
+   11 |     always @* if (!clk) enable_latched = enable;
+      |     ^~~~~~
+%Warning-LATCH: rtl/designated/winograd_clock_gate.v:11:5: Latch inferred for signal 'tb_v8_packed.dut.u_results.u_post.cg_max_clk.enable_latched' (not all control paths of combinational always assign a value)
+                                                         : ... Suggest use of always_latch for intentional latches
+   11 |     always @* if (!clk) enable_latched = enable;
+      |     ^~~~~~
+%Warning-LATCH: rtl/designated/winograd_clock_gate.v:11:5: Latch inferred for signal 'tb_v8_packed.dut.u_results.u_post.cg_relu_clk.enable_latched' (not all control paths of combinational always assign a value)
+                                                         : ... Suggest use of always_latch for intentional latches
+   11 |     always @* if (!clk) enable_latched = enable;
+      |     ^~~~~~
+%Warning-LATCH: rtl/designated/winograd_clock_gate.v:11:5: Latch inferred for signal 'tb_v8_packed.dut.u_results.u_post.cg_requant_clk.enable_latched' (not all control paths of combinational always assign a value)
+                                                         : ... Suggest use of always_latch for intentional latches
+   11 |     always @* if (!clk) enable_latched = enable;
+      |     ^~~~~~
+%Warning-LATCH: rtl/designated/winograd_clock_gate.v:11:5: Latch inferred for signal 'tb_v8_packed.dut.u_core.u_engine.u_mac.cg_product_clk.enable_latched' (not all control paths of combinational always assign a value)
+                                                         : ... Suggest use of always_latch for intentional latches
+   11 |     always @* if (!clk) enable_latched = enable;
+      |     ^~~~~~
+%Warning-LATCH: rtl/designated/winograd_clock_gate.v:11:5: Latch inferred for signal 'tb_v8_packed.dut.u_core.u_engine.u_mac.cg_acc_clk.enable_latched' (not all control paths of combinational always assign a value)
+                                                         : ... Suggest use of always_latch for intentional latches
+   11 |     always @* if (!clk) enable_latched = enable;
+      |     ^~~~~~
+%Warning-LATCH: rtl/designated/winograd_clock_gate.v:11:5: Latch inferred for signal 'tb_v8_packed.dut.u_core.u_engine.u_mac.cg_result_clk.enable_latched' (not all control paths of combinational always assign a value)
+                                                         : ... Suggest use of always_latch for intentional latches
+   11 |     always @* if (!clk) enable_latched = enable;
+      |     ^~~~~~
+make: Entering directory '/mnt/c/IDEC_challenge/free_topic_vgg/build/report700/scale512/obj'
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated.o /usr/share/verilator/include/verilated.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_timing.o /usr/share/verilator/include/verilated_timing.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_threads.o /usr/share/verilator/include/verilated_threads.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -x c++-header Vtb_v8_packed__pch.h -o Vtb_v8_packed__pch.h.fast.gch
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -x c++-header Vtb_v8_packed__pch.h -o Vtb_v8_packed__pch.h.slow.gch
+echo "" > Vtb_v8_packed__ALL.verilator_deplist.tmp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.fast -c -o Vtb_v8_packed.o Vtb_v8_packed.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.fast -c -o Vtb_v8_packed___024root__DepSet_hcef04c48__0.o Vtb_v8_packed___024root__DepSet_hcef04c48__0.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.fast -c -o Vtb_v8_packed___024root__DepSet_hcef04c48__1.o Vtb_v8_packed___024root__DepSet_hcef04c48__1.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.fast -c -o Vtb_v8_packed___024root__DepSet_hcef04c48__2.o Vtb_v8_packed___024root__DepSet_hcef04c48__2.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.fast -c -o Vtb_v8_packed___024root__DepSet_h02351f05__0.o Vtb_v8_packed___024root__DepSet_h02351f05__0.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.fast -c -o Vtb_v8_packed___024root__DepSet_h02351f05__1.o Vtb_v8_packed___024root__DepSet_h02351f05__1.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.fast -c -o Vtb_v8_packed___024root__DepSet_h02351f05__2.o Vtb_v8_packed___024root__DepSet_h02351f05__2.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.fast -c -o Vtb_v8_packed___024root__DepSet_h02351f05__3.o Vtb_v8_packed___024root__DepSet_h02351f05__3.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.fast -c -o Vtb_v8_packed___024root__DepSet_h02351f05__4.o Vtb_v8_packed___024root__DepSet_h02351f05__4.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.fast -c -o Vtb_v8_packed_vgg_first_one_channels__C9__DepSet_he8d25034__0.o Vtb_v8_packed_vgg_first_one_channels__C9__DepSet_he8d25034__0.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.fast -c -o Vtb_v8_packed_vgg_first_one_channels__C9__DepSet_he8d25034__1.o Vtb_v8_packed_vgg_first_one_channels__C9__DepSet_he8d25034__1.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.fast -c -o Vtb_v8_packed__main.o Vtb_v8_packed__main.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.slow -c -o Vtb_v8_packed__ConstPool_0.o Vtb_v8_packed__ConstPool_0.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.slow -c -o Vtb_v8_packed___024root__Slow.o Vtb_v8_packed___024root__Slow.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.slow -c -o Vtb_v8_packed___024root__DepSet_hcef04c48__0__Slow.o Vtb_v8_packed___024root__DepSet_hcef04c48__0__Slow.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.slow -c -o Vtb_v8_packed___024root__DepSet_h02351f05__0__Slow.o Vtb_v8_packed___024root__DepSet_h02351f05__0__Slow.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.slow -c -o Vtb_v8_packed___024root__DepSet_h02351f05__1__Slow.o Vtb_v8_packed___024root__DepSet_h02351f05__1__Slow.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.slow -c -o Vtb_v8_packed_vgg_first_one_channels__C9__Slow.o Vtb_v8_packed_vgg_first_one_channels__C9__Slow.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.slow -c -o Vtb_v8_packed_vgg_first_one_channels__C9__DepSet_h20532aa9__0__Slow.o Vtb_v8_packed_vgg_first_one_channels__C9__DepSet_h20532aa9__0__Slow.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_v8_packed__pch.h.slow -c -o Vtb_v8_packed__Syms.o Vtb_v8_packed__Syms.cpp
+Archive ar -rcs Vtb_v8_packed__ALL.a Vtb_v8_packed.o Vtb_v8_packed___024root__DepSet_hcef04c48__0.o Vtb_v8_packed___024root__DepSet_hcef04c48__1.o Vtb_v8_packed___024root__DepSet_hcef04c48__2.o Vtb_v8_packed___024root__DepSet_h02351f05__0.o Vtb_v8_packed___024root__DepSet_h02351f05__1.o Vtb_v8_packed___024root__DepSet_h02351f05__2.o Vtb_v8_packed___024root__DepSet_h02351f05__3.o Vtb_v8_packed___024root__DepSet_h02351f05__4.o Vtb_v8_packed_vgg_first_one_channels__C9__DepSet_he8d25034__0.o Vtb_v8_packed_vgg_first_one_channels__C9__DepSet_he8d25034__1.o Vtb_v8_packed__main.o Vtb_v8_packed__ConstPool_0.o Vtb_v8_packed___024root__Slow.o Vtb_v8_packed___024root__DepSet_hcef04c48__0__Slow.o Vtb_v8_packed___024root__DepSet_h02351f05__0__Slow.o Vtb_v8_packed___024root__DepSet_h02351f05__1__Slow.o Vtb_v8_packed_vgg_first_one_channels__C9__Slow.o Vtb_v8_packed_vgg_first_one_channels__C9__DepSet_h20532aa9__0__Slow.o Vtb_v8_packed__Syms.o
+g++     verilated.o verilated_timing.o verilated_threads.o Vtb_v8_packed__ALL.a    -pthread -lpthread -latomic   -o Vtb_v8_packed
+rm Vtb_v8_packed__ALL.verilator_deplist.tmp
+make: Leaving directory '/mnt/c/IDEC_challenge/free_topic_vgg/build/report700/scale512/obj'

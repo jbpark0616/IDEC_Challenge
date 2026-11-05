@@ -1,0 +1,5 @@
+START case0_sparse0
+DONE case0_sparse0 {'case': 0, 'sparse': 0, 'input_NHWC': '[1,4,4,32]', 'local_output_channels': 8, 'duration_ps': 2054910, 'clock_period_ps': 1430, 'power_w': 0.03424505889, 'energy_nj': 70.3705139636499, 'unannotated_lef_only_sdel_pins': 40, 'analysis_elapsed_s': 69.91797185299947, 'vcd_sha256': 'a19f90be90342f89108f36c96305cf74cf3347ca26fd31522b208af4d9cc2a5b'}
+START case0_sparse1
+DONE case0_sparse1 {'case': 0, 'sparse': 1, 'input_NHWC': '[1,4,4,32]', 'local_output_channels': 8, 'duration_ps': 2054910, 'clock_period_ps': 1430, 'power_w': 0.03424509987, 'energy_nj': 70.3705981738617, 'unannotated_lef_only_sdel_pins': 40, 'analysis_elapsed_s': 70.99143530900255, 'vcd_sha256': '62b252a16de4128d07af075f46db7a564d0f8a2d5a7be012665084533c284467'}
+PASS all requested layer-mode pairs

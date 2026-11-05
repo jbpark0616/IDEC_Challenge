@@ -9,4 +9,4 @@
 결과는 `build/designated_final/openroad/`에 저장한다.
 
 기존 AES 예제 설정과 생성물은 정리 전 복구용 ZIP에 보관했다.
-현재 측정 근거는 `docs/designated_final/`에 있다.
+현재 측정 근거는 `docs/experiment_results/designated/designated_final/`에 있다.

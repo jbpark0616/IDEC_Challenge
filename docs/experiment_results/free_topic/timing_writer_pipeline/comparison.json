@@ -1,0 +1,26 @@
+{
+  "before": {
+    "period_ps": 1638.28,
+    "fmax_mhz": 610.39,
+    "area_um2": 738434.61594,
+    "sram_macros": 192,
+    "compute_instances": 16,
+    "ff_cells": 196562,
+    "icg_cells": 160
+  },
+  "after": {
+    "period_ps": 1377.62,
+    "fmax_mhz": 725.89,
+    "area_um2": 742748.19642,
+    "sram_macros": 192,
+    "compute_instances": 16,
+    "ff_cells": 199058,
+    "icg_cells": 160
+  },
+  "changed_rtl": [
+    "rtl/vgg_ab_layer_cluster.v"
+  ],
+  "period_reduction_percent": 15.910589154479094,
+  "frequency_increase_percent": 18.92232834745,
+  "scope": "Pre-layout synthesis/STA only; identical mapping settings and constraints"
+}

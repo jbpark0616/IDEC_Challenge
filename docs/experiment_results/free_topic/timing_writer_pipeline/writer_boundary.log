@@ -1,0 +1,2 @@
+PASS WRITER_BOUNDARY accepted=512 committed=512 checked=512 stalls=90 host_reads=599 tx_reads=3 cycles=2144
+/mnt/c/IDEC_challenge/free_topic_vgg/build/writer_boundary/tb.sv:98: $finish called at 21440000 (1ps)

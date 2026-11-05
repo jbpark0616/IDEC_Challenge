@@ -1,0 +1,3 @@
+REUSE case4_sparse0
+REUSE case4_sparse1
+PASS all requested layer-mode pairs

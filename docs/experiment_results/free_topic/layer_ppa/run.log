@@ -1,0 +1,8 @@
+START case10_sparse0
+Traceback (most recent call last):
+  File "/mnt/c/IDEC_challenge/free_topic_vgg/verification/layer_ppa/run.py", line 46, in <module>
+    trimmed.replace(trace)
+                           
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/junbeom/OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad', '-no_init', '-exit', '/mnt/c/IDEC_challenge/free_topic_vgg/evidence/layer_ppa/case10_sparse0/power.tcl']' returned non-zero exit status 1.

@@ -1,0 +1,9 @@
+START case10_sparse0
+DONE case10_sparse0 {'case': 10, 'sparse': 0, 'input_NHWC': '[1,4,4,512]', 'local_output_channels': 4, 'duration_ps': 17862130, 'clock_period_ps': 1430, 'power_w': 0.03650921211, 'energy_nj': 652.1322929063944, 'simulation_wall_s': 237.86928562899993, 'vcd_sha256': 'ad3b8fb08b76d012c27159b50c46c3caed343e274b1cd6a8241d369bd820e569'}
+START case10_sparse1
+DONE case10_sparse1 {'case': 10, 'sparse': 1, 'input_NHWC': '[1,4,4,512]', 'local_output_channels': 4, 'duration_ps': 14098370, 'clock_period_ps': 1430, 'power_w': 0.03630580753, 'energy_nj': 511.85270770672605, 'simulation_wall_s': 609.9514496929987, 'vcd_sha256': '0b4c85917338f913ab2b1485f899ce3bebb44208d777c0af74aa7c2461ee52b7'}
+START case11_sparse0
+DONE case11_sparse0 {'case': 11, 'sparse': 0, 'input_NHWC': '[1,2,2,512]', 'local_output_channels': 4, 'duration_ps': 4471610, 'clock_period_ps': 1430, 'power_w': 0.03789423034, 'energy_nj': 169.44821933064742, 'simulation_wall_s': 312.5298462069986, 'vcd_sha256': 'eee056456c687e89ce1ec9bf4764080d79a4cf8d9005cec776d50f02b3f7c05e'}
+START case11_sparse1
+DONE case11_sparse1 {'case': 11, 'sparse': 1, 'input_NHWC': '[1,2,2,512]', 'local_output_channels': 4, 'duration_ps': 4374370, 'clock_period_ps': 1430, 'power_w': 0.03764853626, 'energy_nj': 164.6886275596562, 'simulation_wall_s': 228.5689467250013, 'vcd_sha256': 'f0283e12551f3a875f084484b8383fc77708083d85fe6ecd1b84d72a679bc473'}
+PASS all requested layer-mode pairs

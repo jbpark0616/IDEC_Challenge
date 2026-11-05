@@ -1,0 +1,127 @@
+{
+  "rtl_manifest": {
+    "baseline": "report_700mhz",
+    "clock_mhz": 700,
+    "timing_scope": "pre-layout STA 725.89MHz, not post-route signoff",
+    "files": [
+      {
+        "path": "rtl/sources.f",
+        "sha256": "DC12E6854B7AA1BD1BF0915D9AC18F203417A604EF1DC967CD221D54A2679B61"
+      },
+      {
+        "path": "rtl/core/vgg_activation_reader.v",
+        "sha256": "7A7E490E8EF0CB24F2810A7675BB79BB735D070228388134549A1823C104D773"
+      },
+      {
+        "path": "rtl/core/vgg_tile_stream_reader.v",
+        "sha256": "9933CFC2DEC5C2172BF679DDEE52E223FA30EA4C4F8DF479A95BE9D1B15CC6EA"
+      },
+      {
+        "path": "rtl/core/vgg_dataflow_core.v",
+        "sha256": "008FE4B6718184135958CD577BB58FA5AB8DB8F99153669ABCEEAD5699B8E195"
+      },
+      {
+        "path": "rtl/core/vgg_fc_engine.v",
+        "sha256": "1A856B5C0104198E43339324A09979F8CCD0F7B87D7E48B201806BF1DF01AD46"
+      },
+      {
+        "path": "rtl/core/vgg_first_one128.v",
+        "sha256": "D571C1DF680FC563BF53A72EAA5B29228E7790652A2D110BD73D750A5A44C135"
+      },
+      {
+        "path": "rtl/core/vgg_result_pipeline.v",
+        "sha256": "97059A1D04501D4DFF90416AA9043B2548B8A520A25E0CAB5639E79947740C50"
+      },
+      {
+        "path": "rtl/core/vgg_row_mac_engine.v",
+        "sha256": "AFDD18779BF64224F3A7012F49D4341E91FDA806F4D9EAFEBB31955094288799"
+      },
+      {
+        "path": "rtl/core/vgg_sram_conv_layer.v",
+        "sha256": "38BE8C44C250423EE8D50D96343E474E2EAD65DF8150477A58D051CFD12BF710"
+      },
+      {
+        "path": "rtl/core/vgg_sram_line_buffer.v",
+        "sha256": "473AEFFD895EE9E14605495CF6157FF466F98F456E1EB6D5EB45F439141C50F0"
+      },
+      {
+        "path": "rtl/core/vgg_v8_quantizer.v",
+        "sha256": "173FBE254C6CAF1911AFDCDBF6BAE018D70FDF4897D576C1CD79C11CEB533C02"
+      },
+      {
+        "path": "rtl/designated/elastic_fifo.v",
+        "sha256": "0530750CE499B58F87E50C9D80E80413512BDB8E02727AA68A59CB6CC9B8B199"
+      },
+      {
+        "path": "rtl/designated/winograd_clock_gate.v",
+        "sha256": "7E792415CCB210B5A73A3C910DFFF2018DDC6B904C81F89509A0C03AD1AFCC2B"
+      },
+      {
+        "path": "rtl/designated/winograd_input_transform.v",
+        "sha256": "C6BF240DEF54C939A00807A9213E5AE95C8011A13E8FBFC555B6E9ACF2AF5234"
+      },
+      {
+        "path": "rtl/designated/winograd_m_fifo.v",
+        "sha256": "3BF8840F12E7843D775A409BA2CD01A1C74330F347178217D2865133BD0DC508"
+      },
+      {
+        "path": "rtl/designated/winograd_mac_array.v",
+        "sha256": "64B65F3256846B43A57E2F1F07521AE5A8CBEA5DC93634044DBD060DB4738711"
+      },
+      {
+        "path": "rtl/designated/winograd_output_transform.v",
+        "sha256": "7749AA1AE17D692B3F121CE6429BE64044C1A4927548634D484C8292F35AC513"
+      },
+      {
+        "path": "rtl/designated/winograd_postprocess.v",
+        "sha256": "9A8642E95762894C45C96FBEF2695E83CC5139203625A7F05DD713E87E25757B"
+      },
+      {
+        "path": "rtl/designated/winograd_sliding_window_generator.v",
+        "sha256": "230FD2838DF791F7EB1CD194BE5483A1F851A5B69B8F510F99066460DA1E0ED2"
+      },
+      {
+        "path": "rtl/designated/winograd_tile_output_buffer.v",
+        "sha256": "8724F96DA9D95EC2B0492AA166D5453523511DDABA37590B90A2DE3C4A9599D3"
+      },
+      {
+        "path": "rtl/interconnect/vgg_activation_feed.v",
+        "sha256": "623469CD2F6D93CABD8D584E0D40C19E73A4013527836F86510C0A6BADC29BE8"
+      },
+      {
+        "path": "rtl/interconnect/vgg_mcast_fanout.v",
+        "sha256": "B17630E1D6C807F84056752E13CF2C3205FCAD94723ADDA41C2E054964D02DD8"
+      },
+      {
+        "path": "rtl/memory/vgg_activation_sram.v",
+        "sha256": "F11DC8F9F688ED2D24F1BA3A581A7CA68C0EFA66F34B34D850E054E9AE7332DF"
+      },
+      {
+        "path": "rtl/memory/vgg_cb_slots.v",
+        "sha256": "A9F0CC27179F3AA5DC1F45037426A34E966603FA8F46C2F534658A901407FEE7"
+      },
+      {
+        "path": "rtl/memory/vgg_dataflow_scratchpad.v",
+        "sha256": "F4A32128AF83F570E5679A1A2BA9BCC8D30D7512907E4B97DBAD4CD1BE018B99"
+      },
+      {
+        "path": "rtl/memory/vgg_io_cbs.v",
+        "sha256": "C687FFC38DFEB6BDB4E0A2DA3F0B73FB9B37DF32FE957827C83123053145E6D1"
+      },
+      {
+        "path": "rtl/memory/vgg_sram_8k.v",
+        "sha256": "89F13D434C3154C53714952E76C8EE714AE1ABD855B81B07FB7522BE8C32D87F"
+      },
+      {
+        "path": "rtl/vgg_ab_layer_cluster.v",
+        "sha256": "47F11CA58A7FA8799453D013089E1FAA791087975CE73546149C6478057EC232"
+      },
+      {
+        "path": "rtl/vgg_sixteen_core_cluster.v",
+        "sha256": "C26788FA1CDA5B5CF33A153AB8537983E0C1078D585C05B01CA3CB6FDFAA9BAA"
+      }
+    ]
+  },
+  "tb_sha256": "ed730fece4c523765bf3b9dae37395c295b11264f201313382dd0fb25c1ecee9",
+  "runs": 12
+}

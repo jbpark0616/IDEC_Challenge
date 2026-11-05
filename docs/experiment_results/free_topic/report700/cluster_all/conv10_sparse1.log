@@ -1,0 +1,27 @@
+HOST_POLICY continuous=1
+START layer=9 input=[1,4,4,512] Cout=512 U_block=4 preload=65584
+PROGRESS stage=9 clock=100000 U_words=75959 requests=2
+PROGRESS stage=9 clock=200000 U_words=175549 requests=26
+PROGRESS stage=9 clock=300000 U_words=275123 requests=51
+PROGRESS stage=9 clock=400000 U_words=374713 requests=75
+PROGRESS stage=9 clock=500000 U_words=474304 requests=99
+PROGRESS stage=9 clock=600000 U_words=573877 requests=124
+PROGRESS stage=9 clock=700000 U_words=673468 requests=148
+PROGRESS stage=9 clock=800000 U_words=773058 requests=172
+PROGRESS stage=9 clock=900000 U_words=872631 requests=197
+PROGRESS stage=9 clock=1000000 U_words=972222 requests=221
+PROGRESS stage=9 clock=1100000 U_words=1071812 requests=245
+PROGRESS stage=9 clock=1200000 U_words=1171403 requests=269
+PROGRESS stage=9 clock=1300000 U_words=1270976 requests=294
+PROGRESS stage=9 clock=1400000 U_words=1370567 requests=318
+PROGRESS stage=9 clock=1500000 U_words=1470157 requests=342
+PROGRESS stage=9 clock=1600000 U_words=1569731 requests=367
+PROGRESS stage=9 clock=1700000 U_words=1669321 requests=391
+PROGRESS stage=9 clock=1800000 U_words=1768912 requests=415
+PROGRESS stage=9 clock=1900000 U_words=1868485 requests=440
+PROGRESS stage=9 clock=2000000 U_words=1968076 requests=464
+PROGRESS stage=9 clock=2100000 U_words=2067666 requests=488
+PROFILE layer=9 sparse=1 activation_preload=1024 weight_preload=65584 cycles=2064136 mac_beats=589265 mac_lanes=8081408 weight_wait_corecycles=31429642 writer_stall_corecycles=0
+LAYER_PASS layer=9 shape=[1,4,4,512]->512 cycles=2064136 preload=65584 U_words=2097152 replacements=496 source_reads=18432 compared_words=256 resident_u=0
+PASS ISOLATED_LAYER stage=9 sparse=1 checked_words=256
+- /mnt/c/IDEC_challenge/free_topic_vgg/build/report700/cluster_all/tb.sv:205: Verilog $finish

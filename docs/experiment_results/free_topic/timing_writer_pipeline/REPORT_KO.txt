@@ -1,0 +1,42 @@
+출력 SRAM 경계 파이프라인 — 주파수 개선 실험
+============================================
+사용자 승인: 1시간 동안 파이프라이닝 등으로 주파수를 개선하되 기능 유지.
+작업 시작 2026-10-30 09:04 UTC. 이전 610.39MHz 결과와 RTL을 보존한다.
+
+변경 범위
+  rtl/vgg_ab_layer_cluster.v 한 파일.
+  각 코어 output -> activation SRAM 사이에 2-entry, 76-bit 큐 추가.
+  워드 데이터64 + SRAM bank2 + word address10을 함께 저장한다.
+  upstream ready는 !full로만 결정하여 SRAM grant의 조합 역전파를 끊는다.
+  full 상태에서 pop해도 새 입력 수락은 다음 사이클부터 가능하다.
+  일반적으로 1word/cycle 공급 가능. 포화/경합 시 stall 특성은 달라질 수 있다.
+  모든 큐가 비었을 때만 레이어 완료 및 output 영역 commit을 허용한다.
+  계산 코어, SRAM 용량, U/V reuse, mask/bypass/ICG와 수치 연산은 변경 없음.
+  원본 before/vgg_ab_layer_cluster.v 및 원본 합성 소스 해시 보존.
+
+기능 검증
+  writer_boundary.log: 실제 수정된 큐 RTL 구간을 추출하여 SRAM과 연결.
+    동시 host/TX read 경합, response backpressure 조건에서 실행.
+    512개 입력 수락 = 512개 SRAM write = 512개 readback 일치.
+    입력 stall 90 cycles, pending payload 안정성/순서/중복 검사 통과.
+  integration.log: 기존16코어 Conv->FC1->FC2->FC3->Conv 테스트 통과.
+    202 output words, class8, 중간 데이터 TB 재적재 없음.
+    Conv 4700->4701 cycles, FC1/FC2 각1277->1278, FC3 731->732.
+    FC core0 계산 사이클1275/1275/729 유지.
+    host accepted writes73028, consecutive writes72975 유지.
+    bad length 거절, output 영역 해제, reset 없는 Conv 복귀 통과.
+  전체 VGG gate-level 시뮬레이션이나 모든 입력에 대한 formal proof는 아니다.
+
+합성
+  build/full_cluster_writer_pipeline에서 기존 full_cluster_reuse와 같은
+  config_reuse.mk 및1ns SDC로 실행 중. 주파수 결과 미확정.
+  완료 시 python3 flow/full_cluster/report_writer_pipeline.py로
+  SRAM192/계산 코어16/check0 및 변경 소스 범위를 검증하고 결과 비교.
+  기존 freeze 및610MHz 기준 결과를 덮어쓰지 않는다.
+
+시간 제한 시점 기록
+  2026-10-30 10:22 UTC 기준 벽시계상 1시간 초과.
+  WSL ps의 Yosys elapsed는 약10분39초, ABC는6분43초로 표시됨.
+  벽시계와 프로세스 경과 차이의 원인은 확정하지 않음.
+  기능 테스트는 통과했으나 매핑 진행 중이므로 주파수 개선은 미확정.
+  추가 RTL 변경은 중단하고 기존 합성 결과가 나오면 비교한다.

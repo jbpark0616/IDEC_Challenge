@@ -1,0 +1,58 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Thu Aug 27 21:06:23 2026
+# Process ID         : 22628
+# Current directory  : C:/IDEC_challenge/build/sim/chip_winograd_dead_tile_rollback
+# Command line       : xsim.exe -mode tcl -source {xsim.dir/chip_exact_rollback_snap/xsim_script.tcl}
+# Log file           : C:/IDEC_challenge/build/sim/chip_winograd_dead_tile_rollback/xsim.log
+# Journal file       : C:/IDEC_challenge/build/sim/chip_winograd_dead_tile_rollback\xsim.jou
+# Running On         : BOOK-Q8D30HPFM0
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) Ultra 5 226V
+# CPU Frequency      : 3110 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 8
+# Host memory        : 16687 MB
+# Swap memory        : 24696 MB
+# Total Virtual      : 41383 MB
+# Available Virtual  : 16438 MB
+#-----------------------------------------------------------
+source xsim.dir/chip_exact_rollback_snap/xsim_script.tcl
+# xsim {chip_exact_rollback_snap} -autoloadwcfg -tclbatch {../../../flow/vivado/sim.tcl}
+Time resolution is 1 ps
+source ../../../flow/vivado/sim.tcl
+## run all
+Progress: 100/1000, correct=97
+Progress: 200/1000, correct=194
+Progress: 300/1000, correct=291
+Progress: 400/1000, correct=388
+Progress: 500/1000, correct=485
+Progress: 600/1000, correct=582
+Progress: 700/1000, correct=679
+Progress: 800/1000, correct=776
+Progress: 900/1000, correct=873
+Progress: 1000/1000, correct=970
+RTL mismatches: 0
+Correct: 970/1000
+Accuracy: 97.0%
+Conv1 tile FIFO depth: 2
+Conv1 tile FIFO max occupancy: 2
+V replay group depth: 2
+V replay max group occupancy: 2
+V replay backpressure cycles: 286000
+M FIFO depth: 1
+M FIFO max occupancy: 1
+M FIFO backpressure cycles: 0
+Input backpressure cycles: 0
+Average post-input cycles: 433
+Maximum post-input cycles: 433
+PASS: Winograd chip 1000-image regression
+$finish called at time : 12200005 ps : File "C:/IDEC_challenge/verification/winograd_chip_1000_tb.v" Line 362
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:21 . Memory (MB): peak = 196.465 ; gain = 0.141
+## quit
+INFO: xsimkernel Simulation Memory Usage: 14180 KB (Peak: 14180 KB), Simulation CPU Usage: 20531 ms
+INFO: [Common 17-206] Exiting xsim at Thu Aug 27 21:06:46 2026...

@@ -1,0 +1,14 @@
+SUPPLY h=4 cin=32 bytes=512 period=1 multicast=0 cycles=6531 load_cycles=1024 external_bytes=8192 received_words=4096 source0_reads=1152
+SUPPLY h=4 cin=32 bytes=512 period=1 multicast=1 cycles=5572 load_cycles=64 external_bytes=512 received_words=4096 source0_reads=1152
+SUPPLY h=4 cin=32 bytes=512 period=4 multicast=0 cycles=9600 load_cycles=4093 external_bytes=8192 received_words=4096 source0_reads=1152
+SUPPLY h=4 cin=32 bytes=512 period=4 multicast=1 cycles=5761 load_cycles=253 external_bytes=512 received_words=4096 source0_reads=1152
+SUPPLY h=8 cin=64 bytes=4096 period=1 multicast=0 cycles=62211 load_cycles=8192 external_bytes=65536 received_words=32768 source0_reads=12544
+SUPPLY h=8 cin=64 bytes=4096 period=1 multicast=1 cycles=54532 load_cycles=512 external_bytes=4096 received_words=32768 source0_reads=12544
+SUPPLY h=8 cin=64 bytes=4096 period=4 multicast=0 cycles=86784 load_cycles=32765 external_bytes=65536 received_words=32768 source0_reads=12544
+SUPPLY h=8 cin=64 bytes=4096 period=4 multicast=1 cycles=56065 load_cycles=2045 external_bytes=4096 received_words=32768 source0_reads=12544
+SUPPLY h=8 cin=256 bytes=16384 period=1 multicast=0 cycles=248835 load_cycles=32768 external_bytes=262144 received_words=131072 source0_reads=50176
+SUPPLY h=8 cin=256 bytes=16384 period=1 multicast=1 cycles=218116 load_cycles=2048 external_bytes=16384 received_words=131072 source0_reads=50176
+SUPPLY h=8 cin=256 bytes=16384 period=4 multicast=0 cycles=347136 load_cycles=131069 external_bytes=262144 received_words=131072 source0_reads=50176
+SUPPLY h=8 cin=256 bytes=16384 period=4 multicast=1 cycles=224257 load_cycles=8189 external_bytes=16384 received_words=131072 source0_reads=50176
+PASS SRAM_SUPPLY all_tiles_verified
+verification/multicast_profile/tb_sram_supply.sv:107: $finish called at 13254600000 (1ps)

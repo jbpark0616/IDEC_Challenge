@@ -18,7 +18,7 @@ MNIST 단일 코어에서 검증한 방법을 CIFAR-10 VGG의 SRAM 기반 16코�
 
 ### 1.1 Winograd 원리: 겹치는 작은 커널 연산을 함께 계산
 
-![Winograd F(2×2, 3×3)의 입력·가중치 변환, 원소별 곱과 출력 복원](docs/report_assets/designated_topic/figures/winograd_convolution_overview.svg)
+![Winograd F(2×2, 3×3)의 입력·가중치 변환, 원소별 곱과 출력 복원](docs/figures/architecture/winograd_convolution_overview.svg)
 
 3×3 convolution은 입력의 3×3 영역과 가중치를 곱해 더하여 출력 하나를 만든다.
 Stride 1에서 인접한 출력 네 개를 계산하면 입력 영역이 서로 겹친다.
@@ -61,7 +61,7 @@ pooling 및 requantization을 연속 적용하여 중간 데이터 이동을 줄
 
 ### 1.2 무엇을 검출하는가: 변환 영역의 zero row
 
-![입력 activation과 변환 영역 sparsity](docs/report_assets/designated_topic/figures/winograd_activation_sparsity_intuition.svg)
+![입력 activation과 변환 영역 sparsity](docs/figures/architecture/winograd_activation_sparsity_intuition.svg)
 
 검출 단위는 원본 이미지의 개별 zero pixel이 아니라 **변환된 4×4 타일의 한 행, 즉 네 원소 전체가 0인 경우**이다.
 입력값이 모두 0인 영역뿐 아니라, 서로 같은 비영 입력이 변환의 뺄셈에서 상쇄되는 경우도 검출한다.
@@ -70,7 +70,7 @@ pooling 및 requantization을 연속 적용하여 중간 데이터 이동을 줄
 
 ### 1.3 어디서 검출하는가: 두 변환 단계 사이
 
-![입력 변환 파이프라인의 zero-row 검출](docs/report_assets/designated_topic/figures/winograd_input_transform_zero_detection.svg)
+![입력 변환 파이프라인의 zero-row 검출](docs/figures/architecture/winograd_input_transform_zero_detection.svg)
 
 지정주제의 [입력 변환 RTL](verilog/winograd_input_transform.v)은 세로 방향 변환 T0와
 가로 방향 변환 T1의 두 단계로 구성된다.
@@ -101,7 +101,7 @@ T1에서 새로 생기는 개별 zero 원소는 있을 수 있지만, 행 전체
 
 ### 1.4 어떻게 사이클을 줄이는가: 행별 압축과 전체-zero 우회
 
-![V 버퍼의 행별 압축 및 전체-zero 작업 우회](docs/report_assets/designated_topic/figures/winograd_v_buffer_row_compaction_and_bypass.svg)
+![V 버퍼의 행별 압축 및 전체-zero 작업 우회](docs/figures/architecture/winograd_v_buffer_row_compaction_and_bypass.svg)
 
 지정주제의 [V replay buffer](verilog/winograd_v_replay_buffer.v)는 같은 공간 위치의 입력 채널 타일들과
 각 타일의 4비트 mask를 함께 저장한다. 출력 채널을 바꿔 재사용할 때도 mask를 유지한다.
@@ -141,7 +141,7 @@ zero row를 제외한 각 행의 작업이 아래와 같다고 하자.
 
 ## 2. 지정주제: 단일 코어 MNIST 가속기
 
-![지정주제 전체 구조](docs/report_assets/designated_topic/figures/winograd_cnn_architecture.svg)
+![지정주제 전체 구조](docs/figures/architecture/winograd_cnn_architecture.svg)
 
 3×3 convolution 두 계층과 FC를 하나의 연산기로 처리한다. W4A8 QAT와 정수 기준 모델로
 수치 형식을 결정하고, activation의 소비 시점에 따라 scratchpad 주소를 재사용한다.
@@ -179,12 +179,12 @@ ASAP7 RVT FF, 0.77 V, 0°C의 합성 후 평가이다. 사이클은 제공 입�
 ICG를 적용한 회로에 sparsity 처리를 추가했을 때의 에너지 감소는 **15.02%**이다.
 면적의 작은 감소는 전체 합성 매핑 차이를 포함한다.
 
-측정 원본은 [지정주제 최종 결과](docs/designated_final/RESULTS.txt),
-소스 해시와 실행 안내는 [최종본 안내](docs/designated_final/README.txt)에 있다.
+측정 원본은 [지정주제 최종 결과](docs/experiment_results/designated/designated_final/RESULTS.txt),
+소스 해시와 실행 안내는 [최종본 안내](docs/experiment_results/designated/designated_final/README.txt)에 있다.
 
 ## 3. 자유주제: SRAM 기반 16코어 VGG 가속기
 
-![자유주제 16코어 구조](docs/report_assets/free_topic/figures/vgg_16core_accelerator_architecture.svg)
+![자유주제 16코어 구조](docs/figures/architecture/vgg_16core_accelerator_architecture.svg)
 
 각 코어가 서로 다른 출력 채널을 담당하고, 공통 activation을 multicast로 공급한다.
 변환 가중치 U와 입력 타일 V는 SRAM에 밀집 저장한다. V는 마지막 재사용까지 보존하며,
@@ -208,7 +208,7 @@ Conv/FC 연결 및 모드 전환 검증을 수행했다. 소프트웨어 정확�
 
 ### 공급 속도와 sparsity에 따른 효과
 
-![공급 속도별 사이클·에너지 감소와 VGG 예시](docs/report_assets/free_topic/figures/vgg_controlled_cycle_energy_extended.svg)
+![공급 속도별 사이클·에너지 감소와 VGG 예시](docs/figures/graphs/vgg_controlled_cycle_energy_extended.svg)
 
 통제 실험은 입력 **[1, 4, 4, 32]**, 출력 채널 **8개**, U 상주 조건에서
 변환 후 zero-row 비율 0·25·50·75·100%와 공급 간격 1·4·8 cycles/word를 조합했다.
@@ -229,7 +229,7 @@ Conv8·Conv9·Conv12·Conv13 레이어 슬라이스이며, 통제 곡선과 텐�
 전체 16코어와 외부 activation SRAM·multicast를 포함한 전력값은 아니다.
 Sparsity 제어의 순 면적 증가는 SRAM 포함 **0.576%**, 로직만 비교하면 **1.221%**이다.
 
-![레이어별 MAC 투입량](docs/report_assets/free_topic/figures/vgg_mac_three_way.svg)
+![레이어별 MAC 투입량](docs/figures/graphs/vgg_mac_three_way.svg)
 
 별도의 전체 convolution 계층 집계에서는 direct 연산량 313.20M MACs에 대해
 Winograd 139.20M, sparsity-aware Winograd 96.38M MAC 투입을 기록했다.
@@ -249,7 +249,7 @@ make verify-designated-final
 ```
 
 합성은 `flow/openroad/run_designated_final.sh`, 비교 실험은
-`scripts/report_data/`와 [지정주제 최종본 안내](docs/designated_final/README.txt)를 따른다.
+`scripts/report_data/`와 [지정주제 최종본 안내](docs/experiment_results/designated/designated_final/README.txt)를 따른다.
 
 ### 자유주제 PPA
 
@@ -278,7 +278,10 @@ Icarus 게이트 시뮬레이션으로 VCD를 생성하고 OpenROAD로 전력·�
 |---|---|
 | `verilog/`, `verification/`, `training/`, `flow/` | 지정주제 RTL·검증·학습·합성 |
 | `free_topic_vgg/` | 자유주제 RTL·모델 도구·검증 |
-| `docs/` | 최종 보고서, 그림, 수치 근거 |
+| `docs/` | 최종 보고서 |
+| `docs/figures/graphs/` | 실험 그래프 |
+| `docs/figures/architecture/` | 아키텍처·회로 그림 |
+| `docs/experiment_results/` | 지정주제·자유주제 실험결과 |
 | `submission/IDEC2026/` | 지정주제 제출 산출물 |
 | `submission/IDEC2026_FREE_TOPIC/` | 자유주제 최종 소스·라이브러리·PPA 재현 패키지 |
 | `scripts/validate_free_topic_package.py` | 제출 파일·해시 검증 및 ZIP 생성 |

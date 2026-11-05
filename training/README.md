@@ -183,7 +183,7 @@ Activation CB와 activation 저장소에는 requantization 이후 unsigned 8-bit
 근거 JSON은 다음과 같다.
 
 - `runs/integer_inference_w4_int12.json` ~ `integer_inference_w4_int18.json`
-- `../docs/numerical_precision/w4_compute_width_sweep.csv`
+- `../docs/experiment_results/designated/numerical_precision/w4_compute_width_sweep.csv`
 
 ## 6. Requantization
 

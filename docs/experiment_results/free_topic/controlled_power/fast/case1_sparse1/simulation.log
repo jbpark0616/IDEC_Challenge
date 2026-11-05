@@ -1,0 +1,6 @@
+VCD info: dumpfile /mnt/c/IDEC_challenge/free_topic_vgg/build/controlled_power/fast/case1_sparse1.vcd opened for output.
+PPA_WINDOW start_ps=1480050 end_ps=2951520 duration_ps=1471470
+V8_STORAGE case=1 shift=0 physical_bank_writes=0
+U_LOADING case=1 input=1,4,4,32 local_K=8 U_block=8 sparse=1 cycles=1025 transforms=0 V_writes=0 releases=0 requests=0 U_words=512 weight_wait=0 rows=3072 early=0
+PASS U_LOADING compared_words=16 gate_outputs_match_integer_reference
+/mnt/c/IDEC_challenge/free_topic_vgg/build/controlled_power/fast/tb.sv:197: $finish called at 2954380 (1ps)

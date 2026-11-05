@@ -25,7 +25,7 @@ sdc = result/('1_synth.sdc' if a.stage == 'synth' else base+'.sdc')
 if a.stage != 'synth' and not netlist.exists():
     assert odb.exists() and sdc.exists()
     libroot = '/home/junbeom/OpenROAD-flow-scripts/flow/platforms/asap7/lib/NLDM'
-    libfiles = json.loads((ROOT/'docs/designated_final/asap7_rvt_ff_cells.json').read_text())['active_files']
+    libfiles = json.loads((ROOT/'docs/experiment_results/designated/designated_final/asap7_rvt_ff_cells.json').read_text())['active_files']
     export = '\n'.join(f'read_liberty {x["file"]}' for x in libfiles.values())
     export += f'\nread_db {odb}\nread_sdc {sdc}\nwrite_verilog {netlist}\n'
     (out/'export.tcl').write_text(export)
@@ -53,7 +53,7 @@ tb = tb.replace('$finish;', '$display("Total post-input cycles: %0d", total_tail
 models = [ROOT/'verification/asap7_functional_cells.v', ROOT/'verification/asap7_final_extra_cells.v']
 defined = set(re.findall(r'\bmodule\s+(\w+)', '\n'.join(x.read_text() for x in models)))
 needed = set(re.findall(r'^\s*(\w+_ASAP7_75t_R)\s+', netlist.read_text(), re.M))
-catalog = {c['name']: c for c in json.loads((ROOT/'docs/designated_final/asap7_rvt_ff_cells.json').read_text())['cells']}
+catalog = {c['name']: c for c in json.loads((ROOT/'docs/experiment_results/designated/designated_final/asap7_rvt_ff_cells.json').read_text())['cells']}
 extra = ['`timescale 1ps/1ps']
 for name in sorted(needed-defined):
     if name == 'TAPCELL_ASAP7_75t_R':

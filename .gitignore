@@ -87,3 +87,10 @@ free_topic_vgg/evidence/controlled_power/
 free_topic_vgg/evidence/extra_vgg_ppa/
 free_topic_vgg/evidence/layer_ppa/
 free_topic_vgg/verification/layer_ppa/
+
+# Curated report evidence
+!docs/experiment_results/**/results/
+!docs/experiment_results/**/results/**
+!docs/experiment_results/**/reports/
+!docs/experiment_results/**/reports/**
+!docs/experiment_results/**/*.log

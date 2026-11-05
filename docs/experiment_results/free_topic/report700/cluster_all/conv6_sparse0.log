@@ -1,0 +1,27 @@
+HOST_POLICY continuous=1
+START layer=5 input=[1,8,8,256] Cout=256 U_block=8 preload=65584
+PROGRESS stage=5 clock=100000 U_words=84907 requests=4
+PROGRESS stage=5 clock=200000 U_words=184210 requests=28
+PROGRESS stage=5 clock=300000 U_words=283483 requests=53
+PROGRESS stage=5 clock=400000 U_words=382786 requests=77
+PROGRESS stage=5 clock=500000 U_words=482088 requests=101
+PROGRESS stage=5 clock=600000 U_words=581391 requests=125
+PROGRESS stage=5 clock=700000 U_words=680664 requests=150
+PROGRESS stage=5 clock=800000 U_words=779967 requests=174
+PROGRESS stage=5 clock=900000 U_words=879269 requests=198
+PROGRESS stage=5 clock=1000000 U_words=978572 requests=222
+PROGRESS stage=5 clock=1100000 U_words=1077845 requests=247
+PROGRESS stage=5 clock=1200000 U_words=1177148 requests=271
+PROGRESS stage=5 clock=1300000 U_words=1276450 requests=295
+PROGRESS stage=5 clock=1400000 U_words=1375753 requests=319
+PROGRESS stage=5 clock=1500000 U_words=1475026 requests=344
+PROGRESS stage=5 clock=1600000 U_words=1574328 requests=368
+PROGRESS stage=5 clock=1700000 U_words=1673631 requests=392
+PROGRESS stage=5 clock=1800000 U_words=1772933 requests=416
+PROGRESS stage=5 clock=1900000 U_words=1872207 requests=441
+PROGRESS stage=5 clock=2000000 U_words=1971509 requests=465
+PROGRESS stage=5 clock=2100000 U_words=2070812 requests=489
+PROFILE layer=5 sparse=0 activation_preload=2048 weight_preload=65584 cycles=2060992 mac_beats=1048576 mac_lanes=16777216 weight_wait_corecycles=31237949 writer_stall_corecycles=0
+LAYER_PASS layer=5 shape=[1,8,8,256]->256 cycles=2060992 preload=65584 U_words=2097152 replacements=496 source_reads=50176 compared_words=2048 resident_u=0
+PASS ISOLATED_LAYER stage=5 sparse=0 checked_words=2048
+- /mnt/c/IDEC_challenge/free_topic_vgg/build/report700/cluster_all/tb.sv:205: Verilog $finish

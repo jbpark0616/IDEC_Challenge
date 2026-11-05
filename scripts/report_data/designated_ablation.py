@@ -3,11 +3,11 @@ from pathlib import Path
 import csv, hashlib, json, re, subprocess, zipfile
 
 ROOT=Path(__file__).resolve().parents[2]
-OUT=ROOT/'docs/report_data/designated_ablation'
+OUT=ROOT/'docs/experiment_results/designated/designated_ablation'
 WORK=ROOT/'build/report_designated_ablation'
 OUT.mkdir(parents=True,exist_ok=True)
-summary=json.loads((ROOT/'docs/designated_final/summary.json').read_text())
-frozen=json.loads((ROOT/'docs/designated_final/rtl_sha256.json').read_text())
+summary=json.loads((ROOT/'docs/experiment_results/designated/designated_final/summary.json').read_text())
+frozen=json.loads((ROOT/'docs/experiment_results/designated/designated_final/rtl_sha256.json').read_text())
 def verify():
     assert {p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (ROOT/'verilog').glob('*.v')}==frozen
 verify()
