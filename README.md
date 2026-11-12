@@ -169,8 +169,6 @@ FC에서는 변환 경로를 우회하여 같은 MAC을 사용한다.
 
 #### 1. 전체 파이프라인과 Conv1 → Conv2 → FC 자원 공유
 
-![FIFO와 연산 단계를 포함한 단일 코어 상세 구조](docs/figures/architecture/winograd_microarchitecture.svg)
-
 ![동일 MAC과 FF scratchpad를 시간 순서에 따라 재사용하는 데이터 흐름](docs/figures/architecture/winograd_layer_reuse_dataflow.svg)
 
 **Conv1·Conv2·FC를 별도 연산기로 복제하지 않고 하나의 16-lane MAC으로 순차 실행한다.**
@@ -264,8 +262,6 @@ RTL: [winograd_output_transform.v](verilog/winograd_output_transform.v).
 <a id="fused-output"></a>
 
 #### 7. Tile-level operation fusion: bias·ReLU·pooling·재양자화
-
-![타일 내부에서 후처리를 연결하여 중간 저장을 줄이는 구조](docs/figures/architecture/winograd_tile_level_operation_fusion.svg)
 
 ![네 출력의 개별 bias·ReLU를 max 이후 하나의 경로로 합친 회로](docs/figures/architecture/winograd_fused_output_unit_microarchitecture.svg)
 
