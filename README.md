@@ -263,7 +263,7 @@ RTL: [winograd_output_transform.v](verilog/winograd_output_transform.v).
 
 #### 7. Tile-level operation fusion: bias·ReLU·pooling·재양자화
 
-![네 출력의 개별 bias·ReLU를 max 이후 하나의 경로로 합친 회로](docs/figures/architecture/winograd_fused_output_unit_microarchitecture.svg)
+![보고서 Fig. 10: 타일 단위 후처리 융합과 중간 feature-map 저장 제거](docs/figures/architecture/winograd_tile_level_operation_fusion.svg)
 
 출력 변환에서 얻은 네 값에 후처리를 연속 적용하고 최종 UINT8 값만 scratchpad에 쓴다.
 같은 출력 채널의 네 값에 동일한 bias와 ReLU를 적용하므로,
