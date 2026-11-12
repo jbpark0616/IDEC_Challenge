@@ -16,7 +16,13 @@ MNIST 단일 코어에서 검증한 방법을 CIFAR-10 VGG의 SRAM 기반 16코�
 
 포스터에서 생략한 회로는 아래 **[단일 코어 세부 회로](#single-core-circuits)**와
 **[SRAM·멀티코어 세부 회로](#multi-core-circuits)**에 모았다.
-각 항목을 펼치면 회로도와 해당 RTL을 함께 볼 수 있다.
+회로도는 아래에 펼쳐 놓았으며, 각 그림 아래에 역할과 RTL 링크를 함께 정리했다.
+
+| 타일·전달 | 연산·변환 | 후처리·저장·클록 | 멀티코어 |
+|---|---|---|---|
+| [Tile generator](#tile-generator) | [Input transform](#input-transform) | [Fused output unit](#fused-output) | [SRAM banks](#sram-banks) |
+| [Elastic FIFO](#elastic-fifo) | [MAC array / PREG](#mac-array) | [Storage reuse](#storage-reuse) | [Sharding / multicast](#multicast-circuit) |
+| [Conv/FC core reuse](#core-reuse) | [Output transform](#output-transform) | [ICG / standard cell](#icg-circuit) | [SRAM / compute path](#sram-compute) |
 
 ## 1. 공통 설계 방법
 
@@ -159,8 +165,9 @@ zero row를 제외한 각 행의 작업이 아래와 같다고 하자.
 타일 생성 → 입력 변환 → V 재사용·행 선택 → MAC → 출력 변환 → 후처리 순서이며,
 FC에서는 변환 경로를 우회하여 같은 MAC을 사용한다.
 
-<details>
-<summary><b>1. 전체 파이프라인과 Conv1 → Conv2 → FC 자원 공유</b></summary>
+<a id="core-reuse"></a>
+
+#### 1. 전체 파이프라인과 Conv1 → Conv2 → FC 자원 공유
 
 ![FIFO와 연산 단계를 포함한 단일 코어 상세 구조](docs/figures/architecture/winograd_microarchitecture.svg)
 
@@ -175,10 +182,10 @@ RTL: [전체 스케줄·레이어 전환](verilog/winograd_cnn_accelerator.v),
 [Conv/FC 공유 코어](verilog/winograd_conv_core.v),
 [최종 클래스 선택](verilog/pipelined_argmax10.v).
 
-</details>
 
-<details>
-<summary><b>2. Sliding window: 순차 입력에서 4×4 타일 생성</b></summary>
+<a id="tile-generator"></a>
+
+#### 2. Sliding window: 순차 입력에서 4×4 타일 생성
 
 ![Line delay와 수평 이력으로 구성한 타일 생성기](docs/figures/architecture/winograd_tile_generator_microarchitecture.svg)
 
@@ -189,10 +196,10 @@ RTL: [전체 스케줄·레이어 전환](verilog/winograd_cnn_accelerator.v),
 
 RTL: [winograd_sliding_window_generator.v](verilog/winograd_sliding_window_generator.v).
 
-</details>
 
-<details>
-<summary><b>3. Elastic FIFO: 단계 사이의 정지와 재개</b></summary>
+<a id="elastic-fifo"></a>
+
+#### 3. Elastic FIFO: 단계 사이의 정지와 재개
 
 ![Ready/valid와 포인터·점유량으로 제어하는 elastic FIFO](docs/figures/architecture/elastic_fifo_microarchitecture.svg)
 
@@ -204,10 +211,10 @@ Line buffer가 공간 윈도우를 만드는 동안, 이 FIFO들은 **서로 다
 RTL: [elastic_fifo.v](verilog/elastic_fifo.v), [M FIFO](verilog/winograd_m_fifo.v),
 [V replay buffer](verilog/winograd_v_replay_buffer.v).
 
-</details>
 
-<details>
-<summary><b>4. 입력 변환: 덧셈·뺄셈 파이프라인과 zero-row mask</b></summary>
+<a id="input-transform"></a>
+
+#### 4. 입력 변환: 덧셈·뺄셈 파이프라인과 zero-row mask
 
 ![두 단계 입력 변환의 레지스터와 처리 시점](docs/figures/architecture/winograd_input_transform_microarchitecture.svg)
 
@@ -222,10 +229,10 @@ mask에 따른 MAC 작업 압축은 [1.4절](#14-어떻게-사이클을-줄이�
 
 RTL: [winograd_input_transform.v](verilog/winograd_input_transform.v).
 
-</details>
 
-<details>
-<summary><b>5. MAC 내부: 곱셈 결과 등록, 채널 누산, 결과 전달</b></summary>
+<a id="mac-array"></a>
+
+#### 5. MAC 내부: 곱셈 결과 등록, 채널 누산, 결과 전달
 
 ![Conv와 FC가 공유하는 MAC의 PREG·ACC·RESULT 단계](docs/figures/architecture/winograd_mac_array_microarchitecture.svg)
 
@@ -239,10 +246,10 @@ RESULT는 완료된 작업을 다음 단계로 넘기는 레지스터이다.
 RTL: [winograd_mac_array.v](verilog/winograd_mac_array.v),
 [행별 작업 선택](verilog/winograd_v_replay_buffer.v).
 
-</details>
 
-<details>
-<summary><b>6. 출력 변환: 채널 누산이 끝난 뒤 2×2 출력 복원</b></summary>
+<a id="output-transform"></a>
+
+#### 6. 출력 변환: 채널 누산이 끝난 뒤 2×2 출력 복원
 
 ![4×4 누산 결과에서 2×2 출력을 복원하는 두 단계 회로](docs/figures/architecture/winograd_output_transform_microarchitecture.svg)
 
@@ -253,10 +260,10 @@ RTL: [winograd_mac_array.v](verilog/winograd_mac_array.v),
 
 RTL: [winograd_output_transform.v](verilog/winograd_output_transform.v).
 
-</details>
 
-<details>
-<summary><b>7. Tile-level operation fusion: bias·ReLU·pooling·재양자화</b></summary>
+<a id="fused-output"></a>
+
+#### 7. Tile-level operation fusion: bias·ReLU·pooling·재양자화
 
 ![타일 내부에서 후처리를 연결하여 중간 저장을 줄이는 구조](docs/figures/architecture/winograd_tile_level_operation_fusion.svg)
 
@@ -270,10 +277,10 @@ INT18 포화 bias 덧셈, ReLU, 반올림·포화를 포함한 requantization으
 
 RTL: [winograd_postprocess.v](verilog/winograd_postprocess.v).
 
-</details>
 
-<details>
-<summary><b>8. Lifetime-aware storage: 소비가 끝난 activation 주소 재사용</b></summary>
+<a id="storage-reuse"></a>
+
+#### 8. Lifetime-aware storage: 소비가 끝난 activation 주소 재사용
 
 ![Conv1·Conv2·FC의 데이터 수명에 따른 FF scratchpad 주소 재사용](docs/figures/architecture/lifetime_aware_storage.svg)
 
@@ -285,10 +292,10 @@ Conv1 결과 중 초기 입력은 타일 생성기에 미리 공급하고, 남�
 RTL: [저장소](verilog/winograd_sequential_frame_buffer.v),
 [주소·재사용 시점 제어](verilog/winograd_cnn_accelerator.v).
 
-</details>
 
-<details>
-<summary><b>9. ICG: 표준 셀의 latch와 클록 분기 제어</b></summary>
+<a id="icg-circuit"></a>
+
+#### 9. ICG: 표준 셀의 latch와 클록 분기 제어
 
 ![MAC의 PREG·ACC·RESULT 클록 분기에 적용한 ICG](docs/figures/architecture/winograd_icg_clock_gating.svg)
 
@@ -308,10 +315,10 @@ RTL: [클록 게이트 wrapper](verilog/winograd_clock_gate.v),
 [MAC enable 조건](verilog/winograd_mac_array.v).
 근거: [최종 합성 통계](docs/experiment_results/designated/designated_final/synth_stat.txt).
 
-</details>
 
-<details>
-<summary><b>10. 변환 가중치와 W4A8 QAT의 연결</b></summary>
+<a id="winograd-qat"></a>
+
+#### 10. 변환 가중치와 W4A8 QAT의 연결
 
 ![Winograd-aware QAT와 정수 가중치 내보내기](docs/figures/architecture/winograd_aware_qat_algorithm.svg)
 
@@ -323,7 +330,6 @@ Activation은 UINT8, 입력 변환과 누산은 각각 INT11·INT18로 처리하
 [양자화](training/quantization.py), [정수 추론](training/integer_inference.py),
 [RTL 가중치 export](training/export_model.py).
 
-</details>
 
 ### 최종 결과
 
@@ -373,8 +379,9 @@ FC 경로와 레이어 전환을 포함하고, 코어 내부 연산량과 SRAM �
 
 ### SRAM·멀티코어 세부 회로
 
-<details>
-<summary><b>1. 코어당 12개 SRAM: U·V 저장과 activation A/B</b></summary>
+<a id="sram-banks"></a>
+
+#### 1. 코어당 12개 SRAM: U·V 저장과 activation A/B
 
 ![코어 내부 U·V와 activation SRAM의 뱅크·인터페이스 구조](docs/figures/architecture/vgg_core_sram_architecture.svg)
 
@@ -393,10 +400,10 @@ RTL: [SRAM macro wrapper](free_topic_vgg/rtl/memory/vgg_sram_8k.v),
 [activation 저장소·중재](free_topic_vgg/rtl/memory/vgg_activation_sram.v).
 모델·Liberty·LEF와 출처: [ASAP7 SRAM 라이브러리](submission/IDEC2026_FREE_TOPIC/02_libraries/asap7_sram/).
 
-</details>
 
-<details>
-<summary><b>2. 출력 채널 샤딩과 공통 activation multicast</b></summary>
+<a id="multicast-circuit"></a>
+
+#### 2. 출력 채널 샤딩과 공통 activation multicast
 
 ![출력 채널 분담으로 생기는 공통 입력을 multicast하는 구조](docs/figures/architecture/vgg_output_channel_sharding_multicast.svg)
 
@@ -419,10 +426,10 @@ RTL: [16코어 연결](free_topic_vgg/rtl/vgg_sixteen_core_cluster.v),
 [multicast fanout](free_topic_vgg/rtl/interconnect/vgg_mcast_fanout.v),
 [코어별 타일 조립](free_topic_vgg/rtl/core/vgg_tile_stream_reader.v).
 
-</details>
 
-<details>
-<summary><b>3. SRAM 이후의 계산: V 재사용, 행 선택, 결과 저장</b></summary>
+<a id="sram-compute"></a>
+
+#### 3. SRAM 이후의 계산: V 재사용, 행 선택, 결과 저장
 
 V를 SRAM에 저장한 뒤 출력 채널을 바꾸어 다시 읽고,
 행별 zero mask로 유효 작업을 선택하여 MAC에 투입한다.
@@ -439,7 +446,6 @@ RTL: [코어 데이터 흐름](free_topic_vgg/rtl/core/vgg_dataflow_core.v),
 아래 통제 실험은 이 계산 경로의 공급 조건을 바꾸어, MAC 투입량 감소가
 사이클·에너지 감소로 이어지는 정도를 비교한다.
 
-</details>
 
 ### 전체 합성과 기능 검증
 
