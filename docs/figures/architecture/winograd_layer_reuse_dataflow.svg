@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1800" height="660" viewBox="0 0 1800 660" font-family="Arial, Helvetica, sans-serif" role="img" aria-labelledby="title desc">
+  <title id="title">Sequential reuse of a shared Conv/FC core and FF scratchpad</title>
+  <desc id="desc">Time proceeds from Conv1 to Conv2 to FC. The upper continuous band represents one physical core containing the same 16-lane MAC array in all three phases. The lower continuous band represents one physical FF scratchpad. Conv1 outputs are written to the scratchpad and read by Conv2; Conv2 outputs reuse the storage and are read by FC. FC bypasses the Winograd transforms. Phase widths indicate execution order, not measured durations. Storage rectangles indicate data lifetimes, not separate physical banks. Core writes include convolution output transformation and post-processing.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="13" markerHeight="12" refX="12" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L13 6 L0 12 Z" fill="#222222"/></marker>
+    <marker id="arrow-blue" markerWidth="13" markerHeight="12" refX="12" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L13 6 L0 12 Z" fill="#414b52"/></marker>
+    <g id="mac-lanes" fill="#b5cfe3" stroke="#656e74" stroke-width="1.8"><rect x="-144" y="0" width="288" height="54"/><path d="M-108 0 V54 M-72 0 V54 M-36 0 V54 M0 0 V54 M36 0 V54 M72 0 V54 M108 0 V54 M-144 27 H144" fill="none" stroke-width="1.3"/></g>
+    <g id="ff-cells" fill="#ffffff" stroke="#9b978f" stroke-width="1.8"><rect x="-136" y="0" width="272" height="32"/><path d="M-102 0 V32 M-68 0 V32 M-34 0 V32 M0 0 V32 M34 0 V32 M68 0 V32 M102 0 V32" fill="none" stroke-width="1.3"/></g>
+  </defs>
+  <rect width="1800" height="660" fill="#ffffff"/>
+  <!-- One time axis; one continuous band for each physical resource. -->
+  <path d="M410 64 H1730" fill="none" stroke="#222222" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <text x="1070" y="43" fill="#666666" font-size="36" text-anchor="middle">Execution order</text>
+  <g fill="#222222" font-size="48" font-weight="700" text-anchor="middle"><text x="630" y="137">Conv1</text><text x="1070" y="137">Conv2</text><text x="1510" y="137">FC</text></g>
+  <rect x="410" y="175" width="1320" height="132" fill="#ffffff" stroke="#656e74" stroke-width="2"/>
+  <rect x="410" y="450" width="1320" height="150" fill="#ffffff" stroke="#656e74" stroke-width="2"/>
+  <g fill="none" stroke="#b7b7b7" stroke-width="1.5" stroke-dasharray="7 8"><path d="M850 153 V618"/><path d="M1290 153 V618"/></g>
+  <g fill="#222222"><text x="42" y="229" font-size="46" font-weight="700">Shared core</text><text x="42" y="281" font-size="40">16-lane MAC</text><text x="42" y="517" font-size="44" font-weight="700">FF scratchpad</text><text x="42" y="568" font-size="38">Same storage</text></g>
+  <use xlink:href="#mac-lanes" x="630" y="197"/><use xlink:href="#mac-lanes" x="1070" y="197"/><use xlink:href="#mac-lanes" x="1510" y="197"/>
+  <g fill="#414b52" font-size="38" text-anchor="middle"><text x="630" y="289">Winograd</text><text x="1070" y="289">Winograd</text><text x="1510" y="289">Transform bypass</text></g>
+  <!-- Rectangles below describe stored data over time, not separate banks. -->
+  <g fill="#f0e4cb" stroke="#8b8377" stroke-width="1.9"><rect x="660" y="463" width="330" height="122"/><rect x="1100" y="463" width="330" height="122"/></g>
+  <g fill="#222222" font-size="40" text-anchor="middle"><text x="825" y="511">Conv1 outputs</text><text x="1265" y="511">Conv2 outputs</text></g>
+  <use xlink:href="#ff-cells" x="825" y="533"/><use xlink:href="#ff-cells" x="1265" y="533"/>
+  <g fill="none" stroke="#414b52" stroke-width="2.7" marker-end="url(#arrow-blue)"><path d="M660 308 V462"/><path d="M990 462 V308"/><path d="M1100 308 V462"/><path d="M1430 462 V308"/></g>
+  <g fill="#414b52" font-size="36"><text x="679" y="393">Write</text><text x="971" y="393" text-anchor="end">Read</text><text x="1119" y="393">Write</text><text x="1411" y="393" text-anchor="end">Read</text></g>
+</svg>
