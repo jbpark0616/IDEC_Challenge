@@ -1,0 +1,39 @@
+{
+  "stages": [
+    {
+      "stage": 0,
+      "input_features": 512,
+      "outputs": 512,
+      "min_output": 0,
+      "max_output": 255
+    },
+    {
+      "stage": 1,
+      "input_features": 512,
+      "outputs": 512,
+      "min_output": 0,
+      "max_output": 255
+    },
+    {
+      "stage": 2,
+      "input_features": 512,
+      "outputs": 10,
+      "min_output": -9022,
+      "max_output": 4478
+    }
+  ],
+  "prediction": 8,
+  "logits": [
+    270,
+    1798,
+    2433,
+    3308,
+    -9022,
+    1822,
+    2418,
+    -4842,
+    4478,
+    -2645
+  ],
+  "note": "Real FC parameters; synthetic Conv front-end, not full VGG inference."
+}

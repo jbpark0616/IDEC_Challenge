@@ -28,3 +28,7 @@ docs/report_data/final_delivery/** -text
 
 # Preserve the submitted payload byte-for-byte, including its hash inventory.
 submission/IDEC2026_FREE_TOPIC/** -text
+
+# Preserve archived measurement inputs and their recorded SHA-256 hashes.
+free_topic_vgg/verification/**/vectors*/** -text -whitespace
+docs/experiment_results/free_topic/vgg_conv1_conv2_ppa/** -text -whitespace

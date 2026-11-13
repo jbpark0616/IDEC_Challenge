@@ -27,7 +27,8 @@ tests/                   소형 부품 테스트. reference/는 검증 oracle만
 third_party/             고정 SRAM 매크로, 원본 라이선스/출처
 reference/upstream/      모델 원본 라이선스/출처
 evidence/                기존 측정 결과. 현재 V8 측정값과 구분.
-data/, weights/          로컬 자산. Git 제외.
+data/                    다운로드하여 준비하는 로컬 데이터셋. Git 제외.
+weights/                 사용한 CIFAR-10 VGG-16-BN checkpoint 보존.
 
 재현 (프로젝트 Python 환경 / WSL Verilator)
 -----------------------------------------

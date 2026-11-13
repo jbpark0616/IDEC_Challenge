@@ -1,0 +1,8 @@
+FC_HEAD Conv source=[1,2,2,3] output=[1,1,1,512] cycles=4796
+FC_HEAD FC1 shape=512->512 active_cores=16 compute_and_feed=1277 preload=33280 U_words=32768 source_reads=64 core0_cycles=1275
+FC_HEAD FC2 shape=512->512 active_cores=16 compute_and_feed=1277 preload=33280 U_words=32768 source_reads=64 core0_cycles=1275
+FC_HEAD FC3 shape=512->10 active_cores=1 compute_and_feed=731 preload=1040 U_words=1024 source_reads=64 core0_cycles=729
+PASS FC_HEAD Conv_FC1_FC2_FC3 checked_words=202 class=8 initial_activation_words=4 no_intermediate_TB_reload
+PASS FC_MODE_RETURN rejected_bad_length released_final_region FC_to_Conv_without_reset cores=16
+PASS HOST_STREAM accepted_writes=73028 consecutive_writes=72975
+- verification/v8/tb_fc_v8_regression.sv:174: Verilog $finish

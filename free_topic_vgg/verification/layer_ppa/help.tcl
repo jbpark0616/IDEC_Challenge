@@ -1,0 +1,4 @@
+help read_vcd
+help report_design_area
+help report_clock_min_period
+exit

@@ -1,0 +1,10 @@
+VCD info: dumpfile /mnt/c/IDEC_challenge/free_topic_vgg/build/all_conv_ppa/case13_sparse1.vcd opened for output.
+PROGRESS case=13 sparse=1 outputs=32/128 time_ps=26555815
+PROGRESS case=13 sparse=1 outputs=64/128 time_ps=52134225
+PROGRESS case=13 sparse=1 outputs=96/128 time_ps=77858495
+PROGRESS case=13 sparse=1 outputs=128/128 time_ps=102634675
+PPA_WINDOW start_ps=1480050 end_ps=102636820 duration_ps=101156770
+V8_STORAGE case=13 shift=1 physical_bank_writes=0
+U_LOADING case=13 input=1,32,32,64 local_K=4 U_block=2 sparse=1 cycles=70737 transforms=0 V_writes=0 releases=0 requests=511 U_words=512 weight_wait=0 rows=185716 early=0
+PASS U_LOADING compared_words=128 gate_outputs_match_integer_reference
+/mnt/c/IDEC_challenge/free_topic_vgg/build/all_conv_ppa/tb.sv:197: $finish called at 102639680 (1ps)

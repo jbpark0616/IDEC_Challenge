@@ -1,0 +1,92 @@
+[
+  {
+    "h": 4,
+    "cin": 3,
+    "kout": 6,
+    "block": 2,
+    "pool": false,
+    "zero": false,
+    "stride": 128
+  },
+  {
+    "h": 4,
+    "cin": 128,
+    "kout": 6,
+    "block": 2,
+    "pool": false,
+    "zero": false,
+    "stride": 128
+  },
+  {
+    "h": 4,
+    "cin": 512,
+    "kout": 4,
+    "block": 2,
+    "pool": false,
+    "zero": false,
+    "stride": 512
+  },
+  {
+    "h": 2,
+    "cin": 512,
+    "kout": 4,
+    "block": 2,
+    "pool": true,
+    "zero": false,
+    "stride": 512
+  },
+  {
+    "h": 4,
+    "cin": 129,
+    "kout": 6,
+    "block": 2,
+    "pool": true,
+    "zero": false,
+    "stride": 256
+  },
+  {
+    "h": 4,
+    "cin": 512,
+    "kout": 4,
+    "block": 2,
+    "pool": true,
+    "zero": true,
+    "stride": 512
+  },
+  {
+    "h": 4,
+    "cin": 3,
+    "kout": 128,
+    "block": 8,
+    "pool": false,
+    "zero": false,
+    "stride": 128
+  },
+  {
+    "h": 2,
+    "cin": 512,
+    "kout": 8,
+    "block": 4,
+    "pool": false,
+    "zero": false,
+    "stride": 512
+  },
+  {
+    "h": 2,
+    "cin": 256,
+    "kout": 16,
+    "block": 8,
+    "pool": false,
+    "zero": false,
+    "stride": 256
+  },
+  {
+    "h": 4,
+    "cin": 128,
+    "kout": 16,
+    "block": 8,
+    "pool": false,
+    "zero": false,
+    "stride": 128
+  }
+]

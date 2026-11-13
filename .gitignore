@@ -34,6 +34,11 @@ training/data/
 
 # --- Temporary analysis workspace ---
 tmp/
+.paper_work/
+*.vcd.gz
+docs/iceic2027_draft/*CV*
+docs/experiment_results/free_topic/vgg_conv1_conv2_ppa/work/
+docs/experiment_results/free_topic/vgg_conv1_conv2_ppa/reproduced_results/
 
 # VS Code: ignore user prefs, keep shared tasks/launch/settings
 .vscode/*

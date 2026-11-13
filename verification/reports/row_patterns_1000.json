@@ -1,0 +1,813 @@
+{
+  "input_file": "data/input_1000.txt",
+  "input_sha256": "cccf35e29a63989cd74b7c949a15bf87457700f82178e2afcc233495ef499cca",
+  "export_dir": "training/export/qat_winograd3x3_w4_frozen_aug",
+  "validation": {
+    "reference_conv1_conv2_activation_values": "exact match",
+    "export_hex_decimal": "exact match",
+    "prediction_mismatches_1000": 0
+  },
+  "images": 1000,
+  "unique_input_images": 100,
+  "scope": "4x4 stride-2 unpadded RTL windows; Conv1 13x13, Conv2 5x5 per channel. Not cycle simulation.",
+  "conv1": {
+    "all_channel_tiles": {
+      "channel_tiles": 169000,
+      "input_zero_rows": 457430,
+      "input_zero_row_percent": 67.6671597633136,
+      "tiles_with_any_input_zero_row": 133490,
+      "transformed_zero_rows": 427480,
+      "transformed_zero_row_percent": 63.23668639053255,
+      "transformed_zero_rows_by_row": [
+        103800,
+        107990,
+        111830,
+        103860
+      ],
+      "tiles_with_any_transformed_zero_row": 112480,
+      "tiles_with_any_transformed_zero_row_percent": 66.55621301775147,
+      "transformed_zero_row_count_histogram": [
+        56520,
+        1890,
+        2160,
+        12450,
+        95980
+      ],
+      "transformed_zero_columns": 426100,
+      "transformed_zero_columns_by_column": [
+        103430,
+        108080,
+        111290,
+        103300
+      ],
+      "tiles_with_any_transformed_zero_column": 111920,
+      "zero_v_entries": 1901030,
+      "zero_v_entry_percent": 70.30436390532545,
+      "zero_v_entries_covered_by_rows": 1709920,
+      "zero_v_entries_covered_by_rows_percent": 89.94702871601184,
+      "zero_v_entries_covered_by_rows_or_columns": 1817830,
+      "zero_rows_from_equal_nonzero_input_rows": 7830,
+      "zero_rows_from_equal_nonzero_input_rows_by_row": [
+        1910,
+        0,
+        3840,
+        2080
+      ]
+    },
+    "excluding_whole_zero_tiles": {
+      "channel_tiles": 73020,
+      "input_zero_rows": 73510,
+      "input_zero_row_percent": 25.167762256915914,
+      "tiles_with_any_input_zero_row": 37510,
+      "transformed_zero_rows": 43560,
+      "transformed_zero_row_percent": 14.913722267871815,
+      "transformed_zero_rows_by_row": [
+        7820,
+        12010,
+        15850,
+        7880
+      ],
+      "tiles_with_any_transformed_zero_row": 16500,
+      "tiles_with_any_transformed_zero_row_percent": 22.59654889071487,
+      "transformed_zero_row_count_histogram": [
+        56520,
+        1890,
+        2160,
+        12450,
+        0
+      ],
+      "transformed_zero_columns": 42180,
+      "transformed_zero_columns_by_column": [
+        7450,
+        12100,
+        15310,
+        7320
+      ],
+      "tiles_with_any_transformed_zero_column": 15940,
+      "zero_v_entries": 365350,
+      "zero_v_entry_percent": 31.2713982470556,
+      "zero_v_entries_covered_by_rows": 174240,
+      "zero_v_entries_covered_by_rows_percent": 47.691254960996304,
+      "zero_v_entries_covered_by_rows_or_columns": 282150,
+      "zero_rows_from_equal_nonzero_input_rows": 7830,
+      "zero_rows_from_equal_nonzero_input_rows_by_row": [
+        1910,
+        0,
+        3840,
+        2080
+      ]
+    },
+    "excluding_whole_zero_tiles_by_channel": [
+      {
+        "channel_tiles": 73020,
+        "input_zero_rows": 73510,
+        "input_zero_row_percent": 25.167762256915914,
+        "tiles_with_any_input_zero_row": 37510,
+        "transformed_zero_rows": 43560,
+        "transformed_zero_row_percent": 14.913722267871815,
+        "transformed_zero_rows_by_row": [
+          7820,
+          12010,
+          15850,
+          7880
+        ],
+        "tiles_with_any_transformed_zero_row": 16500,
+        "tiles_with_any_transformed_zero_row_percent": 22.59654889071487,
+        "transformed_zero_row_count_histogram": [
+          56520,
+          1890,
+          2160,
+          12450,
+          0
+        ],
+        "transformed_zero_columns": 42180,
+        "transformed_zero_columns_by_column": [
+          7450,
+          12100,
+          15310,
+          7320
+        ],
+        "tiles_with_any_transformed_zero_column": 15940,
+        "zero_v_entries": 365350,
+        "zero_v_entry_percent": 31.2713982470556,
+        "zero_v_entries_covered_by_rows": 174240,
+        "zero_v_entries_covered_by_rows_percent": 47.691254960996304,
+        "zero_v_entries_covered_by_rows_or_columns": 282150,
+        "zero_rows_from_equal_nonzero_input_rows": 7830,
+        "zero_rows_from_equal_nonzero_input_rows_by_row": [
+          1910,
+          0,
+          3840,
+          2080
+        ]
+      }
+    ],
+    "ideal_mac_work": {
+      "assumptions": "Activation-only skip; all input channels resident; independent fixed-coordinate groups; common tile/output-channel boundary; zero-cost scheduling and zero-result delivery. Not latency or RTL simulation.",
+      "dense_mac_issue_slots": 507000,
+      "whole_tile_skip_mac_issue_slots": 219060,
+      "row_group_skip_mac_issue_slots": 219060,
+      "column_group_skip_mac_issue_slots": 219060,
+      "coordinate_skip_mac_issue_slots": 219060,
+      "spatial_tiles_improved_by_rows_over_whole": 0,
+      "spatial_tiles_improved_by_coordinates_over_whole": 0,
+      "whole_steps_histogram": [
+        95980,
+        73020
+      ],
+      "row_steps_histogram": [
+        95980,
+        73020
+      ],
+      "coordinate_steps_histogram": [
+        95980,
+        73020
+      ],
+      "cross_tile_unbounded_row_work_bound": 200790,
+      "cross_tile_unbounded_coordinate_work_bound": 178230,
+      "cross_tile_bound_assumptions": "Groups may progress into different tiles/output channels; unlimited buffering and completed-result storage; no input-release/output-bandwidth constraint; synchronize only per image. Not a schedule simulation."
+    },
+    "beyond_existing_weight_gating": {
+      "row_skipped_nonzero_weight_products_beyond_whole_tile": 225910,
+      "coordinate_skipped_nonzero_weight_products_beyond_whole_tile": 460930
+    },
+    "additive_row_column_pattern": {
+      "definition": "d[i,j] = a[i] + b[j]; equivalently V[r,s]=0 for r,s in {0,2,3}",
+      "all_channel_tiles": 97220,
+      "nonzero_channel_tiles": 1240,
+      "nonzero_matches_by_channel": [
+        1240
+      ],
+      "nonzero_matches_percent_of_nonzero_tiles": 1.6981648863325116
+    },
+    "partial_tile_examples": [
+      {
+        "image_channel_tile_row_tile_col": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "input": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            10
+          ]
+        ],
+        "transformed": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            10
+          ]
+        ]
+      },
+      {
+        "image_channel_tile_row_tile_col": [
+          0,
+          0,
+          5,
+          7
+        ],
+        "input": [
+          [
+            12,
+            75,
+            121,
+            21
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "transformed": [
+          [
+            -109,
+            196,
+            46,
+            54
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "image_channel_tile_row_tile_col": [
+          0,
+          0,
+          5,
+          8
+        ],
+        "input": [
+          [
+            121,
+            21,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "transformed": [
+          [
+            121,
+            21,
+            -21,
+            21
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    ]
+  },
+  "conv2": {
+    "all_channel_tiles": {
+      "channel_tiles": 75000,
+      "input_zero_rows": 189110,
+      "input_zero_row_percent": 63.03666666666667,
+      "tiles_with_any_input_zero_row": 61080,
+      "transformed_zero_rows": 159590,
+      "transformed_zero_row_percent": 53.196666666666665,
+      "transformed_zero_rows_by_row": [
+        39480,
+        41300,
+        41620,
+        37190
+      ],
+      "tiles_with_any_transformed_zero_row": 43020,
+      "tiles_with_any_transformed_zero_row_percent": 57.36,
+      "transformed_zero_row_count_histogram": [
+        31980,
+        1520,
+        1020,
+        5890,
+        34590
+      ],
+      "transformed_zero_columns": 159720,
+      "transformed_zero_columns_by_column": [
+        39270,
+        41410,
+        41530,
+        37510
+      ],
+      "tiles_with_any_transformed_zero_column": 42540,
+      "zero_v_entries": 736010,
+      "zero_v_entry_percent": 61.33416666666667,
+      "zero_v_entries_covered_by_rows": 638360,
+      "zero_v_entries_covered_by_rows_percent": 86.73251722123341,
+      "zero_v_entries_covered_by_rows_or_columns": 696510,
+      "zero_rows_from_equal_nonzero_input_rows": 630,
+      "zero_rows_from_equal_nonzero_input_rows_by_row": [
+        150,
+        0,
+        320,
+        160
+      ]
+    },
+    "excluding_whole_zero_tiles": {
+      "channel_tiles": 40410,
+      "input_zero_rows": 50750,
+      "input_zero_row_percent": 31.39693145261074,
+      "tiles_with_any_input_zero_row": 26490,
+      "transformed_zero_rows": 21230,
+      "transformed_zero_row_percent": 13.134125216530562,
+      "transformed_zero_rows_by_row": [
+        4890,
+        6710,
+        7030,
+        2600
+      ],
+      "tiles_with_any_transformed_zero_row": 8430,
+      "tiles_with_any_transformed_zero_row_percent": 20.861172976985895,
+      "transformed_zero_row_count_histogram": [
+        31980,
+        1520,
+        1020,
+        5890,
+        0
+      ],
+      "transformed_zero_columns": 21360,
+      "transformed_zero_columns_by_column": [
+        4680,
+        6820,
+        6940,
+        2920
+      ],
+      "tiles_with_any_transformed_zero_column": 7950,
+      "zero_v_entries": 182570,
+      "zero_v_entry_percent": 28.23713189804504,
+      "zero_v_entries_covered_by_rows": 84920,
+      "zero_v_entries_covered_by_rows_percent": 46.51366599112669,
+      "zero_v_entries_covered_by_rows_or_columns": 143070,
+      "zero_rows_from_equal_nonzero_input_rows": 630,
+      "zero_rows_from_equal_nonzero_input_rows_by_row": [
+        150,
+        0,
+        320,
+        160
+      ]
+    },
+    "excluding_whole_zero_tiles_by_channel": [
+      {
+        "channel_tiles": 22340,
+        "input_zero_rows": 18200,
+        "input_zero_row_percent": 20.36705461056401,
+        "tiles_with_any_input_zero_row": 10320,
+        "transformed_zero_rows": 7170,
+        "transformed_zero_row_percent": 8.023724261414504,
+        "transformed_zero_rows_by_row": [
+          1620,
+          2230,
+          2540,
+          780
+        ],
+        "tiles_with_any_transformed_zero_row": 2620,
+        "tiles_with_any_transformed_zero_row_percent": 11.727842435094002,
+        "transformed_zero_row_count_histogram": [
+          19720,
+          200,
+          290,
+          2130,
+          0
+        ],
+        "transformed_zero_columns": 10290,
+        "transformed_zero_columns_by_column": [
+          2080,
+          3410,
+          3470,
+          1330
+        ],
+        "tiles_with_any_transformed_zero_column": 3500,
+        "zero_v_entries": 77260,
+        "zero_v_entry_percent": 21.614816472694717,
+        "zero_v_entries_covered_by_rows": 28680,
+        "zero_v_entries_covered_by_rows_percent": 37.12140823194409,
+        "zero_v_entries_covered_by_rows_or_columns": 59150,
+        "zero_rows_from_equal_nonzero_input_rows": 600,
+        "zero_rows_from_equal_nonzero_input_rows_by_row": [
+          130,
+          0,
+          310,
+          160
+        ]
+      },
+      {
+        "channel_tiles": 0,
+        "input_zero_rows": 0,
+        "input_zero_row_percent": null,
+        "tiles_with_any_input_zero_row": 0,
+        "transformed_zero_rows": 0,
+        "transformed_zero_row_percent": null,
+        "transformed_zero_rows_by_row": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "tiles_with_any_transformed_zero_row": 0,
+        "tiles_with_any_transformed_zero_row_percent": null,
+        "transformed_zero_row_count_histogram": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "transformed_zero_columns": 0,
+        "transformed_zero_columns_by_column": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "tiles_with_any_transformed_zero_column": 0,
+        "zero_v_entries": 0,
+        "zero_v_entry_percent": null,
+        "zero_v_entries_covered_by_rows": 0,
+        "zero_v_entries_covered_by_rows_percent": null,
+        "zero_v_entries_covered_by_rows_or_columns": 0,
+        "zero_rows_from_equal_nonzero_input_rows": 0,
+        "zero_rows_from_equal_nonzero_input_rows_by_row": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "channel_tiles": 18070,
+        "input_zero_rows": 32550,
+        "input_zero_row_percent": 45.03320420586608,
+        "tiles_with_any_input_zero_row": 16170,
+        "transformed_zero_rows": 14060,
+        "transformed_zero_row_percent": 19.45213060320974,
+        "transformed_zero_rows_by_row": [
+          3270,
+          4480,
+          4490,
+          1820
+        ],
+        "tiles_with_any_transformed_zero_row": 5810,
+        "tiles_with_any_transformed_zero_row_percent": 32.15273934698395,
+        "transformed_zero_row_count_histogram": [
+          12260,
+          1320,
+          730,
+          3760,
+          0
+        ],
+        "transformed_zero_columns": 11070,
+        "transformed_zero_columns_by_column": [
+          2600,
+          3410,
+          3470,
+          1590
+        ],
+        "tiles_with_any_transformed_zero_column": 4450,
+        "zero_v_entries": 105310,
+        "zero_v_entry_percent": 36.4243220807969,
+        "zero_v_entries_covered_by_rows": 56240,
+        "zero_v_entries_covered_by_rows_percent": 53.40423511537366,
+        "zero_v_entries_covered_by_rows_or_columns": 83920,
+        "zero_rows_from_equal_nonzero_input_rows": 30,
+        "zero_rows_from_equal_nonzero_input_rows_by_row": [
+          20,
+          0,
+          10,
+          0
+        ]
+      }
+    ],
+    "ideal_mac_work": {
+      "assumptions": "Activation-only skip; all input channels resident; independent fixed-coordinate groups; common tile/output-channel boundary; zero-cost scheduling and zero-result delivery. Not latency or RTL simulation.",
+      "dense_mac_issue_slots": 225000,
+      "whole_tile_skip_mac_issue_slots": 121230,
+      "row_group_skip_mac_issue_slots": 121140,
+      "column_group_skip_mac_issue_slots": 120900,
+      "coordinate_skip_mac_issue_slots": 120690,
+      "spatial_tiles_improved_by_rows_over_whole": 30,
+      "spatial_tiles_improved_by_coordinates_over_whole": 180,
+      "whole_steps_histogram": [
+        2300,
+        4990,
+        17710,
+        0
+      ],
+      "row_steps_histogram": [
+        2300,
+        5020,
+        17680,
+        0
+      ],
+      "coordinate_steps_histogram": [
+        2300,
+        5170,
+        17530,
+        0
+      ],
+      "cross_tile_unbounded_row_work_bound": 115170,
+      "cross_tile_unbounded_coordinate_work_bound": 106200,
+      "cross_tile_bound_assumptions": "Groups may progress into different tiles/output channels; unlimited buffering and completed-result storage; no input-release/output-bandwidth constraint; synchronize only per image. Not a schedule simulation."
+    },
+    "beyond_existing_weight_gating": {
+      "row_skipped_nonzero_weight_products_beyond_whole_tile": 178180,
+      "coordinate_skipped_nonzero_weight_products_beyond_whole_tile": 380700
+    },
+    "additive_row_column_pattern": {
+      "definition": "d[i,j] = a[i] + b[j]; equivalently V[r,s]=0 for r,s in {0,2,3}",
+      "all_channel_tiles": 34630,
+      "nonzero_channel_tiles": 40,
+      "nonzero_matches_by_channel": [
+        40,
+        0,
+        0
+      ],
+      "nonzero_matches_percent_of_nonzero_tiles": 0.0989853996535511
+    },
+    "partial_tile_examples": [
+      {
+        "image_channel_tile_row_tile_col": [
+          0,
+          2,
+          1,
+          1
+        ],
+        "input": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            69
+          ]
+        ],
+        "transformed": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            69
+          ]
+        ]
+      },
+      {
+        "image_channel_tile_row_tile_col": [
+          0,
+          2,
+          3,
+          1
+        ],
+        "input": [
+          [
+            0,
+            0,
+            0,
+            60
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "transformed": [
+          [
+            0,
+            0,
+            0,
+            -60
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "image_channel_tile_row_tile_col": [
+          0,
+          2,
+          3,
+          2
+        ],
+        "input": [
+          [
+            0,
+            60,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "transformed": [
+          [
+            0,
+            60,
+            -60,
+            60
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    ]
+  }
+}

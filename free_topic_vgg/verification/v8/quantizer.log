@@ -1,0 +1,2 @@
+PASS QUANTIZER signed_values=-1020..1020 shifts=0..7 cases=16328
+verification/v8/tb_quantizer.sv:27: $finish called at 16328000 (1ps)

@@ -1,0 +1,75 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Thu Aug 27 16:46:00 2026
+# Process ID         : 30104
+# Current directory  : C:/IDEC_challenge/build/sim/chip_winograd_fifo_trace_d1
+# Command line       : xsim.exe -mode tcl -source {xsim.dir/fifo_trace_tb_snap/xsim_script.tcl}
+# Log file           : C:/IDEC_challenge/build/sim/chip_winograd_fifo_trace_d1/xsim.log
+# Journal file       : C:/IDEC_challenge/build/sim/chip_winograd_fifo_trace_d1\xsim.jou
+# Running On         : BOOK-Q8D30HPFM0
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) Ultra 5 226V
+# CPU Frequency      : 3110 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 8
+# Host memory        : 16687 MB
+# Swap memory        : 24696 MB
+# Total Virtual      : 41383 MB
+# Available Virtual  : 23762 MB
+#-----------------------------------------------------------
+source xsim.dir/fifo_trace_tb_snap/xsim_script.tcl
+# xsim {fifo_trace_tb_snap} -autoloadwcfg -tclbatch {../../../flow/vivado/sim.tcl}
+Time resolution is 1 ps
+source ../../../flow/vivado/sim.tcl
+## run all
+ERROR: input backpressure image=0 pixel=108
+ERROR: input backpressure image=0 pixel=111
+ERROR: input backpressure image=0 pixel=114
+ERROR: input backpressure image=0 pixel=167
+ERROR: input backpressure image=0 pixel=170
+ERROR: input backpressure image=0 pixel=173
+ERROR: input backpressure image=0 pixel=226
+ERROR: input backpressure image=0 pixel=229
+ERROR: input backpressure image=0 pixel=232
+ERROR: input backpressure image=0 pixel=285
+ERROR: input backpressure image=0 pixel=288
+ERROR: input backpressure image=0 pixel=291
+ERROR: input backpressure image=0 pixel=344
+ERROR: input backpressure image=0 pixel=347
+ERROR: input backpressure image=0 pixel=350
+ERROR: input backpressure image=0 pixel=403
+ERROR: input backpressure image=0 pixel=406
+ERROR: input backpressure image=0 pixel=409
+ERROR: input backpressure image=0 pixel=462
+ERROR: input backpressure image=0 pixel=465
+ERROR: input backpressure image=0 pixel=468
+ERROR: input backpressure image=0 pixel=521
+ERROR: input backpressure image=0 pixel=524
+ERROR: input backpressure image=0 pixel=527
+ERROR: input backpressure image=0 pixel=580
+ERROR: input backpressure image=0 pixel=583
+ERROR: input backpressure image=0 pixel=586
+ERROR: input backpressure image=0 pixel=639
+ERROR: input backpressure image=0 pixel=642
+ERROR: input backpressure image=0 pixel=645
+ERROR: input backpressure image=0 pixel=698
+ERROR: input backpressure image=0 pixel=701
+ERROR: input backpressure image=0 pixel=704
+ERROR: input backpressure image=0 pixel=757
+ERROR: input backpressure image=0 pixel=760
+ERROR: input backpressure image=0 pixel=763
+ERROR: RTL/Python mismatch image=0 rtl=2 python=0
+RTL mismatches: 37
+Correct: 0/1
+Accuracy: 0%
+Conv1 tile FIFO depth: 1
+Conv1 tile FIFO max occupancy: 1
+Input backpressure cycles: 36
+TRACE: FIFO depth characterization complete
+$finish called at time : 13075 ps : File "C:/IDEC_challenge/verification/winograd_chip_1000_tb.v" Line 263
+## quit
+INFO: [Common 17-206] Exiting xsim at Thu Aug 27 16:46:02 2026...

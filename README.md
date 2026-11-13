@@ -4,6 +4,12 @@
 Winograd, 변환 영역의 zero-row 생략, integrated clock gating(ICG)을 결합하고,
 MNIST 단일 코어에서 검증한 방법을 CIFAR-10 VGG의 SRAM 기반 16코어 구조로 확장하였다.
 
+**2026 IDEC 창의회로설계 챌린지 은상 수상.**
+최종 [발표 포스터 PDF](docs/IDEC_Poster_Sparsity_Focus_A0.pdf) ·
+[편집용 PowerPoint](docs/IDEC_Poster_Sparsity_Focus.pptx) ·
+[발표 대본](docs/IDEC_Poster_발표대본.txt) ·
+[ICEIC 2027 제출 원고](docs/iceic2027_draft/JunBeom_Park_ICEIC2027.pdf).
+
 | | 지정주제 | 자유주제 |
 |---|---|---|
 | 응용 | MNIST 이미지 분류 | CIFAR-10 VGG 이미지 분류 |
@@ -541,6 +547,13 @@ Icarus 게이트 시뮬레이션으로 VCD를 생성하고 OpenROAD로 전력·�
 
 최종 문서 위치는 [자료 안내](docs/FINAL_DELIVERY.md)에 정리했다.
 제출 ZIP과 생성 캐시는 Git에서 제외하며, 저장소에는 압축 전 원본과 재현 근거를 유지한다.
+
+최근 추가 측정한 [VGG Conv1·Conv2 결과와 재현 입력](docs/experiment_results/free_topic/vgg_conv1_conv2_ppa/README.md)도 보존했다.
+전체 이력이 필요 없으면 아래 명령으로 최종 파일만 내려받을 수 있다.
+
+```sh
+git clone --depth 1 https://github.com/jbpark0616/IDEC_Challenge.git
+```
 
 ASAP7 SRAM 및 외부 모델의 라이선스·출처는
 [SRAM 라이브러리](submission/IDEC2026_FREE_TOPIC/02_libraries/asap7_sram/)와
